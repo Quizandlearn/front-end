@@ -14,18 +14,12 @@
 
 .logoNavigation{
     height: 100px;
-    margin-left: 3em;
+    margin-left: 2em;
 }
 
 .searchBar{
     border-bottom: none!important;
     flex-grow: 0.5;
-}
-
-@media only screen and (max-width: 1024px) {
-    .logoNavigation {
-        margin-left: 1em;
-    }
 }
 
 .input {
@@ -98,6 +92,11 @@
     display: none;
 }
 
+.navbar-burger span {
+    left: 0!important;
+}
+
+/* Responsible */
 @media screen and (max-width:830px) {
     .logoutAndProfile {
         visibility: hidden;
