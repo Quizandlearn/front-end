@@ -1,0 +1,118 @@
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #FEC0C0;
+}
+
+#LogInTitre{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    font-family: "Sporting", "sans-serif";
+}
+
+#logoLogIn{
+    width: 150px;
+}
+
+/*Form Inputs*/
+.logInForm input[type="text"],
+.logInForm input[type="email"],
+.logInForm input[type="password"], 
+.logInForm textarea {
+    background-color : #0E835B;
+    color: white;
+    width: 290px;
+    font-family: "Sporting", "sans-serif";
+}
+
+.logInForm input[type="text"]::placeholder,
+.logInForm input[type="email"]::placeholder,
+.logInForm input[type="password"]::placeholder,
+.logInForm input:focus{
+    color: white;
+    font-family: "Sporting", "sans-serif";
+}
+
+.logInForm input:-webkit-autofill,
+.logInForm input:-webkit-autofill:hover, 
+.logInForm input:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+  font-family: "Sporting", "sans-serif";
+}
+
+/*Buttons*/
+.logInSubmit{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
+.logInSubmitButton{
+    background-color: #2B6FD2;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+    margin-left: 0.5em;
+}
+
+.logInSubmitButton:hover{
+    color: white; 
+}
+
+/*Errors*/
+.errorMessageLogIn,
+.errorIconLogIn,
+#errorLogIn {
+    color: firebrick;
+}
+
+.errorMessageLogIn{
+    display: flex;
+}
+
+.errorIconLogIn{
+    padding-right: 5px;
+    padding-top: 3px;
+}
+
+/*password*/
+
+.passwordContainer {
+    position: relative;
+}
+
+#passwordEye {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: -5px;
+    right: 8px;
+}
+
+.eye{
+    color: 	#D3D3D3;
+    height: 18px;
+}
+
+/*last elements*/
+#linkToOtherPage{
+    color: #2B6FD2;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-top: 0.3em;
+}
+
+#newcomerQuestion{
+    font-size: 15px;
+    padding-top: 1em;
+    font-family: "Sporting", "sans-serif";
+}

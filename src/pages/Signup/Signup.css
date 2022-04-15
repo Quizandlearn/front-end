@@ -1,0 +1,126 @@
+#PageSignUpContainer{
+    width: 100%;
+    position: absolute;
+    min-height: 1000px;
+    width: 100%;
+    background-color: #FEC0C0;
+}
+
+#signUpContainer{
+    padding-top: 100px;
+    max-width: 290px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
+}
+
+#signUpTitre{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    font-family: "Sporting", "sans-serif";
+}
+
+#logoSignUp{
+    width: 150px;
+}
+
+/*Form Inputs*/
+.formSignUp input[type="text"],
+.formSignUp input[type="email"],
+.formSignUp input[type="password"], 
+.formSignUp textarea {
+    background-color : #0E835B;
+    color: white;
+    width: 100%;
+    font-family: "Sporting", "sans-serif";
+}
+
+.formSignUp input[type="text"]::placeholder,
+.formSignUp input[type="email"]::placeholder,
+.formSignUp input[type="password"]::placeholder,
+.formSignUp input:focus{
+    color: white;
+    font-family: "Sporting", "sans-serif";
+}
+
+.formSignUp input:-webkit-autofill,
+.formSignUp input:-webkit-autofill:hover, 
+.formSignUp input:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+  font-family: "Sporting", "sans-serif";
+}
+
+/*Buttons*/
+.signUpSubmit{
+     display:block;
+    text-align:center; 
+    margin-top: 1.5em;
+}
+
+.signUpSubmitButton{
+    background-color: #2B6FD2;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+}
+
+.signUpSubmitButton:hover{
+    color: white; 
+}
+
+/*Errors*/
+.errorContentSignUp{
+    color: firebrick;
+    padding-top: 0.3em;
+    text-align: start;
+}
+
+.errorMessageSignUp{
+    display: flex;
+    flex-direction: row;   
+}
+
+.errorIconSignUp{
+    color: firebrick;
+    padding-left: 3px;
+    padding-right: 7px;
+    padding-top: 0.5em;
+}
+
+/*password*/
+.passwordContainerSignUp{
+    position: relative;
+}
+
+.passwordEyeSignUp{
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: -3px;
+    right: 12px;
+}
+
+.eyeSignUp{
+    color: 	#D3D3D3;
+    height: 18px;
+}
+
+/*last elements*/
+.accountQuestion{
+    font-size: 15px;
+    padding-top: 1em;
+    font-family: "Sporting", "sans-serif";
+}
+
+#linkToSignInPage{
+    color: #2B6FD2;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-top: 0.3em;
+}
