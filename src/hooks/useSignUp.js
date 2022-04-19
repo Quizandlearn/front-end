@@ -1,7 +1,7 @@
 import axios from '../config/axios';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../config/api';
-import { errorDisplayed } from '../config/form';
+import { errorDisplayed } from '../config/error';
 
 const LOGIN_URL_FRONTEND = '/';
 

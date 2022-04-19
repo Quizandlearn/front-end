@@ -27,7 +27,7 @@
     color: #F2E669;
 }
 
-.button {
+.button-navigation {
     /* A retirer quand on voudra le remettre dans le profile ou ailleurs */
     visibility: hidden;
 
@@ -96,7 +96,7 @@
     left: 0!important;
 }
 
-/* Responsible */
+/* Responsive */
 @media screen and (max-width:830px) {
     .logoutAndProfile {
         visibility: hidden;

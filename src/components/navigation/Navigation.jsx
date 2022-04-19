@@ -5,9 +5,15 @@ import "./Navigation.css";
 import { useAuth } from "../../hooks/useAuth";
 import { Link } from 'react-router-dom';
 
+const EXPLORE_URL_FRONTEND = '/quizzes';
+const CATEGORIES_URL_FRONTEND = '/categories';
+const MYQUIZZES_URL_FRONTEND = '/myQuizzes';
+const FAVORITEQUIZZES_URL_FRONTEND = "/favoriteQuizzes";
+const COMPLETEDQUIZZES_URL_FRONTEND = "/completedQuizzes"
+
 const Navigation = () => {
 
-    const {logout, user} = useAuth();
+    const { logout, user } = useAuth();
 
     const [showLinks, setShowLinks] = useState(false);
 
@@ -18,8 +24,9 @@ const Navigation = () => {
     const handleClickLink = () => {
         setShowLinks(false);
     }
+
     if (user) { return (
-            <div className={`navigation ${showLinks? "show-navigation" : ""}`}>
+            <div className={ showLinks? "navigation show-navigation" : "navigation" }>
                 <div className="upperPartNavigationContainer">
                     <img src={LogoBlue} className="logoNavigation" alt=""/>
                     {/*Search bar Bulma*/}  
@@ -29,7 +36,7 @@ const Navigation = () => {
                             placeholder="Search"/>
                     </div>
                     <div className="logoutAndProfile">
-                        <button className="button" onClick={logout}>Log Out </button>
+                        <button className="button-navigation" onClick={logout}>Log Out </button>
                         <div className="profile">
                             <figure className="image is-64x64">
                                 <img className="is-rounded" src={profile} alt="Profile" />
@@ -38,25 +45,25 @@ const Navigation = () => {
                         </div>
                     </div>
                 </div>
-                <div className={`menu ${showLinks? "show-menu" : ""}`}>
+                <div className={showLinks? "menu show-menu" : "menu "}>
                     <div className='menu-items'>
-                        <Link className="menu-link" to="/quizzes" onClick={handleClickLink}>
+                        <Link className="menu-link" to={EXPLORE_URL_FRONTEND} onClick={handleClickLink}>
                             Explore
                         </Link>
-                        <Link className="menu-link" to="/categories" onClick={handleClickLink}>
+                        <Link className="menu-link" to={CATEGORIES_URL_FRONTEND} onClick={handleClickLink}>
                             Categories
                         </Link>
                         <Link className="menu-link" to="" onClick={handleClickLink} >
                             Create Quiz
                         </Link>
                         {/* A faire */}
-                        <Link className="menu-link" to="/myQuizzes" onClick={handleClickLink}>
+                        <Link className="menu-link" to={MYQUIZZES_URL_FRONTEND} onClick={handleClickLink}>
                             My Quizzes
                         </Link>       
-                        <Link className="menu-link" to="/favoriteQuizzes" onClick={handleClickLink} >
-                            Favorites Quizzes
+                        <Link className="menu-link" to={FAVORITEQUIZZES_URL_FRONTEND} onClick={handleClickLink} >
+                            Favorite Quizzes
                         </Link>  
-                        <Link className="menu-link" to="/completedQuizzes" onClick={handleClickLink} >
+                        <Link className="menu-link" to={COMPLETEDQUIZZES_URL_FRONTEND} onClick={handleClickLink} >
                             Completed Quizzes
                         </Link> 
                     </div>
@@ -65,7 +72,7 @@ const Navigation = () => {
                     <span className="burger-bar"></span>
                 </button>
         </div>        
-    )} else {return <></>};
+    )} else {return null};
 }
 
 export default Navigation;
