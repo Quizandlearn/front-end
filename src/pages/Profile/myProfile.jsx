@@ -1,4 +1,4 @@
-import "./myProfile.css";
+import "./MyProfile.css";
 import profile from "./profile.png";
 import { useAuth } from "../../hooks/useAuth";
 

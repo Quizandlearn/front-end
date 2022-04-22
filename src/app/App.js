@@ -11,6 +11,7 @@ import Navigation from "../components/navigation/Navigation";
 import MyQuizzes from "../pages/MyQuizzes/MyQuizzes";
 import FavoriteQuizzes from "../pages/FavoriteQuizzes/FavoriteQuizzes";
 import CompletedQuizzes from "../pages/CompletedQuizzes/CompletedQuizzes";
+import MyProfile from "../pages/Profile/MyProfile";
 
 const App = () => {
   return (
