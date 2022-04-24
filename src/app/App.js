@@ -8,6 +8,7 @@ import Explore from "../pages/Explore/Explore";
 import MyProfile from "../pages/Profile/MyProfile";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
+import QuizCreation from '../pages/QuizCreation/QuizCreation';
 
 const App = () => {
   return (
@@ -20,10 +21,11 @@ const App = () => {
           <Route path="signup" element={<Signup />} />
         </Route>
 
-        <Route element={<RequireAuth />}>
+        {/* <Route element={<RequireAuth />}> */}
           <Route path="/explore" element={<Explore />} />
+          <Route path="/create-quiz" element={<QuizCreation />} />
           <Route path="/myProfile" element={<MyProfile />} />
-        </Route>
+        {/* </Route> */}
 
         {/* route qui n'existe pas - redirection page Explore*/}
         <Route path="*" element={<Explore />} />
