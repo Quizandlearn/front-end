@@ -1,17 +1,13 @@
 import "bulma/css/bulma.min.css";
 import React from "react";
-import Login from "../pages/Login/Login";
-import Signup from "../pages/Signup/Signup";
 import { Routes, Route } from "react-router-dom";
-import Explore from "../pages/Explore/Explore";
 import { AuthProvider } from "../context/AuthProvider";
 import RequireAuth from "../context/RequireAuth";
-import Categories from "../pages/Categories/Categories";
 import Navigation from "../components/navigation/Navigation";
-import MyQuizzes from "../pages/MyQuizzes/MyQuizzes";
-import FavoriteQuizzes from "../pages/FavoriteQuizzes/FavoriteQuizzes";
-import CompletedQuizzes from "../pages/CompletedQuizzes/CompletedQuizzes";
+import Explore from "../pages/Explore/Explore";
 import MyProfile from "../pages/Profile/MyProfile";
+import Login from "../pages/Login/Login";
+import Signup from "../pages/Signup/Signup";
 
 const App = () => {
   return (
@@ -25,6 +21,7 @@ const App = () => {
         </Route>
 
         <Route element={<RequireAuth />}>
+          <Route path="/explore" element={<Explore />} />
           <Route path="/myProfile" element={<MyProfile />} />
         </Route>
 
