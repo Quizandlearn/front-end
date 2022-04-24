@@ -2,8 +2,10 @@ import './QuizCreation.css';
 import { useFormik, FormikProvider, FieldArray } from 'formik';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SubmitButton from '../../components/SubmitButton/SumbitButton';
 
 const questionLimit = 5;
+const answerMinimum = 2;
 const answerLimit = 4;
 
 const QuizCreation = () => {
@@ -150,7 +152,7 @@ const QuizCreation = () => {
                                                         bonne réponse
                                                     </label>
                                                 </div>
-                                                {question && question.answers.length > 2 &&
+                                                {question && question.answers.length > answerMinimum &&
                                                 <button 
                                                     className="button removeAnswer"
                                                     type="button" 
@@ -208,6 +210,8 @@ const QuizCreation = () => {
                         </>
                     )}  
                 </FieldArray>
+
+                <SubmitButton />
 
             </form>
             </FormikProvider>
