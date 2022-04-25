@@ -1,8 +1,12 @@
 import './QuizCreation.css';
 import { useFormik, FormikProvider, FieldArray } from 'formik';
+import * as Yup from "yup";
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SubmitButton from '../../components/SubmitButton/SumbitButton';
+
+import { faInfoCircle, faEye } from "@fortawesome/free-solid-svg-icons";
+
 
 const questionLimit = 5;
 const answerMinimum = 2;
@@ -30,8 +34,34 @@ const QuizCreation = () => {
                         ]
                     }
                 ]
-            }
-        });
+            },
+
+            validationSchema: Yup.object({
+                title: Yup.string()
+                    .required("Champ obligatoire"),
+                description: Yup.string()
+                    .required("Champ obligatoire"),
+                categories: Yup.string()
+                    .required("Champ obligatoire"),
+                questions: Yup.array().of(
+                        Yup.object().shape({
+                            question: Yup.string()
+                                .required("Champ obligatoire"),
+                            answers: Yup.array().of(
+                                Yup.object().shape({
+                                    answerContent: Yup.string()
+                                        .required("Champ obligatoire"),
+                                }),
+                                Yup.object().shape({
+                                    answerContent: Yup.string()
+                                        .required("Champ obligatoire"),
+                                })
+                            )
+                        })
+                )
+            })
+});
+
 
     return (
         <div className="quizCreationPageContainer">
@@ -54,8 +84,18 @@ const QuizCreation = () => {
                             maxLength="24"
                             placeholder = "Titre questionnaire"
                             required
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
                         />
                     </div>
+
+                {/*Error title */}
+                {formik.touched.title && formik.errors.title ? 
+                    <span className="errorMessageLogIn">
+                        <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" /> 
+                        <p className="errorLogIn">{formik.errors.title}</p>
+                    </span> : null}
+                {/*---------- */}
 
                     {/*Description*/}
                     <textarea
@@ -92,6 +132,7 @@ const QuizCreation = () => {
                         <>
                     {/*pour voir les valeurs : */}
                        {JSON.stringify(formik.values.questions)}
+                       
 
                             {(formik.values.questions.length > 0) &&
                             formik.values.questions.map((question, index)=>(
@@ -116,9 +157,18 @@ const QuizCreation = () => {
                                             placeholder = "Titre Question"
                                             value={formik.values.questions[index].question}
                                             onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
                                             required
                                         />
                                     </div>
+
+                                    {/*Error Title */}
+                                   {formik.touched.questions && formik.touched.questions[index] && formik.touched.questions[index].question && formik.errors.questions && formik.errors.questions[index] && formik.errors.questions[index].question ? 
+                                        <span className="errorMessageLogIn">
+                                            <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" /> 
+                                            <p className="errorLogIn">{formik.errors.questions[index].question}</p>
+                                        </span> : null}
+                                    {/*---------- */}
 
                                     <FieldArray name={`questions.${index}.answers`}>
 
