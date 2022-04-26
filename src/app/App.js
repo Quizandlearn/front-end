@@ -13,7 +13,7 @@ import QuizCreation from '../pages/QuizCreation/QuizCreation';
 const App = () => {
   return (
     <AuthProvider>
-      <Navigation />
+      {/* <Navigation /> */}
       <Routes>
         {/* public routes */}
         <Route element={<RequireAuth onlyPublic={true} />}>
