@@ -3,8 +3,9 @@ import { useFormik, FormikProvider, FieldArray } from 'formik';
 import * as Yup from "yup";
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SubmitButton from '../../components/SubmitButton/SumbitButton';
-import FormError from '../../components/FormError/FormError';
+import SubmitButton from '../../components/Form/SubmitButton/SumbitButton';
+import FormError from '../../components/Form/FormError/FormError';
+import CreateQuizInformation from '../../components/Form/CreateQuizInformation/CreateQuizInformation';
 
 const questionLimit = 5;
 const answerMinimum = 2;
@@ -95,7 +96,7 @@ const QuizCreation = () => {
             <h1 id="titleQuizCreation">Création de Quiz</h1>
 
                 <div className="sectionContainer">
-                    <CreateQuizTitle 
+                    {/* <CreateQuizTitle 
                         title={formik.values.title} 
                         handleBlur={formik.handleBlur} 
                         handleChange={formik.handleChange} 
@@ -114,7 +115,8 @@ const QuizCreation = () => {
                         handleBlur={formik.handleBlur} 
                         handleChange={formik.handleChange} 
                         formikTouched={formik.touched} 
-                        formikError={formik.errors}/>
+                        formikError={formik.errors}/> */}
+                        <CreateQuizInformation formik={formik}/>
                 </div>
 
                 <FieldArray name="questions">
