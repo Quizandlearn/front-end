@@ -1,5 +1,7 @@
 import FormError from "../FormError/FormError";
 
+/* Créer config pour erreurs*/
+
 const CreateQuizInformation = ({
     formik
 }) => {

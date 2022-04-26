@@ -96,27 +96,7 @@ const QuizCreation = () => {
             <h1 id="titleQuizCreation">Création de Quiz</h1>
 
                 <div className="sectionContainer">
-                    {/* <CreateQuizTitle 
-                        title={formik.values.title} 
-                        handleBlur={formik.handleBlur} 
-                        handleChange={formik.handleChange} 
-                        formikTouched={formik.touched} 
-                        formikError={formik.errors}
-                    />
-                    <CreateQuizDescription 
-                        description={formik.values.description} 
-                        handleBlur={formik.handleBlur} 
-                        handleChange={formik.handleChange} 
-                        formikTouched={formik.touched} 
-                        formikError={formik.errors}
-                    />
-                    <SelectQuizCategory 
-                        categories={formik.values.categories} 
-                        handleBlur={formik.handleBlur} 
-                        handleChange={formik.handleChange} 
-                        formikTouched={formik.touched} 
-                        formikError={formik.errors}/> */}
-                        <CreateQuizInformation formik={formik}/>
+                    <CreateQuizInformation formik={formik}/>
                 </div>
 
                 <FieldArray name="questions">
@@ -259,90 +239,6 @@ const QuizCreation = () => {
 }
 
 export default QuizCreation;
-
-const CreateQuizTitle = ({
-    title, 
-    handleChange, 
-    handleBlur, 
-    formikError, 
-    formikTouched
-}) => {
-    return(
-        <>
-            <label htmlFor="title" className="sr-only">Title</label>
-                <input
-                    id="title"
-                    name="title"
-                    type="text"
-                    className="input"
-                    value = {title}
-                    maxLength="24"
-                    placeholder = "Titre questionnaire"
-                    required
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                />
-            {formikTouched.title && formikError.title ? 
-                <FormError errorContent={formikError.title} />
-            : null}
-        </>
-    );
-};
-
-const CreateQuizDescription = ({ 
-    description, 
-    handleChange, 
-    handleBlur, 
-    formikError, 
-    formikTouched
-}) => {
-    return(
-        <>
-           <textarea
-                name="description"
-                className="textarea"
-                placeholder="Description"
-                rows="4"
-                type="text"
-                value = {description}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                >
-            </textarea>
-            {formikTouched.description && formikError.description ? 
-                <FormError errorContent={formikError.description} />
-                : null}
-        </>
-    );
-};
-
-const SelectQuizCategory = ({
-    categories, 
-    handleChange, 
-    handleBlur, 
-    formikError, 
-    formikTouched
-}) => {
-    return(
-        <div className="select is-warning" id="selectCategoriesContainer">
-                    <select 
-                        id="selectCategories" 
-                        name="categories"
-                        value= {categories}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    >
-                        <option value="" disabled>Thématique</option>
-                        <option value="tech">Tech</option>
-                        <option value="feminisme">Feminisme</option>
-                        <option value="ecologie">Ecologie</option>
-                    </select>
-                    {formikTouched.categories && formikError.categories ? 
-                    <FormError errorContent={formikError.categories} />
-                    : null}
-        </div>
-    );
-};
 
 /*-------------------*/
 const CreateQuestionTitle = ({
