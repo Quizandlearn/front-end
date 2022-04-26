@@ -7,6 +7,8 @@ import SubmitButton from '../../components/Form/SubmitButton/SumbitButton';
 import FormError from '../../components/Form/FormError/FormError';
 import CreateQuizInformation from '../../components/Form/CreateQuizInformation/CreateQuizInformation';
 
+import CreateQuizQuestion from '../../components/Form/CreateQuizQuestion/CreateQuizQuestion';
+
 const questionLimit = 5;
 const answerMinimum = 2;
 const answerLimit = 4;
@@ -35,10 +37,6 @@ const getAnswerError=(formik, questionIndex, answerIndex) => {
 };
 
 const QuizCreation = () => {
-
-
-    //const answerError=formik.touched?.questions && formik.touched?.questions[index] && formik.touched?.questions[index]?.answers && formik.touched?.questions[index]?.answers[idx] && formik.touched.questions[index]?.answers[idx]?.answerContent  && formik.errors?.questions && formik.errors?.questions[index] &&  formik.errors?.questions[index]?.answers[idx] && formik.errors?.questions[index]?.answers[idx]?.answerContent;
-
     const formik = useFormik({
             initialValues: {
                 title: "",
@@ -60,7 +58,6 @@ const QuizCreation = () => {
                     }
                 ]
             },
-
             validationSchema: Yup.object({
                 title: Yup.string()
                     .required("Champ obligatoire"),
@@ -90,14 +87,12 @@ const QuizCreation = () => {
     return (
         <div className="quizCreationPageContainer">
             <FormikProvider value={formik}>
-
             <form id="quizCreationFormContainer">
+                <h1 id="titleQuizCreation">Création de Quiz</h1>
 
-            <h1 id="titleQuizCreation">Création de Quiz</h1>
-
-                <CreateQuizInformation formik={formik}/>
-
-                <FieldArray name="questions">
+                    <CreateQuizInformation formik={formik}/>
+                    
+                    <FieldArray name="questions">
 
                     {({ push, remove }) => (
                         <>
@@ -116,18 +111,13 @@ const QuizCreation = () => {
                                     }> <FontAwesomeIcon icon={faX} className="removeQuestionIcon"/> </button>  
                                     <p className="questionNumber" >Question {index + 1}</p>
 
-                                    <CreateQuestionTitle 
-                                        index={index}
-                                        formik={formik}
-                                    />
+                                    <CreateQuizQuestion formik={formik}/>
 
                                     <FieldArray name={`questions.${index}.answers`}>
 
                                         {({ push, remove }) => ( 
                                             <>
                                             {question  && question.answers && question.answers.map((answer, idx)=>{
-                                                //const answerContent=formik.values?.questions && formik.values?.questions[index]?.answer && formik.values?.questions[index]?.answers[idx]?.answerContent
-                                                //const answerError=formik.touched?.questions && formik.touched?.questions[index] && formik.touched?.questions[index]?.answers && formik.touched?.questions[index]?.answers[idx] && formik.touched.questions[index]?.answers[idx]?.answerContent  && formik.errors?.questions && formik.errors?.questions[index] &&  formik.errors?.questions[index]?.answers[idx] && formik.errors?.questions[index]?.answers[idx]?.answerContent;
                                                 const answerError = getAnswerError(formik, index, idx);
                                                 
                                                 
