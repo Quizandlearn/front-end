@@ -4,9 +4,7 @@ import * as Yup from "yup";
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SubmitButton from '../../components/SubmitButton/SumbitButton';
-
-import { faInfoCircle, faEye } from "@fortawesome/free-solid-svg-icons";
-
+import FormError from '../../components/formError/FormError';
 
 const questionLimit = 5;
 const answerMinimum = 2;
@@ -72,6 +70,7 @@ const QuizCreation = () => {
             <h1 id="titleQuizCreation">Création de Quiz</h1>
 
                 <div className="sectionContainer">
+
                     {/*Title*/}
                     <div className="field">
                         <label htmlFor="title" className="sr-only">Title</label>
@@ -87,15 +86,10 @@ const QuizCreation = () => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                         />
+                        {formik.touched.title && formik.errors.title ? 
+                            <FormError errorContent={formik.errors.title} />
+                            : null}
                     </div>
-
-                {/*Error title */}
-                {formik.touched.title && formik.errors.title ? 
-                    <span className="errorMessageLogIn">
-                        <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" /> 
-                        <p className="errorLogIn">{formik.errors.title}</p>
-                    </span> : null}
-                {/*---------- */}
 
                     {/*Description*/}
                     <textarea
@@ -105,9 +99,13 @@ const QuizCreation = () => {
                         rows="4"
                         type="text"
                         value = {formik.values.description}
-                        required
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         >
                     </textarea>
+                    {formik.touched.description && formik.errors.description ? 
+                        <FormError errorContent={formik.errors.description} />
+                        : null}
 
                     {/*Select*/}
                     <div className="select is-warning" id="selectCategoriesContainer">
@@ -115,13 +113,17 @@ const QuizCreation = () => {
                             id="selectCategories" 
                             name="categories"
                             value= {formik.values.categories}
-                            required
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
                         >
                             <option value="" disabled>Thématique</option>
                             <option value="tech">Tech</option>
                             <option value="feminisme">Feminisme</option>
                             <option value="ecologie">Ecologie</option>
                         </select>
+                        {formik.touched.categories && formik.errors.categories ? 
+                        <FormError errorContent={formik.errors.categories} />
+                        : null}
                     </div>
                     
                 </div>
@@ -160,15 +162,10 @@ const QuizCreation = () => {
                                             onBlur={formik.handleBlur}
                                             required
                                         />
+                                        {formik.touched.questions && formik.touched.questions[index] && formik.touched.questions[index].question && formik.errors.questions && formik.errors.questions[index] && formik.errors.questions[index].question ? 
+                                            <FormError errorContent={formik.errors.questions[index].question} />
+                                            : null}
                                     </div>
-
-                                    {/*Error Title */}
-                                   {formik.touched.questions && formik.touched.questions[index] && formik.touched.questions[index].question && formik.errors.questions && formik.errors.questions[index] && formik.errors.questions[index].question ? 
-                                        <span className="errorMessageLogIn">
-                                            <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" /> 
-                                            <p className="errorLogIn">{formik.errors.questions[index].question}</p>
-                                        </span> : null}
-                                    {/*---------- */}
 
                                     <FieldArray name={`questions.${index}.answers`}>
 
@@ -176,31 +173,34 @@ const QuizCreation = () => {
                                             <>
                                             {question  && question.answers && question.answers.map((answerContent, idx)=>(
                                                 <div className="answerAndDelete" key={idx}>
-                                                <div className="field" id="replyField">
-                                                    <label htmlFor={`questions.${index}.answers.${idx}.answerContent`} className="sr-only"></label>
-                                                    <input
-                                                        id={`questions.${index}.answers.${idx}.answerContent`}
-                                                        name={`questions.${index}.answers.${idx}.answerContent`}
-                                                        type="text"
-                                                        className="input answer"
-                                                        maxLength="24"
-                                                        placeholder = "réponse"
-                                                        value={formik.values.questions[index].answers[idx].answerContent}
-                                                        onChange={formik.handleChange}
-                                                        required
-                                                    />
-
-                                                    <label class="checkbox" htmlFor={`questions.${index}.answers.${idx}.isCorrectAnswer`}>
-                                                        <input 
-                                                            type="checkbox"
-                                                            id={`questions.${index}.answers.${idx}.isCorrectAnswer`}
-                                                            name={`questions.${index}.answers.${idx}.isCorrectAnswer`}
-                                                            value={formik.values.questions[index].answers[idx].isCorrectAnswer}
+                                                    <div className="field" id="replyField">
+                                                        <label htmlFor={`questions.${index}.answers.${idx}.answerContent`} className="sr-only"></label>
+                                                        <input
+                                                            id={`questions.${index}.answers.${idx}.answerContent`}
+                                                            name={`questions.${index}.answers.${idx}.answerContent`}
+                                                            type="text"
+                                                            className="input answer"
+                                                            maxLength="24"
+                                                            placeholder = "réponse"
+                                                            value={formik.values.questions[index].answers[idx].answerContent}
                                                             onChange={formik.handleChange}
-                                                            required
+                                                            onBlur={formik.handleBlur}
                                                         />
-                                                        bonne réponse
-                                                    </label>
+                                                        {formik.touched.questions && formik.touched.questions[index] && formik.touched.questions[index].answers[idx] && formik.touched.questions[index].answers[idx].answerContent  && formik.errors.questions && formik.errors.questions[index] &&  formik.errors.questions[index].answers[idx] && formik.errors.questions[index].answers[idx].answerContent ? 
+                                                            <FormError errorContent={formik.errors.questions[index].answers[idx].answerContent} />
+                                                            : null}
+
+                                                        <label class="checkbox" htmlFor={`questions.${index}.answers.${idx}.isCorrectAnswer`}>
+                                                            <input 
+                                                                type="checkbox"
+                                                                id={`questions.${index}.answers.${idx}.isCorrectAnswer`}
+                                                                name={`questions.${index}.answers.${idx}.isCorrectAnswer`}
+                                                                value={formik.values.questions[index].answers[idx].isCorrectAnswer}
+                                                                onChange={formik.handleChange}
+                                                                onBlur={formik.handleBlur}
+                                                            />
+                                                            bonne réponse
+                                                        </label>
                                                 </div>
                                                 {question && question.answers.length > answerMinimum &&
                                                 <button 
