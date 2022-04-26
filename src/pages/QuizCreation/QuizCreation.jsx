@@ -43,7 +43,7 @@ const QuizCreation = () => {
             initialValues: {
                 title: "",
                 description:"",
-                categories: "",
+                category: "",
                 questions: [
                     {
                         question: "",
@@ -66,7 +66,7 @@ const QuizCreation = () => {
                     .required("Champ obligatoire"),
                 description: Yup.string()
                     .required("Champ obligatoire"),
-                categories: Yup.string()
+                category: Yup.string()
                     .required("Champ obligatoire"),
                 questions: Yup.array().of(
                         Yup.object().shape({

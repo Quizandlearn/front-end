@@ -1,10 +1,22 @@
-import FormError from "../FormError/FormError";
+import FormError from "./../FormError/FormError";
 
 /* Créer config pour erreurs*/
+const getTitleError=(formik) => {
+    let touched = false;
+    if(formik.touched && formik.touched.title) {
+        touched = true;
+    }
+    if(touched && formik.errors && formik.errors.questions) {
+        return formik.errors.title;
+    }
+};
 
 const CreateQuizInformation = ({
     formik
 }) => {
+
+    const titleError = getTitleError(formik);
+
     return(
         <div className="sectionContainer">
             <label htmlFor="title" className="sr-only">Title</label>
@@ -20,8 +32,8 @@ const CreateQuizInformation = ({
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                 />
-            {formik.touched.title && formik.errors.title ? 
-                <FormError errorContent={formik.errors.title} />
+            {titleError ? 
+                <FormError errorContent={titleError} />
             : null}
         
             <textarea
