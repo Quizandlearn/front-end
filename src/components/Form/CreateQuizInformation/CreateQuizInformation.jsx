@@ -6,7 +6,7 @@ const CreateQuizInformation = ({
     formik
 }) => {
     return(
-        <>
+        <div className="sectionContainer">
             <label htmlFor="title" className="sr-only">Title</label>
                 <input
                     id="title"
@@ -56,7 +56,7 @@ const CreateQuizInformation = ({
                     <FormError errorContent={formik.errors.categories} />
                     : null}
             </div>
-        </>
+        </div>
     );
 };
 

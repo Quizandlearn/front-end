@@ -95,9 +95,7 @@ const QuizCreation = () => {
 
             <h1 id="titleQuizCreation">Création de Quiz</h1>
 
-                <div className="sectionContainer">
-                    <CreateQuizInformation formik={formik}/>
-                </div>
+                <CreateQuizInformation formik={formik}/>
 
                 <FieldArray name="questions">
 
