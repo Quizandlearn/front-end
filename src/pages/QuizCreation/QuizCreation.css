@@ -1,4 +1,4 @@
-tionPageContainer{
+.quizCreationPageContainer{
     width: 100%;
     position: absolute;
     min-height: 1000px;
@@ -6,7 +6,7 @@ tionPageContainer{
     font-family: "Sporting", "sans-serif";
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 #quizCreationFormContainer{

@@ -1,12 +1,12 @@
+import "./SubmitButton.css";
+
 const SubmitButton = () => {
     return(
-        <>
-            <div className="logInSubmit">
-                    <input 
-                        className="button logInSubmitButton"
-                        type="submit" value="Sauvegarder ce quiz"/>
-            </div>
-        </>
+        <div className="buttonContainer">
+            <button className="button formSubmitButton" type="submit">
+                Sauvegarder ce quiz
+            </button>
+        </div>
     )
 };
 

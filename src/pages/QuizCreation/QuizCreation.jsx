@@ -60,7 +60,6 @@ const QuizCreation = () => {
             })
 });
 
-
     return (
         <div className="quizCreationPageContainer">
             <FormikProvider value={formik}>
@@ -173,6 +172,8 @@ const QuizCreation = () => {
                                             <>
                                             {question  && question.answers && question.answers.map((answerContent, idx)=>(
                                                 <div className="answerAndDelete" key={idx}>
+
+                                                    {/*Answer*/}
                                                     <div className="field" id="replyField">
                                                         <label htmlFor={`questions.${index}.answers.${idx}.answerContent`} className="sr-only"></label>
                                                         <input
@@ -190,17 +191,18 @@ const QuizCreation = () => {
                                                             <FormError errorContent={formik.errors.questions[index].answers[idx].answerContent} />
                                                             : null}
 
-                                                        <label class="checkbox" htmlFor={`questions.${index}.answers.${idx}.isCorrectAnswer`}>
-                                                            <input 
-                                                                type="checkbox"
-                                                                id={`questions.${index}.answers.${idx}.isCorrectAnswer`}
-                                                                name={`questions.${index}.answers.${idx}.isCorrectAnswer`}
-                                                                value={formik.values.questions[index].answers[idx].isCorrectAnswer}
-                                                                onChange={formik.handleChange}
-                                                                onBlur={formik.handleBlur}
-                                                            />
-                                                            bonne réponse
-                                                        </label>
+                                                    {/*Checkbox*/}
+                                                    <label class="checkbox" htmlFor={`questions.${index}.answers.${idx}.isCorrectAnswer`}>
+                                                        <input 
+                                                            type="checkbox"
+                                                            id={`questions.${index}.answers.${idx}.isCorrectAnswer`}
+                                                            name={`questions.${index}.answers.${idx}.isCorrectAnswer`}
+                                                            value={formik.values.questions[index].answers[idx].isCorrectAnswer}
+                                                            onChange={formik.handleChange}
+                                                            onBlur={formik.handleBlur}
+                                                        />
+                                                        bonne réponse
+                                                    </label>
                                                 </div>
                                                 {question && question.answers.length > answerMinimum &&
                                                 <button 

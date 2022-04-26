@@ -1,0 +1,19 @@
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+.formSubmitButton{
+    background-color: #0E835B;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+    width: 220px;
+}
+
+.formSubmitButton:hover{
+    color: white; 
+}
