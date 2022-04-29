@@ -1,6 +1,7 @@
 import CreateTitle from "../CreateTitle/CreateTitle";
 import CreateDescription from "../CreateDescription/CreateDescription";
 import SelectCategory from "../SelectCategory/SelectCategory";
+import PropTypes from "prop-types";
 
 const CreateQuizInformation = ({
     formik
@@ -14,5 +15,9 @@ const CreateQuizInformation = ({
         </div>
     );
 };
+
+CreateQuizInformation.propTypes = {
+    formik: PropTypes.object
+}
 
 export default CreateQuizInformation;

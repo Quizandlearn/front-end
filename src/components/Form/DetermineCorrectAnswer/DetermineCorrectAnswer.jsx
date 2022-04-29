@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const getFieldValue = (formik, questionIndex, answerIndex)=> {
     if(formik.values && formik.values.questions) {
         const questions = formik.values.questions
@@ -21,19 +23,25 @@ const DetermineCorrectAnswer = ({
     const { handleChange, handleBlur } = formik;
 
     return(
-       
-       <label className="checkbox" htmlFor={fieldName}>
-            <input 
-                type="checkbox"
-                id={fieldName}
-                name={fieldName}
-                value={fieldValue}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            bonne réponse
-        </label> 
+        <div className="correct-answer-container">
+            <label className="checkbox" htmlFor={fieldName} />
+                <input 
+                    type="checkbox"
+                    id={fieldName}
+                    name={fieldName}
+                    value={fieldValue}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                />
+                bonne réponse
+        </div> 
     );
 };
+
+DetermineCorrectAnswer.propTypes = {
+    index: PropTypes.number,
+    idx: PropTypes.number,
+    formik: PropTypes.object
+}
 
 export default DetermineCorrectAnswer;

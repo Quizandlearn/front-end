@@ -1,4 +1,5 @@
 import FormError from "../FormError/FormError";
+import PropTypes from "prop-types";
 
 const getDescriptionError=(formik) => {
     let touched = false;
@@ -13,7 +14,7 @@ const getDescriptionError=(formik) => {
 const CreateDescription = ({
     formik
 }) => {
-    const { handleChange, handleBlur, values} = formik;
+    const { handleChange, handleBlur, values } = formik;
     const { description } = values;
     const descriptionError = getDescriptionError(formik);
     return(
@@ -34,5 +35,9 @@ const CreateDescription = ({
         </>
     );
 };
+
+CreateDescription.propTypes = {
+    formik: PropTypes.object
+}
 
 export default CreateDescription;

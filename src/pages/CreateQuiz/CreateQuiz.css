@@ -28,7 +28,10 @@
 }
 
 .section-container{
-    padding: 30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
     background-color: #f1d5d5;
     margin-bottom: 20px;
 }
@@ -66,6 +69,7 @@
   font-family: "Sporting", "sans-serif";
 }
 
+#quiz-creation-form-container textarea,
 #select-categories-container {
     margin-top: 10px;
 }
@@ -83,7 +87,6 @@
 
 #quiz-creation-form-container input[type="checkBox"]{
     margin-right: 10px;
-    margin-top: 10px;
 }
 
 .replies-container{
@@ -97,20 +100,28 @@
     font-weight: bold;
     font-family: "Sporting", "sans-serif";
     cursor: pointer;
-    margin-left: 580px;
+    margin-left: 670px;
     margin-bottom: 30px;
 }
 
 /*answers*/
 .add-answer-container{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 20px;
+    margin-top: 15px;
 }
-
 
 .add-answer{
     background-color: #2B6FD2;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+}
+
+.add-explanation-and-link{
+    background-color: grey;
     color: white;
     font-weight: bold;
     font-family: "Sporting", "sans-serif";
@@ -149,6 +160,10 @@
     background-color: #0E835B;
     /*A voir si garder*/
     max-width: 694px;
+}
+
+.explication-reponses{
+    margin-bottom: 10px;
 }
 
 /*Error messages*/

@@ -1,4 +1,5 @@
 import FormError from "../FormError/FormError";
+import PropTypes from "prop-types";
 
 const getFieldValue = (formik, questionIndex, answerIndex)=> {
     if(formik.values && formik.values.questions) {
@@ -46,11 +47,10 @@ const CreateAnswer = ({
     const fieldValue= getFieldValue(formik, index, idx);
     const answerError = getAnswerError(formik, index, idx);
     const { handleChange, handleBlur } = formik;
-
+    
     return(
         <div className="field" id="reply-field">
             <label htmlFor={fieldName} className="sr-only"></label>
-
             <input
                 id={fieldName}
                 name={fieldName}
@@ -68,5 +68,11 @@ const CreateAnswer = ({
         </div>
     );
 };
+
+CreateAnswer.propTypes = {
+    index: PropTypes.number,
+    idx: PropTypes.number,
+    formik: PropTypes.object
+}
 
 export default CreateAnswer;

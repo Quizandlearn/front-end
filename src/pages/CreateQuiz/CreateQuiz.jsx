@@ -13,7 +13,7 @@ const QuizCreation = () => {
                 category: "",
                 questions: [
                     {
-                        question: "",
+                        hello: "",
                         answers: [
                             { 
                                 answerContent: "",
@@ -23,7 +23,9 @@ const QuizCreation = () => {
                                 answerContent: "",
                                 isCorrectAnswer: false
                             }
-                        ]
+                        ],
+                        explanation: "",
+                        learnMore: ""
                     }
                 ]
             },
@@ -49,7 +51,11 @@ const QuizCreation = () => {
                                 })
                             )
                         })
-                )
+                ),
+                explanation: Yup.string()
+                    .required("Champ obligatoire"),
+                learnMore: Yup.string()
+                    .required("Champ obligatoire")
             })
 });
 
