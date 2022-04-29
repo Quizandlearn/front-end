@@ -13,9 +13,8 @@ const getCategoryError=(formik) => {
 const SelectQuizCategory = ({
     formik
 }) => {
-    const category= formik.values.category;
-    const enterCategory = formik.handleChange;
-    const touchCategoryField = formik.handleBlur;
+    const { handleChange, handleBlur, values } = formik;
+    const { category } = values;
     const categoryError = getCategoryError(formik);
     return(
         <div className="select is-warning" id="selectCategoriesContainer">
@@ -23,8 +22,8 @@ const SelectQuizCategory = ({
                 id="selectCategories" 
                 name="category"
                 value= {category}
-                onChange={enterCategory}
-                onBlur={touchCategoryField}
+                onChange={handleChange}
+                onBlur={handleBlur}
             >
             <option value="" disabled>Thématique</option>
             <option value="tech">Tech</option>
@@ -34,7 +33,7 @@ const SelectQuizCategory = ({
         {categoryError ? 
             <FormError errorContent={categoryError} />
             : null}
-</div>
+    </div>
     );
 };
 

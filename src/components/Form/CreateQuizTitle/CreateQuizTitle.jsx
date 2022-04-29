@@ -1,6 +1,6 @@
 import FormError from "../FormError/FormError";
 
-const getTitleError=(formik) => {
+const getTitleError = (formik) => {
     let touched = false;
     if(formik.touched && formik.touched.title) {
         touched = true;
@@ -13,10 +13,10 @@ const getTitleError=(formik) => {
 const CreateQuizTitle = ({
     formik
 }) => {
-    const title= formik.values.title;
-    const enterTitle = formik.handleChange;
-    const touchTitleField = formik.handleBlur;
     const titleError = getTitleError(formik);
+    const { handleChange, handleBlur, values } = formik;
+    const { title } = values;
+
     return(
         <>
             <label htmlFor="title" className="sr-only">Title</label>
@@ -29,8 +29,8 @@ const CreateQuizTitle = ({
                     maxLength="24"
                     placeholder = "Titre questionnaire"
                     required
-                    onChange={enterTitle}
-                    onBlur={touchTitleField}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
             {titleError ? 
                 <FormError errorContent={titleError} />

@@ -13,9 +13,8 @@ const getDescriptionError=(formik) => {
 const CreateQuizDescription = ({
     formik
 }) => {
-    const description= formik.values.description;
-    const enterDescription = formik.handleChange;
-    const touchDescriptionField = formik.handleBlur;
+    const { handleChange, handleBlur, values} = formik;
+    const { description } = values;
     const descriptionError = getDescriptionError(formik);
     return(
         <>
@@ -26,8 +25,8 @@ const CreateQuizDescription = ({
                 rows="4"
                 type="text"
                 value = {description}
-                onChange={enterDescription}
-                onBlur={touchDescriptionField}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
             {descriptionError ? 
                 <FormError errorContent={descriptionError} />
