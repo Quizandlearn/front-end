@@ -10,7 +10,7 @@ const getCategoryError=(formik) => {
     }
 };
 
-const SelectQuizCategory = ({
+const SelectCategory = ({
     formik
 }) => {
     const { handleChange, handleBlur, values } = formik;
@@ -37,4 +37,4 @@ const SelectQuizCategory = ({
     );
 };
 
-export default SelectQuizCategory;
+export default SelectCategory;

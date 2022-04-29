@@ -37,7 +37,7 @@ const getAnswerError=(formik, questionIndex, answerIndex) => {
     }
 };
 
-const CreateQuizAnswer = ({
+const CreateAnswer = ({
     index,
     idx,
     formik
@@ -69,4 +69,4 @@ const CreateQuizAnswer = ({
     );
 };
 
-export default CreateQuizAnswer;
+export default CreateAnswer;

@@ -28,7 +28,7 @@ const getQuestionError = (formik, questionIndex) => {
     }
 };
 
-const CreateQuizQuestion = ({
+const CreateQuestion = ({
     index,
     formik
 }) => {
@@ -58,4 +58,4 @@ const CreateQuizQuestion = ({
     );
 };
 
-export default CreateQuizQuestion;
+export default CreateQuestion;

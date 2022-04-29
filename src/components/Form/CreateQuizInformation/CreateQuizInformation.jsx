@@ -1,6 +1,6 @@
-import CreateQuizTitle from "../CreateQuizTitle/CreateQuizTitle";
-import CreateQuizDescription from "../CreateQuizDescription/CreateQuizDescription";
-import SelectQuizCategory from "../SelectQuizCategory/SelectQuizCategory";
+import CreateTitle from "../CreateTitle/CreateTitle";
+import CreateDescription from "../CreateDescription/CreateDescription";
+import SelectCategory from "../SelectCategory/SelectCategory";
 
 const CreateQuizInformation = ({
     formik
@@ -8,9 +8,9 @@ const CreateQuizInformation = ({
 ;
     return(
         <div className="section-container">
-           <CreateQuizTitle formik={formik} />
-           <CreateQuizDescription formik={formik} />
-           <SelectQuizCategory formik={formik} />
+           <CreateTitle formik={formik} />
+           <CreateDescription formik={formik} />
+           <SelectCategory formik={formik} />
         </div>
     );
 };

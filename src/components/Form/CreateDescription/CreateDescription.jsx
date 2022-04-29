@@ -10,7 +10,7 @@ const getDescriptionError=(formik) => {
     }
 };
 
-const CreateQuizDescription = ({
+const CreateDescription = ({
     formik
 }) => {
     const { handleChange, handleBlur, values} = formik;
@@ -35,4 +35,4 @@ const CreateQuizDescription = ({
     );
 };
 
-export default CreateQuizDescription;
+export default CreateDescription;

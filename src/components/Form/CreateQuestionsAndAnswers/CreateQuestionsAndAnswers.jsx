@@ -1,8 +1,8 @@
 import { FieldArray } from 'formik';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CreateQuizQuestion from '../CreateQuizQuestion/CreateQuizQuestion';
-import CreateQuizAnswer from '../CreateQuizAnswer/CreateQuizAnswer';
+import CreateQuestion from '../CreateQuestion/CreateQuestion';
+import CreateAnswer from '../CreateAnswer/CreateAnswer';
 import DetermineCorrectAnswer from '../DetermineCorrectAnswer/DetermineCorrectAnswer';
 
 const questionLimit = 5;
@@ -35,7 +35,7 @@ const CreateQuestionsAndAnswers = ({
                     </button> 
 
                     <p className="question-number" >Question {index + 1}</p>
-                    <CreateQuizQuestion formik={formik} index={index}/>
+                    <CreateQuestion formik={formik} index={index}/>
 
                     <FieldArray name={`questions.${index}.answers`}>
 
@@ -44,7 +44,7 @@ const CreateQuestionsAndAnswers = ({
                             {question  && question.answers && question.answers.map((answer, idx)=>(
                                 <div className="answer-and-delete" key={idx}>
                                     <div className="field" id="reply-field">
-                                        <CreateQuizAnswer index={index} idx={idx} formik={formik} />
+                                        <CreateAnswer index={index} idx={idx} formik={formik} />
                                         <DetermineCorrectAnswer index={index} idx={idx} formik={formik} />
                                     </div>                            
                                     {question && question.answers.length > answerMinimum &&

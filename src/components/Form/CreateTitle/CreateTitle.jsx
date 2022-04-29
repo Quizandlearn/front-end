@@ -10,7 +10,7 @@ const getTitleError = (formik) => {
     }
 };
 
-const CreateQuizTitle = ({
+const CreateTitle = ({
     formik
 }) => {
     const titleError = getTitleError(formik);
@@ -39,4 +39,4 @@ const CreateQuizTitle = ({
     );
 };
 
-export default CreateQuizTitle;
+export default CreateTitle;

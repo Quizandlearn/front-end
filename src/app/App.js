@@ -8,7 +8,7 @@ import Explore from "../pages/Explore/Explore";
 import MyProfile from "../pages/Profile/MyProfile";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
-import QuizCreation from '../pages/QuizCreation/QuizCreation';
+import CreateQuiz from '../pages/CreateQuiz/CreateQuiz';
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
 
         {/* <Route element={<RequireAuth />}> */}
           <Route path="/explore" element={<Explore />} />
-          <Route path="/create-quiz" element={<QuizCreation />} />
+          <Route path="/create-quiz" element={<CreateQuiz />} />
           <Route path="/myProfile" element={<MyProfile />} />
         {/* </Route> */}
 
