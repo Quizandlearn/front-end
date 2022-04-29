@@ -3,7 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "../context/AuthProvider";
 import RequireAuth from "../context/RequireAuth";
-import Navigation from "../components/navigation/Navigation";
+import Navigation from "../components/Navigation/Navigation";
 import Explore from "../pages/Explore/Explore";
 import MyProfile from "../pages/Profile/MyProfile";
 import Login from "../pages/Login/Login";
