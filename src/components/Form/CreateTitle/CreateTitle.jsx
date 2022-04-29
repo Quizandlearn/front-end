@@ -1,4 +1,5 @@
 import FormError from "../FormError/FormError";
+import PropTypes from "prop-types";
 
 const getTitleError = (formik) => {
     let touched = false;
@@ -38,5 +39,9 @@ const CreateTitle = ({
         </>
     );
 };
+
+CreateTitle.propTypes = {
+    formik: PropTypes.object
+}
 
 export default CreateTitle;

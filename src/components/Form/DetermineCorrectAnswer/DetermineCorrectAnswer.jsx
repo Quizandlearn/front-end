@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const getFieldValue = (formik, questionIndex, answerIndex)=> {
     if(formik.values && formik.values.questions) {
         const questions = formik.values.questions
@@ -35,5 +37,11 @@ const DetermineCorrectAnswer = ({
         </label> 
     );
 };
+
+DetermineCorrectAnswer.propTypes = {
+    index: PropTypes.number,
+    idx: PropTypes.number,
+    formik: PropTypes.object
+}
 
 export default DetermineCorrectAnswer;

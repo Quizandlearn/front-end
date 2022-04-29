@@ -1,4 +1,5 @@
 import FormError from "../FormError/FormError";
+import PropTypes from "prop-types";
 
 const getFieldValue = (formik, questionIndex) => {
     if(formik.values && formik.values.questions) {
@@ -57,5 +58,10 @@ const CreateQuestion = ({
         </div> 
     );
 };
+
+CreateQuestion.propTypes = {
+    index: PropTypes.number,
+    formik: PropTypes.object
+}
 
 export default CreateQuestion;

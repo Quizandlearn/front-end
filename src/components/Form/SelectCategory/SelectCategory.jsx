@@ -1,4 +1,5 @@
 import FormError from "../FormError/FormError";
+import PropTypes from "prop-types";
 
 const getCategoryError=(formik) => {
     let touched = false;
@@ -36,5 +37,9 @@ const SelectCategory = ({
     </div>
     );
 };
+
+SelectCategory.propTypes = {
+    formik: PropTypes.object
+}
 
 export default SelectCategory;

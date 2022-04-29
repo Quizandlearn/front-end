@@ -1,22 +1,23 @@
 import FormError from "../FormError/FormError";
 import PropTypes from "prop-types";
 
-const getDescriptionError=(formik) => {
+const getExplanationError = (formik) => {
     let touched = false;
-    if(formik.touched && formik.touched.description) {
+    if(formik.touched && formik.touched.explanation) {
         touched = true;
     }
-    if(touched && formik.errors && formik.errors.questions) {
-        return formik.errors.description;
+    if(touched && formik.errors && formik.errors.explanation) {
+        return formik.errors.explanation;
     }
 };
 
-const CreateDescription = ({
+const ExplainAnswer = ({
     formik
 }) => {
+    const explanationError = getExplanationError(formik);
     const { handleChange, handleBlur, values } = formik;
-    const { description } = values;
-    const descriptionError = getDescriptionError(formik);
+    const { explanation } = values;
+
     return(
         <>
             <textarea
@@ -25,19 +26,20 @@ const CreateDescription = ({
                 placeholder="Description"
                 rows="4"
                 type="text"
-                value = {description}
+                value = {explanation}
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            {descriptionError ? 
-                <FormError errorContent={descriptionError} />
+
+           {explanationError ? 
+                <FormError errorContent={explanationError} />
                 : null}
         </>
     );
 };
 
-CreateDescription.propTypes = {
+ExplainAnswer.propTypes = {
     formik: PropTypes.object
 }
 
-export default CreateDescription;
+export default ExplainAnswer;

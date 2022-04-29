@@ -97,20 +97,28 @@
     font-weight: bold;
     font-family: "Sporting", "sans-serif";
     cursor: pointer;
-    margin-left: 580px;
+    margin-left: 670px;
     margin-bottom: 30px;
 }
 
 /*answers*/
 .add-answer-container{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
 
 .add-answer{
     background-color: #2B6FD2;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+}
+
+.add-explanation{
+    background-color: grey;
     color: white;
     font-weight: bold;
     font-family: "Sporting", "sans-serif";
