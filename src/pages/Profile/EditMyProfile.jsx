@@ -7,7 +7,7 @@ const MyProfile = () => {
       <section id="titleContainer">
         <h1 id="profileTitle">My profile</h1>
       </section>
-      <div className="mainSectionContainer">
+      <div className="mainsection-container">
         <div className="photoProfileContainer">
           <figure className="image is-128x128">
             <img className="is-rounded" src={profile} alt="Profile" />
@@ -78,7 +78,7 @@ const MyProfile = () => {
       <section id="titleQuizzesContainer">
         <h2 id="quizzesTitle">My quizzes</h2>
       </section>
-      <div className="mainSectionContainer">
+      <div className="mainsection-container">
         <div className="photoProfileContainer">
           <h6>ICI ON VA AVOIR LE COMPOSANT 'MY QUIZZES'</h6>
         </div>

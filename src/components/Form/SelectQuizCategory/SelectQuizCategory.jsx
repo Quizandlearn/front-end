@@ -17,9 +17,9 @@ const SelectQuizCategory = ({
     const { category } = values;
     const categoryError = getCategoryError(formik);
     return(
-        <div className="select is-warning" id="selectCategoriesContainer">
+        <div className="select is-warning" id="select-categories-container">
             <select 
-                id="selectCategories" 
+                id="select-categories" 
                 name="category"
                 value= {category}
                 onChange={handleChange}

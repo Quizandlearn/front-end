@@ -10,7 +10,6 @@ const answerMinimum = 2;
 const answerLimit = 4;
 
 /*ajouter 2 champs qui manquent */
-
 const CreateQuestionsAndAnswers = ({ 
     formik 
 }) => {
@@ -26,16 +25,16 @@ const CreateQuestionsAndAnswers = ({
             {(formik.values.questions.length > 0) &&
             formik.values.questions.map((question, index)=>(
 
-                <div className="sectionContainer" key={index}>
+                <div className="section-container" key={index}>
 
                     <button 
-                        className="button deleteQuestion"
+                        className="button delete-question"
                         type="button" 
                         onClick={() => remove(index)}> 
-                    <FontAwesomeIcon icon={faX} className="removeQuestionIcon"/> 
+                    <FontAwesomeIcon icon={faX} className="remove-question-icon"/> 
                     </button> 
 
-                    <p className="questionNumber" >Question {index + 1}</p>
+                    <p className="question-number" >Question {index + 1}</p>
                     <CreateQuizQuestion formik={formik} index={index}/>
 
                     <FieldArray name={`questions.${index}.answers`}>
@@ -43,24 +42,24 @@ const CreateQuestionsAndAnswers = ({
                         {({ push, remove }) => ( 
                             <>
                             {question  && question.answers && question.answers.map((answer, idx)=>(
-                                <div className="answerAndDelete" key={idx}>
-                                    <div className="field" id="replyField">
+                                <div className="answer-and-delete" key={idx}>
+                                    <div className="field" id="reply-field">
                                         <CreateQuizAnswer index={index} idx={idx} formik={formik} />
                                         <DetermineCorrectAnswer index={index} idx={idx} formik={formik} />
                                     </div>                            
                                     {question && question.answers.length > answerMinimum &&
                                     <button 
-                                        className="button removeAnswer"
+                                        className="button remove-answer"
                                         type="button" 
                                         onClick={() => remove(idx)}
                                     >X</button>}
                                 </div>
                             ))}
 
-                                <div className="buttonContainer addAnswerContainer">
+                                <div className="buttonContainer add-answer-container">
                                     {question  && question.answers && (question.answers.length < answerLimit) &&
                                         <button 
-                                            className="button addAnswer"
+                                            className="button add-answer"
                                             type="button" 
                                             value="Ajouter une réponse"
                                             onClick={() => push(
@@ -82,7 +81,7 @@ const CreateQuestionsAndAnswers = ({
             <>
                 {(formik.values.questions.length < questionLimit) &&
                     <button 
-                    className="button addQuestion"
+                    className="button add-question"
                     type="button" 
                     value="Ajouter une question"
                     onClick={() => push({ 
@@ -100,7 +99,8 @@ const CreateQuestionsAndAnswers = ({
                     })
                     }>
                     Ajouter une question
-                    </button>}
+                    </button>
+                }
             </>
 
         </>

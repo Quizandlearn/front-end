@@ -1,4 +1,4 @@
-.quizCreationPageContainer{
+.quiz-creation-page-container{
     width: 100%;
     position: absolute;
     min-height: 1000px;
@@ -9,7 +9,7 @@
     overflow-x: hidden;
 }
 
-#quizCreationFormContainer{
+#quiz-creation-form-container{
     padding-top: 100px;
     max-width: 800px;
     min-width: 300px;
@@ -19,7 +19,7 @@
     min-height: 100%;
 }
 
-#titleQuizCreation{
+#title-quiz-creation{
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 0.5em;
@@ -27,71 +27,71 @@
     text-align: center;
 }
 
-.sectionContainer{
+.section-container{
     padding: 30px;
     background-color: #f1d5d5;
     margin-bottom: 20px;
 }
 
-.questionNumber{
+.question-number{
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
 }
 
 /*Form Inputs*/
-#quizCreationFormContainer input[type="text"],
-#quizCreationFormContainer textarea,
-#selectCategories {
+#quiz-creation-form-container input[type="text"],
+#quiz-creation-form-container textarea,
+#select-categories {
     background-color : #256AD0;
     color: white;
     width: 100%;
     font-family: "Sporting", "sans-serif";
 }
 
-#quizCreationFormContainer input[type="text"]::placeholder,
-#quizCreationFormContainer textarea::placeholder,
-#selectCategories::placeholder,
-#quizCreationFormContainer input:focus{
+#quiz-creation-form-container input[type="text"]::placeholder,
+#quiz-creation-form-container textarea::placeholder,
+#select-categories::placeholder,
+#quiz-creation-form-container input:focus{
     color: white;
     font-family: "Sporting", "sans-serif";
 }
 
-#quizCreationFormContainer input:-webkit-autofill,
-#quizCreationFormContainer input:-webkit-autofill:hover, 
-#quizCreationFormContainer input:-webkit-autofill:focus {
+#quiz-creation-form-container input:-webkit-autofill,
+#quiz-creation-form-container input:-webkit-autofill:hover, 
+#quiz-creation-form-container input:-webkit-autofill:focus {
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
   font-family: "Sporting", "sans-serif";
 }
 
-#selectCategoriesContainer {
+#select-categories-container {
     margin-top: 10px;
 }
 
-#selectCategories {
+#select-categories {
     height: 40px;
     max-width: 800px;
 }
 
 
-#replyField {
+#reply-field {
     width: 100%;
     padding-left: 0px;
 }
 
-#quizCreationFormContainer input[type="checkBox"]{
+#quiz-creation-form-container input[type="checkBox"]{
     margin-right: 10px;
     margin-top: 10px;
 }
 
-.repliesContainer{
+.replies-container{
     max-width: 700px;
 }
 
 /*questions*/
-.addQuestion{
+.add-question{
     background-color: #2B6FD2;
     color: white;
     font-weight: bold;
@@ -102,14 +102,14 @@
 }
 
 /*answers*/
-.addAnswerContainer{
+.add-answer-container{
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
 }
 
 
-.addAnswer{
+.add-answer{
     background-color: #2B6FD2;
     color: white;
     font-weight: bold;
@@ -117,7 +117,7 @@
     cursor: pointer;
 }
 
-.deleteQuestion{
+.delete-question{
     color: red;
     font-weight: bold;
     background-color: transparent;
@@ -128,12 +128,12 @@
     top: -10px;
 }
 
-.removeQuestionIcon{
+.remove-question-icon{
     height: 2em;
     padding-bottom: 0.8em;
 }
 
-.removeAnswer{
+.remove-answer{
     background-color: grey;
     color: white;
     font-weight: bold;
@@ -141,31 +141,30 @@
     cursor: pointer;
 }
 
-.answerAndDelete{
+.answer-and-delete{
     display: flex;
-    flex-direction: column;
 }
 
-#replyField > input[type="text"] {
+#reply-field > input[type="text"] {
     background-color: #0E835B;
     /*A voir si garder*/
     max-width: 694px;
 }
 
 /*Error messages*/
-.errorMessageQuizCreationContainer{
+.error-message-quiz-creation-container{
     display: flex;
     flex-direction: row;   
 }
 
-.errorIconQuizCreation{
+.error-Icon-quiz-creation{
     color: firebrick;
     padding-left: 3px;
     padding-right: 7px;
     padding-top: 0.5em;
 }
 
-.errorContentQuizCreation{
+.error-content-quiz-creation{
     color: firebrick;
     padding-top: 0.3em;
     text-align: start;
@@ -174,15 +173,15 @@
 
 @media(max-width:900px){
 
-    #quizCreationFormContainer{
+    #quiz-creation-form-container{
         max-width: 650px;
         margin: 0 auto;
     }
-    .deleteQuestion{
+    .delete-question{
         left: 550px;
     }
 
-    .addQuestion{
+    .add-question{
         margin-left: 430px;
     }
 }
@@ -190,15 +189,15 @@
 {/*Affiner version mobile*/}
 @media(max-width:700px){
 
-    #quizCreationFormContainer{
+    #quiz-creation-form-container{
         max-width: 550px;
         margin: 0 auto;
     }
-    .deleteQuestion{
+    .delete-question{
         left: 450px;
     }
 
-    .addQuestion{
+    .add-question{
         margin-left: 330px;
     }
 }

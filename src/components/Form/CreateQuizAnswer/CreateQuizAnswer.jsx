@@ -48,7 +48,7 @@ const CreateQuizAnswer = ({
     const { handleChange, handleBlur } = formik;
 
     return(
-        <div className="field" id="replyField">
+        <div className="field" id="reply-field">
             <label htmlFor={fieldName} className="sr-only"></label>
 
             <input

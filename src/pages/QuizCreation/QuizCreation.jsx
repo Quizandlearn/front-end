@@ -54,10 +54,10 @@ const QuizCreation = () => {
 });
 
     return (
-        <div className="quizCreationPageContainer">
+        <div className="quiz-creation-page-container">
             <FormikProvider value={formik}>
-            <form id="quizCreationFormContainer">
-                <h1 id="titleQuizCreation">Création de Quiz</h1>
+            <form id="quiz-creation-form-container">
+                <h1 id="title-quiz-creation">Création de Quiz</h1>
                     <CreateQuizInformation formik={formik} />
                     <CreateQuizQuestionsAndAnswers formik={formik} />
                 <SubmitButton />

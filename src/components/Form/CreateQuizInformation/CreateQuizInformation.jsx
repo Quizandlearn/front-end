@@ -7,7 +7,7 @@ const CreateQuizInformation = ({
 }) => {
 ;
     return(
-        <div className="sectionContainer">
+        <div className="section-container">
            <CreateQuizTitle formik={formik} />
            <CreateQuizDescription formik={formik} />
            <SelectQuizCategory formik={formik} />
