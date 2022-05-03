@@ -5,9 +5,9 @@ import "./FormError.css";
 const FormError = ({errorContent}) => {
 
     return(
-        <div className="errorMessageForm">
-            <FontAwesomeIcon icon={faInfoCircle} className="errorIconForm" /> 
-            <p className="errorForm">{errorContent}</p>
+        <div className="error-message-form">
+            <FontAwesomeIcon icon={faInfoCircle} className="error-icon-form" /> 
+            <p className="error-form">{errorContent}</p>
         </div>
     )
 };

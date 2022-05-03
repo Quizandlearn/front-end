@@ -1,15 +1,16 @@
 /*Errors*/
-.errorMessageForm,
-.errorIconForm,
-.errorForm {
+.error-message-form,
+.error-icon-form,
+.error-form {
     color: firebrick;
 }
 
-.errorMessageForm {
+.error-message-form {
     display: flex;
 }
 
-.errorIconForm {
+.error-icon-form {
     padding-right: 5px;
     padding-top: 3px;
 }
+

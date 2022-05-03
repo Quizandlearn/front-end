@@ -2,11 +2,9 @@ import "./SubmitButton.css";
 
 const SubmitButton = () => {
     return(
-        <div className="formSubmitButtonContainer">
-            <button className="button formSubmitButton" type="submit">
+            <button className="button form-submit-button" type="submit">
                 Sauvegarder ce quiz
             </button>
-        </div>
     )
 };
 

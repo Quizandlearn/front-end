@@ -42,7 +42,7 @@ const ExplainAnswer = ({
         <>
             <textarea
                 name={fieldName}
-                className="textarea explication-reponses"
+                className="textarea"
                 placeholder="Explication des réponses"
                 rows="4"
                 type="text"

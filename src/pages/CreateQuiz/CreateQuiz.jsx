@@ -3,7 +3,7 @@ import { useFormik, FormikProvider } from 'formik';
 import * as Yup from "yup";
 import SubmitButton from '../../components/Form/SubmitButton/SumbitButton';
 import CreateQuizInformation from '../../components/Form/CreateQuizInformation/CreateQuizInformation';
-import CreateQuestionsAndAnswers from '../../components/Form/CreateQuestionsAndAnswers/CreateQuestionsAndAnswers'
+import CreateQuestionsAndAnswers from '../../components/Form/CreateQuestionsAndAnswers/CreateQuestionsAndAnswers';
 
 const QuizCreation = () => {
     const formik = useFormik({
@@ -58,7 +58,6 @@ const QuizCreation = () => {
                 ),
             })
 });
-
     return (
         <div className="quiz-creation-page-container">
             <FormikProvider value={formik}>
@@ -66,7 +65,9 @@ const QuizCreation = () => {
                 <h1 id="title-quiz-creation">Création de Quiz</h1>
                     <CreateQuizInformation formik={formik} />
                     <CreateQuestionsAndAnswers formik={formik} />
-                <SubmitButton />
+                    <div className="form-submit-button-container">
+                        <SubmitButton />
+                    </div>
             </form>
             </FormikProvider>
         </div>

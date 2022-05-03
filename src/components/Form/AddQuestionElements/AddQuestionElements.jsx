@@ -18,7 +18,21 @@ const AddQuestionElements = ({
 
     return(
         <>
-        <div className="buttonContainer add-answer-container">
+        <div className="buttonContainer add-answer-explanation-link">
+
+            {question  && question.answers && (question.answers.length < answerLimit) &&
+                <button 
+                    className="button add-answer"
+                    type="button" 
+                    value="Ajouter une réponse"
+                    onClick={() => push(
+                        { 
+                            answerContent: "",
+                            isCorrectAnswer: false
+                        }
+                    )}>
+                    + Réponse
+                </button>}
             <button 
                 className="button add-explanation-and-link"
                 type="button" 
@@ -34,21 +48,6 @@ const AddQuestionElements = ({
                 onClick={(e) => setShowLearnMore(true)}>
                 + Lien d'approfondissement
             </button>
-
-            {question  && question.answers && (question.answers.length < answerLimit) &&
-                <button 
-                    className="button add-answer"
-                    type="button" 
-                    value="Ajouter une réponse"
-                    onClick={() => push(
-                        { 
-                            answerContent: "",
-                            isCorrectAnswer: false
-                        }
-                    )}>
-                    + Réponse
-                </button>}
-            
         </div>
 
         {showExplanation === true &&

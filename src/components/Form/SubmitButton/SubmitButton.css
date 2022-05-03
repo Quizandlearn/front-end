@@ -1,11 +1,4 @@
-.formSubmitButtonContainer{
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5em;
-    margin-bottom: 2em;
-}
-
-.formSubmitButton{
+.form-submit-button{
     background-color: #0E835B;
     color: white;
     font-weight: bold;
@@ -14,6 +7,6 @@
     width: 220px;
 }
 
-.formSubmitButton:hover{
-    color: white; 
+.form-submit-button:hover{
+    color: white;
 }

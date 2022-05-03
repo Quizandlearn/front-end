@@ -11,12 +11,25 @@
 
 #quiz-creation-form-container{
     padding-top: 100px;
+    min-height: 100%;
+}
+
+.form-submit-button-container{
+    padding-top: 6px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#quiz-creation-form-container,
+.form-submit-button-container {
     max-width: 800px;
     min-width: 300px;
     margin: 0 auto;
-    text-align: start;
     justify-content: center;
-    min-height: 100%;
+}
+
+.add-question-button-container{
+    float: right;
 }
 
 #title-quiz-creation{
@@ -93,19 +106,15 @@
     max-width: 700px;
 }
 
-/*questions*/
 .add-question{
     background-color: #2B6FD2;
     color: white;
     font-weight: bold;
     font-family: "Sporting", "sans-serif";
     cursor: pointer;
-    margin-left: 670px;
-    margin-bottom: 30px;
 }
 
-/*answers*/
-.add-answer-container{
+.add-answer-explanation-link{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -158,12 +167,21 @@
 
 #reply-field > input[type="text"] {
     background-color: #0E835B;
-    /*A voir si garder*/
     max-width: 694px;
 }
 
-.explication-reponses{
-    margin-bottom: 10px;
+.learn-more{
+    margin-top: 10px;
+}
+
+.correct-answer-container{
+    margin-bottom: 5px;
+}
+
+.add-answer:hover,
+.add-explanation-and-link:hover,
+.add-question:hover{
+    color: white;
 }
 
 /*Error messages*/
@@ -185,7 +203,6 @@
     text-align: start;
 }
 
-
 @media(max-width:900px){
 
     #quiz-creation-form-container{
@@ -201,18 +218,80 @@
     }
 }
 
-{/*Affiner version mobile*/}
 @media(max-width:700px){
 
     #quiz-creation-form-container{
-        max-width: 550px;
+        max-width: 500px;
         margin: 0 auto;
     }
+
     .delete-question{
-        left: 450px;
+        left: 400px;
     }
 
     .add-question{
         margin-left: 330px;
+    }
+
+    .add-answer-explanation-link{
+        flex-direction: column;
+        align-items:flex-end;
+        height: 150px;
+    }
+
+    .section-container{
+        padding-bottom: 20px;
+    }
+
+    .error-message-form,
+    .error-icon-form,
+    .error-form{
+        font-size: 13px;
+    }
+
+    .form-submit-button{
+        margin-top: 25px;
+    }
+}
+
+@media(max-width:550px) {
+    #quiz-creation-form-container{
+        max-width: 400px;
+    }
+
+    .delete-question{
+        left: 300px;
+    }
+}
+
+@media(max-width:450px) {
+    #quiz-creation-form-container{
+        max-width: 280px;
+    }
+
+    #quiz-creation-form-container input[type="text"],
+    #quiz-creation-form-container textarea,
+    #select-categories,
+    .remove-answer{
+        height: 35px;
+    }
+
+    .remove-answer{
+        width: 30px;
+    }
+
+    .add-answer,
+    .add-explanation-and-link,
+    .add-question,
+    .form-submit-button{
+        font-size: 13px;
+    }
+
+    .add-answer-explanation-link{
+        height: 120px;
+    }
+
+    .delete-question{
+        left: 200px;
     }
 }
