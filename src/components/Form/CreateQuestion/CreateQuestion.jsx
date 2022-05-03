@@ -1,7 +1,7 @@
 import FormError from "../FormError/FormError";
 import PropTypes from "prop-types";
 
-const getFieldValue = (formik, questionIndex) => {
+const getQuestionValue = (formik, questionIndex) => {
     if(formik.values && formik.values.questions) {
         const questions = formik.values.questions;
         if(questions[questionIndex] && questions[questionIndex].question){
@@ -34,7 +34,7 @@ const CreateQuestion = ({
     formik
 }) => {
     const fieldName=`questions.${index}.question`;
-    const fieldValue= getFieldValue(formik, index);
+    const fieldValue= getQuestionValue(formik, index);
     const questionError = getQuestionError(formik, index);
     const { handleChange, handleBlur } = formik;
 

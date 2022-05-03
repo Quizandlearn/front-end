@@ -49,13 +49,13 @@ const QuizCreation = () => {
                                     answerContent: Yup.string()
                                         .required("Champ obligatoire"),
                                 })
-                            )
+                            ),
+                            explanation: Yup.string()
+                            .required("Champ obligatoire"),
+                            learnMore: Yup.string()
+                                .required("Champ obligatoire")
                         })
                 ),
-                explanation: Yup.string()
-                    .required("Champ obligatoire"),
-                learnMore: Yup.string()
-                    .required("Champ obligatoire")
             })
 });
 
