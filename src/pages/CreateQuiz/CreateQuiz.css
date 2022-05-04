@@ -9,8 +9,8 @@
     overflow-x: hidden;
 }
 
-#quiz-creation-form-container{
-    padding-top: 100px;
+.quiz-creation-form-container{
+    padding-top: 60px;
     min-height: 100%;
 }
 
@@ -20,7 +20,7 @@
     text-align: center;
 }
 
-#quiz-creation-form-container,
+.quiz-creation-form-container,
 .form-submit-button-container {
     max-width: 800px;
     min-width: 300px;
@@ -32,7 +32,7 @@
     float: right;
 }
 
-#title-quiz-creation{
+.title-quiz-creation{
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 0.5em;
@@ -56,8 +56,8 @@
 }
 
 /*Form Inputs*/
-#quiz-creation-form-container input[type="text"],
-#quiz-creation-form-container textarea,
+.quiz-creation-form-container input[type="text"],
+.quiz-creation-form-container textarea,
 #select-categories {
     background-color : #256AD0;
     color: white;
@@ -65,24 +65,24 @@
     font-family: "Sporting", "sans-serif";
 }
 
-#quiz-creation-form-container input[type="text"]::placeholder,
-#quiz-creation-form-container textarea::placeholder,
+.quiz-creation-form-container input[type="text"]::placeholder,
+.quiz-creation-form-container textarea::placeholder,
 #select-categories::placeholder,
-#quiz-creation-form-container input:focus{
+.quiz-creation-form-container input:focus{
     color: white;
     font-family: "Sporting", "sans-serif";
 }
 
-#quiz-creation-form-container input:-webkit-autofill,
-#quiz-creation-form-container input:-webkit-autofill:hover, 
-#quiz-creation-form-container input:-webkit-autofill:focus {
+.quiz-creation-form-container input:-webkit-autofill,
+.quiz-creation-form-container input:-webkit-autofill:hover, 
+.quiz-creation-form-container input:-webkit-autofill:focus {
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
   font-family: "Sporting", "sans-serif";
 }
 
-#quiz-creation-form-container textarea,
+.quiz-creation-form-container textarea,
 #select-categories-container {
     margin-top: 10px;
 }
@@ -98,7 +98,7 @@
     padding-left: 0px;
 }
 
-#quiz-creation-form-container input[type="checkBox"]{
+.quiz-creation-form-container input[type="checkBox"]{
     margin-right: 10px;
 }
 
@@ -184,28 +184,40 @@
     color: white;
 }
 
+.form-submit-button{
+    background-color: #0E835B;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+    width: 220px;
+}
+
+.form-submit-button:hover{
+    color: white;
+}
+
 /*Error messages*/
-.error-message-quiz-creation-container{
+
+.error-message-form,
+.error-icon-form,
+.error-form {
+    color: firebrick;
+}
+
+.error-message-form {
     display: flex;
-    flex-direction: row;   
+    padding-top: 1px;
 }
 
-.error-Icon-quiz-creation{
-    color: firebrick;
-    padding-left: 3px;
-    padding-right: 7px;
-    padding-top: 0.5em;
-}
-
-.error-content-quiz-creation{
-    color: firebrick;
-    padding-top: 0.3em;
-    text-align: start;
+.error-icon-form {
+    padding-right: 5px;
+    padding-top: 3px;
 }
 
 @media(max-width:900px){
 
-    #quiz-creation-form-container{
+    .quiz-creation-form-container{
         max-width: 650px;
         margin: 0 auto;
     }
@@ -220,7 +232,7 @@
 
 @media(max-width:700px){
 
-    #quiz-creation-form-container{
+    .quiz-creation-form-container{
         max-width: 500px;
         margin: 0 auto;
     }
@@ -252,10 +264,15 @@
     .form-submit-button{
         margin-top: 25px;
     }
+
+    .remove-question-icon{
+        height: 1.5em;
+        padding-bottom: 0em;
+    }
 }
 
 @media(max-width:550px) {
-    #quiz-creation-form-container{
+    .quiz-creation-form-container{
         max-width: 400px;
     }
 
@@ -265,12 +282,11 @@
 }
 
 @media(max-width:450px) {
-    #quiz-creation-form-container{
+    .quiz-creation-form-container{
         max-width: 280px;
     }
 
-    #quiz-creation-form-container input[type="text"],
-    #quiz-creation-form-container textarea,
+    .quiz-creation-form-container input[type="text"],
     #select-categories,
     .remove-answer{
         height: 35px;
@@ -292,6 +308,12 @@
     }
 
     .delete-question{
-        left: 200px;
+        left: 210px;
     }
+
+
+    .remove-question-icon{
+        height: 1.2em;
+    }
+
 }

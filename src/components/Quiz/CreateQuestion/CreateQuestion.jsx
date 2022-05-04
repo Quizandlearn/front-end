@@ -46,7 +46,6 @@ const CreateQuestion = ({
                 name={fieldName}
                 type="text"
                 className="input"
-                maxLength="24"
                 placeholder = "Titre Question"
                 value={fieldValue}
                 onChange={handleChange}

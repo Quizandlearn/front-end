@@ -45,7 +45,6 @@ const LearnMoreLink = ({
                 name={fieldName}
                 type="text"
                 className="input learn-more"
-                maxLength="24"
                 placeholder = "Lien d'approfondissement commençant par https://"
                 value={fieldValue}
                 onChange={handleChange}

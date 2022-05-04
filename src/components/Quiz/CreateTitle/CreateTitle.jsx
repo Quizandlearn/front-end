@@ -27,7 +27,6 @@ const CreateTitle = ({
                     type="text"
                     className="input"
                     value = {title}
-                    maxLength="24"
                     placeholder = "Titre questionnaire"
                     required
                     onChange={handleChange}

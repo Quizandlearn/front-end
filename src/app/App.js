@@ -13,21 +13,20 @@ import CreateQuiz from '../pages/CreateQuiz/CreateQuiz';
 const App = () => {
   return (
     <AuthProvider>
-      {/* <Navigation /> */}
+      <Navigation />
       <Routes>
-        {/* public routes */}
+
         <Route element={<RequireAuth onlyPublic={true} />}>
           <Route path="/" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
 
-        {/* <Route element={<RequireAuth />}> */}
+        <Route element={<RequireAuth />}>
           <Route path="/explore" element={<Explore />} />
-          <Route path="/create-quiz" element={<CreateQuiz />} />
+          <Route path="/createQuiz" element={<CreateQuiz />} />
           <Route path="/myProfile" element={<MyProfile />} />
-        {/* </Route> */}
+        </Route>
 
-        {/* route qui n'existe pas - redirection page Explore*/}
         <Route path="*" element={<Explore />} />
       </Routes>
     </AuthProvider>

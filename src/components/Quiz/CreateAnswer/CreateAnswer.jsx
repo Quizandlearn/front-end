@@ -56,7 +56,6 @@ const CreateAnswer = ({
                 name={fieldName}
                 type="text"
                 className="input answer"
-                maxLength="24"
                 placeholder = "réponse"
                 value={fieldValue}
                 onChange={handleChange}
