@@ -2,7 +2,7 @@ import axios from '../config/axios';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../config/api';
 import { actions, useStateValue } from '../context/AuthProvider';
-import { errorDisplayed } from '../config/form';
+import { errorDisplayed } from '../config/error';
 
 const EXPLORE_URL_FRONTEND = '/quizzes';
 
@@ -24,18 +24,20 @@ export const useAuth = () => {
                 /* voir réponse du serveur : console.log(JSON.stringify(response.data));*/
                 console.log("response",response);
 
-                //2--STOCKAGE DANS LOCAL STORAGE de l'USER (de l'email + token) - pour securité: bien de ne pas stocker mdp
+                //2--STOCKAGE DANS LOCAL STORAGE de l'USER (l'id + token) - pour securité: bien de ne pas stocker mdp
                 const accessToken = response.data.token;
                 const userId= response.data.userId;
 
                 const userData = {
                     userId: userId,
-                    //email: values.email,
                     token: accessToken
                 };
 
                 //locale storage n'accepte uniquement les chaînes de charactère (JSON.str convertit objet en chaîne)
                 localStorage.setItem("user", JSON.stringify(userData));
+
+                // ajouter prénom de l'utilisateur dans le contexte
+
 
                 // 3--MISE A JOUR DU CONTEXTE GLOBAL DE L'APPLICATION
                 //on passe l'Auth Provider = on met à jour instantanéement tous les composants de l'application

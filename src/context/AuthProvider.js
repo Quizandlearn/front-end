@@ -3,7 +3,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 //on crée un contexte = un changement d'état qui impactera tous les composants
 export const AuthContext = createContext();
 
-//on récupére l'utilisateur (son mail + token)
+//on récupére l'utilisateur (son id + token)
 const userData = localStorage.getItem("user");
 
 // déclaration des states globales
