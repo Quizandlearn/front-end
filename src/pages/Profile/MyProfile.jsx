@@ -2,36 +2,32 @@ import "./MyProfile.css";
 import profile from "./profile.png";
 import { useAuth } from "../../hooks/useAuth";
 
-function EditButtons() {
-  return <button className="editButton">Edit</button>;
-}
+const EditButtons = () => <button className="editButton">Edit</button>;
 
-function MyProfileAboutYou() {
-  return (
-    <div className="personalInformationContainer">
-      <label htmlFor="title" className="titleInsideContainer">
-        About You
-      </label>
-      <div class="field">
-        <label class="label">Name</label>
-        <p>My Name</p>
-      </div>
-
-      <div class="field">
-        <label class="label">Email</label>
-        <p>My Email</p>
-      </div>
-
-      <div class="field">
-        <label class="label">Contact</label>
-        <p>My Contact</p>
-      </div>
-      <EditButtons />
+const MyProfileAboutYou = () => (
+  <div className="personalInformationContainer">
+    <label htmlFor="title" className="titleInsideContainer">
+      About You
+    </label>
+    <div className="field">
+      <label className="label">Name</label>
+      <p>My Name</p>
     </div>
-  );
-}
 
-function MyProfileImage() {
+    <div className="field">
+      <label className="label">Email</label>
+      <p>My Email</p>
+    </div>
+
+    <div className="field">
+      <label className="label">Contact</label>
+      <p>My Contact</p>
+    </div>
+    <EditButtons />
+  </div>
+);
+
+const MyProfileImage = () => {
   const { logout } = useAuth();
   return (
     <div className="photoProfileContainer">
@@ -46,34 +42,28 @@ function MyProfileImage() {
       </button>
     </div>
   );
-}
+};
 
-function MyProfileInformation() {
-  return (
-    <div className="mainSectionContainer">
-      <MyProfileImage />
-      <MyProfileAboutYou />
-    </div>
-  );
-}
+const MyProfileInformation = () => (
+  <div className="mainSectionContainer">
+    <MyProfileImage />
+    <MyProfileAboutYou />
+  </div>
+);
 
-function MyProfileTitle() {
-  return (
-    <div classname="titleContainer">
-      <section id="titleContainer">
-        <h1 id="profileTitle">My profile</h1>
-      </section>
-    </div>
-  );
-}
+const MyProfileTitle = () => (
+  <div className="titleContainer">
+    <section id="titleContainer">
+      <h1 id="profileTitle">My profile</h1>
+    </section>
+  </div>
+);
 
-function MyProfile() {
-  return (
-    <div className="profilePageContainer">
-      <MyProfileTitle />
-      <MyProfileInformation />
-    </div>
-  );
-}
+const MyProfile = () => (
+  <div className="profilePageContainer">
+    <MyProfileTitle />
+    <MyProfileInformation />
+  </div>
+);
 
 export default MyProfile;

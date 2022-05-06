@@ -1,9 +1,3 @@
-const Categories = () => {
-    return(
-        <>
-            <div>Page Categories !</div>
-        </>
-    )
-};
+const Categories = () => <div>Page Categories !</div>;
 
 export default Categories;

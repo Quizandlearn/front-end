@@ -1,5 +1,5 @@
 export const api = {
-    login: 'login',
-    signup: 'signup',
-    logout: 'logout'
-}
+  login: "login",
+  signup: "signup",
+  logout: "logout",
+};

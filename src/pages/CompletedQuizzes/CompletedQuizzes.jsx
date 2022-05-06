@@ -1,9 +1,3 @@
-const CompletedQuizzes = () => {
-    return(
-        <>
-            <div>Page Completed Quizzes!</div>
-        </>
-    )
-};
+const CompletedQuizzes = () => <div>Page Completed Quizzes!</div>;
 
 export default CompletedQuizzes;
