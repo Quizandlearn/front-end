@@ -50,7 +50,7 @@ function MyProfileImage() {
 
 function MyProfileInformation() {
   return (
-    <div className="mainSectionContainer">
+    <div className="mainsection-container">
       <MyProfileImage />
       <MyProfileAboutYou />
     </div>
