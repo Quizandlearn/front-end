@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import axios from "../config/axios";
-import { api } from "../config/api";
-import { errorDisplayed } from "../config/error";
+import api from "../config/api";
+import errorDisplayed from "../config/error";
 
 const LOGIN_URL_FRONTEND = "/";
 
-export const useSignUp = () => {
+const useSignUp = () => {
   const navigate = useNavigate();
 
   const signup = async (values, onError) => {
@@ -42,3 +42,5 @@ export const useSignUp = () => {
     signup,
   };
 };
+
+export default useSignUp;

@@ -1,6 +1,7 @@
+import React from "react";
 import "./MyProfile.css";
 import profile from "./profile.png";
-import { useAuth } from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const EditButtons = () => <button className="editButton">Edit</button>;
 

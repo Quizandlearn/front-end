@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import axios from "../config/axios";
-import { api } from "../config/api";
+import api from "../config/api";
 import { actions, useStateValue } from "../context/AuthProvider";
-import { errorDisplayed } from "../config/error";
+import errorDisplayed from "../config/error";
 
 const EXPLORE_URL_FRONTEND = "/quizzes";
 
-export const useAuth = () => {
+const useAuth = () => {
   const navigate = useNavigate();
   const [{ user }, dispatch] = useStateValue();
 
@@ -83,3 +83,5 @@ export const useAuth = () => {
     logout,
   };
 };
+
+export default useAuth;

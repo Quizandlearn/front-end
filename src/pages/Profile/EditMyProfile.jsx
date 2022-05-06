@@ -1,3 +1,4 @@
+import React from "react";
 import "./myProfile.css";
 import profile from "./profile.png";
 

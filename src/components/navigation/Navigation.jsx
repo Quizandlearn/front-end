@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import LogoBlue from "../../assets/logoBlue.png";
 import profile from "../../assets/profile.png";
 import "./Navigation.css";
 import { useAuth } from "../../hooks/useAuth";
-import { Link, useNavigate } from "react-router-dom";
 
 const EXPLORE_URL_FRONTEND = "/quizzes";
 const CATEGORIES_URL_FRONTEND = "/categories";
