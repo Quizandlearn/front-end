@@ -4,8 +4,13 @@ import * as Yup from "yup";
 import SubmitButton from '../../components/Quiz/SubmitButton/SumbitButton';
 import CreateQuizInformation from '../../components/Quiz/CreateQuizInformation/CreateQuizInformation';
 import CreateQuestionsAndAnswers from '../../components/Quiz/CreateQuestionsAndAnswers/CreateQuestionsAndAnswers';
+import { useCreateQuiz } from "../../hooks/useCreateQuiz";
+import { useState } from 'react';
 
 const QuizCreation = () => {
+    const [errMsg, setErrMsg] = useState('');
+    const { createQuiz } = useCreateQuiz();
+
     const formik = useFormik({
             initialValues: {
                 title: "",
@@ -61,12 +66,19 @@ const QuizCreation = () => {
                                 .url("L'URL doit commencer par https://")
                         })
                 ),
-            })
+            }),
+
+    onSubmit: async (values) => {
+        createQuiz(values, (error) => {
+            setErrMsg(error);
+        });
+    } 
 });
+
     return (
         <div className="quiz-creation-page-container">
             <FormikProvider value={formik}>
-                <form className="quiz-creation-form-container">
+                <form className="quiz-creation-form-container" onSubmit={formik.handleSubmit}>
                     <h1 className="title-quiz-creation">Création de Quiz</h1>
                         <CreateQuizInformation formik={formik} />
                         <CreateQuestionsAndAnswers formik={formik} />

@@ -1,5 +1,9 @@
 import FormError from "../FormError/FormError";
 import PropTypes from "prop-types";
+import axios from '../../../config/axios';
+import { api } from '../../../config/api';
+import React, { useEffect, useState} from 'react';
+import { useAuth } from "../../../hooks/useAuth";
 
 const getCategoryError=(formik) => {
     let touched = false;
@@ -14,27 +18,60 @@ const getCategoryError=(formik) => {
 const SelectCategory = ({
     formik
 }) => {
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState([])
+
+    const {user} = useAuth();
+
+    useEffect(() => {
+        const fetchData = async () =>{
+          setLoading(true);
+          try {
+            const {data: response} = await axios.get(api.categories,
+                {
+                    headers: {"Authorization" : `Bearer ${user.token}`, 'Content-Type': 'application/json'},
+                    withCredentials: true
+                }
+            );
+
+            setData(response);
+          } catch (error) {
+            console.error(error.message);
+          }
+          setLoading(false);
+        }
+    
+        fetchData();
+      }, []);
+    
     const { handleChange, handleBlur, values } = formik;
     const { category } = values;
     const categoryError = getCategoryError(formik);
     return(
-        <div className="select is-warning" id="select-categories-container">
-            <select 
-                id="select-categories" 
-                name="category"
-                value= {category}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            >
-            <option value="" disabled>Thématique</option>
-            <option value="tech">Tech</option>
-            <option value="feminisme">Feminisme</option>
-            <option value="ecologie">Ecologie</option>
-        </select>
-        {categoryError ? 
-            <FormError errorContent={categoryError} />
-            : null}
-    </div>
+        <>
+            {loading && <div>Loading</div>}
+
+            {!loading && <div className="select is-warning" id="select-categories-container">
+                <select
+                    id="select-categories" 
+                    name="category"
+                    value= {category}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                >
+
+                <option value="" disabled>Thématique</option>
+                {data.categories.map((category, index)=>{
+                    return(
+                        <option key={index} value={category}>{category}</option>
+                    );
+                })}
+            </select>
+            {categoryError ? 
+                <FormError errorContent={categoryError} />
+                : null}
+            </div>}
+        </>
     );
 };
 
