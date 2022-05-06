@@ -32,33 +32,33 @@ const QuizCreation = () => {
             validationSchema: Yup.object({
                 title: Yup.string()
                     .required("Champ obligatoire")
-                    .max(80, "Titre trop long: 80 caractères maximum"),
+                    .max(80, "Le titre doit contenir au maximum 80 carcactères"),
                 description: Yup.string()
                     .required("Champ obligatoire")
-                    .max(400, "Description trop longue: 400 caractères maximum"),
+                    .max(400, "La description doit contenir au maximum 400 carcactères"),
                 category: Yup.string()
                     .required("Champ obligatoire"),
                 questions: Yup.array().of(
                         Yup.object().shape({
                             question: Yup.string()
                                 .required("Champ obligatoire")
-                                .max(150, "Question trop longue: 150 caractères maximum"),
+                                .max(150, ""),
                             answers: Yup.array().of(
                                 Yup.object().shape({
                                     answerContent: Yup.string()
                                         .required("Champ obligatoire")
-                                        .max(150, "Réponse trop longue: 150 caractères maximum"),
+                                        .max(150, "La réponse doit contenir au maximum 150 carcactères"),
                                 }),
                                 Yup.object().shape({
                                     answerContent: Yup.string()
                                         .required("Champ obligatoire")
-                                        .max(150, "Réponse trop longue: 150 caractères maximum"),
+                                        .max(150, "La réponse doit contenir au maximum 150 carcactères"),
                                 })
                             ),
                             explanation: Yup.string()
-                                .max(400,"Explication trop longue: 400 caractères maximum"),
+                                .max(400,"L'explication doit contenir au maximum 400 carcactères"),
                             learnMore: Yup.string()
-                                .url("Veuillez entrer une URL valide commençant par https://")
+                                .url("L'URL doit commencer par https://")
                         })
                 ),
             })
