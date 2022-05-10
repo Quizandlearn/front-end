@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 const CreateQuizInformation = ({
     formik
 }) => {
-;
     return(
         <div className="section-container">
            <CreateTitle formik={formik} />
