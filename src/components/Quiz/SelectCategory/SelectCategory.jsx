@@ -19,13 +19,15 @@ const SelectCategory = ({
     const { handleChange, handleBlur, values } = formik;
     const { category } = values;
     const categoryError = getCategoryError(formik);
+
     return(
         <>
             {loading && <div>Loading</div>}
+            {console.log(data)}
 
-            <div className="select is-warning" id="select-categories-container">
+            {!loading && <div className="select is-warning" id="select-categories-container">
                 <select
-                    id="select-categories" 
+                    id="select-categories"
                     name="category"
                     value= {category}
                     onChange={handleChange}
@@ -45,7 +47,7 @@ const SelectCategory = ({
             {categoryError ? 
                 <FormError errorContent={categoryError} />
                 : null}
-            </div>
+            </div>}
         </>
     );
 };
