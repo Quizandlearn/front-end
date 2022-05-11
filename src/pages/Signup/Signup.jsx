@@ -13,7 +13,6 @@ const LOGIN_URL_FRONTEND = '/';
 
 const Signup = () => {
     const { signup } = useSignUp();
-
     const [passwordShown, setPasswordShown] = useState(false);
     const [confirmedPasswordShown, setConfirmedPasswordShown] = useState(false);
     const [errMsg, setErrMsg] = useState('');
@@ -63,19 +62,19 @@ const Signup = () => {
     };
 
     return(
-        <div id="PageSignUpContainer">
+        <div id="page-sign-up-container">
 
-             <section id="signUpContainer">
-                    <img src={LogoBlue} id="logoSignUp" alt=""></img>  
-                    <h1 id="signUpTitre">S'inscrire</h1>
+             <section id="sign-up-container">
+                    <img src={LogoBlue} id="logo-sign-up" alt=""></img>  
+                    <h1 id="sign-up-titre">S'inscrire</h1>
                     <br/>
 
-                    <form onSubmit={formik.handleSubmit} className="formSignUp">
+                    <form onSubmit={formik.handleSubmit} className="form-sign-up">
 
                     <div>
                         
                     </div>
-                        <div className="field SignUpfield">
+                        <div className="field sign-up-field">
                             <label htmlFor="name" className="sr-only">Prénom*</label>
                                 <input 
                                     id="name"
@@ -91,13 +90,13 @@ const Signup = () => {
 
                             {formik.touched.name && formik.errors.name ?
 
-                                <span className="errorMessageSignUp">
-                                    <FontAwesomeIcon icon={faInfoCircle} className="errorIconSignUp" /> 
-                                    <p className="errorContentSignUp">{formik.errors.name}</p> 
+                                <span className="error-message-sign-up">
+                                    <FontAwesomeIcon icon={faInfoCircle} className="error-icon-sign-up" /> 
+                                    <p className="error-content-sign-up">{formik.errors.name}</p> 
                                 </span> : null}
                         </div>
 
-                        <div className="field SignUpfield">
+                        <div className="field sign-up-field">
                             <label htmlFor="nom" className="sr-only">Nom</label>
                                 <input 
                                     id="nom"
@@ -113,13 +112,13 @@ const Signup = () => {
 
                                 {formik.touched.surname && formik.errors.surname ? 
 
-                                    <span className="errorMessageSignUp">
-                                        <FontAwesomeIcon icon={faInfoCircle} className="errorIconSignUp" /> 
-                                        <p className="errorContentSignUp">{formik.errors.surname}</p>
+                                    <span className="error-message-sign-up">
+                                        <FontAwesomeIcon icon={faInfoCircle} className="error-icon-sign-up" /> 
+                                        <p className="error-content-sign-up">{formik.errors.surname}</p>
                                     </span> : null}
                         </div>
 
-                        <div className="field SignUpfield">
+                        <div className="field sign-up-field">
                             <label htmlFor="email" className="sr-only">E-mail</label>
                                 <input 
                                     id="email"
@@ -135,13 +134,13 @@ const Signup = () => {
 
                                 {formik.touched.email && formik.errors.email ? 
 
-                                    <span className="errorMessageSignUp">
-                                        <FontAwesomeIcon icon={faInfoCircle} className="errorIconSignUp" /> 
-                                        <p className="errorContentSignUp">{formik.errors.email}</p>
+                                    <span className="error-message-sign-up">
+                                        <FontAwesomeIcon icon={faInfoCircle} className="error-icon-sign-up" /> 
+                                        <p className="error-content-sign-up">{formik.errors.email}</p>
                                     </span> : null}
                         </div>
 
-                        <div className="field passwordContainer">
+                        <div className="field password-container">
                             <label htmlFor="password"></label>
                                 <input 
                                     id="password"
@@ -155,19 +154,19 @@ const Signup = () => {
                                     placeholder="Mot de passe"
                                 />
 
-                                <button onClick={togglePasswordVisiblity} className="passwordEyeSignUp">
-                                    <FontAwesomeIcon icon={faEye} className="eyeSignUp"/>
+                                <button onClick={togglePasswordVisiblity} className="password-eye-sign-up">
+                                    <FontAwesomeIcon icon={faEye} className="eye-sign-up"/>
                                 </button>
                                 
                                 {formik.touched.password && formik.errors.password ? 
 
-                                    <span className="errorMessageSignUp">
-                                        <FontAwesomeIcon icon={faInfoCircle} className="errorIconSignUp" /> 
-                                        <p className="errorContentSignUp">{formik.errors.password}</p>
+                                    <span className="error-message-sign-up">
+                                        <FontAwesomeIcon icon={faInfoCircle} className="error-icon-sign-up" /> 
+                                        <p className="error-content-sign-up">{formik.errors.password}</p>
                                     </span> : null}
                         </div>
 
-                        <div className="field passwordContainer">
+                        <div className="field password-container">
                             <label htmlFor="password-confirmation" className="sr-only">Confirmation du mot de passe</label>
                                 <input 
                                     id="password-confirmation"
@@ -181,35 +180,35 @@ const Signup = () => {
                                     placeholder="Confirmation mot de passe"
                                 />
                                 
-                                <button onClick={toggleConfirmedPasswordVisiblity} className="passwordEyeSignUp">
-                                    <FontAwesomeIcon icon={faEye} className="eyeSignUp"/>
+                                <button onClick={toggleConfirmedPasswordVisiblity} className="password-eye-sign-up">
+                                    <FontAwesomeIcon icon={faEye} className="eye-sign-up"/>
                                 </button>
 
                                 {formik.touched.confirmPassword && formik.errors.confirmPassword ? 
 
-                                    <span className="errorMessageSignUp">
-                                        <FontAwesomeIcon icon={faInfoCircle} className="errorIconSignUp" />  
-                                        <p className="errorContentSignUp">{formik.errors.confirmPassword}</p>
+                                    <span className="error-message-sign-up">
+                                        <FontAwesomeIcon icon={faInfoCircle} className="error-icon-sign-up" />  
+                                        <p className="error-content-sign-up">{formik.errors.confirmPassword}</p>
                                     </span> : null}
                                 
                             {errMsg && 
-                                <span className="errorMessageSignUp">
-                                    <FontAwesomeIcon icon={faInfoCircle} className="errorIconSignUp" />  
-                                    <p className="errorContentSignUp">{errMsg}</p>
+                                <span className="error-message-sign-up">
+                                    <FontAwesomeIcon icon={faInfoCircle} className="error-icon-sign-up" />  
+                                    <p className="error-content-sign-up">{errMsg}</p>
                                 </span>}
                         </div>
                         
-                        <div className="buttonContainer signUpSubmit">
+                        <div className="button-container signup-submit">
                             <input 
-                                className={"button signUpSubmitButton"}
+                                className={"button signup-submit-button"}
                                 type="submit" 
                                 value="Inscription"
                             />
                         </div>
                         <br/>
                 </form>
-                    <p id="accountQuestion">Vous avez déjà un compte ?</p> 
-                    < Link to={LOGIN_URL_FRONTEND} id="linkToSignInPage"> Connectez-vous</Link>
+                    <p id="account-question">Vous avez déjà un compte ?</p> 
+                    < Link to={LOGIN_URL_FRONTEND} id="link-to-signin-page"> Connectez-vous</Link>
                 
             </section>
         </div>     

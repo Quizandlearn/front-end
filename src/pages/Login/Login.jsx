@@ -11,9 +11,7 @@ import { useAuth } from "../../hooks/useAuth";
 const SIGNUP_URL_FRONTEND = '/signup';
 
 const Login = () => {
-   
-    const {login} = useAuth();
-    
+    const { login } = useAuth();
     const [errMsg, setErrMsg] = useState('');
     const [passwordShown, setPasswordShown] = useState(false);
 
@@ -42,15 +40,15 @@ const Login = () => {
     };
 
     return(
-        <div className="loginContainer">
+        <div className="login-container">
 
             <br/>
-            <img src={LogoBlue} id="logoLogIn" alt=""></img>  
-            <h1 id="LogInTitre"> Se Connecter</h1>
+            <img src={LogoBlue} id="logo-login" alt=""></img>  
+            <h1 id="login-titre"> Se Connecter</h1>
 
             <form onSubmit={formik.handleSubmit}>
 
-                <div className="field logInForm">
+                <div className="field login-form">
                     <label htmlFor="email"  className="sr-only">E-mail</label>
                         <input 
                             id="email"
@@ -67,20 +65,20 @@ const Login = () => {
 
                     {formik.touched.email && formik.errors.email ? 
 
-                        <span className="errorMessageLogIn">
-                            <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" /> 
-                            <p className="errorLogIn">{formik.errors.email}</p>
+                        <span className="error-message-login">
+                            <FontAwesomeIcon icon={faInfoCircle} className="error-icon-login" /> 
+                            <p className="error-login">{formik.errors.email}</p>
                         </span> : null}
                 </div>
 
-                <div className="field logInForm passwordContainer">
+                <div className="field login-form password-container">
                     <label htmlFor="password" className="sr-only">Password</label>
                         <input 
                             id="password"
                             name="password"
                             autoComplete="on"
                             type={passwordShown ? "text" : "password"}
-                            className={"input"}
+                            className="input"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value = {formik.values.password}
@@ -94,29 +92,29 @@ const Login = () => {
 
                     {formik.touched.password && formik.errors.password ? 
 
-                        <span className="errorMessageLogIn">
-                            <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" /> 
-                            <p className="errorLogIn">{formik.errors.password}</p>
+                        <span className="error-message-login">
+                            <FontAwesomeIcon icon={faInfoCircle} className="error-icon-login" /> 
+                            <p className="error-login">{formik.errors.password}</p>
                         </span> : null}
                 </div>
 
                 {errMsg && 
-                    <span className="errorMessageLogIn">
-                        <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" />  
-                        <p id="accountErrorLogIn">{errMsg}</p>
+                    <span className="error-message-login">
+                        <FontAwesomeIcon icon={faInfoCircle} className="error-icon-login" />  
+                        <p id="accounterror-login">{errMsg}</p>
                     </span>}
                 
-                <div className="logInSubmit">
+                <div className="login-submit">
                     <input 
-                        className="button logInSubmitButton"
+                        className="button login-submit-button"
                         type="submit" value="Log In"/>
                 </div>
 
             </form>
 
             <br/>
-            <p id="newcomerQuestion" >Nouveau sur la plateforme ? </p> 
-            <Link to={SIGNUP_URL_FRONTEND} id="linkToOtherPage">Inscrivez-vous</Link>
+            <p id="newcomer-question" >Nouveau sur la plateforme ? </p> 
+            <Link to={SIGNUP_URL_FRONTEND} id="link-to-other-page">Inscrivez-vous</Link>
         </div>
     );
 

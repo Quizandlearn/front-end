@@ -36,13 +36,13 @@ const Navigation = () => {
   if (user) {
     return (
       <div className={showLinks ? "navigation show-navigation" : "navigation"}>
-        <div className="upperPartNavigationContainer">
-          <img src={LogoBlue} className="logoNavigation" alt="" />
+        <div className="upper-part-navigation-container">
+          <img src={LogoBlue} className="logo-navigation" alt="" />
           {/*Search bar Bulma*/}
           <div className="searchBar">
             <input className="input" type="text" placeholder="Search" />
           </div>
-          <div className="logoutAndProfile">
+          <div className="logout-and-profile">
             <button className="button-navigation" onClick={logout}>
               Log Out{" "}
             </button>

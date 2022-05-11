@@ -46,7 +46,7 @@
   margin-top: 1em;
 }
 
-.buttonContainer {
+.button-container {
   display: flex;
   flex-direction: column;
   align-items: center;

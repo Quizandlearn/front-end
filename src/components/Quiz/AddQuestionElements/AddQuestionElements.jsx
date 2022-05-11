@@ -18,7 +18,7 @@ const AddQuestionElements = ({
 
     return(
         <>
-        <div className="buttonContainer add-answer-explanation-link">
+        <div className="button-container add-answer-explanation-link">
 
             {question  && question.answers && (question.answers.length < answerLimit) &&
                 <button 

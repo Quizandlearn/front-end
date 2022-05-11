@@ -71,7 +71,7 @@ const MyProfile = () => {
             <label class="label">Delete Account</label>
           </div>
         </div>
-        <div className="buttonContainer">
+        <div className="button-container">
           <button class="saveChangesButton">Save changes</button>
         </div>
       </div>
