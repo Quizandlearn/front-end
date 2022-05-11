@@ -18,13 +18,11 @@ const Login = () => {
     const [passwordShown, setPasswordShown] = useState(false);
 
     const formik = useFormik({
-        //Le state d'email et password est initalisé à "" - on utilise la librairie UseFormik
         initialValues: {
             email: "",
             password: ""
         },
 
-        //erreurs qui vont s'afficher (Yup est une librairie qui marche avec Formik)
         validationSchema: Yup.object({
             email: Yup.string()
                 .required("Champ obligatoire"),
@@ -32,7 +30,6 @@ const Login = () => {
                 .required("Champ obligatoire"),
         }),
 
-        //Submit du formulaire au serveur
         onSubmit: async (values) => {
             login(values, (error) => {
                 setErrMsg(error);
@@ -40,7 +37,6 @@ const Login = () => {
         }
     });
 
-    //Usestate pour voir ou ne pas voir le mot de passe
     const togglePasswordVisiblity = () => {
         setPasswordShown(!passwordShown);
     };
@@ -63,14 +59,12 @@ const Login = () => {
                             className="input"
                             autoComplete="on" 
                             onChange={formik.handleChange}
-                            //handleBlur permet de montrer à l'utilisateur les erreurs quand il se trouve dans le champs
-                            //sans attendre qu'il ait submit le formulaire
                             onBlur={formik.handleBlur}
                             value = {formik.values.email}
                             maxLength="24"
                             placeholder = "E-mail" 
                         />
-                    {/* Si la personne se trouve dans le champs et il y a des erreurs dans l'e-mail, alors on verra les erreurs*/}
+
                     {formik.touched.email && formik.errors.email ? 
 
                         <span className="errorMessageLogIn">
@@ -106,7 +100,6 @@ const Login = () => {
                         </span> : null}
                 </div>
 
-                {/*Messages d'erreurs du serveur ou mauvais identifiants: */}
                 {errMsg && 
                     <span className="errorMessageLogIn">
                         <FontAwesomeIcon icon={faInfoCircle} className="errorIconLogIn" />  

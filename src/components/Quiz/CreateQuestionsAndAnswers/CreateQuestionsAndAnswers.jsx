@@ -18,7 +18,8 @@ const CreateQuestionsAndAnswers = ({
         <FieldArray name="questions">
             {({ push, remove }) => (
             <>
-                {JSON.stringify(formik.values)}
+                {/* {JSON.stringify(formik.values)} */}
+                
                 {(formik.values.questions.length > 0) &&
                 formik.values.questions.map((question, index)=>(
                     <div className="section-container" key={index}>

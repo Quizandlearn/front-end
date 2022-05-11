@@ -12,8 +12,7 @@ const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
 const LOGIN_URL_FRONTEND = '/';
 
 const Signup = () => {
-    //entre {} car ça retournait un objet
-    const {signup} = useSignUp();
+    const { signup } = useSignUp();
 
     const [passwordShown, setPasswordShown] = useState(false);
     const [confirmedPasswordShown, setConfirmedPasswordShown] = useState(false);
@@ -48,7 +47,6 @@ const Signup = () => {
                 .required("Champ obligatoire")
         }),
 
-         //Submit du formulaire au serveur
          onSubmit: async (values) => {
                 signup(values, (message) => {
                 setErrMsg(message);
