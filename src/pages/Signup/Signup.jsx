@@ -9,7 +9,7 @@ import EnterSurname from '../../components/User/EnterSurname/EnterSurname';
 import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
 import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
 import EnterConfirmedPassword from '../../components/User/EnterConfirmedPassword/EnterConfirmedPassword';
-import Button from '../../components/User/Button/Button';
+import SubmitButton from '../../components/Common/SubmitButton/SubmitButton';
 import { useSignUp } from "../../hooks/useSignUp";
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -65,7 +65,7 @@ const Signup = () => {
                             <EnterEmail formik={formik}/>
                             <EnterPassword formik={formik} />
                             <EnterConfirmedPassword formik={formik} />
-                            <Button value={Inscription} />
+                            <SubmitButton value={Inscription} />
                         </form>
                     <p id="account-question">Vous avez déjà un compte ?</p> 
                     < Link to={LOGIN_URL_FRONTEND} id="link-to-signin-page"> Connectez-vous</Link>

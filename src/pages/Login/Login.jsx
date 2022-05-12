@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import LogoBlue from '../../assets/logoBlue.png';
 import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
 import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
-import Button from "../../components/User/Button/Button";
+import SubmitButton from "../../components/Common/SubmitButton/SubmitButton";
 import { useAuth } from "../../hooks/useAuth";
 
 const SIGNUP_URL_FRONTEND = '/signup';
@@ -43,7 +43,7 @@ const Login = () => {
                 <form onSubmit={formik.handleSubmit}>
                     <EnterEmail formik={formik} />
                     <EnterPassword formik={formik} />
-                    <Button value={LoginValue}/>
+                    <SubmitButton value={LoginValue}/>
                     </form>
             <p id="newcomer-question" >Nouveau sur la plateforme ? </p> 
             <Link to={SIGNUP_URL_FRONTEND} id="link-to-other-page">Inscrivez-vous</Link>

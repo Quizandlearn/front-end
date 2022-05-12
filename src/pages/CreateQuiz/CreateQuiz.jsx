@@ -1,11 +1,13 @@
 import './CreateQuiz.css';
 import { useFormik, FormikProvider } from 'formik';
 import * as Yup from "yup";
-import SubmitButton from '../../components/Quiz/SubmitButton/SumbitButton';
 import CreateQuizInformation from '../../components/Quiz/CreateQuizInformation/CreateQuizInformation';
 import CreateQuestionsAndAnswers from '../../components/Quiz/CreateQuestionsAndAnswers/CreateQuestionsAndAnswers';
+import SubmitButton from '../../components/Common/SubmitButton/SubmitButton';
 import { useCreateQuiz } from "../../hooks/useCreateQuiz";
 import { useState } from 'react';
+
+const sauvegardeQuiz= "Sauvegarder ce quiz";
 
 const QuizCreation = () => {
     const [errMsg, setErrMsg] = useState('');
@@ -83,7 +85,7 @@ const QuizCreation = () => {
                         <CreateQuizInformation formik={formik} />
                         <CreateQuestionsAndAnswers formik={formik} />
                     <div className="form-submit-button-container">
-                        <SubmitButton />
+                        <SubmitButton value={sauvegardeQuiz} />
                     </div>
                 </form>
             </FormikProvider>

@@ -1,4 +1,4 @@
-import FormError from "../FormError/FormError";
+import FormError from "../../Common/FormError/FormError";
 import PropTypes from "prop-types";
 
 const getFieldValue = (formik, questionIndex) => {

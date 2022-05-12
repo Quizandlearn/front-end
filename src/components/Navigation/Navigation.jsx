@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const EXPLORE_URL_FRONTEND = "/quizzes";
-const CATEGORIES_URL_FRONTEND = "/categories";
+const EXPLORE_CATEGORIES_URL_FRONTEND = "/quizzesByCategory";
 const CREATEQUIZ_URL_FRONTEND = "/createQuiz";
 const MYQUIZZES_URL_FRONTEND = "/myQuizzes";
 const FAVORITEQUIZZES_URL_FRONTEND = "/favoriteQuizzes";
@@ -76,7 +76,7 @@ const Navigation = () => {
             </Link>
             <Link
               className="menu-link"
-              to={CATEGORIES_URL_FRONTEND}
+              to={EXPLORE_CATEGORIES_URL_FRONTEND}
               onClick={handleClickLink}
             >
               Categories

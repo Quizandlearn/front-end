@@ -1,4 +1,4 @@
-import FormError from "../../Quiz/FormError/FormError";
+import FormError from "../../Common/FormError/FormError";
 import { useState } from 'react';
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

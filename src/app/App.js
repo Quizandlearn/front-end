@@ -5,6 +5,7 @@ import { AuthProvider } from "../context/AuthProvider";
 import RequireAuth from "../context/RequireAuth";
 import Navigation from "../components/Navigation/Navigation";
 import Explore from "../pages/Explore/Explore";
+import ExploreByCategory from "../pages/ExploreByCategory/ExploreByCategory";
 import MyProfile from "../pages/Profile/MyProfile";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
@@ -25,8 +26,8 @@ const App = () => {
         </Route>
 
        <Route element={<RequireAuth />}>
-          <Route path="/quizzes" element={<CreateQuiz />} />
-          <Route path="/explore" element={<Explore />} />
+          <Route path="/quizzes" element={<Explore />} />
+          <Route path="/quizzesByCategory" element={<ExploreByCategory/>} />
           <Route path="/createQuiz" element={<CreateQuiz />} />
           <Route path="/myProfile" element={<MyProfile />} />
           <Route path="/myQuizzes" element={<MyQuizzes />} />

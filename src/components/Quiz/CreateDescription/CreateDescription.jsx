@@ -1,4 +1,4 @@
-import FormError from "../FormError/FormError";
+import FormError from "../../Common/FormError/FormError.jsx";
 import PropTypes from "prop-types";
 
 const getDescriptionError=(formik) => {

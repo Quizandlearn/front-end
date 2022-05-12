@@ -1,4 +1,4 @@
-import FormError from "../../Quiz/FormError/FormError";
+import FormError from "../../Common/FormError/FormError";
 
 const getNameError = (formik) => {
     let touched = false;
