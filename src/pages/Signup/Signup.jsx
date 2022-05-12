@@ -9,17 +9,18 @@ import EnterSurname from '../../components/User/EnterSurname/EnterSurname';
 import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
 import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
 import EnterConfirmedPassword from '../../components/User/EnterConfirmedPassword/EnterConfirmedPassword';
+import Button from '../../components/User/Button/Button';
 import { useSignUp } from "../../hooks/useSignUp";
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const LOGIN_URL_FRONTEND = '/';
+const Inscription = "Inscription";
 
 const Signup = () => {
     const { signup } = useSignUp();
     const [errMsg, setErrMsg] = useState('');
 
     const formik = useFormik({
-
         initialValues: {
             name: "",
             surname : "",
@@ -42,7 +43,6 @@ const Signup = () => {
                 .matches(PASSWORD_REGEX, 'Le mot de passe doit contenir au minimum 8 caractères : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre')
                 .required("Champ obligatoire"),
             confirmedPassword: Yup.string()
-                /*oneOf = equals to*/ 
                 .oneOf([Yup.ref('password'), null], 'Les mots de passe saisis ne sont pas idéntiques')
                 .required("Champ obligatoire")
         }),
@@ -59,21 +59,13 @@ const Signup = () => {
              <section id="sign-up-container">
                     <img src={LogoBlue} id="logo-sign-up" alt=""></img>  
                     <h1 id="sign-up-titre">S'inscrire</h1>
-                    <br/>
                         <form onSubmit={formik.handleSubmit} className="form-sign-up">
                             <EnterName formik={formik} />
                             <EnterSurname formik={formik} />
                             <EnterEmail formik={formik}/>
                             <EnterPassword formik={formik} />
                             <EnterConfirmedPassword formik={formik} />
-                            <div className="button-container signup-submit">
-                                <input 
-                                    className={"button signup-submit-button"}
-                                    type="submit" 
-                                    value="Inscription"
-                                />
-                            </div>
-                            <br/>
+                            <Button value={Inscription} />
                         </form>
                     <p id="account-question">Vous avez déjà un compte ?</p> 
                     < Link to={LOGIN_URL_FRONTEND} id="link-to-signin-page"> Connectez-vous</Link>

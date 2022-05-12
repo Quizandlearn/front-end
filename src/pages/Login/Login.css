@@ -12,7 +12,7 @@
 #login-titre{
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 0.5em;
+    margin-bottom: 20px;
     font-family: "Sporting", "sans-serif";
 }
 
@@ -68,24 +68,7 @@
     color: white; 
 }
 
-/*Errors*/
-.error-message-login,
-.error-icon-login,
-#error-login {
-    color: firebrick;
-}
-
-.error-message-login{
-    display: flex;
-}
-
-.error-icon-login{
-    padding-right: 5px;
-    padding-top: 3px;
-}
-
 /*password*/
-
 .password-container {
     position: relative;
 }
@@ -113,6 +96,6 @@
 
 #newcomer-question{
     font-size: 15px;
-    padding-top: 1em;
+    padding-top: 30px;
     font-family: "Sporting", "sans-serif";
 }

@@ -19,7 +19,7 @@
 #sign-up-titre{
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 0.5em;
+    margin-bottom: 20px;
     font-family: "Sporting", "sans-serif";
 }
 
@@ -55,44 +55,6 @@
   font-family: "Sporting", "sans-serif";
 }
 
-/*Buttons*/
-.signup-submit{
-     display:block;
-    text-align:center; 
-    margin-top: 1.5em;
-}
-
-.signup-submit-button{
-    background-color: #2B6FD2;
-    color: white;
-    font-weight: bold;
-    font-family: "Sporting", "sans-serif";
-    cursor: pointer;
-}
-
-.signup-submit-button:hover{
-    color: white; 
-}
-
-/*Errors*/
-.error-content-sign-up{
-    color: firebrick;
-    padding-top: 0.3em;
-    text-align: start;
-}
-
-.error-message-sign-up{
-    display: flex;
-    flex-direction: row;   
-}
-
-.error-icon-sign-up{
-    color: firebrick;
-    padding-left: 3px;
-    padding-right: 7px;
-    padding-top: 0.5em;
-}
-
 /*password*/
 .password-container{
     position: relative;
@@ -112,9 +74,9 @@
 }
 
 /*last elements*/
-.account-question{
+#account-question{
     font-size: 15px;
-    padding-top: 1em;
+    padding-top: 30px;
     font-family: "Sporting", "sans-serif";
 }
 

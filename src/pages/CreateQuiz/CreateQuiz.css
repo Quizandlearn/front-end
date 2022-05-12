@@ -207,7 +207,8 @@
 
 .error-message-form {
     display: flex;
-    padding-top: 1px;
+    text-align: start;
+    padding-top: 3px;
 }
 
 .error-icon-form {
