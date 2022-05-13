@@ -202,7 +202,7 @@
 .error-message-form,
 .error-icon-form,
 .error-form {
-    color: firebrick;
+    color: #2B6FD2;
 }
 
 .error-message-form {
@@ -262,8 +262,8 @@
         font-size: 13px;
     }
 
-    .form-submit-button{
-        margin-top: 25px;
+    .form-submit-button-container > button {
+        margin-top: 35px;
     }
 
     .remove-question-icon{
@@ -300,7 +300,7 @@
     .add-answer,
     .add-explanation-and-link,
     .add-question,
-    .form-submit-button{
+    .form-submit-button-container > button{
         font-size: 13px;
     }
 
