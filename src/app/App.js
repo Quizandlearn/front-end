@@ -25,7 +25,7 @@ const App = () => {
           <Route path="signup" element={<Signup />} />
         </Route>
 
-       <Route element={<RequireAuth />}>
+      {/*  <Route element={<RequireAuth />}> */}
           <Route path="/quizzes" element={<Explore />} />
           <Route path="/quizzesByCategory" element={<ExploreByCategory/>} />
           <Route path="/createQuiz" element={<CreateQuiz />} />
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/myQuizzes" element={<MyQuizzes />} />
           <Route path="/favoriteQuizzes" element={<FavoriteQuizzes />} />
           <Route path="/completedQuizzes" element={<CompletedQuizzes />} />
-        </Route>
+       {/*  </Route> */}
 
         <Route path="*" element={<Explore />} />
       </Routes>
