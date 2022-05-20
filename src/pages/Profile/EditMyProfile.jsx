@@ -1,5 +1,5 @@
 import React from "react";
-import "./myProfile.css";
+import "./MyProfile.css";
 import profile from "./profile.png";
 
 const MyProfile = () => (
@@ -80,7 +80,7 @@ const MyProfile = () => (
     </section>
     <div className="mainSectionContainer">
       <div className="photoProfileContainer">
-        <h6>ICI ON VA AVOIR LE COMPOSANT 'MY QUIZZES'</h6>
+        <h6>ICI ON VA AVOIR LE COMPOSANT MY QUIZZES</h6>
       </div>
     </div>
   </div>

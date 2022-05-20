@@ -1,7 +1,7 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 // eslint-disable-next-line camelcase
 import jwt_decode from "jwt-decode";
-import { useAuth } from "../hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 
 // dans ce composant on veut faire 2 choses :
 // 1-- vérifier que le token de l'utilisateur est valide, s'il n'est plus valide => le renvoyer vers le page de LOGIN
@@ -12,6 +12,7 @@ const RequireAuth = ({ onlyPublic }) => {
   const { user } = useAuth();
 
   const isValidToken = (token) => {
+    // eslint-disable-next-line no-param-reassign
     token = jwt_decode(token);
     // Cet instant présent en millisecondes
     const now = Math.floor(Date.now() / 1000);
