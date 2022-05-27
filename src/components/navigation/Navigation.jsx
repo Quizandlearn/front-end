@@ -39,11 +39,11 @@ const Navigation = () => {
           <img src={LogoBlue} className="logoNavigation" alt="" />
           {/*Search bar Bulma*/}
           <div className="searchBar">
-            <input className="input" type="text" placeholder="Search" />
+            <input className="input" type="text" placeholder="Rechercher" />
           </div>
           <div className="logoutAndProfile">
             <button className="button-navigation" onClick={logout}>
-              Log Out{" "}
+              Déconnexion{" "}
             </button>
             <div className="profile">
               <figure className="image is-64x64">
@@ -59,7 +59,7 @@ const Navigation = () => {
                 to={MYPROFILE_URL_FRONTEND}
                 onClick={handleClickLink}
               >
-                Firstname
+                Prénom
               </Link>
             </div>
           </div>
@@ -71,17 +71,17 @@ const Navigation = () => {
               to={EXPLORE_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Explore
+              Explorer
             </Link>
             <Link
               className="menu-link"
               to={CATEGORIES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Categories
+              Catégories
             </Link>
             <Link className="menu-link" to="" onClick={handleClickLink}>
-              Create Quiz
+              Création Quiz
             </Link>
             {/* A faire */}
             <Link
@@ -89,21 +89,21 @@ const Navigation = () => {
               to={MYQUIZZES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              My Quizzes
+              Mes Quiz
             </Link>
             <Link
               className="menu-link"
               to={FAVORITEQUIZZES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Favorite Quizzes
+              Quiz Favoris
             </Link>
             <Link
               className="menu-link"
               to={COMPLETEDQUIZZES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Completed Quizzes
+              Quiz répondus
             </Link>
           </div>
         </div>
