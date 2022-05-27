@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LogoBlue from "../../assets/logoBlue.png";
 import profile from "../../assets/profile.png";
 import "./Navigation.css";
-import { useAuth } from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const EXPLORE_URL_FRONTEND = "/quizzes";
 const CATEGORIES_URL_FRONTEND = "/categories";
@@ -41,8 +44,8 @@ const Navigation = () => {
             <input className="input" type="text" placeholder="Rechercher" />
           </div>
           <div className="logoutAndProfile">
-            <button className="button-navigation" onClick={logout}>
-              Déconnexion{" "}
+            <button type="button" className="button-navigation" onClick={logout}>
+              Déconnexion
             </button>
             <div className="profile">
               <figure className="image is-64x64">
@@ -106,7 +109,7 @@ const Navigation = () => {
             </Link>
           </div>
         </div>
-        <button className="navbar-burger" onClick={handleShowLinks}>
+        <button type="button" className="navbar-burger" onClick={handleShowLinks}>
           <span className="burger-bar" />
         </button>
       </div>
