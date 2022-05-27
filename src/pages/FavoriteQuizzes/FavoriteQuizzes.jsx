@@ -1,9 +1,5 @@
-const FavoriteQuizzes = () => {
-    return(
-        <>
-            <div>Page Favorite Quizzes!</div>
-        </>
-    )
-};
+import React from "react";
+
+const FavoriteQuizzes = () => <div>Page Favorite Quizzes!</div>;
 
 export default FavoriteQuizzes;

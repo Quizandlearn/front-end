@@ -1,9 +1,5 @@
-const MyQuizzes = () => {
-    return(
-        <>
-            <div>Page My Quizzes !</div>
-        </>
-    )
-};
+import React from "react";
+
+const MyQuizzes = () => <div>Page My Quizzes !</div>;
 
 export default MyQuizzes;

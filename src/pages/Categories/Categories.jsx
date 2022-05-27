@@ -1,9 +1,5 @@
-const Categories = () => {
-    return(
-        <>
-            <div>Page Categories !</div>
-        </>
-    )
-};
+import React from "react";
+
+const Categories = () => <div>Page Categories !</div>;
 
 export default Categories;

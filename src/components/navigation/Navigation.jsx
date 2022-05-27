@@ -1,10 +1,9 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import LogoBlue from "../../assets/logoBlue.png";
 import profile from "../../assets/profile.png";
 import "./Navigation.css";
 import { useAuth } from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const EXPLORE_URL_FRONTEND = "/quizzes";
 const CATEGORIES_URL_FRONTEND = "/categories";
@@ -26,7 +25,7 @@ const Navigation = () => {
     setShowLinks(false);
   };
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleImageClick = () => {
     navigate(MYPROFILE_URL_FRONTEND);
@@ -37,7 +36,7 @@ const Navigation = () => {
       <div className={showLinks ? "navigation show-navigation" : "navigation"}>
         <div className="upperPartNavigationContainer">
           <img src={LogoBlue} className="logoNavigation" alt="" />
-          {/*Search bar Bulma*/}
+          {/* Search bar Bulma */}
           <div className="searchBar">
             <input className="input" type="text" placeholder="Rechercher" />
           </div>
@@ -108,13 +107,12 @@ const Navigation = () => {
           </div>
         </div>
         <button className="navbar-burger" onClick={handleShowLinks}>
-          <span className="burger-bar"></span>
+          <span className="burger-bar" />
         </button>
       </div>
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default Navigation;
