@@ -46,20 +46,71 @@
   margin-top: 1em;
 }
 
-.editButton {
-  background-color: #2b6fd2;
-  color: white;
-  font-weight: bold;
-  font-family: "Sporting", "sans-serif";
-  cursor: pointer;
-  margin-left: 0.5em;
-}
-
-.personalInformationContainer {
+.MyProfile__aboutYouContainer {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-top: 1.5em;
+  margin: 1.5em;
+}
+
+.MyProfile__logOutButton {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: white;
+  background-color: #2b6fd2;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+}
+
+.MyProfile__logOutButton:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+.MyProfile__editButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2em;
+  gap: 10px;
+}
+
+.MyProfile__editButton {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: white;
+  background-color: #2b6fd2;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 90px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+}
+
+.MyProfile__editButton:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
 .titleInsideContainer {

@@ -1,70 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MyProfile.css";
-import profile from "./profile.png";
-import useAuth from "../../hooks/useAuth";
+import MyProfileImage from "./MyProfileImage";
 
-const EditButtons = () => <button className="editButton">Edit</button>;
+// const EditEmailField = ({ jsonData }) => (
+//   <div className="field">
+//     <div className="control">
+//       <input className="input is-warning" type="email" value={jsonData.email} />
+//     </div>
+//   </div>
+// );
 
-const MyProfileAboutYou = () => (
-  <div className="personalInformationContainer">
-    <label htmlFor="title" className="titleInsideContainer">
-      About You
-    </label>
-    <div className="field">
-      <label className="label">Name</label>
-      <p>My Name</p>
-    </div>
+// const EditContactField = ({ jsonData }) => (
+//   <div className="field">
+//     <div className="control">
+//       <input
+//         className="input is-warning"
+//         type="text"
+//         value={jsonData.contact}
+//         placeholder={jsonData.contact ? jsonData.contact : "Empty"}
+//       />
+//     </div>
+//   </div>
+// );
 
-    <div className="field">
-      <label className="label">Email</label>
-      <p>My Email</p>
-    </div>
+// const EditNameField = ({ jsonData, handleEditPerson }) => (
+//   <input
+//     className="input is-warning"
+//     type="text"
+//     value={jsonData.name}
+//     onEdit={(e) => {
+//       handleEditPerson({
+//         ...jsonData,
+//         name: e.target.value,
+//       });
+//     }}
+//   />
+// );
 
-    <div className="field">
-      <label className="label">Contact</label>
-      <p>My Contact</p>
-    </div>
-    <EditButtons />
-  </div>
-);
+// const UserFirstName = ({ jsonData }) => <div className="field">{jsonData.name}</div>;
 
-const MyProfileImage = () => {
-  const { logout } = useAuth();
+// const UserLastName = ({ jsonData }) => <div className="field">{jsonData.name}</div>;
+
+// const UserEmail = ({ jsonData }) => <div className="field">{jsonData.email}</div>;
+
+const MyProfileAboutYou = ({ jsonData }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [firstName, setFirstName] = useState(jsonData.name);
+  const [lastName, setLastName] = useState(jsonData.name);
+  const [email, setEmail] = useState(jsonData.email);
+
   return (
-    <div className="photoProfileContainer">
-      <figure className="image is-128x128">
-        <img className="is-rounded" src={profile} alt="Profile" />
-      </figure>
-      <label htmlFor="title" className="titleInsideContainer">
-        First name
-      </label>
-      <button className="editButton" onClick={logout}>
-        Log Out
-      </button>
+    <div className="MyProfile__aboutYouContainer">
+      <div htmlFor="title" className="titleInsideContainer">
+        À propos de moi
+      </div>
+      <div className="field">
+        <div className="label">Prénom</div>
+      </div>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        setIsEditing(!isEditing);
+      }}
+      >
+        {isEditing ? (
+          <input
+            className="input is-warning"
+            type="text"
+            value={firstName}
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
+          />
+        ) : (
+          <div className="field">{jsonData.name}</div>
+        )}
+        <div className="field">
+          <div className="label">Nom</div>
+          {isEditing ? (
+            <input
+              className="input is-warning"
+              type="text"
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+            />
+          ) : (
+            <div className="field">{jsonData.name}</div>
+          )}
+        </div>
+        <div className="field">
+          <div className="label">Email</div>
+          {isEditing ? (
+            <input
+              className="input is-warning"
+              type="text"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          ) : (
+            <div className="field">{jsonData.email}</div>
+          )}
+        </div>
+        <div className="MyProfile__editButtonContainer">
+          <button className="MyProfile__editButton" type="submit">
+            {isEditing ? "Enregistrer" : "Modifier"}
+          </button>
+          <button className="MyProfile__editButton" type="button">Changer le mot de passe</button>
+        </div>
+      </form>
     </div>
   );
 };
 
-const MyProfileInformation = () => (
-  <div className="mainSectionContainer">
-    <MyProfileImage />
-    <MyProfileAboutYou />
-  </div>
-);
+const MyProfile = ({ users }) => {
+  const [name] = users;
+  const user = name;
+  const [jsonData, setJsonData] = useState(user);
 
-const MyProfileTitle = () => (
-  <div className="titleContainer">
-    <section id="titleContainer">
-      <h1 id="profileTitle">My profile</h1>
-    </section>
-  </div>
-);
-
-const MyProfile = () => (
-  <div className="profilePageContainer">
-    <MyProfileTitle />
-    <MyProfileInformation />
-  </div>
-);
+  const handleEditPerson = (newPerson) => {
+    setJsonData(
+      jsonData.map((person) => {
+        if (person.name === newPerson.name) {
+          return newPerson;
+        }
+        return person;
+      })
+    );
+  };
+  return (
+    <div className="profilePageContainer">
+      <div className="titleContainer">
+        <section id="titleContainer">
+          <h1 id="profileTitle">Mon profil</h1>
+        </section>
+      </div>
+      <div className="mainSectionContainer">
+        <MyProfileImage />
+        <MyProfileAboutYou jsonData={jsonData} handleEditPerson={handleEditPerson} />
+      </div>
+    </div>
+  );
+};
 
 export default MyProfile;

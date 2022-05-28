@@ -13,6 +13,21 @@ import MyQuizzes from "../pages/MyQuizzes/MyQuizzes";
 import FavoriteQuizzes from "../pages/FavoriteQuizzes/FavoriteQuizzes";
 import CompletedQuizzes from "../pages/CompletedQuizzes/CompletedQuizzes";
 
+const USERS = [
+  {
+    email: "alina@gmail.com",
+    password: "$1",
+    contact: "067898765",
+    name: "Alina",
+  },
+  {
+    email: "anthony@gmail.com",
+    password: "$1",
+    contact: "067856768",
+    name: "Anthony",
+  },
+];
+
 const App = () => (
   <AuthProvider>
     <Navigation />
@@ -25,7 +40,7 @@ const App = () => (
 
       <Route element={<RequireAuth />}>
         <Route path="/quizzes" element={<Explore />} />
-        <Route path="/myProfile" element={<MyProfile />} />
+        <Route path="/myProfile" element={<MyProfile users={USERS} />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/myQuizzes" element={<MyQuizzes />} />
         <Route path="/favoriteQuizzes" element={<FavoriteQuizzes />} />
