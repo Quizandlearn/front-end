@@ -7,14 +7,14 @@ const MyProfileImage = () => {
   const { logout, user } = useAuth();
 
   return (
-    <div className="photoProfileContainer">
+    <div className="myProfile__photoProfileContainer">
       <figure className="image is-128x128">
         <img className="is-rounded" src={profile} alt="Profile" />
       </figure>
-      <label htmlFor="title" className="titleInsideContainer">
+      <label htmlFor="title" className="myProfile__titleInsideContainer">
         {user.userId}
       </label>
-      <button className="MyProfile__logOutButton" type="button" onClick={logout}>
+      <button className="myProfile__logOutButton" type="button" onClick={logout}>
         Déconnexion
       </button>
     </div>

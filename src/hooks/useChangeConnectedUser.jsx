@@ -11,17 +11,18 @@ const useGetConnectedUser = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const id = user.userId;
-      if (id) {
-        try {
-          const { data: response } = await axios.get(`${api.user}/${id}`, {
-            headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
-            withCredentials: true
-          });
-          setData(response);
-        } catch (error) {
-          console.error(error.message);
-        }
+      const newData = {
+        firstName: "Alexandre"
+      };
+
+      try {
+        const { data: response } = await axios.patch(`${api.user}/${user.userId}`, newData, {
+          headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
+          withCredentials: true
+        });
+        setData(response);
+      } catch (error) {
+        console.error(error.message);
       }
       setLoading(false);
     };
