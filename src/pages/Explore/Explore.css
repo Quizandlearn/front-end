@@ -1,0 +1,25 @@
+.explore {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    margin-top: "Opx";
+    min-height: 100%;
+    background-color:#fec0c0;
+    font-family: system-ui;
+}
+
+.explore__container-list { 
+}
+
+.explore__container-list-title {
+    font-size: 3rem ;
+    color:#1F68D3;
+    font-weight: bold; 
+    margin-bottom: 10%; 
+}
+
+.explore__container-list-items {
+    border: 3px solid #15835C;
+    border-radius: 4px;
+    padding: 15px;
+}
