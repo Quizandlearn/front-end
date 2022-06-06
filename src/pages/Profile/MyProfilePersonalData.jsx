@@ -7,6 +7,7 @@ const MyProfilePersonalData = ({ jsonData }) => {
   const [lastName, setLastName] = useState(jsonData.name);
   const [email, setEmail] = useState(jsonData.email);
 
+  // console.log(jsonData);
   return (
     <div className="myProfile__personalDataContainer">
       <div htmlFor="title" className="myProfile__titleInsideContainer">

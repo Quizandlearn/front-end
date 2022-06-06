@@ -4,7 +4,7 @@ import api from "../config/api";
 import useAuth from "./useAuth";
 
 const useGetConnectedUser = () => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const { user } = useAuth();
 
@@ -28,7 +28,7 @@ const useGetConnectedUser = () => {
     fetchData();
   }, []);
 
-  return [loading, data];
+  return [isLoading, data];
 };
 
 export default useGetConnectedUser;
