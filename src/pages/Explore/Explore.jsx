@@ -11,7 +11,10 @@ const Explore = () => {
         <div className="explore__container-list-title">TOUS LES QUIZ</div>
         <ul>
           <li>
-            <div className="explore__container-list-items">Un quiz</div>
+            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
+            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
+            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
+            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
           </li>
         </ul>
       </div>
