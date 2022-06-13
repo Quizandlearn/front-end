@@ -1,35 +1,40 @@
-import { useEffect, useState } from "react";
 import axios from "../config/axios";
 import api from "../config/api";
 import useAuth from "./useAuth";
+import errorDisplayed from "../config/error";
 
-const useGetConnectedUser = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+const useChangeConnectedUser = () => {
   const { user } = useAuth();
+  const id = user.userId;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const newData = {
-        firstName: "Alexandre"
-      };
+  const sendChangedUserData = async (firstName, lastName, myEmail, e, onError) => {
+    console.log(lastName);
 
-      try {
-        const { data: response } = await axios.patch(`${api.user}/${user.userId}`, newData, {
-          headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
-          withCredentials: true
-        });
-        setData(response);
-      } catch (error) {
-        console.error(error.message);
+    e.preventDefault();
+
+    try {
+      const response = await axios.put(`${api.user}/${id}`, JSON.stringify({
+        name: firstName,
+        surname: lastName,
+        email: myEmail,
+      }), {
+        headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
+        withCredentials: true
+      });
+      console.log(response);
+      console.log(JSON.stringify(response));
+    } catch (error) {
+      if (typeof onError === "function") {
+        if (!error.response) {
+          onError(errorDisplayed.server);
+        } else if (error.response.status === 400) {
+          onError(errorDisplayed.existingAccount);
+        }
       }
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+    }
+  };
 
-  return [loading, data];
+  return { sendChangedUserData };
 };
 
-export default useGetConnectedUser;
+export default useChangeConnectedUser;
