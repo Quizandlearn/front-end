@@ -1,0 +1,324 @@
+.quiz-creation-page-container{
+    width: 100%;
+    position: absolute;
+    min-height: 1000px;
+    background-color: #FEC0C0; 
+    font-family: "Sporting", "sans-serif";
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.quiz-creation-form-container{
+    padding-top: 60px;
+    min-height: 100%;
+}
+
+.form-submit-button-container{
+    padding-top: 6px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.quiz-creation-form-container,
+.form-submit-button-container {
+    max-width: 800px;
+    min-width: 300px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.add-question-button-container{
+    float: right;
+}
+
+.title-quiz-creation{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    font-family: "Sporting", "sans-serif";
+    text-align: center;
+}
+
+.section-container{
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    background-color: #f1d5d5;
+    margin-bottom: 20px;
+}
+
+.question-number{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+/*Form Inputs*/
+.quiz-creation-form-container input[type="text"],
+.quiz-creation-form-container textarea,
+#select-categories {
+    background-color : #256AD0;
+    color: white;
+    width: 100%;
+    font-family: "Sporting", "sans-serif";
+}
+
+.quiz-creation-form-container input[type="text"]::placeholder,
+.quiz-creation-form-container textarea::placeholder,
+#select-categories::placeholder,
+.quiz-creation-form-container input:focus{
+    color: white;
+    font-family: "Sporting", "sans-serif";
+}
+
+.quiz-creation-form-container input:-webkit-autofill,
+.quiz-creation-form-container input:-webkit-autofill:hover, 
+.quiz-creation-form-container input:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+  font-family: "Sporting", "sans-serif";
+}
+
+.quiz-creation-form-container textarea,
+#select-categories-container {
+    margin-top: 10px;
+}
+
+#select-categories {
+    height: 40px;
+    max-width: 800px;
+}
+
+
+#reply-field {
+    width: 100%;
+    padding-left: 0px;
+}
+
+.quiz-creation-form-container input[type="checkBox"]{
+    margin-right: 10px;
+}
+
+.replies-container{
+    max-width: 700px;
+}
+
+.add-question{
+    background-color: #2B6FD2;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+}
+
+.add-answer-explanation-link{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.add-answer{
+    background-color: #2B6FD2;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+}
+
+.add-explanation{
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+}
+
+.delete-question{
+    color: red;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    left: 710px;
+    top: -10px;
+}
+
+.remove-question-icon{
+    height: 2em;
+    padding-bottom: 0.8em;
+}
+
+.remove-answer{
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+}
+
+.answer-and-delete{
+    display: flex;
+}
+
+#reply-field > input[type="text"] {
+    background-color: #0E835B;
+    max-width: 694px;
+}
+
+.learn-more{
+    margin-top: 10px;
+}
+
+.correct-answer-container{
+    margin-bottom: 5px;
+}
+
+.add-answer:hover,
+.add-explanation-and-link:hover,
+.add-question:hover{
+    color: white;
+}
+
+.form-submit-button{
+    background-color: #0E835B;
+    color: white;
+    font-weight: bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+    width: 220px;
+}
+
+.form-submit-button:hover{
+    color: white;
+}
+
+/*Error messages*/
+
+.error-message-form,
+.error-icon-form,
+.error-form {
+    color: #2B6FD2;
+}
+
+.error-message-form {
+    display: flex;
+    text-align: start;
+    padding-top: 3px;
+}
+
+.error-icon-form {
+    padding-right: 5px;
+    padding-top: 3px;
+}
+
+@media(max-width:900px){
+
+    .quiz-creation-form-container{
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    .delete-question{
+        left: 550px;
+    }
+
+    .add-question{
+        margin-left: 430px;
+    }
+}
+
+@media(max-width:700px){
+
+    .quiz-creation-form-container{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .delete-question{
+        left: 400px;
+    }
+
+    .add-question{
+        margin-left: 330px;
+    }
+
+    .add-answer-explanation-link{
+        flex-direction: column;
+        align-items:flex-end;
+        height: 150px;
+    }
+
+    .section-container{
+        padding-bottom: 20px;
+    }
+
+    .error-message-form,
+    .error-icon-form,
+    .error-form{
+        font-size: 13px;
+    }
+
+    .form-submit-button-container > button {
+        margin-top: 35px;
+    }
+
+    .remove-question-icon{
+        height: 1.5em;
+        padding-bottom: 0em;
+    }
+}
+
+@media(max-width:550px) {
+    .quiz-creation-form-container{
+        max-width: 400px;
+    }
+
+    .delete-question{
+        left: 300px;
+    }
+}
+
+@media(max-width:450px) {
+    .quiz-creation-form-container{
+        max-width: 280px;
+    }
+
+    .quiz-creation-form-container input[type="text"],
+    #select-categories,
+    .remove-answer{
+        height: 35px;
+    }
+
+    .remove-answer{
+        width: 30px;
+    }
+
+    .add-answer,
+    .add-explanation,
+    .add-question,
+    .form-submit-button-container > button{
+        font-size: 13px;
+    }
+
+    .add-question{
+        margin-bottom: 10px;
+    }
+
+    .add-answer-explanation-link{
+        height: 120px;
+    }
+
+    .delete-question{
+        left: 210px;
+    }
+
+
+    .remove-question-icon{
+        height: 1.2em;
+    }
+
+}

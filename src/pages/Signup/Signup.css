@@ -1,4 +1,4 @@
-#PageSignUpContainer{
+#page-sign-up-container{
     width: 100%;
     position: absolute;
     min-height: 1000px;
@@ -6,7 +6,7 @@
     background-color: #FEC0C0;
 }
 
-#signUpContainer{
+#sign-up-container{
     padding-top: 100px;
     max-width: 290px;
     margin: 0 auto;
@@ -16,89 +16,52 @@
     width: 100%;
 }
 
-#signUpTitre{
+#sign-up-titre{
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 0.5em;
+    margin-bottom: 20px;
     font-family: "Sporting", "sans-serif";
 }
 
-#logoSignUp{
+#logo-sign-up{
     width: 150px;
 }
 
 /*Form Inputs*/
-.formSignUp input[type="text"],
-.formSignUp input[type="email"],
-.formSignUp input[type="password"], 
-.formSignUp textarea {
+.form-sign-up input[type="text"],
+.form-sign-up input[type="email"],
+.form-sign-up input[type="password"] {
     background-color : #0E835B;
     color: white;
     width: 100%;
     font-family: "Sporting", "sans-serif";
 }
 
-.formSignUp input[type="text"]::placeholder,
-.formSignUp input[type="email"]::placeholder,
-.formSignUp input[type="password"]::placeholder,
-.formSignUp input:focus{
+.form-sign-up input[type="text"]::placeholder,
+.form-sign-up input[type="email"]::placeholder,
+.form-sign-up input[type="password"]::placeholder,
+.form-sign-up input:focus{
     color: white;
     font-family: "Sporting", "sans-serif";
 }
-
-.formSignUp input:-webkit-autofill,
-.formSignUp input:-webkit-autofill:hover, 
-.formSignUp input:-webkit-autofill:focus {
+.form-sign-up input[type="text"]::placeholder,
+.form-sign-up input[type="email"]::placeholder,
+.form-sign-up input[type="password"]::placeholder
+.form-sign-up input:-webkit-autofill,
+.form-sign-up input:-webkit-autofill:hover, 
+.form-sign-up input:-webkit-autofill:focus {
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
   font-family: "Sporting", "sans-serif";
 }
 
-/*Buttons*/
-.signUpSubmit{
-     display:block;
-    text-align:center; 
-    margin-top: 1.5em;
-}
-
-.signUpSubmitButton{
-    background-color: #2B6FD2;
-    color: white;
-    font-weight: bold;
-    font-family: "Sporting", "sans-serif";
-    cursor: pointer;
-}
-
-.signUpSubmitButton:hover{
-    color: white; 
-}
-
-/*Errors*/
-.errorContentSignUp{
-    color: firebrick;
-    padding-top: 0.3em;
-    text-align: start;
-}
-
-.errorMessageSignUp{
-    display: flex;
-    flex-direction: row;   
-}
-
-.errorIconSignUp{
-    color: firebrick;
-    padding-left: 3px;
-    padding-right: 7px;
-    padding-top: 0.5em;
-}
-
 /*password*/
-.passwordContainerSignUp{
+.password-container{
     position: relative;
 }
 
-.passwordEyeSignUp{
+.password-eye-sign-up{
     border: none;
     background-color: transparent;
     position: absolute;
@@ -106,21 +69,36 @@
     right: 12px;
 }
 
-.eyeSignUp{
+.eye-sign-up{
     color: 	#D3D3D3;
     height: 18px;
 }
 
 /*last elements*/
-.accountQuestion{
+#account-question{
     font-size: 15px;
-    padding-top: 1em;
+    padding-top: 30px;
     font-family: "Sporting", "sans-serif";
 }
 
-#linkToSignInPage{
+#link-to-signin-page{
     color: #2B6FD2;
     font-weight: bold;
     text-decoration: underline;
     padding-top: 0.3em;
+}
+
+@media(max-width:410px) {
+    .form-sign-up input[type="text"],
+    .form-sign-up input[type="email"],
+    .form-sign-up input[type="password"]{ 
+        max-width: 230px;
+        font-size: 13px;
+    }
+
+    .password-eye-sign-up{
+        right: 0;
+        left: 185px;
+        top: 7px;
+    }
 }

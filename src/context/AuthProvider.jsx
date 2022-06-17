@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer } from "react";
+import PropTypes from "prop-types";
 
 // on crée un contexte = un changement d'état qui impactera tous les composants
 export const AuthContext = createContext();
@@ -47,6 +48,13 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+AuthProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 export const useStateValue = () => useContext(AuthContext);
