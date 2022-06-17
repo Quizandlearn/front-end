@@ -7,14 +7,14 @@ const Explore = () => {
   const { user } = useAuth();
   return (
     <div className="explore">
-      <div className="explore__container-list">
-        <div className="explore__container-list-title">TOUS LES QUIZ</div>
+      <div className="explore__container">
+        <h2 className="explore__container-title">TOUS LES QUIZ</h2>
         <ul>
           <li>
-            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
-            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
-            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
-            <div className="explore__container-list-items">Un quiz : description, auteur, thème...</div>
+            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
+            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
+            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
+            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
           </li>
         </ul>
       </div>

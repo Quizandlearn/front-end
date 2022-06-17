@@ -7,10 +7,7 @@
     font-family: system-ui;
 }
 
-.explore__container-list { 
-}
-
-.explore__container-list-title {
+.explore__container-title {
     margin: 2rem;
     font-size: 3rem ;
     color:#1F68D3;
@@ -18,7 +15,7 @@
     margin-bottom: 10%; 
 }
 
-.explore__container-list-items {
+.explore__container-list__item {
     border-radius: 0.5rem;
     padding: 2rem;
     margin: 1rem;
