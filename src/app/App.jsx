@@ -12,7 +12,7 @@ import ExploreByCategory from "../pages/ExploreByCategory/ExploreByCategory";
 import MyQuizzes from "../pages/MyQuizzes/MyQuizzes";
 import FavoriteQuizzes from "../pages/FavoriteQuizzes/FavoriteQuizzes";
 import CompletedQuizzes from "../pages/CompletedQuizzes/CompletedQuizzes";
-import CreateQUiz from "../pages/CreateQuiz/CreateQuiz";
+import CreateQuiz from "../pages/CreateQuiz/CreateQuiz";
 
 const App = () => (
   <AuthProvider>
@@ -31,7 +31,7 @@ const App = () => (
         <Route path="/myQuizzes" element={<MyQuizzes />} />
         <Route path="/favoriteQuizzes" element={<FavoriteQuizzes />} />
         <Route path="/completedQuizzes" element={<CompletedQuizzes />} />
-        <Route path="/createQUiz" element={<CreateQUiz />} />
+        <Route path="/createQUiz" element={<CreateQuiz />} />
       </Route>
 
       {/* route qui n'existe pas - redirection page Explore */}
