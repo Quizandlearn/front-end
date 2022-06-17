@@ -8,7 +8,7 @@ import MyProfilePersonalData from "./MyProfilePersonalData";
 import useGetConnectedUser from "../../hooks/useGetConnectedUser";
 
 
-const MyProfile = ({ users }) => {
+const MyProfile = () => {
   const [loading, data] = useGetConnectedUser();
 
   if(loading) {
@@ -22,7 +22,7 @@ const MyProfile = ({ users }) => {
             <h1 id="myProfile__title">Mon profil</h1>
           </div>
           <div className="myProfile__mainSectionContainer">
-            <MyProfileImage />
+            <MyProfileImage data={data}/>
             <MyProfilePersonalData data={data} />
           </div>
         </div>}

@@ -3,8 +3,8 @@ import "./MyProfile.css";
 import profile from "./profile.png";
 import useAuth from "../../hooks/useAuth";
 
-const MyProfileImage = () => {
-  const { logout, user } = useAuth();
+const MyProfileImage = ({ data }) => {
+  const { logout } = useAuth();
 
   return (
     <div className="myProfile__photoProfileContainer">
@@ -12,7 +12,7 @@ const MyProfileImage = () => {
         <img className="is-rounded" src={profile} alt="Profile" />
       </figure>
       <label htmlFor="title" className="myProfile__titleInsideContainer">
-        {user.userId}
+        {data.name}
       </label>
       <button className="myProfile__logOutButton" type="button" onClick={logout}>
         Déconnexion

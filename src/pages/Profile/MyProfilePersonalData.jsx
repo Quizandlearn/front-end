@@ -25,39 +25,48 @@ const MyProfilePersonalData = ({ data }) => {
       </div>
       {isEditing && (
         <form onSubmit={handleFormSubmit}>
-          <label htmlFor="name">Prénom</label>
-          <input
-            id="name"
-            className="input is-warning"
-            type="text"
-            value={firstName}
-            onChange={(e) => {
-              setFirstName(e.target.value);
-            }}
-            required
-          />
-          <label htmlFor="surname">Nom</label>
-          <input
-            id="surname"
-            className="input is-warning"
-            type="text"
-            value={lastName}
-            onChange={(e) => {
-              setLastName(e.target.value);
-            }}
-            required
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            className="input is-warning"
-            type="text"
-            value={myEmail}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            required
+          <div class="field">
+            <label htmlFor="name" class="label">Nom</label>
+            <input
+              id="name"
+              className="input is-warning"
+              class="input is-rounded"
+              type="text"
+              value={firstName}
+              onChange={(e) => {
+                setFirstName(e.target.value);
+              }}
+              required
             />
+          </div>
+          <div className="field">
+            <label htmlFor="surname" class="label">Prénom</label>
+            <input
+              id="surname"
+              className="input is-warning"
+              class="input is-rounded"
+              type="text"
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+              required
+            />
+          </div>
+          <div className="field">
+            <label htmlFor="email" class="label">Email</label>
+            <input
+              id="email"
+              className="input is-warning"
+              class="input is-rounded"
+              type="text"
+              value={myEmail}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              required
+              />
+            </div>
             <div className="myProfile__editButtonContainer">
               <button className="myProfile__editButton" type="submit">
                 Enregistrer
@@ -68,10 +77,18 @@ const MyProfilePersonalData = ({ data }) => {
       )}
       {!isEditing && (
         <>
-          <p>Email</p>
-          <div className="field">{data.name}</div>
-          <div className="field">{data.surname}</div>
-          <div className="field">{data.email}</div>
+        <div class="field">
+          <label class="label">Nom</label>
+          <p className="myProfile__textSmall">{data.name}</p>
+        </div>
+        <div class="field">
+          <label class="label">Prénom</label>
+          <p className="myProfile__textSmall">{data.surname}</p>
+        </div>
+        <div class="field">
+          <label class="label">Email</label>
+          <p className="myProfile__textSmall">{data.email}</p>
+        </div>
           <div className="myProfile__editButtonContainer">
           <button className="myProfile__editButton" type="button" onClick={(e) => {
                 setIsEditing(true);

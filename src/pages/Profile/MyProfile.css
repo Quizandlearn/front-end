@@ -27,6 +27,11 @@
   color: #2b6fd2;
 }
 
+.myProfile__textSmall {
+  font-size: 20px;
+  color: white;
+}
+
 .myProfile__mainSectionContainer {
   display: flex;
   flex-direction: row;

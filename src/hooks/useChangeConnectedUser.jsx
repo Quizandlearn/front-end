@@ -8,8 +8,6 @@ const useChangeConnectedUser = () => {
   const id = user.userId;
 
   const sendChangedUserData = async (firstName, lastName, myEmail, e, onError) => {
-    console.log(lastName);
-
     e.preventDefault();
 
     try {
