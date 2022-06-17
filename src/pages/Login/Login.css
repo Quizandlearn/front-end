@@ -1,4 +1,4 @@
-.loginContainer{
+.login-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,39 +9,36 @@
     background-color: #FEC0C0;
 }
 
-#LogInTitre{
+#login-titre{
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 0.5em;
+    margin-bottom: 20px;
     font-family: "Sporting", "sans-serif";
 }
 
-#logoLogIn{
+#logo-login{
     width: 150px;
 }
 
 /*Form Inputs*/
-.logInForm input[type="text"],
-.logInForm input[type="email"],
-.logInForm input[type="password"], 
-.logInForm textarea {
+.login-form input[type="email"],
+.login-form input[type="password"]{
     background-color : #0E835B;
     color: white;
     width: 290px;
     font-family: "Sporting", "sans-serif";
 }
 
-.logInForm input[type="text"]::placeholder,
-.logInForm input[type="email"]::placeholder,
-.logInForm input[type="password"]::placeholder,
-.logInForm input:focus{
+.login-form input[type="email"]::placeholder,
+.login-form input[type="password"]::placeholder,
+.login-form input:focus{
     color: white;
     font-family: "Sporting", "sans-serif";
 }
 
-.logInForm input:-webkit-autofill,
-.logInForm input:-webkit-autofill:hover, 
-.logInForm input:-webkit-autofill:focus {
+.login-form input:-webkit-autofill,
+.login-form input:-webkit-autofill:hover, 
+.login-form input:-webkit-autofill:focus {
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
@@ -49,13 +46,14 @@
 }
 
 /*Buttons*/
-.logInSubmit{
+.button-submit-container{
     display: flex;
     justify-content: center;
     margin-top: 1.5em;
+    width: 100%;
 }
 
-.logInSubmitButton{
+.submit-button{
     background-color: #2B6FD2;
     color: white;
     font-weight: bold;
@@ -64,29 +62,12 @@
     margin-left: 0.5em;
 }
 
-.logInSubmitButton:hover{
+.submit-button:hover{
     color: white; 
 }
 
-/*Errors*/
-.errorMessageLogIn,
-.errorIconLogIn,
-#errorLogIn {
-    color: firebrick;
-}
-
-.errorMessageLogIn{
-    display: flex;
-}
-
-.errorIconLogIn{
-    padding-right: 5px;
-    padding-top: 3px;
-}
-
 /*password*/
-
-.passwordContainer {
+.password-container {
     position: relative;
 }
 
@@ -104,15 +85,32 @@
 }
 
 /*last elements*/
-#linkToOtherPage{
+#link-to-other-page{
     color: #2B6FD2;
     font-weight: bold;
     text-decoration: underline;
     padding-top: 0.3em;
 }
 
-#newcomerQuestion{
+#newcomer-question{
     font-size: 15px;
-    padding-top: 1em;
+    padding-top: 30px;
     font-family: "Sporting", "sans-serif";
+}
+
+@media(max-width:410px) {
+    .submit-button{
+        font-size: 13px;
+    }
+
+    .login-form input[type="email"],
+    .login-form input[type="password"], 
+    .login-form textarea {
+        width: 230px;
+        font-size: 13px;
+    }
+
+    #passwordEye {
+        top: 7px;
+    }
 }

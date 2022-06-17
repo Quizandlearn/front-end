@@ -1,5 +1,10 @@
 import React from "react";
+/* eslint-disable arrow-body-style */
 
-const MyQuizzes = () => <div>Page My Quizzes !</div>;
+const MyQuizzes = () => {
+  return (
+    <div>Page My Quizzes!</div>
+  );
+};
 
 export default MyQuizzes;
