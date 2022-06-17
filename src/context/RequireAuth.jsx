@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 // eslint-disable-next-line camelcase
 import jwt_decode from "jwt-decode";

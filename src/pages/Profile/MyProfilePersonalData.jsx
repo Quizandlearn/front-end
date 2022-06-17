@@ -8,13 +8,12 @@ const MyProfilePersonalData = ({ data }) => {
   const [firstName, setFirstName] = useState(data.name);
   const [lastName, setLastName] = useState(data.surname);
   const [myEmail, setEmail] = useState(data.email);
-  const [errMsg, setErrMsg] = useState("");
   const { sendChangedUserData } = useChangeConnectedUser();
 
   const handleFormSubmit = (e) => {
     sendChangedUserData(firstName, lastName, myEmail, e, (message) => {
-      setErrMsg(message);
-    })
+      console.log(message);
+    });
     setIsEditing(!isEditing);
   };
 
@@ -25,12 +24,11 @@ const MyProfilePersonalData = ({ data }) => {
       </div>
       {isEditing && (
         <form onSubmit={handleFormSubmit}>
-          <div class="field">
-            <label htmlFor="name" class="label">Nom</label>
+          <div className="field">
+            <label htmlFor="name" className="label">Nom</label>
             <input
               id="name"
               className="input is-warning"
-              class="input is-rounded"
               type="text"
               value={firstName}
               onChange={(e) => {
@@ -40,11 +38,10 @@ const MyProfilePersonalData = ({ data }) => {
             />
           </div>
           <div className="field">
-            <label htmlFor="surname" class="label">Prénom</label>
+            <label htmlFor="surname" className="label">Prénom</label>
             <input
               id="surname"
               className="input is-warning"
-              class="input is-rounded"
               type="text"
               value={lastName}
               onChange={(e) => {
@@ -54,49 +51,52 @@ const MyProfilePersonalData = ({ data }) => {
             />
           </div>
           <div className="field">
-            <label htmlFor="email" class="label">Email</label>
+            <label htmlFor="email" className="label">Email</label>
             <input
               id="email"
               className="input is-warning"
-              class="input is-rounded"
               type="text"
               value={myEmail}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
               required
-              />
-            </div>
-            <div className="myProfile__editButtonContainer">
-              <button className="myProfile__editButton" type="submit">
-                Enregistrer
-              </button>
-              <button className="myProfile__editButton" type="button">Changer le mot de passe</button>
-            </div>
+            />
+          </div>
+          <div className="myProfile__editButtonContainer">
+            <button className="myProfile__editButton" type="submit">
+              Enregistrer
+            </button>
+            <button className="myProfile__editButton" type="button">Changer le mot de passe</button>
+          </div>
         </form>
       )}
       {!isEditing && (
         <>
-        <div class="field">
-          <label class="label">Nom</label>
-          <p className="myProfile__textSmall">{data.name}</p>
-        </div>
-        <div class="field">
-          <label class="label">Prénom</label>
-          <p className="myProfile__textSmall">{data.surname}</p>
-        </div>
-        <div class="field">
-          <label class="label">Email</label>
-          <p className="myProfile__textSmall">{data.email}</p>
-        </div>
+          <div className="field">
+            <label className="label">Nom</label>
+            <p className="myProfile__textSmall">{data.name}</p>
+          </div>
+          <div className="field">
+            <label className="label">Prénom</label>
+            <p className="myProfile__textSmall">{data.surname}</p>
+          </div>
+          <div className="field">
+            <label className="label">Email</label>
+            <p className="myProfile__textSmall">{data.email}</p>
+          </div>
           <div className="myProfile__editButtonContainer">
-          <button className="myProfile__editButton" type="button" onClick={(e) => {
+            <button
+              className="myProfile__editButton"
+              type="button"
+              onClick={(e) => {
                 setIsEditing(true);
-              }}>
-            Modifier
-          </button>
-          <button className="myProfile__editButton">Changer le mot de passe</button>
-        </div>
+              }}
+            >
+              Modifier
+            </button>
+            <button className="myProfile__editButton" type="button">Changer le mot de passe</button>
+          </div>
         </>
       )}
     </div>

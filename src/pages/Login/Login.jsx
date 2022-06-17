@@ -1,4 +1,3 @@
-/* eslint-disable */
 import "./Login.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { createContext, useContext, useReducer } from "react";
 
 // on crée un contexte = un changement d'état qui impactera tous les composants
