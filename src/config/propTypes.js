@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 export const authentificationPropTypes = {
   formik: PropTypes.shape({
-    dirty: PropTypes.bool.isRequired,
     errors: PropTypes.shape({
       name: PropTypes.string.isRequired,
       surname: PropTypes.string.isRequired,
@@ -28,7 +27,6 @@ export const authentificationPropTypes = {
 
 export const createQuizPropTypes = {
   formik: PropTypes.shape({
-    dirty: PropTypes.bool.isRequired,
     errors: PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,

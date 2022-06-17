@@ -2,8 +2,9 @@ import React from "react";
 import "./MyProfile.css";
 import profile from "./profile.png";
 import useAuth from "../../hooks/useAuth";
+/* eslint-disable jsx-a11y/label-has-associated-control */
 
-const EditButtons = () => <button className="editButton">Edit</button>;
+const EditButtons = () => <button type="button" className="editButton">Edit</button>;
 
 const MyProfileAboutYou = () => (
   <div className="personalInformationContainer">
@@ -38,7 +39,7 @@ const MyProfileImage = () => {
       <label htmlFor="title" className="titleInsideContainer">
         First name
       </label>
-      <button className="editButton" onClick={logout}>
+      <button type="button" className="editButton" onClick={logout}>
         Log Out
       </button>
     </div>
