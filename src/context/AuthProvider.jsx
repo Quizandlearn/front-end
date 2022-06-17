@@ -40,7 +40,7 @@ const reducer = (state, action) => {
 };
 
 // provider : on stock state globales de l'appli
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const state = initialState;
 
   return (
@@ -56,5 +56,7 @@ AuthProvider.propTypes = {
     PropTypes.node
   ]).isRequired
 };
+
+export default AuthProvider;
 
 export const useStateValue = () => useContext(AuthContext);

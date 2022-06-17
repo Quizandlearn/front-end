@@ -1,7 +1,7 @@
 import "bulma/css/bulma.min.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { AuthProvider } from "../context/AuthProvider";
+import AuthProvider from "../context/AuthProvider";
 import RequireAuth from "../context/RequireAuth";
 import Navigation from "../components/Navigation/Navigation";
 import Explore from "../pages/Explore/Explore";
@@ -26,12 +26,12 @@ const App = () => (
 
       <Route element={<RequireAuth />}>
         <Route path="/quizzes" element={<Explore />} />
-        <Route path="/myProfile" element={<MyProfile />} />
         <Route path="/categories" element={<ExploreByCategory />} />
+        <Route path="/createQUiz" element={<CreateQuiz />} />
         <Route path="/myQuizzes" element={<MyQuizzes />} />
         <Route path="/favoriteQuizzes" element={<FavoriteQuizzes />} />
         <Route path="/completedQuizzes" element={<CompletedQuizzes />} />
-        <Route path="/createQUiz" element={<CreateQuiz />} />
+        <Route path="/myProfile" element={<MyProfile />} />
       </Route>
 
       {/* route qui n'existe pas - redirection page Explore */}
