@@ -24,7 +24,7 @@ const App = () => (
         <Route path="signup" element={<Signup />} />
       </Route>
 
-      <Route element={<RequireAuth />}>
+      <Route element={<RequireAuth onlyPublic={false} />}>
         <Route path="/quizzes" element={<Explore />} />
         <Route path="/quizzesByCategory" element={<ExploreByCategory />} />
         <Route path="/createQuiz" element={<CreateQuiz />} />
