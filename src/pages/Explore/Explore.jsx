@@ -7,17 +7,19 @@ const Explore = () => {
   const { user } = useAuth();
   return (
     <div className="explore">
-      <div className="explore__container">
-        <h2 className="explore__container-title">TOUS LES QUIZ</h2>
-        <ul>
-          <li>
-            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
-            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
-            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
-            <div className="explore__container-list__item">Un quiz : description, auteur, thème...</div>
-          </li>
-        </ul>
-      </div>
+      <h2 className="explore__title">Les derniers quiz ajoutés</h2>
+      <ul>
+        <li>
+          <div className="explore__list__item">
+            <h3 className="explore__list__item-title">Ceci est un très long long titre de quiz...</h3>
+            <div className="explore__list__item__details">
+              <div className="explore__list__item__details-category">#Catégorie</div>
+              <div className="explore__list__item__details-stars">★★★★☆</div>
+            </div>
+            <div className="explore__list__item-description">En savoir plus</div>
+          </div>
+        </li>
+      </ul>
     </div>
   );
 };
