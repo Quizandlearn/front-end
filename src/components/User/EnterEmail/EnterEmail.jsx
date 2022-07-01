@@ -21,7 +21,7 @@ const EnterEmail = ({ formik }) => {
   const { handleChange, handleBlur, values } = formik;
   const { email } = values;
   return (
-    <div className="field login-form">
+    <div className="field login__form">
       <label htmlFor="email" className="sr-only">E-mail</label>
       <input
         id="email"

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
 import PropTypes from "prop-types";
 
-//this function creates and returns a react context object
+// this function creates and returns a react context object
 export const AuthContext = createContext();
 
 // HOOK USE REDUCER to update state when user is connected
@@ -30,7 +30,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-/* AuthContext.Provider grants auth is made available to all descendent components 
+/* AuthContext.Provider grants auth is made available to all descendent components
 Here the provider value is provided by the reducer */
 const AuthProvider = ({ children }) => {
   const state = initialState;

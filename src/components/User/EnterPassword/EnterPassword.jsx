@@ -28,7 +28,7 @@ const EnterPassword = ({ formik }) => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="field login-form password-container">
+    <div className="field login__form password-container">
       <label htmlFor="password" className="sr-only">Password</label>
       <input
         id="password"

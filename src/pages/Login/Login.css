@@ -21,24 +21,24 @@
 }
 
 /*Form Inputs*/
-.login-form input[type="email"],
-.login-form input[type="password"]{
+.login__form input[type="email"],
+.login__form input[type="password"]{
     background-color : #0E835B;
     color: white;
     width: 290px;
     font-family: "Sporting", "sans-serif";
 }
 
-.login-form input[type="email"]::placeholder,
-.login-form input[type="password"]::placeholder,
-.login-form input:focus{
+.login__form input[type="email"]::placeholder,
+.login__form input[type="password"]::placeholder,
+.login__form input:focus{
     color: white;
     font-family: "Sporting", "sans-serif";
 }
 
-.login-form input:-webkit-autofill,
-.login-form input:-webkit-autofill:hover, 
-.login-form input:-webkit-autofill:focus {
+.login__form input:-webkit-autofill,
+.login__form input:-webkit-autofill:hover, 
+.login__form input:-webkit-autofill:focus {
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
@@ -46,14 +46,14 @@
 }
 
 /*Buttons*/
-.button-submit-container{
+.submit-container{
     display: flex;
     justify-content: center;
     margin-top: 1.5em;
     width: 100%;
 }
 
-.submit-button{
+.submit{
     background-color: #2B6FD2;
     color: white;
     font-weight: bold;
@@ -62,7 +62,7 @@
     margin-left: 0.5em;
 }
 
-.submit-button:hover{
+.submit:hover{
     color: white; 
 }
 
@@ -99,7 +99,7 @@
 }
 
 @media(max-width:410px) {
-    .submit-button{
+    .submit{
         font-size: 13px;
     }
 
