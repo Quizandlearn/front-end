@@ -36,9 +36,9 @@
     font-family: "Sporting", "sans-serif";
 }
 
-.login-form input:-webkit-autofill,
-.login-form input:-webkit-autofill:hover, 
-.login-form input:-webkit-autofill:focus {
+.login__form input:-webkit-autofill,
+.login__form input:-webkit-autofill:hover, 
+.login__form input:-webkit-autofill:focus {
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
