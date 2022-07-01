@@ -86,9 +86,9 @@ const QuizCreation = () => {
           <h1 className="title-quiz-creation">Création de Quiz</h1>
           <CreateQuizInformation formik={formik} />
           <CreateQuestionsAndAnswers formik={formik} />
-          <div className="form-submit-button-container">
-            <SubmitButton value={sendQuiz} />
-          </div>
+          {/* <div className="form-submit-button-container"> */}
+          <SubmitButton value={sendQuiz} class="submitButton--mod" />
+          {/* </div> */}
         </form>
       </FormikProvider>
     </div>

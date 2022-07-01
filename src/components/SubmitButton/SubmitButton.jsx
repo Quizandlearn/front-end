@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 
 const Button = ({ value }) => {
   return (
-    <div className="button-submit-container">
+    <div className="submit-container">
       <button
         type="submit"
-        className="button submit-button"
+        className="button submit"
       >
         {value}
       </button>

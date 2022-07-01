@@ -14,14 +14,11 @@
     min-height: 100%;
 }
 
-.form-submit-button-container{
-    padding-top: 6px;
-    padding-bottom: 30px;
-    text-align: center;
+.submitButton--mod{
+    margin-bottom: 30px;
 }
 
-.quiz-creation-form-container,
-.form-submit-button-container {
+.quiz-creation-form-container {
     max-width: 800px;
     min-width: 300px;
     margin: 0 auto;
@@ -199,19 +196,19 @@
 
 /*Error messages*/
 
-.error-message-form,
-.error-icon-form,
-.error-form {
+.formError,
+.formError-icon,
+.formError {
     color: #2B6FD2;
 }
 
-.error-message-form {
+.formError {
     display: flex;
     text-align: start;
     padding-top: 3px;
 }
 
-.error-icon-form {
+.formError-icon {
     padding-right: 5px;
     padding-top: 3px;
 }
@@ -256,9 +253,9 @@
         padding-bottom: 20px;
     }
 
-    .error-message-form,
-    .error-icon-form,
-    .error-form{
+    .formError,
+    .formError-icon,
+    .formError{
         font-size: 13px;
     }
 
@@ -300,7 +297,7 @@
     .add-answer,
     .add-explanation,
     .add-question,
-    .form-submit-button-container > button{
+    .submitButton--mod{
         font-size: 13px;
     }
 
