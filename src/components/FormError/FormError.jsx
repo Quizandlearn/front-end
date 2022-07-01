@@ -7,7 +7,7 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 const FormError = ({ errorContent }) => {
   return (
     <div className="error-message-form">
-      <FontAwesomeIcon icon={faInfoCircle} className="error-icon-form" />
+      <FontAwesomeIcon icon={faInfoCircle} className="formError-icon" />
       <p className="formError-message">{errorContent}</p>
     </div>
   );
