@@ -21,8 +21,8 @@
 }
 
 /*Form Inputs*/
-.login-form input[type="email"],
-.login-form input[type="password"]{
+.login__form input[type="email"],
+.login__form input[type="password"]{
     background-color : #0E835B;
     color: white;
     width: 290px;
