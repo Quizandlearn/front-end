@@ -8,7 +8,7 @@ const FormError = ({ errorContent }) => {
   return (
     <div className="error-message-form">
       <FontAwesomeIcon icon={faInfoCircle} className="error-icon-form" />
-      <p className="error-form">{errorContent}</p>
+      <p className="formError-message">{errorContent}</p>
     </div>
   );
 };
