@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./CreateQuiz.css";
 import { useFormik, FormikProvider } from "formik";
 import * as Yup from "yup";
-import CreateQuizInformation from "../../components/Quiz/CreateQuizInformation/CreateQuizInformation";
+import "./CreateQuiz.css";
+import CreateTitle from "../../components/Quiz/CreateTitle/CreateTitle";
+import CreateDescription from "../../components/Quiz/CreateDescription/CreateDescription";
+import SelectCategory from "../../components/Quiz/SelectCategory/SelectCategory";
 import CreateQuestionsAndAnswers from "../../components/Quiz/CreateQuestionsAndAnswers/CreateQuestionsAndAnswers";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import { useCreateQuiz } from "../../hooks/useCreateQuiz";
@@ -84,11 +86,13 @@ const QuizCreation = () => {
       <FormikProvider value={formik}>
         <form className="quiz-creation-form-container" onSubmit={formik.handleSubmit}>
           <h1 className="title-quiz-creation">Création de Quiz</h1>
-          <CreateQuizInformation formik={formik} />
+          <div className="section-container">
+            <CreateTitle formik={formik} />
+            <CreateDescription formik={formik} />
+            <SelectCategory formik={formik} />
+          </div>
           <CreateQuestionsAndAnswers formik={formik} />
-          {/* <div className="form-submit-button-container"> */}
           <SubmitButton value={sendQuiz} class="submitButton--mb30" />
-          {/* </div> */}
         </form>
       </FormikProvider>
     </div>

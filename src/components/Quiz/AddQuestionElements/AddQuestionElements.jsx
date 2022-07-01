@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ExplainAnswer from "../ExplainAnswer/ExplainAnswer";
-import LearnMoreLink from "../LearnMoreLink/LearMoreLink";
+import LearnMoreLink from "../LearnMoreLink/LearnMoreLink";
 import { createQuizPropTypes } from "../../../config/propTypes";
 /* eslint-disable react/require-default-props */
 
@@ -53,9 +53,9 @@ const AddQuestionElements = ({
           + Lien d`approfondissement
         </button>
       </div>
-      { showExplanation === true &&
+      { showExplanation &&
         <ExplainAnswer formik={formik} index={index} /> }
-      { showLearnMore === true &&
+      { showLearnMore &&
         <LearnMoreLink formik={formik} index={index} /> }
     </>
   );
