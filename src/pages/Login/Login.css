@@ -29,9 +29,9 @@
     font-family: "Sporting", "sans-serif";
 }
 
-.login-form input[type="email"]::placeholder,
-.login-form input[type="password"]::placeholder,
-.login-form input:focus{
+.login__form input[type="email"]::placeholder,
+.login__form input[type="password"]::placeholder,
+.login__form input:focus{
     color: white;
     font-family: "Sporting", "sans-serif";
 }
