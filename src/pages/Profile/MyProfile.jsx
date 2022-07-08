@@ -1,70 +1,33 @@
+/* eslint-disable */
+
 import React from "react";
 import "./MyProfile.css";
-import profile from "./profile.png";
-import useAuth from "../../hooks/useAuth";
+import MyProfileImage from "./MyProfileImage";
+import MyProfilePersonalData from "./MyProfilePersonalData";
+import useGetConnectedUser from "../../hooks/useGetConnectedUser";
 
-const EditButtons = () => <button className="editButton">Edit</button>;
+const MyProfile = () => {
+  const [loading, data] = useGetConnectedUser();
 
-const MyProfileAboutYou = () => (
-  <div className="personalInformationContainer">
-    <label htmlFor="title" className="titleInsideContainer">
-      About You
-    </label>
-    <div className="field">
-      <label className="label">Name</label>
-      <p>My Name</p>
-    </div>
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-    <div className="field">
-      <label className="label">Email</label>
-      <p>My Email</p>
-    </div>
-
-    <div className="field">
-      <label className="label">Contact</label>
-      <p>My Contact</p>
-    </div>
-    <EditButtons />
-  </div>
-);
-
-const MyProfileImage = () => {
-  const { logout } = useAuth();
   return (
-    <div className="photoProfileContainer">
-      <figure className="image is-128x128">
-        <img className="is-rounded" src={profile} alt="Profile" />
-      </figure>
-      <label htmlFor="title" className="titleInsideContainer">
-        First name
-      </label>
-      <button className="editButton" onClick={logout}>
-        Log Out
-      </button>
-    </div>
+    <>
+      {!loading && (
+      <div className="myProfile__container">
+        <div className="myProfile__titleContainer ">
+          <h1 id="myProfile__title">Mon profil</h1>
+        </div>
+        <div className="myProfile__mainSectionContainer">
+          <MyProfileImage data={data} />
+          <MyProfilePersonalData data={data} />
+        </div>
+      </div>
+      )}
+    </>
   );
 };
-
-const MyProfileInformation = () => (
-  <div className="mainSectionContainer">
-    <MyProfileImage />
-    <MyProfileAboutYou />
-  </div>
-);
-
-const MyProfileTitle = () => (
-  <div className="titleContainer">
-    <section id="titleContainer">
-      <h1 id="profileTitle">My profile</h1>
-    </section>
-  </div>
-);
-
-const MyProfile = () => (
-  <div className="profilePageContainer">
-    <MyProfileTitle />
-    <MyProfileInformation />
-  </div>
-);
 
 export default MyProfile;
