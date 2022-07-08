@@ -1,23 +1,26 @@
-import "./Signup.css";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { faInfoCircle, faEye } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import "./Signup.css";
 import LogoBlue from "../../assets/logoBlue.png";
 import useSignUp from "../../hooks/useSignUp";
+import EnterName from "../../components/User/EnterName/EnterName";
+import EnterSurname from "../../components/User/EnterSurname/EnterSurname";
+import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
+import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
+import EnterConfirmedPassword from "../../components/User/EnterConfirmedPassword/EnterConfirmedPassword";
+import SubmitButton from "../../components/SubmitButton/SubmitButton";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
 
 const PASSWORD_REGEX =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W)(?=.{8,})/;
 const LOGIN_URL_FRONTEND = "/";
+const Inscription = "Inscription";
 
 const Signup = () => {
-  // entre {} car ça retournait un objet
   const { signup } = useSignUp();
-
-  const [passwordShown, setPasswordShown] = useState(false);
-  const [confirmedPasswordShown, setConfirmedPasswordShown] = useState(false);
   const [errMsg, setErrMsg] = useState("");
 
   const formik = useFormik({
@@ -26,7 +29,7 @@ const Signup = () => {
       surname: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      confirmedPassword: ""
     },
 
     validationSchema: Yup.object({
@@ -40,218 +43,35 @@ const Signup = () => {
         .email("Adress email invalide")
         .required("Champ obligatoire"),
       password: Yup.string()
-        .matches(
-          PASSWORD_REGEX,
-          "Le mot de passe doit contenir au minimum 8 caractères : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre"
-        )
+        .matches(PASSWORD_REGEX, "Le mot de passe doit contenir au minimum 8 caractères : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre")
         .required("Champ obligatoire"),
-      confirmPassword: Yup.string()
-        /* oneOf = equals to */
-        .oneOf(
-          [Yup.ref("password"), null],
-          "Les mots de passe saisis ne sont pas idéntiques"
-        )
-        .required("Champ obligatoire"),
+      confirmedPassword: Yup.string()
+        .oneOf([Yup.ref("password"), null], "Les mots de passe saisis ne sont pas idéntiques")
+        .required("Champ obligatoire")
     }),
 
-    // Submit du formulaire au serveur
     onSubmit: async (values) => {
       signup(values, (message) => {
         setErrMsg(message);
       });
-    },
+    }
   });
 
-  const togglePasswordVisiblity = () => {
-    setPasswordShown(!passwordShown);
-  };
-
-  const toggleConfirmedPasswordVisiblity = () => {
-    setConfirmedPasswordShown(!confirmedPasswordShown);
-  };
-
   return (
-    <div id="PageSignUpContainer">
-      <section id="signUpContainer">
-        <img src={LogoBlue} id="logoSignUp" alt="" />
-        <h1 id="signUpTitre">S'inscrire</h1>
-        <br />
-
-        <form onSubmit={formik.handleSubmit} className="formSignUp">
-          <div />
-          <div className="field SignUpfield">
-            <label htmlFor="name" className="sr-only">
-              Prénom*
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              autoComplete="on"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-              className="input"
-              placeholder="Prénom"
-            />
-
-            {formik.touched.name && formik.errors.name ? (
-              <span className="errorMessageSignUp">
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="errorIconSignUp"
-                />
-                <p className="errorContentSignUp">{formik.errors.name}</p>
-              </span>
-            ) : null}
-          </div>
-
-          <div className="field SignUpfield">
-            <label htmlFor="nom" className="sr-only">
-              Nom
-            </label>
-            <input
-              id="nom"
-              name="surname"
-              type="text"
-              className="input"
-              autoComplete="on"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.surname}
-              placeholder="Nom"
-            />
-
-            {formik.touched.surname && formik.errors.surname ? (
-              <span className="errorMessageSignUp">
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="errorIconSignUp"
-                />
-                <p className="errorContentSignUp">{formik.errors.surname}</p>
-              </span>
-            ) : null}
-          </div>
-
-          <div className="field SignUpfield">
-            <label htmlFor="email" className="sr-only">
-              E-mail
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="input"
-              autoComplete="on"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-              placeholder="E-mail"
-            />
-
-            {formik.touched.email && formik.errors.email ? (
-              <span className="errorMessageSignUp">
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="errorIconSignUp"
-                />
-                <p className="errorContentSignUp">{formik.errors.email}</p>
-              </span>
-            ) : null}
-          </div>
-
-          <div className="field passwordContainer">
-            <label htmlFor="password" />
-            <input
-              id="password"
-              name="password"
-              autoComplete="on"
-              type={passwordShown ? "text" : "password"}
-              className="input"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-              placeholder="Mot de passe"
-            />
-
-            <button
-              onClick={togglePasswordVisiblity}
-              className="passwordEyeSignUp"
-            >
-              <FontAwesomeIcon icon={faEye} className="eyeSignUp" />
-            </button>
-
-            {formik.touched.password && formik.errors.password ? (
-              <span className="errorMessageSignUp">
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="errorIconSignUp"
-                />
-                <p className="errorContentSignUp">{formik.errors.password}</p>
-              </span>
-            ) : null}
-          </div>
-
-          <div className="field passwordContainer">
-            <label htmlFor="password-confirmation" className="sr-only">
-              Confirmation du mot de passe
-            </label>
-            <input
-              id="password-confirmation"
-              name="confirmPassword"
-              type={confirmedPasswordShown ? "text" : "password"}
-              className="input"
-              autoComplete="on"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.confirmPassword}
-              placeholder="Confirmation mot de passe"
-            />
-
-            <button
-              onClick={toggleConfirmedPasswordVisiblity}
-              className="passwordEyeSignUp"
-            >
-              <FontAwesomeIcon icon={faEye} className="eyeSignUp" />
-            </button>
-
-            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-              <span className="errorMessageSignUp">
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="errorIconSignUp"
-                />
-                <p className="errorContentSignUp">
-                  {formik.errors.confirmPassword}
-                </p>
-              </span>
-            ) : null}
-
-            {errMsg && (
-              <span className="errorMessageSignUp">
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="errorIconSignUp"
-                />
-                <p className="errorContentSignUp">{errMsg}</p>
-              </span>
-            )}
-          </div>
-
-          <div className="buttonContainer signUpSubmit">
-            <input
-              className="button signUpSubmitButton"
-              type="submit"
-              value="Inscription"
-            />
-          </div>
-          <br />
+    <div id="page-sign-up-container">
+      <section id="sign-up-container">
+        <img src={LogoBlue} id="logo-sign-up" alt="" />
+        <h1 id="sign-up-titre">S'inscrire</h1>
+        <form onSubmit={formik.handleSubmit} className="form-sign-up">
+          <EnterName formik={formik} />
+          <EnterSurname formik={formik} />
+          <EnterEmail formik={formik} />
+          <EnterPassword formik={formik} />
+          <EnterConfirmedPassword formik={formik} />
+          <SubmitButton value={Inscription} />
         </form>
-        <p id="accountQuestion">Vous avez déjà un compte ?</p>
-        <Link to={LOGIN_URL_FRONTEND} id="linkToSignInPage">
-          {" "}
-          Connectez-vous
-        </Link>
+        <p id="account-question">Vous avez déjà un compte ?</p>
+        <Link to={LOGIN_URL_FRONTEND} id="link-to-signin-page"> Connectez-vous</Link>
       </section>
     </div>
   );

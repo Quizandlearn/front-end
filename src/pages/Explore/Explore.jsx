@@ -1,5 +1,6 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
+/* eslint-disable no-console */
 
 const Explore = () => {
   const { user } = useAuth();
