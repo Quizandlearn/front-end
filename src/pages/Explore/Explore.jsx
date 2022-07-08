@@ -13,9 +13,21 @@ const Explore = () => {
     author: "Lisa",
     mark: "★★★★☆",
   }, {
-    titleQuiz: "Ceci est un autre très très long titre de quiz...",
-    category: "CATEGORY",
+    titleQuiz: "Ceci est un autre très très très très long titre de quiz...",
+    category: "FEMINISME",
     author: "Antoine",
+    mark: "★★★☆☆",
+  },
+  {
+    titleQuiz: "Ceci est un petit titre",
+    category: "TITRE",
+    author: "Léo",
+    mark: "★★★☆☆",
+  },
+  {
+    titleQuiz: "Ceci est un moyen titre de quiz",
+    category: "MATHEMATIQUES",
+    author: "Jean-Maximilien",
     mark: "★★★☆☆",
   },
   ];
@@ -32,19 +44,22 @@ const Explore = () => {
             <h3 className="explore__list__item__text__title">{quiz.titleQuiz}</h3>
             <div className="explore__list__item__text__details">
               <div className="explore__list__item__text__details-category">{quiz.category}</div>
-              <div className="explore__list__item__text__details-stars">{quiz.mark}</div>
             </div>
             <div className="explore__list__item__text__description">{descriptionQuiz}</div>
           </div>
-          <div className="profile-img">
-            <figure className="image is-64x64">
-              <img
-                src={profile}
-                alt="Profile"
-              />
-            </figure>
-            {" "}
-            {quiz.author}
+          <div className="explore__list__item__assets">
+            <div className="explore__list__item__assets-profile-img">
+              <figure className="image is-64x64">
+                <img
+                  src={profile}
+                  alt="Profile"
+                />
+              </figure>
+              {" "}
+              {quiz.author}
+            </div>
+            <button type="submit">Faire ce quiz</button>
+            <div className="explore__list__item__assets-stars">{quiz.mark}</div>
           </div>
         </div>
       ))}
