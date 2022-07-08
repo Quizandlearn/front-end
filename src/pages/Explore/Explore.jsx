@@ -26,33 +26,28 @@ const Explore = () => {
   return (
     <div className="explore">
       <h2 className="explore__title">{exploreTitle}</h2>
-      <ul>
-        {quizzes && quizzes.map((quiz) => (
-          <li key={quiz.titleQuiz}>
-            <div className="explore__list__item">
-              <div className="explore__list__item__text">
-                <h3 className="explore__list__item__text__title">{quiz.titleQuiz}</h3>
-                <div className="explore__list__item__text__details">
-                  <div className="explore__list__item__text__details-category">{quiz.category}</div>
-                  <div className="explore__list__item__text__details-stars">{quiz.mark}</div>
-                </div>
-                <div className="explore__list__item__text__description">{descriptionQuiz}</div>
-              </div>
-              <div className="profile-img">
-                <figure className="image is-64x64">
-                  <img
-                    src={profile}
-                    alt="Profile"
-                  />
-                </figure>
-                par
-                {" "}
-                {quiz.author}
-              </div>
+      {quizzes && quizzes.map((quiz) => (
+        <div className="explore__list__item" key={quiz.titleQuiz}>
+          <div className="explore__list__item__text">
+            <h3 className="explore__list__item__text__title">{quiz.titleQuiz}</h3>
+            <div className="explore__list__item__text__details">
+              <div className="explore__list__item__text__details-category">{quiz.category}</div>
+              <div className="explore__list__item__text__details-stars">{quiz.mark}</div>
             </div>
-          </li>
-        ))}
-      </ul>
+            <div className="explore__list__item__text__description">{descriptionQuiz}</div>
+          </div>
+          <div className="profile-img">
+            <figure className="image is-64x64">
+              <img
+                src={profile}
+                alt="Profile"
+              />
+            </figure>
+            {" "}
+            {quiz.author}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
