@@ -40,13 +40,14 @@ const EnterConfirmedPassword = ({ formik }) => {
         onBlur={handleBlur}
         value={confirmedPassword}
         placeholder="confirmation mot de passe"
+        aria-required="true"
+        aria-invalid={confirmedPasswordError}
+        aria-describedby={confirmedPasswordError && "error-accessibility"}
       />
       <button type="button" onClick={toggleConfirmedPasswordVisiblity} className="password-eye-sign-up">
         <FontAwesomeIcon icon={faEye} className="eye-sign-up" />
       </button>
-      {confirmedPasswordError ?
-        <FormError errorContent={confirmedPasswordError} />
-        : null}
+      {confirmedPasswordError && <FormError errorContent={confirmedPasswordError} />}
     </div>
   );
 };

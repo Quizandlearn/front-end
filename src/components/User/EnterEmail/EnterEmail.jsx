@@ -33,10 +33,11 @@ const EnterEmail = ({ formik }) => {
         onBlur={handleBlur}
         value={email}
         placeholder="e-mail"
+        aria-required="true"
+        aria-invalid={emailError}
+        aria-describedby={emailError && "error-accessibility"}
       />
-      {emailError ?
-        <FormError errorContent={emailError} />
-        : null}
+      {emailError && <FormError errorContent={emailError} />}
     </div>
   );
 };

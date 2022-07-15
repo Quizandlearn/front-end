@@ -41,13 +41,14 @@ const EnterPassword = ({ formik }) => {
         onBlur={handleBlur}
         value={password}
         placeholder="mot de passe"
+        aria-required="true"
+        aria-invalid={passwordError}
+        aria-describedby={passwordError && "error-accessibility"}
       />
       <button type="button" onClick={togglePasswordVisiblity} className="password-eye-sign-up">
         <FontAwesomeIcon icon={faEye} className="eye-sign-up" />
       </button>
-      {passwordError ?
-        <FormError errorContent={passwordError} />
-        : null}
+      {passwordError && <FormError errorContent={passwordError} />}
     </div>
   );
 };

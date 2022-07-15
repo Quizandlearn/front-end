@@ -33,10 +33,11 @@ const EnterSurname = ({ formik }) => {
         onBlur={handleBlur}
         value={surname}
         placeholder="Nom"
+        aria-required="true"
+        aria-invalid={surnameError}
+        aria-describedby={surnameError && "error-accessibility"}
       />
-      {surnameError ?
-        <FormError errorContent={surnameError} />
-        : null}
+      {surnameError && <FormError errorContent={surnameError} />}
     </div>
   );
 };

@@ -33,10 +33,11 @@ const EnterName = ({ formik }) => {
         value={name}
         className="input"
         placeholder="Prénom"
+        aria-required="true"
+        aria-invalid={nameError}
+        aria-describedby={nameError && "error-accessibility"}
       />
-      {nameError ?
-        <FormError errorContent={nameError} />
-        : null}
+      {nameError && <FormError errorContent={nameError} />}
     </div>
   );
 };
