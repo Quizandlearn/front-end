@@ -13,13 +13,15 @@
 }
 
 .logo-navigation{
-    height: 100px;
-    margin-left: 2em;
+    height: 100%;
+    margin: 0px 15px 0px 20px;
 }
 
 .searchBar{
     border-bottom: none!important;
     flex-grow: 0.5;
+    width: 100%;  
+    margin: 0px 20px 0px 20px
 }
 
 .input {
@@ -33,24 +35,23 @@
 
     background-color: #2B6FD2;
     color: white;
-    font-weight: bold;
+    font-weight:bold;
     font-family: "Sporting", "sans-serif";
     cursor: pointer;
     margin-left: 0.5em;
 }
 
-.logout-and-profile {
+/* .logout-and-profile {
     display: flex;
     align-items: center;
-}
+} */
 
 .profile {
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    margin-right: 20px;
-    margin-left: 15px;
+    padding: 10px 0px;
+    margin : 0px 20px 0px 15px;
     flex-grow: 1;
 }
 
@@ -59,7 +60,7 @@
 .menu {
     background-color: #17835C;
     height: 60px;
-    margin: 2em;
+    margin: 2em 0em 0em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

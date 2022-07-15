@@ -11,7 +11,7 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 /* eslint-disable no-unused-vars */
 
 const SIGNUP_URL_FRONTEND = "/signup";
-const LoginValue = "Login";
+const LoginValue = "Valider";
 
 const Login = () => {
   const { login } = useAuth();
@@ -40,14 +40,14 @@ const Login = () => {
   return (
     <div className="login-container">
       <img src={LogoBlue} id="logo-login" alt="" />
-      <h1 id="login-titre"> Se Connecter</h1>
+      <h1 id="login-titre"> Se connecter</h1>
       <form onSubmit={formik.handleSubmit}>
         <EnterEmail formik={formik} />
         <EnterPassword formik={formik} />
         <SubmitButton value={LoginValue} />
       </form>
       <p id="newcomer-question">Nouveau sur la plateforme ?</p>
-      <Link to={SIGNUP_URL_FRONTEND} id="link-to-other-page">Inscrivez-vous</Link>
+      <Link to={SIGNUP_URL_FRONTEND} id="link-to-other-page">Créer un compte</Link>
     </div>
   );
 };
