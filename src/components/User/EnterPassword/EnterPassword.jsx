@@ -4,6 +4,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FormError from "../../FormError/FormError";
 import { authentificationPropTypes } from "../../../config/propTypes";
+import "./EnterPassword.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -28,7 +29,7 @@ const EnterPassword = ({ formik }) => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="field login__form password-container">
+    <div className="field password-container">
       <label htmlFor="password" className="sr-only">Password</label>
       <input
         id="password"
@@ -39,7 +40,7 @@ const EnterPassword = ({ formik }) => {
         onChange={handleChange}
         onBlur={handleBlur}
         value={password}
-        placeholder="password"
+        placeholder="mot de passe"
       />
       <button type="button" onClick={togglePasswordVisiblity} className="password-eye-sign-up">
         <FontAwesomeIcon icon={faEye} className="eye-sign-up" />

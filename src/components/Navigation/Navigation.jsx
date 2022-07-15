@@ -42,11 +42,11 @@ const Navigation = () => {
           <img src={LogoBlue} className="logo-navigation" alt="" />
           {/* Search bar Bulma */}
           <div className="searchBar">
-            <input className="input" type="text" placeholder="Rechercher" />
+            <input className="input searchbar-input" type="text" placeholder="Rechercher" />
           </div>
           <div className="logout-and-profile">
             <button type="button" className="button-navigation" onClick={logout}>
-              Log Out
+              Se déconnecter
               {" "}
             </button>
             <div className="profile">
@@ -89,7 +89,7 @@ const Navigation = () => {
               to={CREATEQUIZ_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Create Quiz
+              Créer un quiz
             </Link>
             {/* A faire */}
             <Link
@@ -97,14 +97,14 @@ const Navigation = () => {
               to={MYQUIZZES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Mes Quiz
+              Mes quiz
             </Link>
             <Link
               className="menu-link"
               to={FAVORITEQUIZZES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Quiz Favoris
+              Quiz favoris
             </Link>
             <Link
               className="menu-link"

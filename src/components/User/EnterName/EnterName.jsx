@@ -21,7 +21,7 @@ const EnterName = ({ formik }) => {
   const { handleChange, handleBlur, values } = formik;
   const { name } = values;
   return (
-    <div className="field sign-up-field">
+    <div className="field">
       <label htmlFor="name" className="sr-only">Prénom*</label>
       <input
         id="name"

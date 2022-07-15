@@ -21,7 +21,7 @@ const EnterEmail = ({ formik }) => {
   const { handleChange, handleBlur, values } = formik;
   const { email } = values;
   return (
-    <div className="field login__form">
+    <div className="field">
       <label htmlFor="email" className="sr-only">E-mail</label>
       <input
         id="email"
@@ -32,7 +32,7 @@ const EnterEmail = ({ formik }) => {
         onChange={handleChange}
         onBlur={handleBlur}
         value={email}
-        placeholder="E-mail"
+        placeholder="e-mail"
       />
       {emailError ?
         <FormError errorContent={emailError} />

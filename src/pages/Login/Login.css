@@ -13,7 +13,7 @@
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 20px;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
 }
 
 #logo-login{
@@ -23,17 +23,19 @@
 /*Form Inputs*/
 .login__form input[type="email"],
 .login__form input[type="password"]{
-    background-color : #0E835B;
+    background-color: #18825C;
+    opacity: 0.70;
     color: white;
     width: 290px;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
+    border-radius: 10px;
 }
 
 .login__form input[type="email"]::placeholder,
 .login__form input[type="password"]::placeholder,
 .login__form input:focus{
     color: white;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
 }
 
 .login__form input:-webkit-autofill,
@@ -42,28 +44,7 @@
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
-  font-family: "Sporting", "sans-serif";
-}
-
-/*Buttons*/
-.submit-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5em;
-    width: 100%;
-}
-
-.submit{
-    background-color: #2B6FD2;
-    color: white;
-    font-weight: bold;
-    font-family: "Sporting", "sans-serif";
-    cursor: pointer;
-    margin-left: 0.5em;
-}
-
-.submit:hover{
-    color: white; 
+  font-family: "Roboto", "sans-serif";
 }
 
 /*password*/
@@ -87,30 +68,21 @@
 /*last elements*/
 #link-to-other-page{
     color: #2B6FD2;
-    font-weight: bold;
-    text-decoration: underline;
     padding-top: 0.3em;
 }
 
 #newcomer-question{
     font-size: 15px;
     padding-top: 30px;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
 }
 
 @media(max-width:410px) {
-    .submit{
-        font-size: 13px;
-    }
 
     .login-form input[type="email"],
     .login-form input[type="password"], 
     .login-form textarea {
         width: 230px;
         font-size: 13px;
-    }
-
-    #passwordEye {
-        top: 7px;
     }
 }

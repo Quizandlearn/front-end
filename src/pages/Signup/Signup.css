@@ -20,7 +20,7 @@
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 20px;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
 }
 
 #logo-sign-up{
@@ -31,10 +31,12 @@
 .form-sign-up input[type="text"],
 .form-sign-up input[type="email"],
 .form-sign-up input[type="password"] {
-    background-color : #0E835B;
+    background-color: #18825C;
+    opacity: 0.70;
     color: white;
     width: 100%;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
+    border-radius: 10px;
 }
 
 .form-sign-up input[type="text"]::placeholder,
@@ -42,7 +44,7 @@
 .form-sign-up input[type="password"]::placeholder,
 .form-sign-up input:focus{
     color: white;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
 }
 .form-sign-up input[type="text"]::placeholder,
 .form-sign-up input[type="email"]::placeholder,
@@ -53,38 +55,18 @@
   border: none;
   -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
-  font-family: "Sporting", "sans-serif";
-}
-
-/*password*/
-.password-container{
-    position: relative;
-}
-
-.password-eye-sign-up{
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    top: 10px;
-    right: 12px;
-}
-
-.eye-sign-up{
-    color: 	#D3D3D3;
-    height: 18px;
+  font-family: "Roboto", "sans-serif";
 }
 
 /*last elements*/
 #account-question{
     font-size: 15px;
     padding-top: 30px;
-    font-family: "Sporting", "sans-serif";
+    font-family: "Roboto", "sans-serif";
 }
 
 #link-to-signin-page{
     color: #2B6FD2;
-    font-weight: bold;
-    text-decoration: underline;
     padding-top: 0.3em;
 }
 
@@ -94,11 +76,5 @@
     .form-sign-up input[type="password"]{ 
         max-width: 230px;
         font-size: 13px;
-    }
-
-    .password-eye-sign-up{
-        right: 0;
-        left: 185px;
-        top: 7px;
     }
 }

@@ -61,7 +61,7 @@ const Signup = () => {
     <div id="page-sign-up-container">
       <section id="sign-up-container">
         <img src={LogoBlue} id="logo-sign-up" alt="" />
-        <h1 id="sign-up-titre">S'inscrire</h1>
+        <h1 id="sign-up-titre">Création de compte</h1>
         <form onSubmit={formik.handleSubmit} className="form-sign-up">
           <EnterName formik={formik} />
           <EnterSurname formik={formik} />
