@@ -29,7 +29,7 @@ const EnterPassword = ({ formik }) => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="field password-container">
+    <div className="field password">
       <label htmlFor="password" className="sr-only">Password</label>
       <input
         id="password"
@@ -45,8 +45,8 @@ const EnterPassword = ({ formik }) => {
         aria-invalid={passwordError}
         aria-describedby={passwordError && "error-accessibility"}
       />
-      <button type="button" onClick={togglePasswordVisiblity} className="password-eye-sign-up">
-        <FontAwesomeIcon icon={faEye} className="eye-sign-up" />
+      <button type="button" onClick={togglePasswordVisiblity} className="password__toggle__visibility">
+        <FontAwesomeIcon icon={faEye} className="password__toggle__visibility__icon" />
       </button>
       {passwordError && <FormError errorContent={passwordError} />}
     </div>

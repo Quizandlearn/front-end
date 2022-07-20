@@ -1,11 +1,11 @@
-.submit-container{
+.submit {
     display: flex;
     justify-content: center;
     margin-top: 1.5em;
     width: 100%;
 }
 
-.submit{
+.submit__button {
     background-color: #2B6FD2;
     opacity: 0.90;
     color: white;
@@ -16,12 +16,12 @@
     border-radius: 10px;
 }
 
-.submit:hover{
+.submit__button:hover {
     color: white; 
 }
 
 @media(max-width:410px) {
-    .submit{
+    .submit__button {
         font-size: 13px;
     }
 }

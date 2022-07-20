@@ -38,16 +38,16 @@ const Login = () => {
   });
 
   return (
-    <div className="login-container">
+    <div className="login">
       <img src={LogoBlue} id="logo-login" alt="" />
-      <h1 id="login-titre"> Se connecter</h1>
+      <h1 className="login__title"> Se connecter</h1>
       <form onSubmit={formik.handleSubmit} className="login__form">
         <EnterEmail formik={formik} />
         <EnterPassword formik={formik} />
         <SubmitButton value={LoginValue} />
       </form>
-      <p id="newcomer-question">Nouveau sur la plateforme ?</p>
-      <Link to={SIGNUP_URL_FRONTEND} id="link-to-other-page">Créer un compte</Link>
+      <p className="login__signup__question">Nouveau sur la plateforme ?</p>
+      <Link to={SIGNUP_URL_FRONTEND} className="login__signp__link">Créer un compte</Link>
     </div>
   );
 };
