@@ -50,7 +50,7 @@ const CreateQuestion = ({
         type="text"
         className="input"
         placeholder="Question"
-        value={fieldValue}
+        value={fieldValue || ""}
         onChange={handleChange}
         onBlur={handleBlur}
       />
