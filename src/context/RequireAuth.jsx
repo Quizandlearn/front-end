@@ -29,6 +29,7 @@ const RequireAuth = ({ onlyPublic }) => {
         return true;
       }
     }
+    localStorage.removeItem(user.token);
     return false;
   };
 
