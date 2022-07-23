@@ -1,109 +1,123 @@
-.myProfile__container {
+:root {
+  --color-blue: #2B6FD2;
+  --color-pink: #FDC0C0;
+  --color-white: #FFFFFF;
+  --color-green: #15835C;
+  --color-shade-of-green: #96A493;
+  --color-shade-of-blue: #3072CF;
+  --color_shade-of-white: #D9D9D9;
+}
+
+.myProfile {
   width: 100%;
   position: absolute;
   min-height: 1000px;
-  background-color: #fec0c0;
-  font-family: "Sporting", "sans-serif";
-}
-
-.myProfile__titleContainer {
-  padding-top: 50px;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: start;
-  min-height: 100%;
-  width: 100%;
-  background-color: #fec0c0;
+  background-color: var(--color-pink);
+  font-family: system-ui;
 }
 
 #myProfile__title {
   font-weight: bold;
-  width: 100%;
-  max-width: 800px;
   font-size: 40px;
-  margin-bottom: 0.5em;
-  font-family: "Sporting", "sans-serif";
+  font-family: system-ui;
   text-align: center;
-  color: #2b6fd2;
+  color: var(--color-shade-of-blue);
 }
 
-.myProfile__textSmall {
+.myProfile__title__container {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding-top: 50px;
+  text-align: start;
+  min-height: 100%;
+  width: 100%;
+}
+
+.myProfile__main__section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.myProfile__image {
+  width: 552px;
+  height: 480px;
+}
+
+.myProfile__form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  border-radius: 20px;
+  background-color: var(--color-shade-of-green);
+}
+
+.myProfile__form__photo__profile {
+  display: flex;
+  justify-content: center;
+  padding: 1.5em;
+}
+
+.myProfile__form__personal__data {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.myProfile__form__text {
   font-size: 20px;
   color: white;
 }
 
-.myProfile__mainSectionContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  max-width: 800px;
-  margin: 0 auto;
-  height: auto;
-  padding-bottom: 3em;
-  background-color: #0e835b;
-}
-
-.myProfile__photoProfileContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-  margin-top: 1em;
-}
-
-.myProfile__personalDataContainer {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  margin: 1.5em;
-}
-
-.myProfile__logOutButton {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
+.myProfile__form__title {
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
   color: white;
-  background-color: #2b6fd2;
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-  border-radius: 4px;
-  margin: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 4px 10px;
-  display: inline-block;
-  min-height: 28px;
-  transition: background-color 0.24s, box-shadow 0.24s;
 }
 
-.myProfile__logOutButton:hover {
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
-    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+.myProfile__form__fields__container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  gap: 10px;
+}
+
+.input{
+  width: 75%;
+  background-color: var(--color_shade-of-white);
+  color: var(--color-shade-of-green);
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .myProfile__editButtonContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 2em;
-  gap: 10px;
+  gap: 20px;
+  padding-bottom: 1.5em;
 }
 
 .myProfile__editButton {
   border: 0;
   outline: 0;
+  width: 75%;
   cursor: pointer;
   color: white;
-  background-color: #2b6fd2;
+  background-color: var(--color-shade-of-blue);
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
     rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
     rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
     rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-  border-radius: 4px;
+  border-radius: 10px;
+  font-family: system-ui;
   font-size: 14px;
   font-weight: 500;
   padding: 4px 90px;
@@ -117,19 +131,4 @@
     rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
     rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
     rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-}
-
-.myProfile__titleInsideContainer {
-  font-weight: bold;
-  font-size: 25px;
-  font-family: "Sporting", "sans-serif";
-  text-align: center;
-  color: white;
-}
-
-.myProfile__photoProfileContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
 }

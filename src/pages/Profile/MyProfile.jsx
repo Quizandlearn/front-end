@@ -13,15 +13,17 @@ const MyProfile = () => {
     return <div>Loading...</div>;
   }
 
+  const myProfile = "Mon Profil";
+
   return (
     <>
       {!loading && (
-      <div className="myProfile__container">
-        <div className="myProfile__titleContainer ">
-          <h1 id="myProfile__title">Mon profil</h1>
+      <div className="myProfile">
+        <div className="myProfile__title__container">
+          <h1 id="myProfile__title">{myProfile}</h1>
         </div>
-        <div className="myProfile__mainSectionContainer">
-          <MyProfileImage data={data} />
+        <div className="myProfile__main__section">
+          <MyProfileImage/>
           <MyProfilePersonalData data={data} />
         </div>
       </div>
