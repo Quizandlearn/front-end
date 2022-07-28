@@ -44,12 +44,11 @@ const Login = () => {
       <form onSubmit={formik.handleSubmit}>
         <EnterEmail formik={formik} />
         <EnterPassword formik={formik} />
-        <SubmitButton value={LoginValue} />
+        <SubmitButton value={LoginValue} disabled={!(formik.isValid || (Object.keys(formik.touched).length === 0 && formik.touched.constructor === Object))} />
       </form>
       <p id="newcomer-question">Nouveau sur la plateforme ?</p>
       <Link to={SIGNUP_URL_FRONTEND} id="link-to-other-page">Créer un compte</Link>
     </div>
   );
 };
-
 export default Login;
