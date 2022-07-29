@@ -1,0 +1,18 @@
+{
+  "title": "Quiz Test E2E",
+  "description": "A simple quiz to test the quiz creation!",
+  "category": "Tech",
+  "question-1": "What is  the Javascript language?",
+  "good-answer-1": "An high-level programming language",
+  "wrong-answer-1": "A low-level programming language",
+  "explanation-1": "JavaScript was initially created to \"make web pages alive\".",
+  "question-2": "For what kind of data is MongoDB good for?",
+  "good-answer-2": "To store heterogeneous data",
+  "wrong-answer-2": "To store homogeneous data",
+  "link-2": "https://www.mongodb.com/",
+  "question-3": "What is exactly is Docker?",
+  "good-answer-3": "An open source containerization tool",
+  "wrong-answer-3": "A virtual machine",
+  "link-3": "https://www.docker.com/",
+  "explanation-3": "Docker is a platform for packaging, deploying, and running applications. Docker applications run in containers that can be used on any system: a developer’s laptop, systems on premises, or in the cloud."
+}
