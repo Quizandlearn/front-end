@@ -1,0 +1,8 @@
+{
+  "title": "Quiz Test E2E",
+  "description": "A simple quiz to test the quiz creation!",
+  "category": "Tech",
+  "question": "What is Javascript?",
+  "answer": "An high-level programming language",
+  "fail": "A low-level programming language"
+}
