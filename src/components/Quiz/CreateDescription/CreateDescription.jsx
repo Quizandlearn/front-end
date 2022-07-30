@@ -31,6 +31,7 @@ const CreateDescription = ({ formik }) => {
         value={description}
         onChange={handleChange}
         onBlur={handleBlur}
+        data-cy="description"
       />
       {descriptionError ?
         <FormError errorContent={descriptionError} />
