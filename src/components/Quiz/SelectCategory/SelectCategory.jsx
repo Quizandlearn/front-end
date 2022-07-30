@@ -37,6 +37,7 @@ const SelectCategory = ({ formik }) => {
             value={category}
             onChange={handleChange}
             onBlur={handleBlur}
+            data-cy="categories"
           >
             <option value="" disabled>
               Thématique

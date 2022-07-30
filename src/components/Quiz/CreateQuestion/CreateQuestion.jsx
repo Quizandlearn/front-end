@@ -53,6 +53,7 @@ const CreateQuestion = ({
         value={fieldValue || ""}
         onChange={handleChange}
         onBlur={handleBlur}
+        data-cy="question"
       />
       {questionError ?
         <FormError errorContent={questionError} />
