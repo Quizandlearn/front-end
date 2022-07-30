@@ -8,6 +8,7 @@ const Button = ({ value }) => {
       <button
         type="submit"
         className="button submit"
+        data-cy="submit"
       >
         {value}
       </button>

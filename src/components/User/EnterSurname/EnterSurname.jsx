@@ -33,6 +33,7 @@ const EnterSurname = ({ formik }) => {
         onBlur={handleBlur}
         value={surname}
         placeholder="Nom"
+        data-cy="surname"
       />
       {surnameError ?
         <FormError errorContent={surnameError} />
