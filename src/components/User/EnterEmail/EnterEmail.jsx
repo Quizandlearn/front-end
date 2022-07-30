@@ -33,6 +33,7 @@ const EnterEmail = ({ formik }) => {
         onBlur={handleBlur}
         value={email}
         placeholder="E-mail"
+        data-cy="email"
       />
       {emailError ?
         <FormError errorContent={emailError} />

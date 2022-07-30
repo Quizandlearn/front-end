@@ -33,6 +33,7 @@ const EnterName = ({ formik }) => {
         value={name}
         className="input"
         placeholder="Prénom"
+        data-cy="name"
       />
       {nameError ?
         <FormError errorContent={nameError} />
