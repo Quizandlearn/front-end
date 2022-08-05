@@ -48,7 +48,8 @@
 .myProfile__form {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 445px;
+  height: 480px;
   border-radius: 20px;
   background-color: var(--color-shade-of-green);
 }
@@ -56,42 +57,50 @@
 .myProfile__form__photo__profile {
   display: flex;
   justify-content: center;
-  padding: 1.5em;
+  padding: 1em;
 }
 
 .myProfile__form__personal__data {
   display: flex;
   flex-direction: column;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .myProfile__form__text {
-  font-size: 20px;
-  color: white;
+  font-size: 15px;
+  color: var(--color-white);
+}
+
+.myProfile__form__field {
+  text-align: center;
+}
+
+.myProfile__form__label {
+  font-size: 15px;
 }
 
 .myProfile__form__title {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 30px;
   text-align: center;
-  color: white;
+  color:var(--color-white);
 }
 
 .myProfile__form__fields__container{
   display: flex;
   flex-direction: column;
-  padding-top: 3em;
-  padding-bottom: 3em;
-  gap: 10px;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
-.input{
-  width: 75%;
+.myProfile__form__input{
+  width: 70%;
   background-color: var(--color_shade-of-white);
   color: var(--color-shade-of-green);
   padding: 14px 20px;
-  margin: 10px 0;
+  margin: 5px 0;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -100,15 +109,15 @@
 .myProfile__editButtonContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
   padding-bottom: 1.5em;
 }
 
 .myProfile__editButton {
   border: 0;
   outline: 0;
-  width: 75%;
+  width: 70%;
   cursor: pointer;
   color: white;
   background-color: var(--color-shade-of-blue);
@@ -120,9 +129,8 @@
   font-family: system-ui;
   font-size: 14px;
   font-weight: 500;
-  padding: 4px 90px;
   display: inline-block;
-  min-height: 28px;
+  height: 40px;
   transition: background-color 0.24s, box-shadow 0.24s;
 }
 
@@ -131,4 +139,21 @@
     rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
     rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
     rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+/* Responsive */
+@media screen and (max-width:830px) {
+  .myProfile__image {
+    visibility: hidden;
+  }
+
+  .myProfile__main__section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  .myProfile__form {
+    width: 75%;
+  }
 }

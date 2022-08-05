@@ -40,11 +40,10 @@ const MyProfilePersonalData = ({ data }) => {
         {isEditing && (
           <form onSubmit={handleFormSubmit}>
             <div className="myProfile__form__fields__container">
-              <div className="field">
-                <label htmlFor="name" className="label">{name}</label>
+              <div className="myProfile__form__field field">
                   <input
                     id="name"
-                    className="input is-warning"
+                    className="myProfile__form__input"
                     type="text"
                     value={firstName}
                     onChange={(e) => {
@@ -53,11 +52,10 @@ const MyProfilePersonalData = ({ data }) => {
                     required
                   />
               </div>
-              <div className="field">
-                <label htmlFor="surname" className="label">{surname}</label>
+              <div className="myProfile__form__field field">
                 <input
                   id="surname"
-                  className="input is-warning"
+                  className="myProfile__form__input"
                   type="text"
                   value={lastName}
                   onChange={(e) => {
@@ -66,11 +64,10 @@ const MyProfilePersonalData = ({ data }) => {
                   required
                 />
               </div>
-              <div className="field">
-                <label htmlFor="email" className="label">{email}</label>
+              <div className="myProfile__form__field field">
                 <input
                   id="email"
-                  className="input is-warning"
+                  className="myProfile__form__input"
                   type="text"
                   value={myEmail}
                   onChange={(e) => {
@@ -91,16 +88,16 @@ const MyProfilePersonalData = ({ data }) => {
         {!isEditing && (
           <>
             <div className="myProfile__form__fields__container">
-              <div className="field">
-                <label className="label">{name}</label>
+              <div className="myProfile__form__field field">
+                <label className="myProfile__form__label label">{name}</label>
                 <p className="myProfile__form__text">{data.name}</p>
               </div>
-              <div className="field">
-                <label className="label">{surname}</label>
+              <div className="myProfile__form__field field">
+                <label className="myProfile__form__label label">{surname}</label>
                 <p className="myProfile__form__text">{data.surname}</p>
               </div>
-              <div className="field">
-                <label className="label">{email}</label>
+              <div className="myProfile__form__field field">
+                <label className="myProfile__form__label label">{email}</label>
                 <p className="myProfile__form__text">{data.email}</p>
               </div>
             </div>
