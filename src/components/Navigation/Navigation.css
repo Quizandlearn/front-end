@@ -3,7 +3,7 @@
 }
 
 /* UpperNavigation*/
-.upperPartNavigationContainer {
+.upper-part-navigation-container {
     display: flex;
     align-items: center;
     max-width: 100%;
@@ -12,14 +12,16 @@
     background-color: #FEC0C0;
 }
 
-.logoNavigation{
-    height: 100px;
-    margin-left: 2em;
+.logo-navigation{
+    height: 100%;
+    margin: 0px 15px 0px 20px;
 }
 
 .searchBar{
     border-bottom: none!important;
     flex-grow: 0.5;
+    width: 100%;  
+    margin: 0px 20px 0px 20px
 }
 
 .input {
@@ -33,24 +35,23 @@
 
     background-color: #2B6FD2;
     color: white;
-    font-weight: bold;
+    font-weight:bold;
     font-family: "Sporting", "sans-serif";
     cursor: pointer;
     margin-left: 0.5em;
 }
 
-.logoutAndProfile {
+/* .logout-and-profile {
     display: flex;
     align-items: center;
-}
+} */
 
 .profile {
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    margin-right: 20px;
-    margin-left: 15px;
+    padding: 10px 0px;
+    margin : 0px 20px 0px 15px;
     flex-grow: 1;
 }
 
@@ -59,7 +60,7 @@
 .menu {
     background-color: #17835C;
     height: 60px;
-    margin: 2em;
+    margin: 2em 0em 0em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -98,7 +99,7 @@
 
 /* Responsive */
 @media screen and (max-width:830px) {
-    .logoutAndProfile {
+    .logout-and-profile {
         visibility: hidden;
     }
 
@@ -124,7 +125,7 @@
         visibility: hidden;
     }
 
-    .show-navigation, .show-navigation .upperPartNavigationContainer {
+    .show-navigation, .show-navigation .upper-part-navigation-container {
         background-color: #17835C;
         color: #FFFFFF;
     }
@@ -134,7 +135,7 @@
         color: #17835C;
     }
 
-    .show-navigation  .logoNavigation {
+    .show-navigation  .logo-navigation {
         visibility: hidden;
     }
 

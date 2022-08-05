@@ -9,7 +9,8 @@ import "./Navigation.css";
 import useAuth from "../../hooks/useAuth";
 
 const EXPLORE_URL_FRONTEND = "/quizzes";
-const CATEGORIES_URL_FRONTEND = "/categories";
+const EXPLORE_CATEGORIES_URL_FRONTEND = "/quizzesByCategory";
+const CREATEQUIZ_URL_FRONTEND = "/createQuiz";
 const MYQUIZZES_URL_FRONTEND = "/myQuizzes";
 const FAVORITEQUIZZES_URL_FRONTEND = "/favoriteQuizzes";
 const COMPLETEDQUIZZES_URL_FRONTEND = "/completedQuizzes";
@@ -37,15 +38,16 @@ const Navigation = () => {
   if (user) {
     return (
       <div className={showLinks ? "navigation show-navigation" : "navigation"}>
-        <div className="upperPartNavigationContainer">
-          <img src={LogoBlue} className="logoNavigation" alt="" />
+        <div className="upper-part-navigation-container">
+          <img src={LogoBlue} className="logo-navigation" alt="" />
           {/* Search bar Bulma */}
           <div className="searchBar">
             <input className="input" type="text" placeholder="Rechercher" />
           </div>
-          <div className="logoutAndProfile">
+          <div className="logout-and-profile">
             <button type="button" className="button-navigation" onClick={logout}>
-              Déconnexion
+              Se déconnecter
+              {" "}
             </button>
             <div className="profile">
               <figure className="image is-64x64">
@@ -77,13 +79,17 @@ const Navigation = () => {
             </Link>
             <Link
               className="menu-link"
-              to={CATEGORIES_URL_FRONTEND}
+              to={EXPLORE_CATEGORIES_URL_FRONTEND}
               onClick={handleClickLink}
             >
               Catégories
             </Link>
-            <Link className="menu-link" to="" onClick={handleClickLink}>
-              Création Quiz
+            <Link
+              className="menu-link"
+              to={CREATEQUIZ_URL_FRONTEND}
+              onClick={handleClickLink}
+            >
+              Créer un quiz
             </Link>
             {/* A faire */}
             <Link
@@ -91,14 +97,14 @@ const Navigation = () => {
               to={MYQUIZZES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Mes Quiz
+              Mes quiz
             </Link>
             <Link
               className="menu-link"
               to={FAVORITEQUIZZES_URL_FRONTEND}
               onClick={handleClickLink}
             >
-              Quiz Favoris
+              Quiz favoris
             </Link>
             <Link
               className="menu-link"
