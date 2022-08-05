@@ -78,10 +78,8 @@ const MyProfilePersonalData = ({ data }) => {
               </div>
             </div>
             <div className="myProfile__editButtonContainer">
-              <button className="myProfile__editButton" type="submit">
-                {saveButton}
-              </button>
-              <button className="myProfile__editButton" type="button">{modifyPasswordButton}</button>
+              <SubmitButton value={saveButton} />
+              <SubmitButton value={modifyPasswordButton} />
             </div>
           </form>
         )}
