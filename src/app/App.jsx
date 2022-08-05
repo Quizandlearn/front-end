@@ -5,7 +5,6 @@ import AuthProvider from "../context/AuthProvider";
 import RequireAuth from "../context/RequireAuth";
 import Navigation from "../components/navigation/Navigation";
 import Explore from "../pages/Explore/Explore";
-import Navigation from "../components/navigation/Navigation";
 import MyProfile from "../pages/Profile/MyProfile";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
