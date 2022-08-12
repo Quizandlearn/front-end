@@ -30,14 +30,15 @@
   padding-top: 50px;
   text-align: start;
   min-height: 100%;
-  width: 100%;
+  width: 80%;
 }
 
 .myProfile__main__section {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
+  max-width: 80%;
+  margin: auto;
 }
 
 .myProfile__image {
@@ -141,19 +142,37 @@
     rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
+
 /* Responsive */
-@media screen and (max-width:830px) {
+@media screen and (max-width:1200px) {
   .myProfile__image {
-    visibility: hidden;
+    display: none;
   }
 
   .myProfile__main__section {
     flex-direction: column;
     justify-content: center;
-    align-items: center
+    align-items: center;
   }
 
   .myProfile__form {
-    width: 75%;
+    max-width: 68%;
+  }
+}
+
+/* Responsive mobile*/
+@media screen and (max-width:700px) {
+  .myProfile__image {
+    display: none;
+  }
+
+  .myProfile__main__section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .myProfile__form {
+    max-width: 80%;
   }
 }
