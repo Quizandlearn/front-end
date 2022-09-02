@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import { useFormik } from "formik";
-import LogoBlue from "../../assets/logoBlue.png";
+import logoApp from "../../assets/logoApp.svg";
 import useAuth from "../../hooks/useAuth";
 import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
 import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
@@ -11,7 +11,7 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 /* eslint-disable no-unused-vars */
 
 const SIGNUP_URL_FRONTEND = "/signup";
-const LoginValue = "Login";
+const LoginValue = "Valider";
 
 const Login = () => {
   const { login } = useAuth();
@@ -38,16 +38,16 @@ const Login = () => {
   });
 
   return (
-    <div className="login-container">
-      <img src={LogoBlue} id="logo-login" alt="" />
-      <h1 id="login-titre"> Se Connecter</h1>
-      <form onSubmit={formik.handleSubmit}>
+    <div className="login">
+      <img src={logoApp} className="login__logo" alt="" />
+      <h1 className="login__title"> Se connecter</h1>
+      <form onSubmit={formik.handleSubmit} className="login__form">
         <EnterEmail formik={formik} />
         <EnterPassword formik={formik} />
         <SubmitButton value={LoginValue} />
       </form>
-      <p id="newcomer-question">Nouveau sur la plateforme ?</p>
-      <Link to={SIGNUP_URL_FRONTEND} id="link-to-other-page">Inscrivez-vous</Link>
+      <p className="login__question">Nouveau sur la plateforme ?</p>
+      <Link to={SIGNUP_URL_FRONTEND} className="login__link__signup">Créer un compte</Link>
     </div>
   );
 };

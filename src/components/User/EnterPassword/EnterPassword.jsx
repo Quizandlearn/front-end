@@ -4,6 +4,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FormError from "../../FormError/FormError";
 import { authentificationPropTypes } from "../../../config/propTypes";
+import "./EnterPassword.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -28,25 +29,29 @@ const EnterPassword = ({ formik }) => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="field login__form password-container">
+    <div className="field password">
       <label htmlFor="password" className="sr-only">Password</label>
       <input
         id="password"
-        name="password"
-        autoComplete="on"
         type={passwordShown ? "text" : "password"}
         className="input"
+        placeholder="mot de passe"
+        /* Accessibility */
+        aria-required="true"
+        aria-invalid={passwordError}
+        aria-describedby={passwordError && "error-content-accessibility"}
+        /* Formik */
+        name="password"
+        value={password}
         onChange={handleChange}
         onBlur={handleBlur}
-        value={password}
-        placeholder="password"
+        /* Test */
+        data-cy="password"
       />
-      <button type="button" onClick={togglePasswordVisiblity} className="password-eye-sign-up">
-        <FontAwesomeIcon icon={faEye} className="eye-sign-up" />
+      <button type="button" onClick={togglePasswordVisiblity} className="password__toggle__visibility">
+        <FontAwesomeIcon icon={faEye} className="password__toggle__visibility__icon" />
       </button>
-      {passwordError ?
-        <FormError errorContent={passwordError} />
-        : null}
+      {passwordError && <FormError errorContent={passwordError} />}
     </div>
   );
 };

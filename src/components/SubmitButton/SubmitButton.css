@@ -1,0 +1,27 @@
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+    width: 100%;
+}
+
+.submit__button {
+    background-color: #2B6FD2;
+    opacity: 0.90;
+    color: white;
+    font-weight: bold;
+    font-family: "Roboto", "sans-serif";
+    cursor: pointer;
+    margin-left: 0.5em;
+    border-radius: 10px;
+}
+
+.submit__button:hover {
+    color: white; 
+}
+
+@media(max-width:410px) {
+    .submit__button {
+        font-size: 13px;
+    }
+}

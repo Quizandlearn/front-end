@@ -21,22 +21,26 @@ const EnterSurname = ({ formik }) => {
   const { handleChange, handleBlur, values } = formik;
   const { surname } = values;
   return (
-    <div className="field sign-up-field">
+    <div className="field">
       <label htmlFor="nom" className="sr-only">Nom</label>
       <input
         id="nom"
-        name="surname"
         type="text"
         className="input"
-        autoComplete="on"
+        placeholder="Nom"
+        /* Accessibility */
+        aria-required="true"
+        aria-invalid={surnameError}
+        aria-describedby={surnameError && "error-content-accessibility"}
+        /* Formik */
+        name="surname"
+        value={surname}
         onChange={handleChange}
         onBlur={handleBlur}
-        value={surname}
-        placeholder="Nom"
+        /* Test */
+        data-cy="surname"
       />
-      {surnameError ?
-        <FormError errorContent={surnameError} />
-        : null}
+      {surnameError && <FormError errorContent={surnameError} />}
     </div>
   );
 };

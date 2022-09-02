@@ -4,6 +4,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FormError from "../../FormError/FormError";
 import { authentificationPropTypes } from "../../../config/propTypes";
+import "./EnterConfirmedPassword.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -28,25 +29,29 @@ const EnterConfirmedPassword = ({ formik }) => {
     setConfirmedPasswordShown(!confirmedPasswordShown);
   };
   return (
-    <div className="field password-container">
+    <div className="field password">
       <label htmlFor="password-confirmation" className="sr-only">Confirmation du mot de passe</label>
       <input
         id="password-confirmation"
-        name="confirmedPassword"
         type={confirmedPasswordShown ? "text" : "password"}
         className="input"
-        autoComplete="on"
+        placeholder="confirmation mot de passe"
+        /* Accessibility */
+        aria-required="true"
+        aria-invalid={confirmedPasswordError}
+        aria-describedby={confirmedPasswordError && "error-content-accessibility"}
+        /* Formik */
+        name="confirmedPassword"
+        value={confirmedPassword}
         onChange={handleChange}
         onBlur={handleBlur}
-        value={confirmedPassword}
-        placeholder="Confirmation mot de passe"
+        /* Test */
+        data-cy="passwordConfirmation"
       />
-      <button type="button" onClick={toggleConfirmedPasswordVisiblity} className="password-eye-sign-up">
-        <FontAwesomeIcon icon={faEye} className="eye-sign-up" />
+      <button type="button" onClick={toggleConfirmedPasswordVisiblity} className="confirm__password__toggle__visibility">
+        <FontAwesomeIcon icon={faEye} className="confirm__password__toggle__visibility__icon" />
       </button>
-      {confirmedPasswordError ?
-        <FormError errorContent={confirmedPasswordError} />
-        : null}
+      {confirmedPasswordError && <FormError errorContent={confirmedPasswordError} />}
     </div>
   );
 };

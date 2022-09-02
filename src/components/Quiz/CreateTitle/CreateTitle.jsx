@@ -33,6 +33,7 @@ const CreateTitle = ({ formik }) => {
         required
         onChange={handleChange}
         onBlur={handleBlur}
+        data-cy="title"
       />
       {titleError ?
         <FormError errorContent={titleError} />

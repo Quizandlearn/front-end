@@ -21,22 +21,26 @@ const EnterEmail = ({ formik }) => {
   const { handleChange, handleBlur, values } = formik;
   const { email } = values;
   return (
-    <div className="field login__form">
+    <div className="field">
       <label htmlFor="email" className="sr-only">E-mail</label>
       <input
         id="email"
-        name="email"
         type="email"
+        placeholder="e-mail"
         className="input"
-        autoComplete="on"
+        /* Accessibility */
+        aria-required="true"
+        aria-invalid={emailError}
+        aria-describedby={emailError && "error-content-accessibility"}
+        /* Formik */
+        name="email"
+        value={email}
         onChange={handleChange}
         onBlur={handleBlur}
-        value={email}
-        placeholder="E-mail"
+        /* Test */
+        data-cy="email"
       />
-      {emailError ?
-        <FormError errorContent={emailError} />
-        : null}
+      {emailError && <FormError errorContent={emailError} />}
     </div>
   );
 };
