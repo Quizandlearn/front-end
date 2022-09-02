@@ -5,11 +5,11 @@ import * as Yup from "yup";
 import "./Signup.css";
 import logoApp from "../../assets/logoApp.svg";
 import useSignUp from "../../hooks/useSignUp";
-import EnterName from "../../components/User/EnterName/EnterName";
-import EnterSurname from "../../components/User/EnterSurname/EnterSurname";
-import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
-import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
-import EnterConfirmedPassword from "../../components/User/EnterConfirmedPassword/EnterConfirmedPassword";
+import EnterName from "../../components/Authentification/EnterName/EnterName";
+import EnterSurname from "../../components/Authentification/EnterSurname/EnterSurname";
+import EnterEmail from "../../components/Authentification/EnterEmail/EnterEmail";
+import EnterPassword from "../../components/Authentification/EnterPassword/EnterPassword";
+import EnterConfirmedPassword from "../../components/Authentification/EnterConfirmedPassword/EnterConfirmedPassword";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */

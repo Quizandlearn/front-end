@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
 .signup{
     width: 100%;
     position: absolute;
     min-height: 1000px;
     height: 100%;
     background-color: #FEC0C0;
+    font-family: "Roboto", "sans-serif";
 }
 
 .signup__section{
@@ -20,7 +23,6 @@
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 30px;
-    font-family: "Roboto", "sans-serif";
 }
 
 .signup__logo{
@@ -28,60 +30,18 @@
     margin-bottom: 50px;
 }
 
-/*Form Inputs*/
-.signup__form input[type="text"],
-.signup__form input[type="email"],
-.signup__form input[type="password"] {
-    background-color: #18825C;
-    opacity: 0.70;
-    color: white;
-    width: 100%;
-    font-family: "Roboto", "sans-serif";
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.signup__form input[type="text"]::placeholder,
-.signup__form input[type="email"]::placeholder,
-.signup__form input[type="password"]::placeholder,
-.signup__form input:focus{
-    color: white;
-    font-family: "Roboto", "sans-serif";
-}
-.signup__form input[type="text"]::placeholder,
-.signup__form input[type="email"]::placeholder,
-.signup__form input[type="password"]::placeholder
-.signup__form input:-webkit-autofill,
-.signup__form input:-webkit-autofill:hover, 
-.signup__form input:-webkit-autofill:focus {
-  border: none;
-  -webkit-text-fill-color: white;
-  transition: background-color 5000s ease-in-out 0s;
-  font-family: "Roboto", "sans-serif";
-}
-
-/*last elements*/
 .signup__question{
-    font-size: 15px;
+    font-size: 16px;
     padding-top: 50px;
-    font-family: "Roboto", "sans-serif";
 }
 
 .signup__link__login{
     color: #2B6FD2;
     padding-top: 0.3em;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 @media(max-width:410px) {
-    .signup__form input[type="text"],
-    .signup__form input[type="email"],
-    .signup__form input[type="password"]{ 
-        max-width: 230px;
-        font-size: 13px;
-        margin-bottom: 5px;
-    }
-
     .signup__section{
         max-width: 230px;
         padding-top: 10px;

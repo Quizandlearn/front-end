@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { authentificationPropTypes } from "../../../config/propTypes";
+import "./EnterName.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -27,7 +28,7 @@ const EnterName = ({ formik }) => {
         id="name"
         type="text"
         placeholder="Prénom"
-        className="input"
+        className="enterName__input input"
         /* Accessibility */
         aria-required="true"
         aria-invalid={nameError}

@@ -34,7 +34,7 @@ const EnterConfirmedPassword = ({ formik }) => {
       <input
         id="password-confirmation"
         type={confirmedPasswordShown ? "text" : "password"}
-        className="input"
+        className="enterConfirmedPassword__input input"
         placeholder="confirmation mot de passe"
         /* Accessibility */
         aria-required="true"
@@ -48,8 +48,8 @@ const EnterConfirmedPassword = ({ formik }) => {
         /* Test */
         data-cy="passwordConfirmation"
       />
-      <button type="button" onClick={toggleConfirmedPasswordVisiblity} className="confirm__password__toggle__visibility">
-        <FontAwesomeIcon icon={faEye} className="confirm__password__toggle__visibility__icon" />
+      <button type="button" onClick={toggleConfirmedPasswordVisiblity} className="enterConfirmedPassword__toggle__visibility">
+        <FontAwesomeIcon icon={faEye} className="enterConfirmedPassword__toggle__visibility__icon" />
       </button>
       {confirmedPasswordError && <FormError errorContent={confirmedPasswordError} />}
     </div>

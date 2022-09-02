@@ -1,27 +1,28 @@
-.submit {
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+.submitButton {
     display: flex;
     justify-content: center;
     margin-top: 1.5em;
     width: 100%;
 }
 
-.submit__button {
+.submitButton__button{
     background-color: #2B6FD2;
-    opacity: 0.90;
     color: white;
-    font-weight: bold;
     font-family: "Roboto", "sans-serif";
     cursor: pointer;
     margin-left: 0.5em;
     border-radius: 10px;
+    padding: 0 30px;
 }
 
-.submit__button:hover {
+.submitButton__button:hover{
     color: white; 
 }
 
-@media(max-width:410px) {
-    .submit__button {
-        font-size: 13px;
+@media(max-width:800px) {
+    .submitButton__button{
+        font-size: 14px;
     }
 }

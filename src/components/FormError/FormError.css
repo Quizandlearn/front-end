@@ -1,24 +1,24 @@
-.form__error,
-.form__error__icon,
-.form__error {
+.formError,
+.formError__icon,
+.formError {
     color: #2B6FD2;
 }
 
-.form__error {
+.formError {
     display: flex;
     text-align: start;
     padding-top: 3px;
 }
 
-.form__error__icon {
+.formError__icon {
     padding-right: 5px;
     padding-top: 3px;
 }
 
 @media(max-width:700px){
-    .form__error,
-    .form__error__icon,
-    .form__error{
+    .formError,
+    .formError__icon,
+    .formError{
         font-size: 13px;
     }
 }

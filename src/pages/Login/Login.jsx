@@ -5,8 +5,8 @@ import "./Login.css";
 import { useFormik } from "formik";
 import logoApp from "../../assets/logoApp.svg";
 import useAuth from "../../hooks/useAuth";
-import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
-import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
+import EnterEmail from "../../components/Authentification/EnterEmail/EnterEmail";
+import EnterPassword from "../../components/Authentification/EnterPassword/EnterPassword";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 /* eslint-disable no-unused-vars */
 

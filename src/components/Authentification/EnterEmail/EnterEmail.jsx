@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { authentificationPropTypes } from "../../../config/propTypes";
+import "./EnterEmail.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -27,7 +28,7 @@ const EnterEmail = ({ formik }) => {
         id="email"
         type="email"
         placeholder="e-mail"
-        className="input"
+        className="enterEmail__input input"
         /* Accessibility */
         aria-required="true"
         aria-invalid={emailError}

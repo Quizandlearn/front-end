@@ -34,7 +34,7 @@ const EnterPassword = ({ formik }) => {
       <input
         id="password"
         type={passwordShown ? "text" : "password"}
-        className="input"
+        className="enterPassword__input input"
         placeholder="mot de passe"
         /* Accessibility */
         aria-required="true"
@@ -48,8 +48,8 @@ const EnterPassword = ({ formik }) => {
         /* Test */
         data-cy="password"
       />
-      <button type="button" onClick={togglePasswordVisiblity} className="password__toggle__visibility">
-        <FontAwesomeIcon icon={faEye} className="password__toggle__visibility__icon" />
+      <button type="button" onClick={togglePasswordVisiblity} className="enterPassword__toggle__visibility">
+        <FontAwesomeIcon icon={faEye} className="enterPassword__toggle__visibility__icon" />
       </button>
       {passwordError && <FormError errorContent={passwordError} />}
     </div>
