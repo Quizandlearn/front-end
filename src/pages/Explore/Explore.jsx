@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "../../config/axios";
-import api from "../../config/api";
-import useAuth from "../../hooks/useAuth";
 import profile from "../../assets/profile.png";
+import useGetQuizzes from "../../hooks/useGetQuizzes";
 import "./Explore.css";
 
 const Explore = () => {
-  // eslint-disable-next-line no-unused-vars
-  const { user } = useAuth();
-
-  const [quizzes, setQuizzes] = useState([]);
-  const getAllQuizzes = async () => {
-    const response = await axios.get(api.quizzes);
-    setQuizzes(response);
-  };
-  useEffect(() => {
-    getAllQuizzes();
-  }, []);
+  const { loading, data } = useGetQuizzes();
+  console.log(loading)
 
   // const quizzes = [{
   //   title: "Ceci est un très très très long titre de quiz...",
@@ -47,36 +36,39 @@ const Explore = () => {
   const descriptionQuiz = "En savoir plus";
 
   return (
-    <div className="explore">
-      <h2 className="explore__title">{exploreTitle}</h2>
-      {quizzes && quizzes.map((quiz) => (
-        <div className="explore__list__item" key={quiz.title}>
-          <div className="explore__list__item__text">
-            <h3 className="explore__list__item__text__title">{quiz.title}</h3>
-            <div className="explore__list__item__text__stars">{quiz.ratings}</div>
-            {" "}
-            <div className="explore__list__item__text__category">{quiz.categories}</div>
-            <div className="explore__list__item__text__description">{descriptionQuiz}</div>
-          </div>
-
-          <div className="explore__list__item__assets">
-            <div className="explore__list__item__assets__profile-img">
-              <figure className="image is-64x64">
-                <img
-                  src={profile}
-                  alt="Profile"
-                />
-              </figure>
+    {loading && data && (
+      <>
+      <div className="explore">
+        <h2 className="explore__title">{exploreTitle}</h2>
+        {data.quizzes && data.quizzes.map((quiz) => (
+          <div className="explore__list__item" key={quiz.title}>
+            <div className="explore__list__item__text">
+              <h3 className="explore__list__item__text__title">{quiz.title}</h3>
+              <div className="explore__list__item__text__stars">{quiz.ratings}</div>
               {" "}
-              {quiz.id_user_owner}
+              <div className="explore__list__item__text__category">{quiz.categories}</div>
+              <div className="explore__list__item__text__description">{descriptionQuiz}</div>
             </div>
-            <button className="explore__list__item__assets__button" type="submit">Faire ce quiz</button>
 
+            <div className="explore__list__item__assets">
+              <div className="explore__list__item__assets__profile-img">
+                <figure className="image is-64x64">
+                  <img
+                    src={profile}
+                    alt="Profile"
+                  />
+                </figure>
+                {" "}
+                {quiz.id_user_owner}
+              </div>
+              <button className="explore__list__item__assets__button" type="submit">Faire ce quiz</button>
+
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+      </>
+});
 };
 
 export default Explore;
