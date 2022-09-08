@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
+import "./ExplainAnswer.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 
 const getFieldValue = (formik, questionIndex) => {
   if (formik.values && formik.values.questions) {
@@ -44,21 +46,24 @@ const ExplainAnswer = ({
   const explanationError = getExplanationError(formik, index);
   const { handleChange, handleBlur } = formik;
   return (
-    <>
+    <div className="explainAnswer">
+      <label htmlFor="explainAnswer" className="explainAnswer__label">Détail de ou des réponse correctes</label>
       <textarea
-        name={fieldName}
-        className="textarea"
-        placeholder="Explication des réponses"
+        id="explainAnswer"
+        className="explainAnswer__textarea textarea"
         rows="4"
         type="text"
+        /* Accessibility */
+        aria-invalid={explanationError}
+        aria-describedby={explanationError && "error-content-accessibility"}
+        /* Formik */
+        name={fieldName}
         value={fieldValue}
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {explanationError ?
-        <FormError errorContent={explanationError} />
-        : null}
-    </>
+      {explanationError && <FormError errorContent={explanationError} />}
+    </div>
   );
 };
 

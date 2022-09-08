@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+.addQuestionElements{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.addQuestionElements__add__answers__button,
+.addQuestionElements__add__explanation__button,
+.addQuestionElements__add__link__button{
+    background-color: #2A6DCD;
+    border-radius: 10px;
+    color: white;
+    padding: 0 35px;
+    font-family: "Roboto", "sans-serif";
+}
+
+.addQuestionElements__add__answers__button:hover,
+.addQuestionElements__add__answers__button:focus,
+.addQuestionElements__add__explanation__button:hover,
+.addQuestionElements__add__link__button:hover{
+    color: white;
+}
+
+@media(max-width:800px){
+    .addQuestionElements__add__answers__button,
+    .addQuestionElements__add__explanation__button,
+    .addQuestionElements__add__link__button{
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 700px) {
+    .addQuestionElements__add__answers__button,
+    .addQuestionElements__add__explanation__button,
+    .addQuestionElements__add__link__button{
+        padding: 0 10px;
+        font-size: 13px;
+    }
+}

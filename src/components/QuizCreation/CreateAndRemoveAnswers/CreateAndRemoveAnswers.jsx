@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
+import "./CreateAndRemoveAnswers.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -44,39 +47,64 @@ const getAnswerError = (formik, questionIndex, answerIndex) => {
   return undefined;
 };
 
-const CreateAnswer = ({
+const answerMinimum = 2;
+
+const CreateAndRemoveAnswers = ({
   index,
   idx,
-  formik
+  formik,
+  question,
+  remove
 }) => {
   const fieldName = `questions.${index}.answers.${idx}.answerContent`;
   const fieldValue = getFieldValue(formik, index, idx);
   const answerError = getAnswerError(formik, index, idx);
   const { handleChange, handleBlur } = formik;
   return (
-    <div className="field" id="reply-field">
-      <label htmlFor={fieldName} className="sr-only" />
-      <input
-        id={fieldName}
-        name={fieldName}
-        type="text"
-        className="input answer"
-        placeholder="réponse"
-        value={fieldValue || ""}
-        onChange={handleChange}
-        onBlur={handleBlur}
-      />
-      {answerError ?
-        <FormError errorContent={answerError} />
-        : null}
+    <div className="createAndRemoveAnswer field" id="reply-field">
+      <label htmlFor={fieldName} className="createAndRemoveAnswer__label">
+        Reponse
+        {" "}
+        { idx + 1 }
+      </label>
+      <div className="createAndRemoveAnswer__enter__or__remove__answers">
+        <input
+          id={fieldName}
+          type="text"
+          className="createAndRemoveAnswer__input input"
+          /* Accessibility */
+          aria-required="true"
+          aria-invalid={answerError}
+          aria-describedby={answerError && "error-content-accessibility"}
+          /* Formik */
+          name={fieldName}
+          value={fieldValue || ""}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        {question && question.answers.length > answerMinimum && (
+          <button
+            className="createAndRemoveAnswer__remove__answer__button button"
+            type="button"
+            /* Accessibilité */
+            aria-label={`supprimer la reponse ${idx + 1}`}
+            onClick={() => remove(idx)}
+          >
+            <FontAwesomeIcon icon={faX} className="createAndRemoveAnswer__remove__answer__button__icon" />
+          </button>
+        )}
+      </div>
+      {answerError && <FormError errorContent={answerError} />}
     </div>
   );
 };
 
-CreateAnswer.propTypes = {
+CreateAndRemoveAnswers.propTypes = {
   index: PropTypes.number.isRequired,
   idx: PropTypes.number.isRequired,
-  formik: PropTypes.shape(createQuizPropTypes)
+  formik: PropTypes.shape(createQuizPropTypes),
+  question: PropTypes.string.isRequired,
+  remove: PropTypes.func.isRequired
 };
 
-export default CreateAnswer;
+export default CreateAndRemoveAnswers;

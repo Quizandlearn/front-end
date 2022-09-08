@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { createQuizPropTypes } from "../../../config/propTypes";
+import "./DetermineCorrectAnswer.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -25,19 +26,20 @@ const DetermineCorrectAnswer = ({
 }) => {
   const fieldName = `questions.${index}.answers.${idx}.isCorrectAnswer`;
   const fieldValue = getFieldValue(formik, index, idx);
-  const { handleChange, handleBlur } = formik;
+  const { handleChange } = formik;
   return (
-    <div className="correct-answer-container">
-      <label className="checkbox" htmlFor={fieldName} />
+    <div className="determineCorrectAnswer">
+      <label htmlFor={fieldName} className="checkbox determineCorrectAnswer__label" />
+      Bonne réponse
       <input
         type="checkbox"
         id={fieldName}
-        name={fieldName}
+        className="determineCorrectAnswer__input"
+        /* Formik */
         value={fieldValue}
+        name={fieldName}
         onChange={handleChange}
-        onBlur={handleBlur}
       />
-      bonne réponse
     </div>
   );
 };

@@ -9,8 +9,6 @@ import useAuth from "./useAuth";
 
 const LOGIN_URL_EXPLORE = "/explore";
 
-// to do: clean urls
-
 export const useCreateQuiz = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -30,7 +28,7 @@ export const useCreateQuiz = () => {
         }
       );
 
-      console.log("responseCreateQuizSkeleton", responseCreateQuiz);
+      // console.log("responseCreateQuizSkeleton", responseCreateQuiz);
 
       const convertedQuestions = [];
       values.questions.map((question, position) => convertedQuestions.push({
@@ -42,7 +40,7 @@ export const useCreateQuiz = () => {
         position
       }));
 
-      console.log("convertedQuestions", convertedQuestions);
+      // console.log("convertedQuestions", convertedQuestions);
 
       const responseCreateQuestions = await axios.post(
         generateRoute(api.questions, responseCreateQuiz.data.idQuiz),
@@ -53,8 +51,8 @@ export const useCreateQuiz = () => {
           withCredentials: true
         }
       );
-      console.log("responseCreateQuestions", responseCreateQuestions);
-      console.log("responseCreateQuestions.data.idQuestions", responseCreateQuestions.data.idQuestions);
+      // console.log("responseCreateQuestions", responseCreateQuestions);
+      // console.log("responseCreateQuestions.data.idQuestions", responseCreateQuestions.data.idQuestions);
 
       responseCreateQuestions.data.idQuestions.map(async (idQuestion, i) => {
         const choices = [];
@@ -65,7 +63,7 @@ export const useCreateQuiz = () => {
           position
         }));
 
-        console.log("choices", choices);
+        // console.log("choices", choices);
         const responseCreateChoice = await axios.post(
           generateRoute(api.choices, responseCreateQuiz.data.idQuiz, idQuestion),
           JSON.stringify({ choices }),
@@ -75,7 +73,7 @@ export const useCreateQuiz = () => {
             withCredentials: true
           }
         );
-        console.log("responseCreateChoice", responseCreateChoice);
+        // console.log("responseCreateChoice", responseCreateChoice);
       });
       navigate(LOGIN_URL_EXPLORE);
     } catch (error) {

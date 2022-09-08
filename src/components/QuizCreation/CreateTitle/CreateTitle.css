@@ -1,0 +1,32 @@
+.createTitle__label {
+    font-size: 16px;
+    color: #2A6DCD;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.createTitle__input {
+    background-color : rgba(42, 109, 205, 0.5);
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.createTitle__input:-webkit-autofill,
+.createTitle__input:-webkit-autofill:hover, 
+.createTitle__input:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media(max-width:700px) {
+    .createTitle__label {
+        font-size: 14px;
+    }
+
+    .createTitle__input {
+        font-size: 13px;
+    }
+}
