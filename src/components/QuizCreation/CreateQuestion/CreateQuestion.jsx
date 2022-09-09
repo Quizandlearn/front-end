@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
+import "./CreateQuestion.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -18,8 +19,8 @@ const getQuestionValue = (formik, questionIndex) => {
 
 const getQuestionError = (formik, questionIndex) => {
   let touched = false;
-  if (formik.touched && formik.values.questions) {
-    const { questions } = formik.values;
+  if (formik.touched && formik.touched.questions) {
+    const { questions } = formik.touched;
     if (questions[questionIndex] && questions[questionIndex].question) {
       touched = true;
     }
@@ -43,21 +44,28 @@ const CreateQuestion = ({
   const { handleChange, handleBlur } = formik;
   return (
     <div className="field">
-      <label htmlFor={fieldName} className="sr-only" />
+      <label htmlFor={fieldName} className="createQuestion__label">
+        Question
+        {" "}
+        {index + 1}
+      </label>
       <input
         id={fieldName}
-        name={fieldName}
         type="text"
-        className="input"
-        placeholder="Question"
+        className="createQuestion__input input"
+        /* Accessibility */
+        aria-required="true"
+        aria-invalid={questionError}
+        aria-describedby={questionError && "error-content-accessibility"}
+        /* Formik */
+        name={fieldName}
         value={fieldValue || ""}
         onChange={handleChange}
         onBlur={handleBlur}
+        /* Test */
         data-cy="question"
       />
-      {questionError ?
-        <FormError errorContent={questionError} />
-        : null}
+      {questionError && <FormError errorContent={questionError} />}
     </div>
   );
 };

@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
-/* eslint-disable react/prop-types */
+import "./CreateDescription.css";
 /* eslint-disable react/require-default-props */
+/* eslint-disable  jsx-a11y/label-has-associated-control */
 
 const getDescriptionError = (formik) => {
   let touched = false;
@@ -22,20 +23,25 @@ const CreateDescription = ({ formik }) => {
   const descriptionError = getDescriptionError(formik);
   return (
     <>
+      <label htmlFor="description" className="createDescription__label">Description</label>
       <textarea
-        name="description"
-        className="textarea"
-        placeholder="Description"
+        id="description"
+        className="createDescription__textarea textarea"
         rows="4"
         type="text"
+        /* Accessibility */
+        aria-required="true"
+        aria-invalid={descriptionError}
+        aria-describedby={descriptionError && "error-content-accessibility"}
+        /* Formik */
+        name="description"
         value={description}
         onChange={handleChange}
         onBlur={handleBlur}
+        /* Test */
         data-cy="description"
       />
-      {descriptionError ?
-        <FormError errorContent={descriptionError} />
-        : null}
+      {descriptionError && <FormError errorContent={descriptionError} />}
     </>
   );
 };

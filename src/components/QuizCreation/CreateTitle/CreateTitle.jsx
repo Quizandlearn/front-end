@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
+import "./CreateTitle.css";
 /* eslint-disable  jsx-a11y/label-has-associated-control */
 /* eslint-disable react/require-default-props */
 
@@ -22,22 +23,24 @@ const CreateTitle = ({ formik }) => {
   const { title } = values;
   return (
     <>
-      <label htmlFor="title" className="sr-only">Title</label>
+      <label htmlFor="title" className="createTitle__label">Titre Questionnaire</label>
       <input
         id="title"
-        name="title"
         type="text"
-        className="input"
+        className="createTitle__input input"
+        /* Accessibility */
+        aria-required="true"
+        aria-invalid={titleError}
+        aria-describedby={titleError && "error-content-accessibility"}
+        /* Formik */
+        name="title"
         value={title}
-        placeholder="Titre questionnaire"
-        required
         onChange={handleChange}
         onBlur={handleBlur}
+        /* Test */
         data-cy="title"
       />
-      {titleError ?
-        <FormError errorContent={titleError} />
-        : null}
+      {titleError && <FormError errorContent={titleError} />}
     </>
   );
 };

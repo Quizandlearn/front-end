@@ -7,8 +7,8 @@ import "./FormError.css";
 
 const FormError = ({ errorContent }) => {
   return (
-    <div className="formError">
-      <FontAwesomeIcon icon={faInfoCircle} className="formError__icon" />
+    <div className="form__error">
+      <FontAwesomeIcon icon={faInfoCircle} className="form__error__icon" />
       <p id="error-content-accessibility">{errorContent}</p>
     </div>
   );

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+.createQuestionsAndAnswers{
+    max-width: 840px;
+    padding: 0 100px 30px;
+    background-color: #f1d5d5;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.createQuestionsAndAnswers__remove__question__button{
+    color: black;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    left: 680px;
+    top: 10px;
+}
+
+.createQuestionsAndAnswers__add__question{
+    display: flex;
+    justify-content: right;
+    max-width: 840px;
+}
+
+.createQuestionsAndAnswers__add__question__button{
+    background-color: #1E825D;
+    color: white;
+    font-family: "Roboto", "sans-serif";
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0 30px;
+    width: 222px;
+    margin-left: 55px;
+}
+
+.createQuestionsAndAnswers__add__question__button:hover {
+    color: white;
+}
+
+@media(max-width:900px){
+    .createQuestionsAndAnswers{
+        padding: 30px 60px;
+        background-color: #f1d5d5;
+    }
+
+    .createQuestionsAndAnswers__add__question{
+        flex-direction: column;
+        align-items:center;
+    }
+
+    .createQuestionsAndAnswers__add__question__button{
+        padding: 0 15px;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .createQuestionsAndAnswers__remove__question__button{
+        left: 530px;
+        top: -10px;
+    }
+}
+
+@media(max-width:800px){
+
+    .createQuestionsAndAnswers__add__question__button{
+        font-size: 14px;
+        width: 180px;
+    }
+}
+
+@media(max-width:700px){
+
+    .createQuestionsAndAnswers{
+        padding: 30px 50px;
+        background-color: #f1d5d5;
+    }
+
+    .createQuestionsAndAnswers__remove__question__button{
+        left: 390px;
+        top: -10px;
+    }
+}
+
+@media(max-width:550px) {
+    .createQuestionsAndAnswers__remove__question__button{
+        left: 300px;
+    }
+}
+
+@media(max-width:450px) {
+    .createQuestionsAndAnswers{
+        padding: 30px 30px;
+        background-color: #f1d5d5;
+    }
+
+    .createQuestionsAndAnswers__remove__answer__button{
+        width: 30px;
+    }
+
+    .createQuestionsAndAnswers__add__question__button{
+        margin-bottom: 20px;
+    }
+
+    .createQuestionsAndAnswers__remove__question__button{
+        left: 220px;
+        top: -20px;
+    }
+}

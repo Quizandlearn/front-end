@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
+import "./LearnMoreLink.css";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
@@ -45,21 +46,22 @@ const LearnMoreLink = ({
   const { handleChange, handleBlur } = formik;
 
   return (
-    <div className="field">
-      <label htmlFor={fieldName} className="sr-only" />
+    <div className="learnMoreLink field">
+      <label htmlFor={fieldName} className="learnMoreLink__label">Lien en complément de la réponse</label>
       <input
         id="learnMore"
+        type="url"
+        className="learnMoreLink__textarea input"
+        /* Accessibility */
+        aria-invalid={learnMoreError}
+        aria-describedby={learnMoreError && "error-content-accessibility"}
+        /* Formik */
         name={fieldName}
-        type="text"
-        className="input learn-more"
-        placeholder="Lien d'approfondissement commençant par https://"
         value={fieldValue || ""}
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {learnMoreError ?
-        <FormError errorContent={learnMoreError} />
-        : null}
+      {learnMoreError && <FormError errorContent={learnMoreError} />}
     </div>
   );
 };
