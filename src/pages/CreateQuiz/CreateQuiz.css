@@ -194,25 +194,6 @@
     color: white;
 }
 
-/*Error messages*/
-
-.formError,
-.formError-icon,
-.formError {
-    color: #2B6FD2;
-}
-
-.formError {
-    display: flex;
-    text-align: start;
-    padding-top: 3px;
-}
-
-.formError-icon {
-    padding-right: 5px;
-    padding-top: 3px;
-}
-
 @media(max-width:900px){
 
     .quiz-creation-form-container{
@@ -251,12 +232,6 @@
 
     .section-container{
         padding-bottom: 20px;
-    }
-
-    .formError,
-    .formError-icon,
-    .formError{
-        font-size: 13px;
     }
 
     .form-submit-button-container > button {
