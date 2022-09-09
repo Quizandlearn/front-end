@@ -5,7 +5,7 @@ import AuthProvider from "../context/AuthProvider";
 import RequireAuth from "../context/RequireAuth";
 import Navigation from "../components/Navigation/Navigation";
 import Explore from "../pages/Explore/Explore";
-import MyProfile from "../pages/MyProfile/MyProfile";
+import MyProfile from "../pages/Profile/MyProfile";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import ExploreByCategory from "../pages/ExploreByCategory/ExploreByCategory";

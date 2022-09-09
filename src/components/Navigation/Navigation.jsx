@@ -42,7 +42,7 @@ const Navigation = () => {
           <img src={LogoBlue} className="logo-navigation" alt="" />
           {/* Search bar Bulma */}
           <div className="searchBar">
-            <input className="input" type="text" placeholder="Rechercher" />
+            <input className="input searchbar-input" type="text" placeholder="Rechercher" />
           </div>
           <div className="logout-and-profile">
             <button type="button" className="button-navigation" onClick={logout}>

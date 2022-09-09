@@ -1,0 +1,38 @@
+.learnMoreLink__label {
+    display: block;
+    font-size: 16px;
+    color: #1E825D;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.learnMoreLink__textarea {
+    background: rgba(30, 130, 93, 0.5);
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.learnMoreLink__textarea:-webkit-autofill,
+.learnMoreLink__textarea:-webkit-autofill:hover, 
+.learnMoreLink__textarea:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.learnMoreLink > .form__error,
+.learnMoreLink > .form__error > .form__error__icon {
+    color: #1E825D;
+}
+
+@media(max-width:700px) {
+    .learnMoreLink__label {
+        font-size: 14px;
+    }
+
+    .title__textarea {
+        font-size: 13px;
+    }
+}

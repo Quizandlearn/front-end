@@ -1,0 +1,33 @@
+.createDescription__label {
+    display: block;
+    font-size: 16px;
+    color: #2A6DCD;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.createDescription__textarea {
+    background-color : rgba(42, 109, 205, 0.5);
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.createDescription__textarea:-webkit-autofill,
+.createDescription__textarea:-webkit-autofill:hover, 
+.createDescription__textarea:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media(max-width:700px) {
+    .createDescription__label {
+        font-size: 14px;
+    }
+
+    .title__textarea {
+        font-size: 13px;
+    }
+}
