@@ -10,7 +10,7 @@ const Explore = () => {
   const exploreTitle = "Les derniers quiz ajoutés";
   const descriptionQuiz = "En savoir plus";
   const ratingsQuiz = "★★★☆☆";
-  console.log("data", data);
+
   return (
     <>
       {loading && <div>Loading</div>}
@@ -37,7 +37,7 @@ const Explore = () => {
                   </figure>
                 </div>
                 <div className="explore__list__item__assets__username">
-                  {console.log("name", quiz.name)}
+
                   {quiz.name}
                 </div>
                 <button className="explore__list__item__assets__button" type="submit">Faire ce quiz</button>
@@ -51,35 +51,3 @@ const Explore = () => {
   );
 };
 export default Explore;
-
-/*
-
-  // const quizzes = [{
-  //   title: "Ceci est un très très très long titre de quiz...",
-  //   categories: "CATÉGORIE",
-  //   id_user_owner: "Lisa",
-  //   ratings: "★★★★☆",
-  // }, {
-  //   title: "Ceci est un autre très très très très long titre de quiz...",
-  //   categories: "SCIENCES",
-  //   id_user_owner: "Antoine",
-  //   ratings: "★★★☆☆",
-  // },
-  // {
-  //   title: "Ceci est un petit titre",
-  //   categories: "TITRE",
-  //   id_user_owner: "Léo",
-  //   ratings: "★★★☆☆",
-  // },
-  // {
-  //   title: "Ceci est un moyen titre de quiz",
-  //   categories: "JAVASCRIPT",
-  //   id_user_owner: "Jean-Maximilien",
-  //   ratings: "★★★☆☆",
-  // },
-  // ];
-
-    {loading && data && (
-      <>
-          <div className="explore__list__item" key={quiz.title}>
-*/

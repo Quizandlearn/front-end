@@ -17,7 +17,7 @@ const useGetQuizzes = () => {
 
       try {
         const page = 1;
-        const limit = 5;
+        const limit = 3;
         const { data: response } = await axios.get(
           `${api.quizzes}/?page=${page}&limit=${limit}`,
           {
@@ -34,14 +34,13 @@ const useGetQuizzes = () => {
           quiz.name = userResponse.name;
           console.log("userResponse", userResponse);
           console.log("quiz", quiz);
+          return quiz;
         });
         console.log("response", response);
-        console.log("userData", userData);
         setData(response);
       } catch (error) {
         console.error(error.message);
       }
-
       setLoading(false);
     };
     getAllQuizzes();

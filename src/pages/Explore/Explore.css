@@ -70,7 +70,7 @@
     justify-content: center;
     margin: 10px;
     padding: 10px;
-    min-width: 156px;
+    width: 130px;
     height: 40px;
     font-weight: bold;
     color: var(--color-white);
@@ -123,6 +123,7 @@
     display: flex;
     text-align: center;
     align-self: center;
+    justify-content: center;
     width: 110px; 
     word-wrap: break-word; 
     white-space: pre-wrap; 
