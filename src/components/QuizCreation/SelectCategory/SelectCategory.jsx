@@ -52,7 +52,7 @@ const SelectCategory = ({ formik }) => {
               </option>
               {data.categories.map((category, index) => {
                 return (
-                  <option key={index} value={category._id}>
+                  <option key={index} value={category.title}>
                     {category.title}
                   </option>
                 );

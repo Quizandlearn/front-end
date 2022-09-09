@@ -19,6 +19,7 @@ const useCategoriesQuiz = () => {
           headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
           withCredentials: true
         });
+        console.log(response);
         setData(response);
       } catch (error) {
         console.error(error.message);
