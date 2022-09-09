@@ -3,7 +3,8 @@ import { useRefresh } from "./useRefresh";
 import axios from "../config/axios";
 import api from "../config/api";
 import useAuth from "./useAuth";
-
+/* eslint-disable no-console */
+/* eslint-disable react-hooks/exhaustive-deps */
 const useGetConnectedUser = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);

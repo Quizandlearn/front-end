@@ -12,7 +12,7 @@ const MyProfile = () => {
     return <div>Loading...</div>;
   }
 
-  const myProfile = "Mon Profil";
+  const myProfile = "Mon Compte";
 
   return (
     <>
