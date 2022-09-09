@@ -14,6 +14,9 @@
     min-height: 100%;
     background-color: var(--color-pink);
     font-family: system-ui;
+    word-wrap: break-word; 
+    white-space: pre-wrap; 
+    /* word-break: break-word;  */
 }
 
 .explore__title {
@@ -27,6 +30,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 14px;
     width: 100%;
     height: 100%;
     max-width: 787px;
@@ -66,13 +70,13 @@
     justify-content: center;
     margin: 10px;
     padding: 10px;
-    width: 156px;
-    height: 30px;
+    min-width: 156px;
+    height: 40px;
     font-weight: bold;
-    font-size:16px;
     color: var(--color-white);
     background-color: var(--color-pink);
     border-radius: 10px;
+    border: none;
 }
 
 .explore__list__item__text__description {
@@ -93,26 +97,34 @@
 
 .explore__list__item__assets__profile-img {
     display: flex;
+    align-self: flex-end;
     align-items: center;
     flex-flow: column wrap;
-    justify-content: flex-end;
+    justify-content: center;
     width: 130px;
     height: 100px;
 }
 
 .explore__list__item__assets__button {
-    margin-top: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 20px; 
     background-color: var(--color-green);
     color: var(--color-white);
-    width: 100%;
+    min-width: 130px;
     height: 40px;
     font-weight: bold;
     border-radius: 10px;
     border: none;
 }
 
-@media screen and (max-width: 830px) {
-    .explore__list__item {
-        max-height: 787px;
-    }
-  }
+.explore__list__item__assets__username {
+    display: flex;
+    text-align: center;
+    align-self: center;
+    width: 110px; 
+    word-wrap: break-word; 
+    white-space: pre-wrap; 
+    word-break: break-word;  
+}

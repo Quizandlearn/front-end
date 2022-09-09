@@ -10,9 +10,11 @@ const useGetQuizzes = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const getAllQuizzes = async () => {
       setLoading(true);
+
       try {
         const page = 1;
         const limit = 5;
@@ -23,16 +25,22 @@ const useGetQuizzes = () => {
             withCredentials: true
           }
         );
-        console.log("coucou", response.quizzes);
+        console.log("response", response.quizzes);
         setData(response);
       } catch (error) {
         console.error(error.message);
       }
+
       setLoading(false);
     };
     getAllQuizzes();
   }, []);
-  return [loading, data];
+
+  return { loading, data };
 };
 
 export default useGetQuizzes;
+
+/*
+  return [loading, data];
+*/
