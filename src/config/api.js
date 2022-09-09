@@ -3,7 +3,8 @@ const api = {
   signup: "signup",
   logout: "logout",
   categories: "categories",
-  quizzes: "quizzes"
+  quizzes: "quizzes",
+  user: "user",
 };
 
 export default api;

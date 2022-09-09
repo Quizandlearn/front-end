@@ -25,7 +25,18 @@ const useGetQuizzes = () => {
             withCredentials: true
           }
         );
-        console.log("response", response.quizzes);
+        response.quizzes.map(async (quiz) => {
+          const { data: userResponse } = await axios.get(`${api.user}/${quiz.id_user_owner}`, {
+            headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
+            withCredentials: true
+          });
+          // eslint-disable-next-line no-param-reassign
+          quiz.name = userResponse.name;
+          console.log("userResponse", userResponse);
+          console.log("quiz", quiz);
+        });
+        console.log("response", response);
+        console.log("userData", userData);
         setData(response);
       } catch (error) {
         console.error(error.message);
