@@ -1,0 +1,29 @@
+.enterName__input{
+    background-color: #18825C;
+    opacity: 0.70;
+    color: white;
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.enterName__input::placeholder {
+    color: white;
+}
+
+.enterName__input:-webkit-autofill,
+.enterName__input:-webkit-autofill:hover, 
+.enterName__input:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+  font-family: "Roboto", "sans-serif";
+}
+
+@media(max-width:410px) {
+    .enterName__input {
+        width: 230px;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+}
