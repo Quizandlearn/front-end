@@ -41,7 +41,7 @@ const Login = () => {
     <div className="login">
       <img src={logoApp} className="login__logo" alt="" />
       <h1 className="login__title"> Se connecter</h1>
-      <form onSubmit={formik.handleSubmit} className="login__form">
+      <form onSubmit={formik.handleSubmit} className="login__form" method="post">
         <EnterEmail formik={formik} />
         <EnterPassword formik={formik} />
         <SubmitButton value={LoginValue} />
