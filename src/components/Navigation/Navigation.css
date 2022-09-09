@@ -1,0 +1,195 @@
+.navigation{
+    background-color: #FEC0C0;
+}
+
+/* UpperNavigation*/
+.upper-part-navigation-container {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    height: 100px;
+    justify-content: space-between;
+    background-color: #FEC0C0;
+}
+
+.logo-navigation{
+    height: 100%;
+    margin: 0px 15px 0px 20px;
+}
+
+.searchBar{
+    border-bottom: none!important;
+    flex-grow: 0.5;
+    width: 100%;  
+    margin: 0px 20px 0px 20px
+}
+
+.input {
+    background-color: #17835C;
+    color: #F2E669;
+}
+
+.button-navigation {
+    /* A retirer quand on voudra le remettre dans le profile ou ailleurs */
+    visibility: hidden;
+
+    background-color: #2B6FD2;
+    color: white;
+    font-weight:bold;
+    font-family: "Sporting", "sans-serif";
+    cursor: pointer;
+    margin-left: 0.5em;
+}
+
+/* .logout-and-profile {
+    display: flex;
+    align-items: center;
+} */
+
+.profile {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    margin : 0px 20px 0px 15px;
+    flex-grow: 1;
+}
+
+/* Menu */
+
+.menu {
+    background-color: #17835C;
+    height: 60px;
+    margin: 2em 0em 0em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.menu-items {
+    display: flex;
+}
+
+.menu-link{
+    color: #FFFFFF;
+    padding: 0 1rem;
+    text-align: center;
+    align-self: center;
+}
+.menu-link:hover {
+    color: #F2E669;
+}
+
+/* Navbar */
+.navbar-burger {
+    width: 40px !important;
+    height: 40px;
+    background: transparent;
+    color: #FFFFFF;
+    border: none;
+    display: none;
+}
+
+.navbar-burger span {
+    left: 0!important;
+}
+
+/* Responsive */
+@media screen and (max-width:830px) {
+    .logout-and-profile {
+        visibility: hidden;
+    }
+
+    .menu {
+        height: 0;
+    }
+
+    .searchBar {
+        flex-grow: 3;
+        visibility: hidden;
+    }
+
+    .menu-items {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right: -100vw;
+        bottom: 0;
+        height: 100vh;
+        padding: 2rem;
+        background-color: #17835C;
+        visibility: hidden;
+    }
+
+    .show-navigation, .show-navigation .upper-part-navigation-container {
+        background-color: #17835C;
+        color: #FFFFFF;
+    }
+
+    .show-navigation .input {
+        background-color: #F2E669;
+        color: #17835C;
+    }
+
+    .show-navigation  .logo-navigation {
+        visibility: hidden;
+    }
+
+    .show-navigation .profile{
+        visibility: visible;
+        position: fixed;
+        top: 0.2rem;
+        left: 0.1rem;
+    }
+
+    .show-navigation .searchBar{
+        visibility: visible;
+    }
+
+    .show-menu .menu-items {
+        width: 100vw;
+        height: calc(100vh - 100px) !important;
+        right: 0;
+        visibility: visible;
+    }
+    .menu-link {
+        display: block;
+        padding: 1.5rem;
+        font-size: 4vw;
+    }
+    .navbar-burger {
+        display: block;
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+    }
+    .navbar-burger:hover {
+        cursor: pointer;
+    }
+    .burger-bar,
+    .burger-bar::before,
+    .burger-bar::after {
+        display: block;
+        width: 40px!important;
+        height: 3px !important;
+        position: relative;
+        border-radius: 3px;
+        background: #FFFFFF;
+    } 
+    .burger-bar::before,
+    .burger-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+    }
+    .burger-bar::before {
+        transform: translateY(-12px)
+    }
+    .burger-bar::after {
+        transform: translateY(12px)
+    }
+}
