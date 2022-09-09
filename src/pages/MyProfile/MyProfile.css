@@ -1,0 +1,189 @@
+:root {
+  --color-blue: #2B6FD2;
+  --color-pink: #FDC0C0;
+  --color-white: #FFFFFF;
+  --color-green: #15835C;
+  --color-shade-of-green: #96A493;
+  --color-shade-of-blue: #3072CF;
+  --color_shade-of-white: #D9D9D9;
+}
+
+.myProfile {
+  width: 100%;
+  position: absolute;
+  min-height: 1000px;
+  background-color: var(--color-pink);
+  font-family: system-ui;
+}
+
+#myProfile__title {
+  font-weight: bold;
+  font-size: max(4vw, 35px);
+  font-family: system-ui;
+  text-align: center;
+  color: var(--color-shade-of-blue);
+}
+
+.myProfile__title__container {
+  margin: 0 auto;
+  margin-bottom: 5%;
+  padding-top: 50px;
+  text-align: start;
+  min-height: 100%;
+  width: 80%;
+}
+
+.myProfile__main__section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.myProfile__image {
+  min-width: 450px;
+  min-height: 480px;
+}
+
+.myProfile__form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 70%;
+  max-width: 445px;
+  max-height: 480px;
+  min-width: 290px;
+  border-radius: 20px;
+  background-color: var(--color-shade-of-green);
+}
+
+.myProfile__form__photo__profile {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.myProfile__form__personal__data {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.myProfile__form__text {
+  font-size: 15px;
+  color: var(--color-white);
+}
+
+.myProfile__form__field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myProfile__form__label {
+  font-size: 15px;
+}
+
+.myProfile__form__title {
+  font-weight: bold;
+  font-size: max(2vw, 25px);
+  text-align: center;
+  color:var(--color-white);
+}
+
+.myProfile__form__fields__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.myProfile__form__input{
+  width: 70%;
+  background-color: var(--color_shade-of-white);
+  color: var(--color-shade-of-green);
+  padding: 14px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.myProfile__editButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 1.5em;
+}
+
+.myProfile__editButton {
+  border: 0;
+  outline: 0;
+  width: 70%;
+  cursor: pointer;
+  color: white;
+  background-color: var(--color-shade-of-blue);
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  border-radius: 10px;
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  height: 40px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+}
+
+.myProfile__editButton:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+
+/* Responsive */
+@media screen and (max-width:900px) {
+  .myProfile__image {
+    display: none;
+  }
+
+  .myProfile__main__section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .myProfile__form {
+    max-width: 68%;
+  }
+}
+
+/* Responsive mobile*/
+@media screen and (max-width:700px) {
+  .myProfile__image {
+    display: none;
+  }
+
+  .myProfile__main__section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .myProfile__form {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .myProfile__title__container {
+  padding-top: 0px;    
+  }
+}
