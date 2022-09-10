@@ -53,7 +53,7 @@ const LearnMoreLink = ({
         type="text"
         className="input learn-more"
         placeholder="Lien d'approfondissement commençant par https://"
-        value={fieldValue}
+        value={fieldValue || ""}
         onChange={handleChange}
         onBlur={handleBlur}
       />

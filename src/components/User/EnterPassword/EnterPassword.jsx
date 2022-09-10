@@ -40,6 +40,7 @@ const EnterPassword = ({ formik }) => {
         onBlur={handleBlur}
         value={password}
         placeholder="password"
+        data-cy="password"
       />
       <button type="button" onClick={togglePasswordVisiblity} className="password-eye-sign-up">
         <FontAwesomeIcon icon={faEye} className="eye-sign-up" />

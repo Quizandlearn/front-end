@@ -5,7 +5,7 @@ import AuthProvider from "../context/AuthProvider";
 import RequireAuth from "../context/RequireAuth";
 import Navigation from "../components/Navigation/Navigation";
 import Explore from "../pages/Explore/Explore";
-import MyProfile from "../pages/Profile/MyProfile";
+import MyProfile from "../pages/MyProfile/MyProfile";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import ExploreByCategory from "../pages/ExploreByCategory/ExploreByCategory";
@@ -21,10 +21,10 @@ const App = () => (
       {/* public routes */}
       <Route element={<RequireAuth onlyPublic />}>
         <Route path="/" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
       </Route>
 
-      <Route element={<RequireAuth />}>
+      <Route element={<RequireAuth onlyPublic={false} />}>
         <Route path="/quizzes" element={<Explore />} />
         <Route path="/quizzesByCategory" element={<ExploreByCategory />} />
         <Route path="/createQuiz" element={<CreateQuiz />} />

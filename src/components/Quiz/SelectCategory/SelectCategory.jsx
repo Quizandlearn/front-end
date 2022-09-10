@@ -7,6 +7,7 @@ import { createQuizPropTypes } from "../../../config/propTypes";
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
+/* eslint-disable no-underscore-dangle */
 
 const getCategoryError = (formik) => {
   let touched = false;
@@ -36,14 +37,15 @@ const SelectCategory = ({ formik }) => {
             value={category}
             onChange={handleChange}
             onBlur={handleBlur}
+            data-cy="categories"
           >
             <option value="" disabled>
               Thématique
             </option>
             {data.categories.map((category, index) => {
               return (
-                <option key={index} value={category}>
-                  {category}
+                <option key={index} value={category._id}>
+                  {category.title}
                 </option>
               );
             })}

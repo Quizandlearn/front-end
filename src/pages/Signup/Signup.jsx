@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./Signup.css";
-import LogoBlue from "../../assets/logoBlue.png";
+import logoApp from "../../assets/logoApp.svg";
 import useSignUp from "../../hooks/useSignUp";
-import EnterName from "../../components/User/EnterName/EnterName";
-import EnterSurname from "../../components/User/EnterSurname/EnterSurname";
-import EnterEmail from "../../components/User/EnterEmail/EnterEmail";
-import EnterPassword from "../../components/User/EnterPassword/EnterPassword";
-import EnterConfirmedPassword from "../../components/User/EnterConfirmedPassword/EnterConfirmedPassword";
+import EnterName from "../../components/Authentification/EnterName/EnterName";
+import EnterSurname from "../../components/Authentification/EnterSurname/EnterSurname";
+import EnterEmail from "../../components/Authentification/EnterEmail/EnterEmail";
+import EnterPassword from "../../components/Authentification/EnterPassword/EnterPassword";
+import EnterConfirmedPassword from "../../components/Authentification/EnterConfirmedPassword/EnterConfirmedPassword";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 
 const PASSWORD_REGEX =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W)(?=.{8,})/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
 const LOGIN_URL_FRONTEND = "/";
 const Inscription = "Inscription";
 
@@ -40,7 +40,7 @@ const Signup = () => {
         .max(45, "Nom invalide")
         .required("Champ obligatoire"),
       email: Yup.string()
-        .email("Adress email invalide")
+        .email("Adresse email invalide")
         .required("Champ obligatoire"),
       password: Yup.string()
         .matches(PASSWORD_REGEX, "Le mot de passe doit contenir au minimum 8 caractères : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre")
@@ -58,11 +58,11 @@ const Signup = () => {
   });
 
   return (
-    <div id="page-sign-up-container">
-      <section id="sign-up-container">
-        <img src={LogoBlue} id="logo-sign-up" alt="" />
-        <h1 id="sign-up-titre">S'inscrire</h1>
-        <form onSubmit={formik.handleSubmit} className="form-sign-up">
+    <div className="signup">
+      <section className="signup__section">
+        <img src={logoApp} className="signup__logo" alt="" />
+        <h1 className="signup__title">Création de compte</h1>
+        <form onSubmit={formik.handleSubmit} className="signup__form" method="post">
           <EnterName formik={formik} />
           <EnterSurname formik={formik} />
           <EnterEmail formik={formik} />
@@ -70,8 +70,8 @@ const Signup = () => {
           <EnterConfirmedPassword formik={formik} />
           <SubmitButton value={Inscription} />
         </form>
-        <p id="account-question">Vous avez déjà un compte ?</p>
-        <Link to={LOGIN_URL_FRONTEND} id="link-to-signin-page"> Connectez-vous</Link>
+        <p className="signup__question">Vous avez déjà un compte ?</p>
+        <Link to={LOGIN_URL_FRONTEND} className="signup__link__login"> Connectez-vous</Link>
       </section>
     </div>
   );

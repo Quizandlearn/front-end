@@ -1,0 +1,8 @@
+.determineCorrectAnswer{
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.determineCorrectAnswer__input{
+    margin-left: 6px;
+}
