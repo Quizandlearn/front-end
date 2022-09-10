@@ -1,0 +1,60 @@
+.createAndRemoveAnswer__label {
+    font-size: 16px;
+    color: #1E825D;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.createAndRemoveAnswer__enter__or__remove__answers {
+    display: flex;
+}
+
+.createAndRemoveAnswer__input {
+    background-color: rgba(30, 130, 93, 0.5);
+    max-width: 694px;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.createAndRemoveAnswer__input:-webkit-autofill,
+.createAndRemoveAnswer__input:-webkit-autofill:hover, 
+.createAndRemoveAnswer__input:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.createAndRemoveAnswer__remove__question__button__icon{
+    height: 20px;
+}
+
+.createAndRemoveAnswer__remove__answer__button__icon {
+    height: 15px;
+}
+
+.createAndRemoveAnswer__remove__answer__button{
+    background-color: #1E825D;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 45px;
+}
+
+.createAndRemoveAnswer > .form__error,
+.createAndRemoveAnswer > .form__error > .form__error__icon {
+    color: #1E825D;
+}
+
+@media(max-width:700px) {
+    .createAndRemoveAnswer__label {
+        font-size: 14px;
+    }
+
+    .createAndRemoveAnswer__input {
+        font-size: 13px;
+    }
+}

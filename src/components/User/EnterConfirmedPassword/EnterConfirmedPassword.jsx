@@ -40,6 +40,7 @@ const EnterConfirmedPassword = ({ formik }) => {
         onBlur={handleBlur}
         value={confirmedPassword}
         placeholder="Confirmation mot de passe"
+        data-cy="passwordConfirmation"
       />
       <button type="button" onClick={toggleConfirmedPasswordVisiblity} className="password-eye-sign-up">
         <FontAwesomeIcon icon={faEye} className="eye-sign-up" />

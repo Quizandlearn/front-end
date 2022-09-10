@@ -62,7 +62,7 @@ const CreateAnswer = ({
         type="text"
         className="input answer"
         placeholder="réponse"
-        value={fieldValue}
+        value={fieldValue || ""}
         onChange={handleChange}
         onBlur={handleBlur}
       />

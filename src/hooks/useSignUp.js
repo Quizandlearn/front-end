@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../config/axios";
 import api from "../config/api";
 import errorDisplayed from "../config/error";
+/* eslint-disable no-unused-vars */
 
 const LOGIN_URL_FRONTEND = "/";
 
@@ -23,9 +24,6 @@ const useSignUp = () => {
           withCredentials: true,
         }
       );
-
-      console.log(response.data);
-      console.log(JSON.stringify(response));
       navigate(LOGIN_URL_FRONTEND);
     } catch (error) {
       if (typeof onError === "function") {
