@@ -4,7 +4,6 @@ import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
 import "./ExplainAnswer.css";
 /* eslint-disable react/require-default-props */
-/* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 const getFieldValue = (formik, questionIndex) => {
