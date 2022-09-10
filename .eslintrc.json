@@ -13,7 +13,6 @@
   },
   "plugins": ["react", "react-hooks", "jsx-a11y"],
   "rules": {
-    "arrow-body-style": "off",
     "comma-dangle": [1, "only-multiline"],
     "max-len": 0,
     "no-console": "off",

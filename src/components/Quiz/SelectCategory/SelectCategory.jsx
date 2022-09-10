@@ -4,6 +4,7 @@ import FormError from "../../FormError/FormError";
 import useCategoriesQuiz from "../../../hooks/useCategories";
 import { createQuizPropTypes } from "../../../config/propTypes";
 /* eslint-disable react/require-default-props */
+/* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 

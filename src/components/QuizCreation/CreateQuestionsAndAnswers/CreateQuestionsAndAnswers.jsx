@@ -11,6 +11,7 @@ import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
 import "./CreateQuestionsAndAnswers.css";
 /* eslint-disable react/require-default-props */
+/* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 
