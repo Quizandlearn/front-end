@@ -1,5 +1,5 @@
 import React from "react";
-import profile from "../../assets/profile.png";
+import profileQuiz from "../../assets/profileQuiz.png";
 import useGetQuizzes from "../../hooks/useGetQuizzes";
 import "./Explore.css";
 /* eslint-disable no-underscore-dangle */
@@ -31,7 +31,7 @@ const Explore = () => {
                 <div className="explore__list__item__assets__profile-img">
                   <figure className="image is-64x64">
                     <img
-                      src={profile}
+                      src={profileQuiz}
                       alt="Profile"
                     />
                   </figure>

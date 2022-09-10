@@ -3,8 +3,8 @@
     --color-pink: #FDC0C0;
     --color-white: #FFFFFF;
     --color-green: #15835C;
-    --color-shade-of-green: #84C195;
-    --color-shade-of-blue: #256AD0;
+    --color-shadow-green: #84C195;
+    --color-shadow-blue: #256AD0;
   }
 
 .explore {
@@ -45,7 +45,7 @@
 .explore__list__item__text {
     display: flex;
     flex-direction: column;
-    color: var(--color-shade-of-green);
+    color: var(--color-shadow-green);
 }
 
 .explore__list__item__text__title {
