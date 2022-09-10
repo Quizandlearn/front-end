@@ -3,8 +3,8 @@ import axios from "../config/axios";
 import api from "../config/api";
 import useAuth from "./useAuth";
 /* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
+/* eslint-disable react-hooks/exhaustive-deps */
 
 const useGetQuizzes = () => {
   const { user } = useAuth();
@@ -16,28 +16,21 @@ const useGetQuizzes = () => {
       setLoading(true);
 
       try {
-        const page = 1;
-        const limit = 3;
         const { data: response } = await axios.get(
-          `${api.quizzes}/?page=${page}&limit=${limit}`,
+          `${api.quizzes}`,
           {
             headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
             withCredentials: true
           }
         );
-        response.quizzes.map(async (quiz) => {
-          const { data: userResponse } = await axios.get(`${api.user}/${quiz.id_user_owner}`, {
+        const final = await Promise.all(response.quizzes.map(async (quiz) => {
+          const userResponse = await axios.get(`${api.user}/${quiz.id_user_owner}`, {
             headers: { Authorization: `Bearer ${user.token}`, "Content-Type": "application/json" },
             withCredentials: true
           });
-          // eslint-disable-next-line no-param-reassign
-          quiz.name = userResponse.name;
-          console.log("userResponse", userResponse);
-          console.log("quiz", quiz);
-          return quiz;
-        });
-        console.log("response", response);
-        setData(response);
+          return { ...quiz, user: userResponse.data };
+        }));
+        setData(final);
       } catch (error) {
         console.error(error.message);
       }
@@ -50,7 +43,3 @@ const useGetQuizzes = () => {
 };
 
 export default useGetQuizzes;
-
-/*
-  return [loading, data];
-*/

@@ -16,7 +16,7 @@
     font-family: system-ui;
     word-wrap: break-word; 
     white-space: pre-wrap; 
-    /* word-break: break-word;  */
+    word-break: break-word;
 }
 
 .explore__title {
@@ -125,7 +125,4 @@
     align-self: center;
     justify-content: center;
     width: 110px; 
-    word-wrap: break-word; 
-    white-space: pre-wrap; 
-    word-break: break-word;  
 }

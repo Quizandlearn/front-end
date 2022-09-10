@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import profile from "../../assets/profile.png";
 import useGetQuizzes from "../../hooks/useGetQuizzes";
@@ -7,6 +6,7 @@ import "./Explore.css";
 
 const Explore = () => {
   const { data, loading } = useGetQuizzes();
+  console.log(data, loading);
   const exploreTitle = "Les derniers quiz ajoutés";
   const descriptionQuiz = "En savoir plus";
   const ratingsQuiz = "★★★☆☆";
@@ -17,7 +17,7 @@ const Explore = () => {
       {(!loading && data) && (
         <div className="explore">
           <h2 className="explore__title">{exploreTitle}</h2>
-          {data.quizzes && data.quizzes.map((quiz) => (
+          {data && data.map((quiz) => (
             <div className="explore__list__item" key={quiz._id}>
               <div className="explore__list__item__text">
                 <h3 className="explore__list__item__text__title">{quiz.title}</h3>
@@ -38,7 +38,7 @@ const Explore = () => {
                 </div>
                 <div className="explore__list__item__assets__username">
 
-                  {quiz.name}
+                  {quiz.user.name}
                 </div>
                 <button className="explore__list__item__assets__button" type="submit">Faire ce quiz</button>
 
