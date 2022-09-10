@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./SubmitButton.css";
-/* eslint-disable arrow-body-style */
 
 const SubmitButton = ({ value }) => {
   return (

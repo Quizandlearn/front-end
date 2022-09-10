@@ -5,10 +5,8 @@ import useCategoriesQuiz from "../../../hooks/useCategories";
 import { createQuizPropTypes } from "../../../config/propTypes";
 import "./SelectCategory.css";
 /* eslint-disable react/require-default-props */
-/* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable  jsx-a11y/label-has-associated-control */
 
 const getCategoryError = (formik) => {

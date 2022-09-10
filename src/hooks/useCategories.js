@@ -3,8 +3,6 @@ import axios from "../config/axios";
 import api from "../config/api";
 import useAuth from "./useAuth";
 /* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-console */
 
 const useCategoriesQuiz = () => {
   const [loading, setLoading] = useState(true);

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
 /* eslint-disable react/require-default-props */
-/* eslint-disable react/prop-types */
 
 const getFieldValue = (formik, questionIndex) => {
   if (formik.values && formik.values.questions) {

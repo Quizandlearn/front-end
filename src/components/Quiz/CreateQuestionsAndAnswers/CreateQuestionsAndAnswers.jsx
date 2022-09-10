@@ -9,7 +9,6 @@ import DetermineCorrectAnswer from "../DetermineCorrectAnswer/DetermineCorrectAn
 import AddQuestionElements from "../AddQuestionElements/AddQuestionElements";
 import { createQuizPropTypes } from "../../../config/propTypes";
 /* eslint-disable react/require-default-props */
-/* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 

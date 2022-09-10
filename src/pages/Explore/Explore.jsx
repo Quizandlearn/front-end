@@ -2,7 +2,6 @@ import React from "react";
 import profileQuiz from "../../assets/profileQuiz.png";
 import useGetQuizzes from "../../hooks/useGetQuizzes";
 import "./Explore.css";
-/* eslint-disable no-underscore-dangle */
 
 const Explore = () => {
   const { data, loading } = useGetQuizzes();

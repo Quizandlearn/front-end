@@ -5,7 +5,6 @@ import errorDisplayed from "../config/error";
 import useAuth from "./useAuth";
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-template */
-/* eslint-disable no-underscore-dangle */
 
 const LOGIN_URL_EXPLORE = "/explore";
 

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormError from "../../FormError/FormError";
 import { createQuizPropTypes } from "../../../config/propTypes";
-/* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 
 const getDescriptionError = (formik) => {
