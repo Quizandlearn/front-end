@@ -36,26 +36,15 @@ const Navigation = () => {
     navigate(MYPROFILE_URL_FRONTEND);
   };
 
-  const welcomeName = `Hello ${user}`;
+  // const welcomeName = "Hello";
 
   if (user) {
     return (
       <div className={showLinks ? "navigation show-navigation" : "navigation"}>
-        <div className="navigation__logo__container">
-          <img src={logoApp} className="logo-navigation" alt="" />
-        </div>
         <div className="navigation__profile__container">
-          <div className="logout-and-profile">
-            <figure className="image is-64x64">
-              <img
-                className="is-rounded"
-                src={logoutPic}
-                alt="logoutPic"
-                onClick={logout}
-              />
-            </figure>
+          <div className="navigation__logout-and-profile">
             <div className="profile">
-              <figure className="image is-64x64">
+              <figure className="image is-32x32">
                 <img
                   className="is-rounded"
                   src={picProfileGreen}
@@ -63,21 +52,31 @@ const Navigation = () => {
                   onClick={handleProfileClick}
                 />
               </figure>
-              <Link
+              {/* <Link
                 className="menu-link"
                 to={MYPROFILE_URL_FRONTEND}
                 onClick={handleClickLink}
               >
                 {welcomeName}
-              </Link>
+              </Link> */}
             </div>
+            <figure className="image is-32x32">
+              <img
+                className="is-rounded"
+                src={logoutPic}
+                alt="logoutPic"
+                onClick={logout}
+              />
+            </figure>
           </div>
-
+        </div>
+        <div className="navigation__logo__container">
+          <img src={logoApp} className="navigation__logo" alt="" />
         </div>
         <div className="navigation__search__container">
           {/* Search bar Bulma */}
           <div className="searchBar">
-            <input className="input searchbar-input" type="text" placeholder="Rechercher" />
+            <input className="input navigation__searchbar-input" type="text" placeholder="Rechercher ..." />
           </div>
         </div>
         <div className={showLinks ? "menu show-menu" : "menu "}>

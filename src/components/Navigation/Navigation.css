@@ -1,5 +1,15 @@
+:root {
+    --color-blue: #2B6FD2;
+    --color-pink: #FDC0C0;
+    --color-white: #FFFFFF;
+    --color-green: #15835C;
+    --color-shade-of-green: #84C195;
+    --color-shade-of-blue: #3072CF;
+    --color_shade-of-white: #D9D9D9;
+  }
+
 .navigation{
-    background-color: #FEC0C0;
+    background-color: var(--color-pink);
 }
 
 .navigation__logo__container {
@@ -9,11 +19,28 @@
     max-width: 100%;
 }
 
+.navigation__logo{
+    height: 100%;
+    margin: 0px 15px 0px 20px;
+}
+
 .navigation__profile__container {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     max-width: 100%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.navigation__logout-and-profile {
+    display: flex;
+    align-items: center;
+    padding: 30px;
 }
 
 .navigation__search__container {
@@ -21,41 +48,36 @@
     flex-direction: column;
     align-items: center;
     max-width: 100%;
-    justify-content: space-between;
-    background-color: #FEC0C0;
-}
-
-.logo-navigation{
-    height: 100%;
-    margin: 0px 15px 0px 20px;
+    margin: 40px;
+    background-color: var(--color-pink);
 }
 
 .searchBar{
     border-bottom: none!important;
     flex-grow: 0.5;
-    width: 40%;  
-    margin: 20px 20px 0px 20px
+    width: 30%;  
 }
 
-.searchbar-input {
-    background-color: #17835C;
-    color: #F2E669;
+.navigation__searchbar-input {
+    border-radius: 10px;
+    background-color: var(--color-shade-of-green);
+    color: var(--color-white);
+}
+
+.navigation__searchbar-input::placeholder {
+    color: var(--color-white);
+    opacity: 1;
 }
 
 .button-navigation {
     /* A retirer quand on voudra le remettre dans le profile ou ailleurs */
     visibility: hidden;
     background-color: #2B6FD2;
-    color: white;
+    color: var(--color-white);
     font-weight:bold;
     font-family: "Sporting", "sans-serif";
     cursor: pointer;
     margin-left: 0.5em;
-}
-
-.logout-and-profile {
-    display: flex;
-    align-items: center;
 }
 
 .profile {
@@ -86,7 +108,7 @@
 }
 
 .menu-link{
-    color: #FFFFFF;
+    color: var(--color-white);
     padding: 0 1rem;
     text-align: center;
     align-self: center;
@@ -100,7 +122,7 @@
     width: 40px !important;
     height: 40px;
     background: transparent;
-    color: #FFFFFF;
+    color: var(--color-white);
     border: none;
     display: none;
 }
@@ -111,8 +133,22 @@
 
 /* Responsive */
 @media screen and (max-width:830px) {
-    .logout-and-profile {
-        visibility: hidden;
+    .navigation__profile__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    
+    .navigation__logout-and-profile {
+        padding: 15px;
+    }
+
+    .profile {
+        margin : 0px;
+    }
+
+    .navigation__search__container {
+        display: none;
     }
 
     .menu {
