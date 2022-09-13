@@ -3,8 +3,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LogoBlue from "../../assets/logoBlue.png";
-import profile from "../../assets/profile.png";
+import picProfileGreen from "../../assets/picProfileGreen.svg";
+import logoutPic from "../../assets/logoutPic.svg";
+import logoApp from "../../assets/logoApp.svg";
 import "./Navigation.css";
 import useAuth from "../../hooks/useAuth";
 
@@ -31,31 +32,35 @@ const Navigation = () => {
 
   const navigate = useNavigate();
 
-  const handleImageClick = () => {
+  const handleProfileClick = () => {
     navigate(MYPROFILE_URL_FRONTEND);
   };
+
+  const welcomeName = `Hello ${user}`;
 
   if (user) {
     return (
       <div className={showLinks ? "navigation show-navigation" : "navigation"}>
-        <div className="upper-part-navigation-container">
-          <img src={LogoBlue} className="logo-navigation" alt="" />
-          {/* Search bar Bulma */}
-          <div className="searchBar">
-            <input className="input searchbar-input" type="text" placeholder="Rechercher" />
-          </div>
+        <div className="navigation__logo__container">
+          <img src={logoApp} className="logo-navigation" alt="" />
+        </div>
+        <div className="navigation__profile__container">
           <div className="logout-and-profile">
-            <button type="button" className="button-navigation" onClick={logout}>
-              Se déconnecter
-              {" "}
-            </button>
+            <figure className="image is-64x64">
+              <img
+                className="is-rounded"
+                src={logoutPic}
+                alt="logoutPic"
+                onClick={logout}
+              />
+            </figure>
             <div className="profile">
               <figure className="image is-64x64">
                 <img
                   className="is-rounded"
-                  src={profile}
+                  src={picProfileGreen}
                   alt="Profile"
-                  onClick={handleImageClick}
+                  onClick={handleProfileClick}
                 />
               </figure>
               <Link
@@ -63,9 +68,16 @@ const Navigation = () => {
                 to={MYPROFILE_URL_FRONTEND}
                 onClick={handleClickLink}
               >
-                Prénom
+                {welcomeName}
               </Link>
             </div>
+          </div>
+
+        </div>
+        <div className="navigation__search__container">
+          {/* Search bar Bulma */}
+          <div className="searchBar">
+            <input className="input searchbar-input" type="text" placeholder="Rechercher" />
           </div>
         </div>
         <div className={showLinks ? "menu show-menu" : "menu "}>
