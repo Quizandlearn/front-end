@@ -6,9 +6,9 @@ import FormError from "../../FormError/FormError";
 import "../../../pages/MyProfile/MyProfile.css";
 import useChangeConnectedUser from "../../../hooks/useChangeConnectedUser";
 import MyProfilePersonalImage from "../MyProfilePersonalImage/MyProfilePersonalImage";
+import errorDisplayed from "../../../config/error";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable no-unused-vars */
 
 const getNameError = (formik) => {
   let touched = false;
@@ -46,7 +46,17 @@ const getEmailError = (formik) => {
 const MyProfilePersonalData = ({ data, refresh }) => {
   const [isEditing, setIsEditing] = useState(false);
   const { sendChangedUserData } = useChangeConnectedUser();
-  const [errMsg, setErrMsg] = useState("");
+  const [submitError, setSubmitError] = useState("");
+
+  const showServerError = () => {
+    setSubmitError(errorDisplayed.server);
+  };
+  const showExistingAccountError = () => {
+    setSubmitError(errorDisplayed.existingAccount);
+  };
+  const deleteSubmitError = () => {
+    setSubmitError("");
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -68,9 +78,7 @@ const MyProfilePersonalData = ({ data, refresh }) => {
     }),
 
     onSubmit: async (values) => {
-      sendChangedUserData(values, (message) => {
-        setErrMsg(message);
-      });
+      sendChangedUserData(values, showServerError, showExistingAccountError, () => {});
       setIsEditing(!isEditing);
       refresh();
     }
@@ -113,7 +121,10 @@ const MyProfilePersonalData = ({ data, refresh }) => {
                   aria-describedby={nameError && "error-content-accessibility"}
                   value={name}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                  onBlur={(e) => {
+                    handleBlur(e);
+                    deleteSubmitError();
+                  }}
                   required
                 />
                 {nameError && <FormError errorContent={nameError} />}
@@ -128,7 +139,10 @@ const MyProfilePersonalData = ({ data, refresh }) => {
                   aria-describedby={surnameError && "error-content-accessibility"}
                   value={surname}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                  onBlur={(e) => {
+                    handleBlur(e);
+                    deleteSubmitError();
+                  }}
                   required
                 />
                 {surnameError && <FormError errorContent={surnameError} />}
@@ -143,13 +157,17 @@ const MyProfilePersonalData = ({ data, refresh }) => {
                   aria-describedby={emailError && "error-content-accessibility"}
                   value={email}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                  onBlur={(e) => {
+                    handleBlur(e);
+                    deleteSubmitError();
+                  }}
                   required
                 />
                 {emailError && <FormError errorContent={emailError} />}
               </div>
             </div>
             <div className="myProfile__editButtonContainer">
+              {submitError && <FormError errorContent={submitError} />}
               <button className="myProfile__editButton" type="submit">
                 {saveButton}
               </button>

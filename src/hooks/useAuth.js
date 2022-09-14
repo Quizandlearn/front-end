@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "../config/axios";
 import api from "../config/api";
 import { actions, useStateValue } from "../context/AuthProvider";
-import errorDisplayed from "../config/error";
 
 const EXPLORE_URL_FRONTEND = "/quizzes";
 
@@ -10,7 +9,7 @@ const useAuth = () => {
   const navigate = useNavigate();
   const [{ user }, dispatch] = useStateValue();
 
-  const login = async (values, onError) => {
+  const login = async (values, showServerError, showInvalidCredentialsError) => {
     try {
       const response = await axios.post(
         api.login,
@@ -41,12 +40,10 @@ const useAuth = () => {
 
       navigate(EXPLORE_URL_FRONTEND);
     } catch (error) {
-      if (typeof onError === "function") {
-        if (!error.response) {
-          onError(errorDisplayed.server);
-        } else if (error.response.status === 401) {
-          onError(errorDisplayed.invalidCredentials);
-        }
+      if (!error.response) {
+        showServerError();
+      } else if (error.response.status === 401) {
+        showInvalidCredentialsError();
       }
     }
   };

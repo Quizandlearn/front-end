@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./SubmitButton.css";
+import FormError from "../FormError/FormError";
 /* eslint-disable arrow-body-style */
+/* eslint-disable react/require-default-props */
 
-const SubmitButton = ({ value }) => {
+const SubmitButton = ({ value, submitError }) => {
   return (
     <div className="submitButton">
+      {submitError && <FormError errorContent={submitError} />}
       <button
         type="submit"
         className="button submitButton__button"
@@ -18,7 +21,8 @@ const SubmitButton = ({ value }) => {
 };
 
 SubmitButton.propTypes = {
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  submitError: PropTypes.string.isRequired
 };
 
 export default SubmitButton;

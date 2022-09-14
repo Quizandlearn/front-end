@@ -1,14 +1,13 @@
 import axios from "../config/axios";
 import api from "../config/api";
 import useAuth from "./useAuth";
-import errorDisplayed from "../config/error";
 /* eslint-disable no-console */
 
 const useChangeConnectedUser = () => {
   const { user } = useAuth();
   const id = user.userId;
 
-  const sendChangedUserData = async (values, onError) => {
+  const sendChangedUserData = async (values, showServerError, showExistingAccountError) => {
     try {
       const response = await axios.put(`${api.user}/${id}`, JSON.stringify({
         name: values.name,
@@ -21,12 +20,10 @@ const useChangeConnectedUser = () => {
       console.log(response);
       console.log(JSON.stringify(response));
     } catch (error) {
-      if (typeof onError === "function") {
-        if (!error.response) {
-          onError(errorDisplayed.server);
-        } else if (error.response.status === 400) {
-          onError(errorDisplayed.existingAccount);
-        }
+      if (!error.response) {
+        showServerError();
+      } else if (error.response.status === 400) {
+        showExistingAccountError();
       }
     }
   };

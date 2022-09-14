@@ -19,7 +19,7 @@ const getPasswordError = (formik) => {
   return undefined;
 };
 
-const EnterPassword = ({ formik }) => {
+const EnterPassword = ({ formik, deleteSubmitError }) => {
   const passwordError = getPasswordError(formik);
   const { handleChange, handleBlur, values } = formik;
   const { password } = values;
@@ -44,7 +44,10 @@ const EnterPassword = ({ formik }) => {
         name="password"
         value={password}
         onChange={handleChange}
-        onBlur={handleBlur}
+        onBlur={(e) => {
+          handleBlur(e);
+          deleteSubmitError();
+        }}
         /* Test */
         data-cy="password"
       />
@@ -57,7 +60,8 @@ const EnterPassword = ({ formik }) => {
 };
 
 EnterPassword.propTypes = {
-  formik: PropTypes.shape(authentificationPropTypes)
+  formik: PropTypes.shape(authentificationPropTypes),
+  deleteSubmitError: PropTypes.func.isRequired
 };
 
 export default EnterPassword;
