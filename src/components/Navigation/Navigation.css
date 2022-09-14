@@ -130,6 +130,7 @@
         background-color: #17835C;
         color: #FFFFFF;
         z-index: 3;
+        position: fixed;
     }
 
     .show-navigation .input {

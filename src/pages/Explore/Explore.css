@@ -112,7 +112,7 @@
     margin-top: 20px;
     background-color: var(--color-green);
     color: var(--color-white);
-    min-width: 130px;
+    min-width: 120px;
     height: 40px;
     font-weight: bold;
     border-radius: 10px;
@@ -135,6 +135,6 @@
 
 @media(max-width:320px){
     .explore__list__item__assets__button {
-        width: 90%;
+        width: 100px;
     }
 }
