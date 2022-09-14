@@ -51,9 +51,6 @@ const MyProfilePersonalData = ({ data, refresh }) => {
   const showServerError = () => {
     setSubmitError(errorDisplayed.server);
   };
-  const showExistingAccountError = () => {
-    setSubmitError(errorDisplayed.existingAccount);
-  };
   const deleteSubmitError = () => {
     setSubmitError("");
   };
@@ -78,7 +75,7 @@ const MyProfilePersonalData = ({ data, refresh }) => {
     }),
 
     onSubmit: async (values) => {
-      sendChangedUserData(values, showServerError, showExistingAccountError, () => {});
+      sendChangedUserData(values, showServerError, () => {});
       setIsEditing(!isEditing);
       refresh();
     }

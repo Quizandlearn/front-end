@@ -9,7 +9,7 @@ const useAuth = () => {
   const navigate = useNavigate();
   const [{ user }, dispatch] = useStateValue();
 
-  const login = async (values, showServerError, showInvalidCredentialsError) => {
+  const login = async (values, showInvalidCredentialsError, showServerError) => {
     try {
       const response = await axios.post(
         api.login,
