@@ -20,7 +20,7 @@
 .searchBar{
     border-bottom: none!important;
     flex-grow: 0.5;
-    width: 100%;  
+    width: 100%;
     margin: 0px 20px 0px 20px
 }
 
@@ -123,11 +123,13 @@
         padding: 2rem;
         background-color: #17835C;
         visibility: hidden;
+        z-index: 3;
     }
 
     .show-navigation, .show-navigation .upper-part-navigation-container {
         background-color: #17835C;
         color: #FFFFFF;
+        z-index: 3;
     }
 
     .show-navigation .input {
@@ -179,7 +181,7 @@
         position: relative;
         border-radius: 3px;
         background: #FFFFFF;
-    } 
+    }
     .burger-bar::before,
     .burger-bar::after {
         content: "";
