@@ -105,7 +105,7 @@ CreateQuestionsAndAnswers.propTypes = {
   formik: PropTypes.shape(createQuizPropTypes),
   handleIncreaseQuestionCount: PropTypes.func.isRequired,
   handleDecreaseQuestionCount: PropTypes.func.isRequired,
-  notEnoughQuestionsError: PropTypes.func.isRequired,
+  notEnoughQuestionsError: PropTypes.string.isRequired,
   deleteNotEnoughQuestionsError: PropTypes.func.isRequired
 };
 

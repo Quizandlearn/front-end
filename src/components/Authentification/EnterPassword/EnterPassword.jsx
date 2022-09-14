@@ -36,6 +36,7 @@ const EnterPassword = ({ formik, deleteSubmitError }) => {
         type={passwordShown ? "text" : "password"}
         className="enterPassword__input input"
         placeholder="mot de passe"
+        autoComplete="on"
         /* Accessibility */
         aria-required="true"
         aria-invalid={passwordError}
