@@ -17,7 +17,7 @@ const getNameError = (formik) => {
   return undefined;
 };
 
-const EnterName = ({ formik }) => {
+const EnterName = ({ formik, deleteSubmitError }) => {
   const nameError = getNameError(formik);
   const { handleChange, handleBlur, values } = formik;
   const { name } = values;
@@ -37,7 +37,10 @@ const EnterName = ({ formik }) => {
         name="name"
         value={name}
         onChange={handleChange}
-        onBlur={handleBlur}
+        onBlur={(e) => {
+          handleBlur(e);
+          deleteSubmitError();
+        }}
         /* Test */
         data-cy="name"
       />
@@ -47,7 +50,8 @@ const EnterName = ({ formik }) => {
 };
 
 EnterName.propTypes = {
-  formik: PropTypes.shape(authentificationPropTypes)
+  formik: PropTypes.shape(authentificationPropTypes),
+  deleteSubmitError: PropTypes.func.isRequired
 };
 
 export default EnterName;

@@ -17,7 +17,7 @@ const getEmailError = (formik) => {
   return undefined;
 };
 
-const EnterEmail = ({ formik }) => {
+const EnterEmail = ({ formik, deleteSubmitError }) => {
   const emailError = getEmailError(formik);
   const { handleChange, handleBlur, values } = formik;
   const { email } = values;
@@ -37,7 +37,10 @@ const EnterEmail = ({ formik }) => {
         name="email"
         value={email}
         onChange={handleChange}
-        onBlur={handleBlur}
+        onBlur={(e) => {
+          handleBlur(e);
+          deleteSubmitError();
+        }}
         /* Test */
         data-cy="email"
       />
@@ -47,7 +50,8 @@ const EnterEmail = ({ formik }) => {
 };
 
 EnterEmail.propTypes = {
-  formik: PropTypes.shape(authentificationPropTypes)
+  formik: PropTypes.shape(authentificationPropTypes),
+  deleteSubmitError: PropTypes.func.isRequired
 };
 
 export default EnterEmail;

@@ -8,16 +8,28 @@ import SelectCategory from "../../components/QuizCreation/SelectCategory/SelectC
 import CreateQuestionsAndAnswers from "../../components/QuizCreation/CreateQuestionsAndAnswers/CreateQuestionsAndAnswers";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import { useCreateQuiz } from "../../hooks/useCreateQuiz";
-/* eslint-disable no-unused-vars */
+import errorDisplayed from "../../config/error";
 
 const sendQuiz = "Envoyer";
 
 const CreateQuiz = () => {
-  const [errorMessage, setErrorMessage] = useState("");
   const [questionCount, setQuestionCount] = useState(1);
-  const [correctAnswerCount, SetCorrectAnswerCount] = useState(0);
   const [notEnoughQuestionsError, setNotEnoughQuestionsError] = useState("");
+  const [submitError, setSubmitError] = useState("");
   const { createQuiz } = useCreateQuiz();
+
+  const handleIncreaseQuestionCount = () => {
+    setQuestionCount((count) => count + 1);
+  };
+  const handleDecreaseQuestionCount = () => {
+    setQuestionCount((count) => count - 1);
+  };
+  const deleteNotEnoughQuestionsError = () => {
+    setNotEnoughQuestionsError("");
+  };
+  const showServerError = () => {
+    setSubmitError(errorDisplayed.server);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -45,30 +57,30 @@ const CreateQuiz = () => {
 
     validationSchema: Yup.object({
       title: Yup.string()
-        .required("Champ obligatoire")
+        .required("Champs obligatoire")
         .min(10, "Le titre doit contenir au minimum 10 caractères")
         .max(80, "Le titre doit contenir au maximum 80 caractères"),
       description: Yup.string()
-        .required("Champ obligatoire")
+        .required("Champs obligatoire")
         .min(20, "Le description doit contenir au minimum 20 caractères")
         .max(400, "La description doit contenir au maximum 400 caractères"),
       category: Yup.string()
-        .required("Champ obligatoire"),
+        .required("Champs obligatoire"),
       questions: Yup.array().of(
         Yup.object().shape({
           question: Yup.string()
-            .required("Champ obligatoire")
+            .required("Champs obligatoire")
             .min(20, "Le question doit contenir au minimum 20 caractères")
             .max(150, "La question doit contenir au maximum 150 caractères"),
           answers: Yup.array().of(
             Yup.object().shape({
               answerContent: Yup.string()
-                .required("Champ obligatoire")
-                .max(150, "La réponse doit contenir au maximum 150 carcactères"),
+                .required("Champs obligatoire")
+                .max(150, "La réponse doit contenir au maximum 150 caractères"),
             }),
             Yup.object().shape({
               answerContent: Yup.string()
-                .required("Champ obligatoire")
+                .required("Champs obligatoire")
                 .max(150, "La réponse doit contenir au maximum 150 carcactères"),
             })
           ),
@@ -85,22 +97,10 @@ const CreateQuiz = () => {
       if (questionCount < 3) {
         setNotEnoughQuestionsError("Veuillez rentrer au moins 3 questions");
       } else {
-        createQuiz(values, (error) => {
-          setErrorMessage(error);
-        });
+        createQuiz(values, showServerError, () => {});
       }
     }
   });
-
-  const handleIncreaseQuestionCount = () => {
-    setQuestionCount(questionCount + 1);
-  };
-  const handleDecreaseQuestionCount = () => {
-    setQuestionCount(questionCount - 1);
-  };
-  const deleteNotEnoughQuestionsError = () => {
-    setNotEnoughQuestionsError("");
-  };
 
   return (
     <div className="createQuiz__page">
@@ -119,7 +119,7 @@ const CreateQuiz = () => {
             notEnoughQuestionsError={notEnoughQuestionsError}
             deleteNotEnoughQuestionsError={deleteNotEnoughQuestionsError}
           />
-          <SubmitButton value={sendQuiz} class="submitButton" />
+          <SubmitButton class="submitButton" value={sendQuiz} submitError={submitError} />
           <p className="createQuiz__explanation">
             *Afin de pouvoir envoyer votre quiz, ceci doit contenir
             {" "}

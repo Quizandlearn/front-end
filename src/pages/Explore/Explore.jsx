@@ -6,7 +6,6 @@ import "./Explore.css";
 
 const Explore = () => {
   const { data, loading } = useGetQuizzes();
-  console.log(data, loading);
   const exploreTitle = "Les derniers quiz ajoutés";
   const descriptionQuiz = "En savoir plus";
   const ratingsQuiz = "★★★☆☆";

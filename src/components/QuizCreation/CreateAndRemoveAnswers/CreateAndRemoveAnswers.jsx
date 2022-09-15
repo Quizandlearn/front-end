@@ -103,7 +103,11 @@ CreateAndRemoveAnswers.propTypes = {
   index: PropTypes.number.isRequired,
   idx: PropTypes.number.isRequired,
   formik: PropTypes.shape(createQuizPropTypes),
-  question: PropTypes.string.isRequired,
+  question: PropTypes.shape({
+    answers: PropTypes.arrayOf(PropTypes.shape({
+      answerContent: PropTypes.string.isRequired
+    }))
+  }),
   remove: PropTypes.func.isRequired
 };
 

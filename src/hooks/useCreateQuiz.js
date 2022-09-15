@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import axios from "../config/axios";
 import api from "../config/api";
-import errorDisplayed from "../config/error";
 import useAuth from "./useAuth";
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-template */
@@ -13,7 +12,7 @@ export const useCreateQuiz = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const createQuiz = async (values, onError) => {
+  const createQuiz = async (values, showServerError) => {
     try {
       // data conversion to match what expects backend
       const convertedQuestions = [];
@@ -52,12 +51,8 @@ export const useCreateQuiz = () => {
       );
       navigate(LOGIN_URL_EXPLORE);
     } catch (error) {
-      if (typeof onError === "function") {
-        if (!error.response) {
-          onError(errorDisplayed.server);
-        } else {
-          onError(error.response);
-        }
+      if (!error.response) {
+        showServerError();
       }
     }
   };

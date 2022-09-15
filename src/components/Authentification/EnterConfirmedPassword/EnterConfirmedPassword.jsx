@@ -19,7 +19,7 @@ const getConfirmedPasswordError = (formik) => {
   return undefined;
 };
 
-const EnterConfirmedPassword = ({ formik }) => {
+const EnterConfirmedPassword = ({ formik, deleteSubmitError }) => {
   const confirmedPasswordError = getConfirmedPasswordError(formik);
   const { handleChange, handleBlur, values } = formik;
   const { confirmedPassword } = values;
@@ -36,6 +36,7 @@ const EnterConfirmedPassword = ({ formik }) => {
         type={confirmedPasswordShown ? "text" : "password"}
         className="enterConfirmedPassword__input input"
         placeholder="confirmation mot de passe"
+        autoComplete="on"
         /* Accessibility */
         aria-required="true"
         aria-invalid={confirmedPasswordError}
@@ -44,7 +45,10 @@ const EnterConfirmedPassword = ({ formik }) => {
         name="confirmedPassword"
         value={confirmedPassword}
         onChange={handleChange}
-        onBlur={handleBlur}
+        onBlur={(e) => {
+          handleBlur(e);
+          deleteSubmitError();
+        }}
         /* Test */
         data-cy="passwordConfirmation"
       />
@@ -57,7 +61,8 @@ const EnterConfirmedPassword = ({ formik }) => {
 };
 
 EnterConfirmedPassword.propTypes = {
-  formik: PropTypes.shape(authentificationPropTypes)
+  formik: PropTypes.shape(authentificationPropTypes),
+  deleteSubmitError: PropTypes.func.isRequired
 };
 
 export default EnterConfirmedPassword;
