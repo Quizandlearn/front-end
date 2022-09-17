@@ -35,7 +35,7 @@ const EnterConfirmedPassword = ({ formik, deleteSubmitError }) => {
         id="password-confirmation"
         type={confirmedPasswordShown ? "text" : "password"}
         className="enterConfirmedPassword__input input"
-        placeholder="confirmation mot de passe"
+        placeholder="Confirmation du mot de passe"
         autoComplete="on"
         /* Accessibility */
         aria-required="true"

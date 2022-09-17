@@ -34,11 +34,11 @@ const AddQuestionElements = ({
           <button
             className="addQuestionElements__add__answers__button button"
             type="button"
-            title="rajoutez jusqu'à 4 questions"
-            aria-label="rajoutez jusqu'à 4 questions"
+            title="Rajoutez jusqu'à 4 questions"
+            aria-label="Rajoutez jusqu'à 4 questions"
             onClick={() => handleAddAnswer(push)}
           >
-            + réponses
+            + Réponses
           </button>
           )}
         {!showExplanation &&
@@ -46,11 +46,11 @@ const AddQuestionElements = ({
           <button
             className="addQuestionElements__add__explanation__button button"
             type="button"
-            title="ajoutez une explication à votre question"
-            aria-label="ajoutez une explication à votre question"
+            title="Ajouter une explication à la question"
+            aria-label="Ajouter une explication à la question"
             onClick={() => setShowExplanation(true)}
           >
-            + explication
+            + Explication
           </button>
           )}
         {!showLearnMore &&
@@ -58,11 +58,11 @@ const AddQuestionElements = ({
           <button
             className="addQuestionElements__add__link__button button"
             type="button"
-            title="ajoutez un lien d'approfondissement"
-            aria-label="ajoutez un lien d'approfondissement"
+            title="Ajouter un lien d'approfondissement"
+            aria-label="Ajouter un lien d'approfondissement"
             onClick={() => setShowLearnMore(true)}
           >
-            + lien
+            + Lien
           </button>
           )}
       </div>

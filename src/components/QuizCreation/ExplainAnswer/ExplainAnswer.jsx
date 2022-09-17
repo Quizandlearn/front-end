@@ -46,7 +46,7 @@ const ExplainAnswer = ({
   const { handleChange, handleBlur } = formik;
   return (
     <div className="explainAnswer">
-      <label htmlFor="explainAnswer" className="explainAnswer__label">Détail de ou des réponse correctes</label>
+      <label htmlFor="explainAnswer" className="explainAnswer__label">Détail de la ou des réponses correctes</label>
       <textarea
         id="explainAnswer"
         className="explainAnswer__textarea textarea"
