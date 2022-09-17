@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "../config/axios";
 import api from "../config/api";
 import useAuth from "./useAuth";
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable react-hooks/exhaustive-deps */
 
 const useGetQuizzes = () => {
   const { user } = useAuth();

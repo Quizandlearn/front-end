@@ -1,7 +1,6 @@
 import axios from "../config/axios";
 import api from "../config/api";
 import useAuth from "./useAuth";
-/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 
 const useChangeConnectedUser = () => {
