@@ -61,7 +61,7 @@ const CreateQuestionsAndAnswers = ({
                   className="createQuestionsAndAnswers__remove__question__button button"
                   type="button"
                   /* Accessibilité */
-                  aria-label={`supprimer la question ${index + 1}`}
+                  aria-label={`Supprimer la question ${index + 1}`}
                   onClick={() => handleDeleteQuestion(remove, index)}
                 >
                   <FontAwesomeIcon icon={faX} className="createQuestionsAndAnswers__remove__question__button__icon" />

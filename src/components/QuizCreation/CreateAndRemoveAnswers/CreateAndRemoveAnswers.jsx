@@ -63,7 +63,7 @@ const CreateAndRemoveAnswers = ({
   return (
     <div className="createAndRemoveAnswer field" id="reply-field">
       <label htmlFor={fieldName} className="createAndRemoveAnswer__label">
-        Reponse
+        Réponse
         {" "}
         { idx + 1 }
       </label>
@@ -87,7 +87,7 @@ const CreateAndRemoveAnswers = ({
             className="createAndRemoveAnswer__remove__answer__button button"
             type="button"
             /* Accessibilité */
-            aria-label={`supprimer la reponse ${idx + 1}`}
+            aria-label={`Supprimer la réponse ${idx + 1}`}
             onClick={() => remove(idx)}
           >
             <FontAwesomeIcon icon={faX} className="createAndRemoveAnswer__remove__answer__button__icon" />

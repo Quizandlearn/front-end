@@ -62,7 +62,7 @@ const CreateQuiz = () => {
         .max(80, "Le titre doit contenir au maximum 80 caractères"),
       description: Yup.string()
         .required("Champs obligatoire")
-        .min(20, "Le description doit contenir au minimum 20 caractères")
+        .min(20, "La description doit contenir au minimum 20 caractères")
         .max(400, "La description doit contenir au maximum 400 caractères"),
       category: Yup.string()
         .required("Champs obligatoire"),
@@ -70,7 +70,7 @@ const CreateQuiz = () => {
         Yup.object().shape({
           question: Yup.string()
             .required("Champs obligatoire")
-            .min(20, "Le question doit contenir au minimum 20 caractères")
+            .min(20, "La question doit contenir au minimum 20 caractères")
             .max(150, "La question doit contenir au maximum 150 caractères"),
           answers: Yup.array().of(
             Yup.object().shape({
@@ -81,12 +81,12 @@ const CreateQuiz = () => {
             Yup.object().shape({
               answerContent: Yup.string()
                 .required("Champs obligatoire")
-                .max(150, "La réponse doit contenir au maximum 150 carcactères"),
+                .max(150, "La réponse doit contenir au maximum 150 caractères"),
             })
           ),
           explanation: Yup.string()
             .min(20, "L'explication doit contenir au minimum 20 caractères")
-            .max(400, "L'explication doit contenir au maximum 400 carcactères"),
+            .max(400, "L'explication doit contenir au maximum 400 caractères"),
           learnMore: Yup.string()
             .url("L'URL doit commencer par http://")
         })
@@ -121,7 +121,7 @@ const CreateQuiz = () => {
           />
           <SubmitButton class="submitButton" value={sendQuiz} submitError={submitError} />
           <p className="createQuiz__explanation">
-            *Afin de pouvoir envoyer votre quiz, ceci doit contenir
+            *Afin de pouvoir envoyer votre quiz, celui-ci doit contenir
             {" "}
             <span className="createQuiz__explanation__undelined">au moins 3 questions</span>
             , chaque question doit contenir
