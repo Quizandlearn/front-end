@@ -13,6 +13,15 @@
     background-color: var(--color-pink);
 }
 
+.navigation__button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
 .navigation__logo__container {
     display: flex;
     flex-direction: column;
@@ -43,6 +52,11 @@
     padding: 25px;
 }
 
+.navigation__logout-text {
+    display: none;
+    color: var(--color-green);
+}
+
 .navigation__search__container {
     display: flex;
     flex-direction: column;
@@ -70,7 +84,7 @@
 }
 
 .profile {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px 0px;
@@ -102,13 +116,11 @@
     order: 2;
     display: flex;
     justify-content: center;
+    gap: 20px;
   }
   
 .menu-items li {
-    list-style: none;
-    margin-left: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     align-self: center;
 }
 
@@ -191,15 +203,15 @@
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 100px;
-        background: #fff;
+        background: var(--color-white);
         height: 100vh;
         max-width: 300px;
-        transform: translate(-150%);
+        transform: translate(1000%);
         display: flex;
         flex-direction: column;
         margin-left: -40px;
         padding-left: 50px;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0,5s ease-in-out;
         box-shadow: 5px 0px 10px 0px #aaa;
     }
 
@@ -235,11 +247,19 @@
     }
 
     .navigation__profile__pic {
-        display: block;
+        display: none;
     }
     
     .navigation__logout__pic{
+        display: none;
+    }
+
+    .navigation__logout-text {
         display: block;
+        color: var(--color-green);
+        font-size: 1.1rem;
+        font-weight: 650;
+        padding: 10px;
     }
 
     .profile {
@@ -253,6 +273,12 @@
     .searchBar {
         flex-grow: 3;
         visibility: hidden;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .navigation__logout-text {
+        font-size: 0.9rem;
     }
 }
   

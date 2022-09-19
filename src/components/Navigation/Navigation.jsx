@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import picProfileGreen from "../../assets/picProfileGreen.svg";
 import logoutPic from "../../assets/logoutPic.svg";
 import logoApp from "../../assets/logoApp.svg";
@@ -11,27 +12,37 @@ import useAuth from "../../hooks/useAuth";
 const Navigation = () => {
   const { logout, user } = useAuth();
 
+  const MYPROFILE_URL_FRONTEND = "/myProfile";
+
+  const navigate = useNavigate();
+
+  const handleImageClick = () => {
+    navigate(MYPROFILE_URL_FRONTEND);
+  };
+
   if (user) {
     return (
       <div className="navigation">
         <div className="navigation__profile__container">
           <div className="navigation__logout-and-profile">
             <div className="profile">
-              <a href="/myProfile">
+              <button type="button" className="editButton navigation__button" onClick={handleImageClick}>
                 <img
                   className="navigation__profile__pic"
                   src={picProfileGreen}
-                  alt="Profile"
+                  alt="My profile"
                 />
-              </a>
+              </button>
             </div>
-            <a href={logout}>
+            <button type="button" className="editButton navigation__button" onClick={logout}>
               <img
                 className="navigation__logout__pic"
                 src={logoutPic}
-                alt="logoutPic"
+                alt="logout"
               />
-            </a>
+              <p className="navigation__logout-text">Log Out</p>
+            </button>
+
           </div>
         </div>
         <div className="navigation__logo__container">
@@ -57,11 +68,13 @@ const Navigation = () => {
             <li><a href="/myQuizzes">Mes quiz</a></li>
             <li><a href="/favoriteQuizzes">Quiz favoris</a></li>
             <li><a href="/completedQuizzes">Quiz répondus</a></li>
+            <li><a href="/myProfile">Mon compte</a></li>
           </ul>
         </nav>
       </div>
     );
   }
+
   return null;
 };
 
