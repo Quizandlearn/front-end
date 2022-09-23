@@ -9,6 +9,6 @@ const api = {
   user: "user",
 };
 
-export const generateRoute = (route, quizId, questionId) => generatePath(route, { quizId, questionId });
+export const generateRoute = (route, quizId) => generatePath(route, { quizId });
 
 export default api;

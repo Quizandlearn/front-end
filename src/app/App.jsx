@@ -13,6 +13,7 @@ import MyQuizzes from "../pages/MyQuizzes/MyQuizzes";
 import FavoriteQuizzes from "../pages/FavoriteQuizzes/FavoriteQuizzes";
 import CompletedQuizzes from "../pages/CompletedQuizzes/CompletedQuizzes";
 import CreateQuiz from "../pages/CreateQuiz/CreateQuiz";
+import AnswerQuiz from "../pages/AnswerQuiz/AnswerQuiz";
 
 const App = () => (
   <AuthProvider>
@@ -26,6 +27,7 @@ const App = () => (
 
       <Route element={<RequireAuth onlyPublic={false} />}>
         <Route path="/quizzes" element={<Explore />} />
+        <Route exact path="/quizzes/:id" element={<AnswerQuiz />} />
         <Route path="/quizzesByCategory" element={<ExploreByCategory />} />
         <Route path="/createQuiz" element={<CreateQuiz />} />
         <Route path="/myQuizzes" element={<MyQuizzes />} />
