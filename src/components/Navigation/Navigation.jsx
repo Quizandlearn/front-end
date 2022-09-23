@@ -40,7 +40,6 @@ const Navigation = () => {
                 src={logoutPic}
                 alt="logout"
               />
-              <p className="navigation__logout-text">Log Out</p>
             </button>
 
           </div>
@@ -68,7 +67,6 @@ const Navigation = () => {
             <li><a href="/myQuizzes">Mes quiz</a></li>
             <li><a href="/favoriteQuizzes">Quiz favoris</a></li>
             <li><a href="/completedQuizzes">Quiz répondus</a></li>
-            <li><a href="/myProfile">Mon compte</a></li>
           </ul>
         </nav>
       </div>

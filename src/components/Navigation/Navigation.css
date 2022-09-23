@@ -52,11 +52,6 @@
     padding: 25px;
 }
 
-.navigation__logout-text {
-    display: none;
-    color: var(--color-green);
-}
-
 .navigation__search__container {
     display: flex;
     flex-direction: column;
@@ -141,6 +136,7 @@
 /* Responsive */
 @media screen and (max-width:830px) {
     .navigation__menu {
+        width: 60%;
         position: absolute;
         top: 10px; left: 15px;
         background: transparent;
@@ -247,19 +243,11 @@
     }
 
     .navigation__profile__pic {
-        display: none;
+        display: flex;
     }
     
     .navigation__logout__pic{
-        display: none;
-    }
-
-    .navigation__logout-text {
-        display: block;
-        color: var(--color-green);
-        font-size: 1.1rem;
-        font-weight: 650;
-        padding: 10px;
+        display: flex;
     }
 
     .profile {
@@ -277,8 +265,18 @@
 }
 
 @media screen and (max-width:500px) {
-    .navigation__logout-text {
-        font-size: 0.9rem;
+    .navigation__logout__pic{
+        max-width: 24px;
+        max-height: 24px;
+    }
+
+    .navigation__profile__pic{
+        max-width: 24px;
+        max-height: 24px;
+    }
+
+    .navigation__logo{
+        max-width: 100px;
+        max-height: 100px;
     }
 }
-  
