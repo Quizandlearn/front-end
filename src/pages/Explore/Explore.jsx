@@ -13,7 +13,7 @@ const Explore = () => {
     <>
       {loading && <div>Loading</div>}
       {(!loading && data) && (
-        <div className="explore">
+        <main className="explore">
           <h2 className="explore__title">{exploreTitle}</h2>
           {data && data.map((quiz) => (
             <div className="explore__list__item" key={quiz._id}>
@@ -43,7 +43,7 @@ const Explore = () => {
               </div>
             </div>
           ))}
-        </div>
+        </main>
       )}
     </>
   );

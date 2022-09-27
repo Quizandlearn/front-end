@@ -3,7 +3,7 @@ import React from "react";
 
 const CompletedQuizzes = () => {
   return (
-    <div>Page Completed Quizzes!</div>
+    <main>Page Completed Quizzes!</main>
   );
 };
 
