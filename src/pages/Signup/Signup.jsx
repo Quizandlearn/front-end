@@ -15,7 +15,7 @@ import errorDisplayed from "../../config/error";
 /* eslint-disable react/no-unescaped-entities */
 
 const PASSWORD_REGEX =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
 const LOGIN_URL_FRONTEND = "/";
 const Inscription = "Inscription";
 
