@@ -1,5 +1,10 @@
 import React from "react";
+/* eslint-disable arrow-body-style */
 
-const FavoriteQuizzes = () => <div>Page Favorite Quizzes!</div>;
+const FavoriteQuizzes = () => {
+  return (
+    <main>Page quiz par catégorie</main>
+  );
+};
 
 export default FavoriteQuizzes;

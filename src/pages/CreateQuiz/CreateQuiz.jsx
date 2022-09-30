@@ -103,7 +103,7 @@ const CreateQuiz = () => {
   });
 
   return (
-    <div className="createQuiz__page">
+    <main className="createQuiz__page">
       <FormikProvider value={formik}>
         <form className="createQuiz__form" onSubmit={formik.handleSubmit} method="post">
           <h1 className="createQuiz__page__title">Création de Quiz*</h1>
@@ -135,7 +135,7 @@ const CreateQuiz = () => {
           </p>
         </form>
       </FormikProvider>
-    </div>
+    </main>
   );
 };
 

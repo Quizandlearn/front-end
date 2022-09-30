@@ -3,7 +3,7 @@ import React from "react";
 
 const ExploreByCategory = () => {
   return (
-    <div>Page Quizzes By Category!</div>
+    <main>Page explorer par catégorie</main>
   );
 };
 

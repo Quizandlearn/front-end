@@ -46,7 +46,7 @@ const Login = () => {
   });
 
   return (
-    <div className="login">
+    <main className="login">
       <img src={logoApp} className="login__logo" alt="" />
       <h1 className="login__title"> Se connecter</h1>
       <form onSubmit={formik.handleSubmit} className="login__form" method="post">
@@ -56,7 +56,7 @@ const Login = () => {
       </form>
       <p className="login__question">Nouveau sur la plateforme ?</p>
       <Link to={SIGNUP_URL_FRONTEND} className="login__link__signup">Créer un compte</Link>
-    </div>
+    </main>
   );
 };
 

@@ -22,7 +22,7 @@ const Navigation = () => {
 
   if (user) {
     return (
-      <div className="navigation">
+      <header className="navigation">
         <div className="navigation__profile__container">
           <div className="navigation__logout-and-profile">
             <div className="profile">
@@ -30,7 +30,7 @@ const Navigation = () => {
                 <img
                   className="navigation__profile__pic"
                   src={picProfileGreen}
-                  alt="My profile"
+                  alt="page mon profil"
                 />
               </button>
             </div>
@@ -49,9 +49,9 @@ const Navigation = () => {
         </div>
         <div className="navigation__search__container">
           {/* Search bar Bulma */}
-          <div className="searchBar">
-            <input className="input navigation__searchbar-input" type="text" placeholder="Rechercher ..." />
-          </div>
+          <form className="searchBar" role="search">
+            <input type="search" className="input navigation__searchbar-input" placeholder="Rechercher ..." />
+          </form>
         </div>
         <nav className="navigation__menu">
           <input type="checkbox" name="" id="" />
@@ -69,7 +69,7 @@ const Navigation = () => {
             <li><a href="/completedQuizzes">Quiz répondus</a></li>
           </ul>
         </nav>
-      </div>
+      </header>
     );
   }
 

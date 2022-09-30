@@ -3,7 +3,7 @@ import React from "react";
 
 const MyQuizzes = () => {
   return (
-    <div>Page My Quizzes!</div>
+    <main>Page Mes Quiz!</main>
   );
 };
 

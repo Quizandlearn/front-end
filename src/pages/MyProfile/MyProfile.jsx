@@ -17,7 +17,7 @@ const MyProfile = () => {
   return (
     <>
       {!loading && (
-      <div className="myProfile">
+      <main className="myProfile">
         <div className="myProfile__title__container">
           <h1 id="myProfile__title">{myProfile}</h1>
         </div>
@@ -25,7 +25,7 @@ const MyProfile = () => {
           <MyProfileImage />
           <MyProfilePersonalData data={data} refresh={refresh} />
         </div>
-      </div>
+      </main>
       )}
     </>
   );
