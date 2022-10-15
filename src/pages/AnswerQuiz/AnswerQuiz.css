@@ -27,147 +27,16 @@
     color: #3072CF;
 }
 
-.answerQuiz__block__information{
-    max-width: 840px;
-    padding: 30px 100px;
-    background-color: #f1d5d5;
-    margin-bottom: 20px;
-    border-radius: 20px;
-}
-
-.answerQuiz__block__information__title{
-    font-size: 20px;
-    font-weight: bold;
-    color: #2A6DCD;
-}
-
-.answerQuiz__block__information__header,
-.answerQuiz__block__information__user{
-    display: flex;
-    align-items: center;
-}
-
-.answerQuiz__block__information__header{
-    justify-content:space-between;
-    width: 110%;
-}
-
-.answerQuiz__block__information__userName{
-    font-weight: 600;
-    font-size: 16px;   
-    color: #2A6DCD;
-}
-
-.answerQuiz__block__information__userFigure{
-    margin-left: 10px;
-}
-
-.answerQuiz__block__information__description,
-.answerQuiz__block__information__instructions{
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-}
-
-.answerQuiz__block__information__description{
-    color: #2A6DCD; 
-}
-
-.answerQuiz__block__information__instructions{
-    font-style: italic;
-    color: #1E825D;
-    margin-top: 30px;
-}
-
-.answerQuiz__block__information__category {
-    background-color: #2A6DCD;
-    border-radius: 10px;
-    color: white;
-    width: 100px;
-    padding: 5px 10px;
-    margin-top: 25px;
-}
-
-.answerQuiz__block__information__category___text {
-   text-align: center;
-   font-size: 16px;
-}
-
 @media(max-width:950px){
 
     .answerQuiz__block__title{
         font-size: 20px;
     }
-
-    .answerQuiz__block__information{
-        padding: 30px 50px;
-        background-color: #f1d5d5;
-    }
-
-    .answerQuiz__block__information__header{
-        width: 105%;
-    }
-
-    .answerQuiz__block__information__title{
-        font-size: 16px;
-    }
-
-    .answerQuiz__block__information__userName{
-        font-size: 14px;   
-    }
-
-    .answerQuiz__block__information__description,
-    .answerQuiz__block__information__instructions{
-        font-size: 15px;
-    }
-
-    .answerQuiz__block__information__instructions{
-        margin-top: 20px;
-    }
-
-    .answerQuiz__block__information__category {
-        padding: 3px 8px;
-        margin-top: 20px;
-        width: 85px;
-    }
-
-    .answerQuiz__block__information__category___text {
-        font-size: 14px;
-     }
 }
 
 @media(max-width:720px) {
 
     .answerQuiz__block__title{
         margin-bottom: 30px;
-    }
-    .answerQuiz__block__information__header{
-        align-items:inherit;
-        flex-direction: column-reverse;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .answerQuiz__block__information__user{
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 5px;
-    }
-
-    .answerQuiz__block__information__description,
-    .answerQuiz__block__information__instructions{
-        font-size: 13px;
-    }
-}
-
-
-@media(max-width:450px) {
-
-    .answerQuiz__block__information{
-        padding: 30px;
-    }
-
-    .answerQuiz__block__information__userFigure{
-        margin-left: 5px;
     }
 }

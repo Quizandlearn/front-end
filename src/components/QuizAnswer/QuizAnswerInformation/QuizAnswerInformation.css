@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+.answerQuizInformation{
+  max-width: 840px;
+  padding: 30px 100px;
+  background-color: #f1d5d5;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.answerQuizInformation__title{
+  font-size: 20px;
+  font-weight: bold;
+  color: #2A6DCD;
+}
+
+.answerQuizInformation__header,
+.answerQuizInformation__user{
+  display: flex;
+  align-items: center;
+}
+
+.answerQuizInformation__header{
+  justify-content:space-between;
+  width: 110%;
+}
+
+.answerQuizInformation__userName{
+  font-weight: 600;
+  font-size: 16px;   
+  color: #2A6DCD;
+}
+
+.answerQuizInformation__userFigure{
+  margin-left: 10px;
+}
+
+.answerQuizInformation__description,
+.answerQuizInformation__instructions{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.answerQuizInformation__description{
+  color: #2A6DCD; 
+}
+
+.answerQuizInformation__instructions{
+  font-style: italic;
+  color: #1E825D;
+  margin-top: 30px;
+}
+
+.answerQuizInformation__category {
+  background-color: #2A6DCD;
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  padding: 5px 10px;
+  margin-top: 25px;
+}
+
+.answerQuizInformation__category___text {
+ text-align: center;
+ font-size: 16px;
+}
+
+@media(max-width:950px){
+
+  .answerQuizInformation{
+      padding: 30px 50px;
+      background-color: #f1d5d5;
+  }
+
+  .answerQuizInformation__header{
+      width: 105%;
+  }
+
+  .answerQuizInformation__title{
+      font-size: 16px;
+  }
+
+  .answerQuizInformation__userName{
+      font-size: 14px;   
+  }
+
+  .answerQuizInformation__description,
+  .answerQuizInformation__instructions{
+      font-size: 15px;
+  }
+
+  .answerQuizInformation__instructions{
+      margin-top: 20px;
+  }
+
+  .answerQuizInformation__category {
+      padding: 3px 8px;
+      margin-top: 20px;
+      width: 85px;
+  }
+
+  .answerQuizInformation__category___text {
+      font-size: 14px;
+   }
+}
+
+@media(max-width:720px) {
+
+  .answerQuizInformation__header{
+      align-items:inherit;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      margin-bottom: 20px;
+  }
+  
+  .answerQuizInformation__user{
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 5px;
+  }
+
+  .answerQuizInformation__description,
+  .answerQuizInformation__instructions{
+      font-size: 13px;
+  }
+}
+
+
+@media(max-width:450px) {
+
+  .answerQuizInformation{
+      padding: 30px;
+  }
+
+  .answerQuizInformation__userFigure{
+      margin-left: 5px;
+  }
+}
