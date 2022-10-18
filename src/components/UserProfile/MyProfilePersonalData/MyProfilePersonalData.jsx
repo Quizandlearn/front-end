@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Dialog } from "@reach/dialog";
+import "@reach/dialog/styles.css";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import FormError from "../../FormError/FormError";
@@ -43,14 +45,41 @@ const getEmailError = (formik) => {
   return undefined;
 };
 
+const getNewPasswordError = (formik) => {
+  let touched = false;
+  if (formik.touched && formik.touched.newPassword) {
+    touched = true;
+  }
+  if (touched && formik.errors && formik.errors.newPassword) {
+    return formik.errors.newPassword;
+  }
+  return undefined;
+};
+
+const getConfirmedPasswordError = (formik) => {
+  let touched = false;
+  if (formik.touched && formik.touched.confirmedPassword) {
+    touched = true;
+  }
+  if (touched && formik.errors && formik.errors.confirmedPassword) {
+    return formik.errors.confirmedPassword;
+  }
+  return undefined;
+};
+
 const MyProfilePersonalData = ({ data, refresh }) => {
   const [isEditing, setIsEditing] = useState(false);
   const { sendChangedUserData } = useChangeConnectedUser();
   const [submitError, setSubmitError] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const showServerError = () => {
     setSubmitError(errorDisplayed.server);
   };
+
   const deleteSubmitError = () => {
     setSubmitError("");
   };
@@ -78,7 +107,7 @@ const MyProfilePersonalData = ({ data, refresh }) => {
       sendChangedUserData(values, showServerError, () => {});
       setIsEditing(!isEditing);
       refresh();
-    }
+    },
   });
 
   const personalDataTitle = "A propos de moi";
@@ -86,6 +115,7 @@ const MyProfilePersonalData = ({ data, refresh }) => {
   const profileSurname = "Prénom";
   const profileEmail = "Email";
   const modifyButton = "Modifier";
+  const changePasswordButton = "Changer mot de passe";
   const saveButton = "Enregistrer";
 
   const nameError = getNameError(formik);
@@ -133,7 +163,9 @@ const MyProfilePersonalData = ({ data, refresh }) => {
                   type="text"
                   aria-required="true"
                   aria-invalid={surnameError}
-                  aria-describedby={surnameError && "error-content-accessibility"}
+                  aria-describedby={
+                    surnameError && "error-content-accessibility"
+                  }
                   value={surname}
                   onChange={handleChange}
                   onBlur={(e) => {
@@ -175,15 +207,21 @@ const MyProfilePersonalData = ({ data, refresh }) => {
           <>
             <div className="myProfile__form__fields__container">
               <div className="myProfile__form__field field">
-                <label className="myProfile__form__label label">{profileName}</label>
+                <label className="myProfile__form__label label">
+                  {profileName}
+                </label>
                 <p className="myProfile__form__text">{data.name}</p>
               </div>
               <div className="myProfile__form__field field">
-                <label className="myProfile__form__label label">{profileSurname}</label>
+                <label className="myProfile__form__label label">
+                  {profileSurname}
+                </label>
                 <p className="myProfile__form__text">{data.surname}</p>
               </div>
               <div className="myProfile__form__field field">
-                <label className="myProfile__form__label label">{profileEmail}</label>
+                <label className="myProfile__form__label label">
+                  {profileEmail}
+                </label>
                 <p className="myProfile__form__text">{data.email}</p>
               </div>
             </div>
@@ -197,11 +235,146 @@ const MyProfilePersonalData = ({ data, refresh }) => {
               >
                 {modifyButton}
               </button>
+              <button
+                className="myProfile__editButton"
+                type="button"
+                onClick={handleShow}
+              >
+                {changePasswordButton}
+              </button>
+              <Dialog
+                aria-label="Password form"
+                isOpen={show}
+                onDismiss={handleClose}
+              >
+                <PasswordForm handleClose={handleClose} />
+              </Dialog>
+              ;
             </div>
           </>
         )}
       </div>
     </div>
+  );
+};
+
+const PasswordForm = ({ handleClose }) => {
+  const passwordRef = React.useRef();
+  const confirmPasswordRef = React.useRef();
+  const PASSWORD_REGEX =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
+  const [submitError, setSubmitError] = useState("");
+
+  function changePassword(values) {
+    alert("New password is ...", values);
+  }
+
+  const deleteSubmitError = () => {
+    setSubmitError("");
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      newPassword: "",
+      confirmedPassword: "",
+    },
+
+    validationSchema: Yup.object({
+      newPassword: Yup.string()
+        .matches(
+          PASSWORD_REGEX,
+          "Le mot de passe doit contenir au minimum 8 caractères : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre"
+        )
+        .required("Champs obligatoire"),
+      confirmedPassword: Yup.string()
+        .oneOf(
+          [Yup.ref("password"), null],
+          "Les mots de passe saisis ne sont pas idéntiques"
+        )
+        .required("Champs obligatoire"),
+    }),
+
+    onSubmit: async (values) => {
+      changePassword(values, () => {});
+    },
+  });
+
+  const newPasswordError = getNewPasswordError(formik);
+  const confirmedPasswordError = getConfirmedPasswordError(formik);
+  const { handleChange, handleBlur, values } = formik;
+  const { newPassword, confirmedPassword } = values;
+
+  // function handleFormSubmit() {
+  //   const newPassword = confirmPasswordRef.current.value;
+  //   alert(`You entered: ${newPassword}`);
+  // }
+
+  // const handleInputChange = () => {
+  //   const firstPassword = passwordRef.current.value;
+  //   const secondPassword = confirmPasswordRef.current.value;
+
+  //   const isValid = firstPassword === secondPassword;
+
+  //   setError(isValid ? null : "Doit correspondre à votre nouveau mot de passe");
+  // };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="new password">Nouveau mot de passe</label>
+        <input
+          ref={passwordRef}
+          id="newPassword"
+          type="password"
+          placeholder="Mot de passe"
+          /* Accessibility */
+          aria-required="true"
+          aria-invalid={newPasswordError}
+          aria-describedby={newPasswordError && "error-content-accessibility"}
+          /* Formik */
+          value={newPassword}
+          onChange={handleChange}
+          onBlur={(e) => {
+            handleBlur(e);
+            deleteSubmitError();
+          }}
+          required
+        />
+        {newPasswordError && <FormError errorContent={newPasswordError} />}
+        <label htmlFor="new password confirmation">
+          Confirmation de mot de passe
+        </label>
+        <input
+          onChange={handleChange}
+          id="password"
+          ref={confirmPasswordRef}
+          type="password"
+          placeholder="Confirmation du mot de passe"
+          autoComplete="on"
+          /* Accessibility */
+          aria-required="true"
+          aria-invalid={confirmedPasswordError}
+          aria-describedby={
+            confirmedPasswordError && "error-content-accessibility"
+          }
+          /* Formik */
+          name="confirmedPassword"
+          value={confirmedPassword}
+          onBlur={(e) => {
+            handleBlur(e);
+            deleteSubmitError();
+          }}
+        />
+      </div>
+      <div>
+        <button type="submit" variant="secondary" onClick={handleClose}>
+          Annuler
+        </button>
+        <button type="submit" onClick={handleClose}>
+          Enregistrer
+        </button>
+      </div>
+    </form>
   );
 };
 
@@ -211,7 +384,7 @@ MyProfilePersonalData.propTypes = {
     surname: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,
-  refresh: PropTypes.func.isRequired
+  refresh: PropTypes.func.isRequired,
 };
 
 export default MyProfilePersonalData;
