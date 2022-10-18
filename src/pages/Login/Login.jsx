@@ -30,32 +30,36 @@ const Login = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: ""
+      password: "",
     },
 
     validationSchema: Yup.object({
-      email: Yup.string()
-        .required("Champs obligatoire"),
-      password: Yup.string()
-        .required("Champs obligatoire"),
+      email: Yup.string().required("Champs obligatoire"),
+      password: Yup.string().required("Champs obligatoire"),
     }),
 
     onSubmit: async (values) => {
       login(values, showInvalidCredentialsError, showServerError, () => {});
-    }
+    },
   });
 
   return (
     <main className="login">
       <img src={logoApp} className="login__logo" alt="" />
       <h1 className="login__title"> Se connecter</h1>
-      <form onSubmit={formik.handleSubmit} className="login__form" method="post">
+      <form
+        onSubmit={formik.handleSubmit}
+        className="login__form"
+        method="post"
+      >
         <EnterEmail formik={formik} deleteSubmitError={deleteSubmitError} />
         <EnterPassword formik={formik} deleteSubmitError={deleteSubmitError} />
         <SubmitButton value={LoginValue} submitError={submitError} />
       </form>
       <p className="login__question">Nouveau sur la plateforme ?</p>
-      <Link to={SIGNUP_URL_FRONTEND} className="login__link__signup">Créer un compte</Link>
+      <Link to={SIGNUP_URL_FRONTEND} className="login__link__signup">
+        Créer un compte
+      </Link>
     </main>
   );
 };
