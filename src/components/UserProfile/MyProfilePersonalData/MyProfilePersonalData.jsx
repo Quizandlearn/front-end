@@ -1,6 +1,11 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+
+import { jsx } from "@emotion/react";
+import "bootstrap/dist/css/bootstrap-reboot.css";
+
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Dialog } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -9,8 +14,18 @@ import "../../../pages/MyProfile/MyProfile.css";
 import useChangeConnectedUser from "../../../hooks/useChangeConnectedUser";
 import MyProfilePersonalImage from "../MyProfilePersonalImage/MyProfilePersonalImage";
 import errorDisplayed from "../../../config/error";
+import {
+  Button,
+  FormGroup,
+  Input,
+  Spinner,
+} from "../MyProfileLibForm/MyProfileLibForm";
+import { Modal, ModalContents, ModalOpenButton } from "../../Modal/modal";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/function-component-definition */
+/* eslint-disable react/jsx-one-expression-per-line */
 
 const getNameError = (formik) => {
   let touched = false;
@@ -45,36 +60,87 @@ const getEmailError = (formik) => {
   return undefined;
 };
 
-const getNewPasswordError = (formik) => {
-  let touched = false;
-  if (formik.touched && formik.touched.newPassword) {
-    touched = true;
-  }
-  if (touched && formik.errors && formik.errors.newPassword) {
-    return formik.errors.newPassword;
-  }
-  return undefined;
-};
+function PasswordForm({ onSubmit, submitButton }) {
+  const newPasswordRef = React.useRef();
+  const confirmedPasswordRef = React.useRef();
+  const [error, setError] = useState("");
 
-const getConfirmedPasswordError = (formik) => {
-  let touched = false;
-  if (formik.touched && formik.touched.confirmedPassword) {
-    touched = true;
-  }
-  if (touched && formik.errors && formik.errors.confirmedPassword) {
-    return formik.errors.confirmedPassword;
-  }
-  return undefined;
-};
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const confirmedPassword = confirmedPasswordRef.current.value;
+
+    onSubmit({
+      password: confirmedPassword,
+    });
+  };
+
+  const handleInputChange = () => {
+    const firstPassword = newPasswordRef.current.value;
+    const secondPassword = confirmedPasswordRef.current.value;
+
+    const isValid = firstPassword === secondPassword;
+
+    setError(isValid ? null : "Oups ... il y a une difference");
+  };
+
+  const isButtonDisabled = error ? "secondary" : "primary";
+
+  return (
+    <form
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        "> div": {
+          margin: "10px auto",
+          width: "100%",
+          maxWidth: "300px",
+        },
+      }}
+      onSubmit={handleFormSubmit}
+    >
+      <FormGroup>
+        <label htmlFor="newPassword">Nouveau mot de passe</label>
+        <Input
+          id="newPassword"
+          type="password"
+          placeholder="Mot de passe"
+          ref={newPasswordRef}
+        />
+      </FormGroup>
+      <FormGroup>
+        <label htmlFor="confirmedPassword">Confirmation du mot de passe</label>
+        <Input
+          id="confirmedPassword"
+          type="password"
+          placeholder="Confirmation du mot de passe"
+          ref={confirmedPasswordRef}
+          onChange={handleInputChange}
+        />
+        <div>
+          <span style={{ color: "red" }}>{error}</span>
+        </div>
+      </FormGroup>
+      <div>
+        {React.cloneElement(submitButton, {
+          type: "submit",
+          disabled: error,
+          variant: isButtonDisabled,
+        })}{" "}
+        <Spinner aria-label="loading" />
+      </div>
+    </form>
+  );
+}
 
 const MyProfilePersonalData = ({ data, refresh }) => {
   const [isEditing, setIsEditing] = useState(false);
   const { sendChangedUserData } = useChangeConnectedUser();
   const [submitError, setSubmitError] = useState("");
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  function handlePassword(formData) {
+    console.log("password", formData);
+  }
 
   const showServerError = () => {
     setSubmitError(errorDisplayed.server);
@@ -235,146 +301,24 @@ const MyProfilePersonalData = ({ data, refresh }) => {
               >
                 {modifyButton}
               </button>
-              <button
-                className="myProfile__editButton"
-                type="button"
-                onClick={handleShow}
-              >
-                {changePasswordButton}
-              </button>
-              <Dialog
-                aria-label="Password form"
-                isOpen={show}
-                onDismiss={handleClose}
-              >
-                <PasswordForm handleClose={handleClose} />
-              </Dialog>
-              ;
+              <Modal>
+                <ModalOpenButton>
+                  <button className="myProfile__editButton" type="button">
+                    {changePasswordButton}
+                  </button>
+                </ModalOpenButton>
+                <ModalContents aria-label="Password form" title="Password">
+                  <PasswordForm
+                    onSubmit={handlePassword}
+                    submitButton={<Button>Enregistrer</Button>}
+                  />
+                </ModalContents>
+              </Modal>
             </div>
           </>
         )}
       </div>
     </div>
-  );
-};
-
-const PasswordForm = ({ handleClose }) => {
-  const passwordRef = React.useRef();
-  const confirmPasswordRef = React.useRef();
-  const PASSWORD_REGEX =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
-  const [submitError, setSubmitError] = useState("");
-
-  function changePassword(values) {
-    alert("New password is ...", values);
-  }
-
-  const deleteSubmitError = () => {
-    setSubmitError("");
-  };
-
-  const formik = useFormik({
-    initialValues: {
-      newPassword: "",
-      confirmedPassword: "",
-    },
-
-    validationSchema: Yup.object({
-      newPassword: Yup.string()
-        .matches(
-          PASSWORD_REGEX,
-          "Le mot de passe doit contenir au minimum 8 caractères : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre"
-        )
-        .required("Champs obligatoire"),
-      confirmedPassword: Yup.string()
-        .oneOf(
-          [Yup.ref("password"), null],
-          "Les mots de passe saisis ne sont pas idéntiques"
-        )
-        .required("Champs obligatoire"),
-    }),
-
-    onSubmit: async (values) => {
-      changePassword(values, () => {});
-    },
-  });
-
-  const newPasswordError = getNewPasswordError(formik);
-  const confirmedPasswordError = getConfirmedPasswordError(formik);
-  const { handleChange, handleBlur, values } = formik;
-  const { newPassword, confirmedPassword } = values;
-
-  // function handleFormSubmit() {
-  //   const newPassword = confirmPasswordRef.current.value;
-  //   alert(`You entered: ${newPassword}`);
-  // }
-
-  // const handleInputChange = () => {
-  //   const firstPassword = passwordRef.current.value;
-  //   const secondPassword = confirmPasswordRef.current.value;
-
-  //   const isValid = firstPassword === secondPassword;
-
-  //   setError(isValid ? null : "Doit correspondre à votre nouveau mot de passe");
-  // };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="new password">Nouveau mot de passe</label>
-        <input
-          ref={passwordRef}
-          id="newPassword"
-          type="password"
-          placeholder="Mot de passe"
-          /* Accessibility */
-          aria-required="true"
-          aria-invalid={newPasswordError}
-          aria-describedby={newPasswordError && "error-content-accessibility"}
-          /* Formik */
-          value={newPassword}
-          onChange={handleChange}
-          onBlur={(e) => {
-            handleBlur(e);
-            deleteSubmitError();
-          }}
-          required
-        />
-        {newPasswordError && <FormError errorContent={newPasswordError} />}
-        <label htmlFor="new password confirmation">
-          Confirmation de mot de passe
-        </label>
-        <input
-          onChange={handleChange}
-          id="password"
-          ref={confirmPasswordRef}
-          type="password"
-          placeholder="Confirmation du mot de passe"
-          autoComplete="on"
-          /* Accessibility */
-          aria-required="true"
-          aria-invalid={confirmedPasswordError}
-          aria-describedby={
-            confirmedPasswordError && "error-content-accessibility"
-          }
-          /* Formik */
-          name="confirmedPassword"
-          value={confirmedPassword}
-          onBlur={(e) => {
-            handleBlur(e);
-            deleteSubmitError();
-          }}
-        />
-      </div>
-      <div>
-        <button type="submit" variant="secondary" onClick={handleClose}>
-          Annuler
-        </button>
-        <button type="submit" onClick={handleClose}>
-          Enregistrer
-        </button>
-      </div>
-    </form>
   );
 };
 
