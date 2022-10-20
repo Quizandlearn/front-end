@@ -1,13 +1,13 @@
-# Quizandlearn backend
+# Quizandlearn front-end
 
 [![Build status](../../workflows/CI/badge.svg)](../../actions?query=workflow%3ACI)
 
-**Quizandlearn** is a collaborative quizzes plateform based on NodeJs and React.js.
+**Quizandlearn** is an app where people can gain or share knowledge by creating or replying to quizzes (Node/React).
 
 
 ## Prerequisites
 
-**Quizandlearn** requires `node 16.9.1` with `npm 7.21.1`*
+**Quizandlearn** requires `react 17.0.2` with `npm 7.21.1`*
 
 ## Installation
 
@@ -15,9 +15,7 @@
 2. Add a new `.env` file.
 
 ```
-MONGODB_URI= "mongodb+srv:// login / credentials "
-FRONTEND_URL="http://localhost:3000"
-BACKEND_URL="http://localhost:4000"}
+REACT_APP_API_URL="http://localhost:4000"
 ```
 
 3. Install dependencies
