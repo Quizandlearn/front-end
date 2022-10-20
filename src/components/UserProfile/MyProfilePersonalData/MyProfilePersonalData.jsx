@@ -64,6 +64,7 @@ function PasswordForm({ onSubmit, submitButton }) {
   const newPasswordRef = React.useRef();
   const confirmedPasswordRef = React.useRef();
   const [error, setError] = useState("");
+  const [errorRegex, setErrorRegex] = useState("");
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -72,6 +73,26 @@ function PasswordForm({ onSubmit, submitButton }) {
     onSubmit({
       password: confirmedPassword,
     });
+  };
+
+  const handleInputRegexValidation = () => {
+    function validateNewPassword(newPassword) {
+      const regex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
+      if (regex.test(newPassword)) {
+        return true;
+      }
+
+      return false;
+    }
+
+    const isTruePassword = validateNewPassword(newPasswordRef.current.value);
+
+    setErrorRegex(
+      isTruePassword
+        ? null
+        : "Le mot de passe doit contenir au minimum 8 caractères : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre"
+    );
   };
 
   const handleInputChange = () => {
@@ -106,7 +127,11 @@ function PasswordForm({ onSubmit, submitButton }) {
           type="password"
           placeholder="Mot de passe"
           ref={newPasswordRef}
+          onChange={handleInputRegexValidation}
         />
+        <div>
+          <span style={{ color: "red" }}>{errorRegex}</span>
+        </div>
       </FormGroup>
       <FormGroup>
         <label htmlFor="confirmedPassword">Confirmation du mot de passe</label>
