@@ -12,21 +12,21 @@
 }
 
 .createQuiz__form{
+    margin: 0 auto;
     padding-top: 60px;
     min-height: 100%;
-}
-
-.createQuiz__form {
     max-width: 840px;
     min-width: 300px;
-    margin: 0 auto;
 }
 
 .createQuiz__page__title{
     font-weight: bold;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 28px;
+    color: #3072CF;
     margin-bottom: 0.5em;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 .createQuiz__information{
@@ -58,6 +58,11 @@
     .createQuiz__information{
         padding: 30px 60px;
         background-color: #f1d5d5;
+    }
+
+    .createQuiz__page__title{
+        margin-bottom: 20px;
+        font-size: 20px;
     }
 }
 
