@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import profileQuiz from "../../assets/profileQuiz.png";
 import useGetQuizzes from "../../hooks/useGetQuizzes";
 import "./Explore.css";
@@ -38,8 +39,7 @@ const Explore = () => {
 
                   {quiz.user.name}
                 </div>
-                <button className="explore__list__item__assets__button" type="submit">Faire ce quiz</button>
-
+                <Link className="explore__list__item__assets__button" to={`/quizzes/${quiz._id}`} state={{ from: quiz }}>Faire ce quiz</Link>
               </div>
             </div>
           ))}

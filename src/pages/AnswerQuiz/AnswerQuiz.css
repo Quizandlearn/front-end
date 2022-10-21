@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+.answerQuiz{
+    width: 100%;
+    position: absolute;
+    min-height: 1000px;
+    background-color: #FEC0C0; 
+    font-family: "Roboto", "sans-serif";
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.answerQuiz__block{
+    margin: 0 auto;
+    padding-top: 60px;
+    max-width: 840px;
+    min-width: 300px;
+    width: 90%;
+}
+
+.answerQuiz__block__title{
+    font-weight: bold;
+    margin-bottom: 68px;
+    text-align: center;
+    font-size: 28px;
+    color: #3072CF;
+}
+
+@media(max-width:950px){
+
+    .answerQuiz__block__title{
+        font-size: 20px;
+    }
+}
+
+@media(max-width:720px) {
+
+    .answerQuiz__block__title{
+        margin-bottom: 30px;
+    }
+}
