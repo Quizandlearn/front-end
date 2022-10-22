@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+.quizAnswerQuestion{
+    max-width: 840px;
+    padding: 56px 100px;
+    background-color: #f1d5d5;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+.quizAnswerQuestion__questionNumber{
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.quizAnswerQuestion__questionSection{
+  /* width: 700px;
+  height: 167px;
+  left: 181px;
+  top: 935px;
+
+  background: #E5D8D4;
+  border-radius: 20px; */
+} 

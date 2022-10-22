@@ -25,7 +25,7 @@ const AnswerQuizInformation = ({ data }) => {
             {" "}
             {surnameWithFirstLetterToUpperCase}
           </p>
-          <figure className="answerQuizInformation__userFigure image is-64x64">
+          <figure className="answerQuizInformation__userFigure">
             <img
               src={profileQuiz}
               alt="Profile"

@@ -10,7 +10,7 @@ const SubmitButton = ({ value, submitError }) => {
     <div className="submitButton">
       {submitError && <FormError errorContent={submitError} />}
       <button
-        type="submit"
+        type="button"
         className="button submitButton__button"
         data-cy="submit"
       >

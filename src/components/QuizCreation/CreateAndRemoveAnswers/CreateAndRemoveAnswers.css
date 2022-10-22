@@ -57,4 +57,9 @@
     .createAndRemoveAnswer__input {
         font-size: 13px;
     }
+
+    .createAndRemoveAnswer__remove__answer__button{
+        width: 30px;
+        height: 32px;
+    }
 }

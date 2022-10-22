@@ -2,7 +2,7 @@
 
 .answerQuizInformation{
   max-width: 840px;
-  padding: 30px 100px;
+  padding: 30px 120px 30px 80px;
   background-color: #f1d5d5;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -19,6 +19,8 @@
   display: flex;
   align-items: center;
 }
+
+
 
 .answerQuizInformation__header{
   justify-content:space-between;
@@ -82,7 +84,8 @@
   }
 
   .answerQuizInformation__userName{
-      font-size: 14px;   
+      font-size: 12px;
+      font-weight: normal;
   }
 
   .answerQuizInformation__description,
