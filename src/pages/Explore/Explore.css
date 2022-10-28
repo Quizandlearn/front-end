@@ -131,9 +131,12 @@
   .explore__list__item {
     width: 90%;
   }
+  .explore__title {
+    text-align: center;
+  }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 415px) {
   .explore__title {
     text-align: center;
   }
