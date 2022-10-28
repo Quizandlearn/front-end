@@ -135,7 +135,7 @@
 
 @media (max-width: 375px) {
   .explore__title {
-    justify-content: center;
+    text-align: center;
   }
   .explore__list__item__assets__button {
     width: 100px;
@@ -145,6 +145,6 @@
     overflow: visible;
   }
   .explore__list__item__text__category {
-    margin: 0px;
+    margin: 0px 10px;
   }
 }
