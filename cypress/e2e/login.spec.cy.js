@@ -13,5 +13,7 @@ describe("Login page", () => {
     cy.get("[data-cy=email]").type(Cypress.env("email"));
     cy.get("[data-cy=password]").type("WrongPassword1!");
     cy.get("[data-cy=submit]").click();
+    // FIXME add assertion on the warning "Veuillez entrer des identifiants valides"
+    cy.url().should("equal", "https://quiz-and-learn-heroku-front.herokuapp.com/", { timeout: actionTimeout });
   });
 });
