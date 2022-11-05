@@ -90,6 +90,7 @@ const CreateQuestionsAndAnswers = ({
                 type="button"
                 value="Ajouter une question"
                 onClick={() => handleAddQuestion(push)}
+                data-cy="addQuestionButton"
               >
                 + Ajouter une question
               </button>
