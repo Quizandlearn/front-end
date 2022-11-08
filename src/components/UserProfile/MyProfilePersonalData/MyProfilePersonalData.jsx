@@ -14,13 +14,9 @@ import "../../../pages/MyProfile/MyProfile.css";
 import useChangeConnectedUser from "../../../hooks/useChangeConnectedUser";
 import MyProfilePersonalImage from "../MyProfilePersonalImage/MyProfilePersonalImage";
 import errorDisplayed from "../../../config/error";
-import {
-  Button,
-  FormGroup,
-  Input,
-  Spinner,
-} from "../MyProfileLibForm/MyProfileLibForm";
+import { Button, FormGroup, Input } from "../MyProfileLibForm/MyProfileLibForm";
 import { Modal, ModalContents, ModalOpenButton } from "../../Modal/modal";
+import useChangePassword from "../../../hooks/useChangePassword";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-no-bind */
@@ -63,16 +59,16 @@ const getEmailError = (formik) => {
 function PasswordForm({ onSubmit, submitButton }) {
   const newPasswordRef = React.useRef();
   const confirmedPasswordRef = React.useRef();
+  const currentPasswordRef = React.useRef();
   const [error, setError] = useState("");
   const [errorRegex, setErrorRegex] = useState("");
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const confirmedPassword = confirmedPasswordRef.current.value;
+    const updatedConfirmedPassword = confirmedPasswordRef.current.value;
+    const currentPassword = currentPasswordRef.current.value;
 
-    onSubmit({
-      password: confirmedPassword,
-    });
+    onSubmit(currentPassword, updatedConfirmedPassword);
   };
 
   const handleInputRegexValidation = () => {
@@ -104,10 +100,13 @@ function PasswordForm({ onSubmit, submitButton }) {
     setError(isValid ? null : "Oups ... il y a une difference");
   };
 
+  const handleInputPasswordValidation = () => {};
+
   const isButtonDisabled = error ? "secondary" : "primary";
 
   return (
     <form
+      onSubmit={handleFormSubmit}
       css={{
         display: "flex",
         flexDirection: "column",
@@ -118,8 +117,20 @@ function PasswordForm({ onSubmit, submitButton }) {
           maxWidth: "300px",
         },
       }}
-      onSubmit={handleFormSubmit}
     >
+      <FormGroup>
+        <label htmlFor="newPassword">Le mot de passe actuel</label>
+        <Input
+          id="currentPassword"
+          type="password"
+          placeholder="Le mot de passe actuel"
+          ref={currentPasswordRef}
+          onChange={handleInputPasswordValidation}
+        />
+        <div>
+          <span style={{ color: "red" }}>{errorRegex}</span>
+        </div>
+      </FormGroup>
       <FormGroup>
         <label htmlFor="newPassword">Nouveau mot de passe</label>
         <Input
@@ -134,9 +145,11 @@ function PasswordForm({ onSubmit, submitButton }) {
         </div>
       </FormGroup>
       <FormGroup>
-        <label htmlFor="confirmedPassword">Confirmation du mot de passe</label>
+        <label htmlFor="updatedConfirmedPassword">
+          Confirmation du mot de passe
+        </label>
         <Input
-          id="confirmedPassword"
+          id="updatedConfirmedPassword"
           type="password"
           placeholder="Confirmation du mot de passe"
           ref={confirmedPasswordRef}
@@ -147,12 +160,17 @@ function PasswordForm({ onSubmit, submitButton }) {
         </div>
       </FormGroup>
       <div>
-        {React.cloneElement(submitButton, {
-          type: "submit",
-          disabled: error,
-          variant: isButtonDisabled,
-        })}{" "}
-        <Spinner aria-label="loading" />
+        {React.cloneElement(
+          submitButton,
+          {
+            type: "submit",
+            disabled: error,
+            variant: isButtonDisabled,
+          },
+          ...(Array.isArray(submitButton.props.children)
+            ? submitButton.props.children
+            : [submitButton.props.children])
+        )}
       </div>
     </form>
   );
@@ -162,10 +180,7 @@ const MyProfilePersonalData = ({ data, refresh }) => {
   const [isEditing, setIsEditing] = useState(false);
   const { sendChangedUserData } = useChangeConnectedUser();
   const [submitError, setSubmitError] = useState("");
-
-  function handlePassword(formData) {
-    console.log("password", formData);
-  }
+  const { changePassword } = useChangePassword();
 
   const showServerError = () => {
     setSubmitError(errorDisplayed.server);
@@ -174,6 +189,10 @@ const MyProfilePersonalData = ({ data, refresh }) => {
   const deleteSubmitError = () => {
     setSubmitError("");
   };
+
+  function handlePassword(currentPassword, updatedConfirmedPassword) {
+    changePassword(currentPassword, updatedConfirmedPassword);
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -208,6 +227,7 @@ const MyProfilePersonalData = ({ data, refresh }) => {
   const modifyButton = "Modifier";
   const changePasswordButton = "Changer mot de passe";
   const saveButton = "Enregistrer";
+  const cancelButton = "Annuler";
 
   const nameError = getNameError(formik);
   const surnameError = getSurnameError(formik);
@@ -290,6 +310,9 @@ const MyProfilePersonalData = ({ data, refresh }) => {
               {submitError && <FormError errorContent={submitError} />}
               <button className="myProfile__editButton" type="submit">
                 {saveButton}
+              </button>
+              <button className="myProfile__editButton" type="submit">
+                {cancelButton}
               </button>
             </div>
           </form>
