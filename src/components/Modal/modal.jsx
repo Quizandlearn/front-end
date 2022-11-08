@@ -11,11 +11,6 @@ import {
   CircleButton,
 } from "../UserProfile/MyProfileLibForm/MyProfileLibForm";
 
-const callAll =
-  (...fns) =>
-  (...args) =>
-    fns.forEach((fn) => fn && fn(...args));
-
 const ModalContext = React.createContext();
 
 function Modal(props) {
@@ -27,14 +22,36 @@ function Modal(props) {
 function ModalDismissButton({ children: child }) {
   const [, setIsOpen] = React.useContext(ModalContext);
   return React.cloneElement(child, {
-    onClick: callAll(() => setIsOpen(false), child.props.onClick),
+    onClick(...args) {
+      setIsOpen(false);
+      if (child.props.onClick) {
+        child.props.onClick(...args);
+      }
+    },
+  });
+}
+
+function ModalSaveButton({ children: child }) {
+  const [, setIsOpen] = React.useContext(ModalContext);
+  return React.cloneElement(child, {
+    onClick(...args) {
+      setIsOpen(false);
+      if (child.props.onClick) {
+        child.props.onClick(...args);
+      }
+    },
   });
 }
 
 function ModalOpenButton({ children: child }) {
   const [, setIsOpen] = React.useContext(ModalContext);
   return React.cloneElement(child, {
-    onClick: callAll(() => setIsOpen(true), child.props.onClick),
+    onClick(...args) {
+      setIsOpen(true);
+      if (child.props.onClick) {
+        child.props.onClick(...args);
+      }
+    },
   });
 }
 
@@ -62,4 +79,10 @@ function ModalContents({ title, children, ...props }) {
   );
 }
 
-export { Modal, ModalDismissButton, ModalOpenButton, ModalContents };
+export {
+  Modal,
+  ModalDismissButton,
+  ModalSaveButton,
+  ModalOpenButton,
+  ModalContents,
+};

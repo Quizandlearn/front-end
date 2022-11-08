@@ -62,7 +62,7 @@
   width: 60%;
   height: 70%;
   max-width: 445px;
-  max-height: 480px;
+  max-height: auto;
   min-width: 290px;
   border-radius: 20px;
   background-color: var(--color-shade-of-green);
