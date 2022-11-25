@@ -6,10 +6,8 @@ import { jsx } from "@emotion/react";
 
 import * as React from "react";
 import { VisuallyHidden } from "@reach/visually-hidden";
-import {
-  Dialog,
-  CircleButton,
-} from "../UserProfile/MyProfileLibForm/MyProfileLibForm";
+import { Dialog, CircleButton } from "../UserProfile/ModalStyling/ModalStyling";
+import * as colors from "../Modal/colors";
 
 const ModalContext = React.createContext();
 
@@ -73,7 +71,16 @@ function ModalContents({ title, children, ...props }) {
           </CircleButton>
         </ModalDismissButton>
       </div>
-      <h3 css={{ textAlign: "center", fontSize: "2em" }}>{title}</h3>
+      <h3
+        css={{
+          textAlign: "left",
+          fontSize: "1,5em",
+          color: `${colors.blue}`,
+          paddingBottom: "10px",
+        }}
+      >
+        {title}
+      </h3>
       {children}
     </ModalContentsBase>
   );
