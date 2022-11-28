@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import "@reach/dialog/styles.css";
 import "../../../pages/MyProfile/MyProfile.css";
 import MyProfilePersonalImage from "../MyProfilePersonalImage/MyProfilePersonalImage";
-import ChangePassword from "../ChangePassword/ChangePassword";
+import ChangePasswordForm from "../ChangePasswordForm/ChangePasswordForm";
 import ChangePersonalData from "../ChangePersonalData/ChangePersonalData";
 /* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -39,7 +39,7 @@ const MyProfilePersonalData = ({ data, refresh }) => {
           />
         )}
         {!isEditing && (
-          <ChangePassword setIsEditing={setIsEditing} data={data} />
+          <ChangePasswordForm setIsEditing={setIsEditing} data={data} />
         )}
       </div>
     </div>
