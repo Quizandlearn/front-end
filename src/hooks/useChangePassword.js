@@ -21,8 +21,8 @@ const useChangePassword = () => {
       const response = await axios.put(
         `${api.user}/${id}/password`,
         JSON.stringify({
-          password: currentPassword,
-          newPassword: updatedConfirmedPassword,
+          password: values.currentPassword,
+          newPassword: values.updatedConfirmedPassword,
         }),
         {
           headers: {
