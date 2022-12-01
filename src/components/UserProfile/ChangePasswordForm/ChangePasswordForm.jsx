@@ -10,154 +10,43 @@ import errorDisplayed from "../../../config/error";
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-no-bind */
 
-const getPasswordError = (formik) => {
+const getCurrentPasswordError = (formik) => {
   let touched = false;
-  if (formik.touched && formik.touched.password) {
+  if (formik.touched && formik.touched.currentPassword) {
     touched = true;
   }
-  if (touched && formik.errors && formik.errors.password) {
-    return formik.errors.password;
+  if (touched && formik.errors && formik.errors.currentPassword) {
+    return formik.errors.currentPassword;
   }
   return undefined;
 };
 
-const getConfirmedPasswordError = (formik) => {
+const getNewPasswordError = (formik) => {
   let touched = false;
-  if (formik.touched && formik.touched.confirmedPassword) {
+  if (formik.touched && formik.touched.newPassword) {
     touched = true;
   }
-  if (touched && formik.errors && formik.errors.confirmedPassword) {
-    return formik.errors.confirmedPassword;
+  if (touched && formik.errors && formik.errors.newPassword) {
+    return formik.errors.newPassword;
   }
   return undefined;
 };
 
-const PasswordForm = ({
-  onSubmit,
-  formik,
-  submitButton,
-  deleteSubmitError,
-}) => {
-  const { handleChange, handleBlur, values } = formik;
-  const passwordError = getPasswordError(formik);
-  const confirmedPasswordError = getConfirmedPasswordError(formik);
-
-  const { currentPassword, newPassword, updatedConfirmedPassword } = values;
-  return (
-    <form
-      onSubmit={onSubmit}
-      css={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "stretch",
-        "> div": {
-          margin: "10px auto",
-          width: "100%",
-          maxWidth: "300px",
-        },
-      }}
-    >
-      <FormGroup>
-        <label htmlFor="currentPassword">Le mot de passe actuel</label>
-        <Input
-          id="currentPassword"
-          type="password"
-          className="myProfile__form__input"
-          placeholder="Le mot de passe actuel"
-          /* Accessibility */
-          aria-required="true"
-          aria-invalid={passwordError}
-          aria-describedby={passwordError && "error-content-accessibility"}
-          /* Formik */
-          name="currentPassword"
-          value={currentPassword}
-          onChange={handleChange}
-          onBlur={(e) => {
-            handleBlur(e);
-            deleteSubmitError();
-          }}
-        />
-        {passwordError && <FormError errorContent={passwordError} />}
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="newPassword">Nouveau mot de passe</label>
-        <Input
-          id="newPassword"
-          type="password"
-          className="myProfile__form__input"
-          placeholder="Mot de passe"
-          /* Accessibility */
-          aria-required="true"
-          aria-invalid={passwordError}
-          aria-describedby={passwordError && "error-content-accessibility"}
-          /* Formik */
-          name="newPassword"
-          value={newPassword}
-          onChange={handleChange}
-          onBlur={(e) => {
-            handleBlur(e);
-            deleteSubmitError();
-          }}
-        />
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="updatedConfirmedPassword">
-          Confirmation du mot de passe
-        </label>
-        <Input
-          id="updatedConfirmedPassword"
-          type="password"
-          className="myProfile__form__input"
-          placeholder="Confirmation du mot de passe"
-          /* Accessibility */
-          aria-required="true"
-          aria-invalid={confirmedPasswordError}
-          aria-describedby={
-            confirmedPasswordError && "error-content-accessibility"
-          }
-          /* Formik */
-          name="updatedConfirmedPassword"
-          value={updatedConfirmedPassword}
-          onChange={handleChange}
-          onBlur={(e) => {
-            handleBlur(e);
-            deleteSubmitError();
-          }}
-        />
-      </FormGroup>
-      <div>
-        {React.cloneElement(submitButton, {
-          type: "submit",
-        })}
-      </div>
-    </form>
-  );
+const getUpdatedConfirmedPasswordError = (formik) => {
+  let touched = false;
+  if (formik.touched && formik.touched.updatedConfirmedPassword) {
+    touched = true;
+  }
+  if (touched && formik.errors && formik.errors.updatedConfirmedPassword) {
+    return formik.errors.updatedConfirmedPassword;
+  }
+  return undefined;
 };
 
-const ChangePasswordForm = ({ setIsEditing, data }) => {
+const PasswordForm = ({ submitButton, deleteSubmitError }) => {
   const { changePassword } = useChangePassword();
-  const [submitError, setSubmitError] = useState("");
   const PASSWORD_REGEX =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
-
-  const deleteSubmitError = () => {
-    setSubmitError("");
-  };
-
-  const showServerError = () => {
-    setSubmitError(errorDisplayed.server);
-  };
-
-  // function handleSubmit(currentPassword, updatedConfirmedPassword) {
-  //   changePassword(currentPassword, updatedConfirmedPassword);
-  // }
-
-  const changePasswordButton = "Changer mot de passe";
-  const profileName = "Nom";
-  const profileSurname = "Prénom";
-  const profileEmail = "Email";
-  const modifyButton = "Modifier";
-  const saveButton = "Enregistrer";
 
   const formik = useFormik({
     initialValues: {
@@ -183,10 +72,139 @@ const ChangePasswordForm = ({ setIsEditing, data }) => {
     }),
 
     onSubmit: async (values) => {
-      console.log("values", values);
+      console.log("values2", values);
       changePassword(values, showServerError, () => {});
     },
   });
+
+  const { handleChange, handleSubmit, handleBlur, values } = formik;
+  const currentPasswordError = getCurrentPasswordError(formik);
+  const newPasswordError = getNewPasswordError(formik);
+  const updatedConfirmedPasswordError =
+    getUpdatedConfirmedPasswordError(formik);
+
+  const { currentPassword, newPassword, updatedConfirmedPassword } = values;
+  return (
+    <form
+      onSubmit={handleSubmit}
+      method="post"
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        "> div": {
+          margin: "10px auto",
+          width: "100%",
+          maxWidth: "300px",
+        },
+      }}
+    >
+      <FormGroup>
+        <label htmlFor="currentPassword">Le mot de passe actuel</label>
+        <Input
+          id="currentPassword"
+          type="password"
+          className="myProfile__form__input"
+          placeholder="Le mot de passe actuel"
+          /* Accessibility */
+          aria-required="true"
+          aria-invalid={currentPasswordError}
+          aria-describedby={
+            currentPasswordError && "error-content-accessibility"
+          }
+          /* Formik */
+          name="currentPassword"
+          value={currentPassword}
+          onChange={handleChange}
+          onBlur={(e) => {
+            handleBlur(e);
+            deleteSubmitError();
+          }}
+        />
+        {currentPasswordError && (
+          <FormError errorContent={currentPasswordError} />
+        )}
+      </FormGroup>
+      <FormGroup>
+        <label htmlFor="newPassword">Nouveau mot de passe</label>
+        <Input
+          id="newPassword"
+          type="password"
+          className="myProfile__form__input"
+          placeholder="Mot de passe"
+          /* Accessibility */
+          aria-required="true"
+          aria-invalid={newPasswordError}
+          aria-describedby={newPasswordError && "error-content-accessibility"}
+          /* Formik */
+          name="newPassword"
+          value={newPassword}
+          onChange={handleChange}
+          onBlur={(e) => {
+            handleBlur(e);
+            deleteSubmitError();
+          }}
+        />
+        {newPasswordError && <FormError errorContent={newPasswordError} />}
+      </FormGroup>
+      <FormGroup>
+        <label htmlFor="updatedConfirmedPassword">
+          Confirmation du mot de passe
+        </label>
+        <Input
+          id="updatedConfirmedPassword"
+          type="password"
+          className="myProfile__form__input"
+          placeholder="Confirmation du mot de passe"
+          /* Accessibility */
+          aria-required="true"
+          aria-invalid={updatedConfirmedPasswordError}
+          aria-describedby={
+            updatedConfirmedPasswordError && "error-content-accessibility"
+          }
+          /* Formik */
+          name="updatedConfirmedPassword"
+          value={updatedConfirmedPassword}
+          onChange={handleChange}
+          onBlur={(e) => {
+            handleBlur(e);
+            deleteSubmitError();
+          }}
+        />
+        {updatedConfirmedPasswordError && (
+          <FormError errorContent={updatedConfirmedPasswordError} />
+        )}
+      </FormGroup>
+      <div>
+        {React.cloneElement(submitButton, {
+          type: "submit",
+        })}
+      </div>
+    </form>
+  );
+};
+
+const ChangePasswordForm = ({ setIsEditing, data }) => {
+  const [submitError, setSubmitError] = useState("");
+
+  const deleteSubmitError = () => {
+    setSubmitError("");
+  };
+
+  const showServerError = () => {
+    setSubmitError(errorDisplayed.server);
+  };
+
+  // function handleSubmit(values, showServerError) {
+  //   changePassword(values, showServerError, () => {});
+  // }
+
+  const changePasswordButton = "Changer mot de passe";
+  const profileName = "Nom";
+  const profileSurname = "Prénom";
+  const profileEmail = "Email";
+  const modifyButton = "Modifier";
+  const saveButton = "Enregistrer";
 
   return (
     <>
@@ -227,8 +245,6 @@ const ChangePasswordForm = ({ setIsEditing, data }) => {
             title={changePasswordButton}
           >
             <PasswordForm
-              onSubmit={formik.handleSubmit}
-              formik={formik}
               submitButton={<Button>{saveButton}</Button>}
               deleteSubmitError={deleteSubmitError}
             />
