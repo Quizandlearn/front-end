@@ -6,6 +6,7 @@ import useAuth from "./useAuth";
 /* eslint-disable no-unused-vars */
 
 const useChangePassword = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState("");
   const { user } = useAuth();
   const id = user.userId;
@@ -15,6 +16,7 @@ const useChangePassword = () => {
     updatedConfirmedPassword,
     showServerError
   ) => {
+    setIsLoading(true);
     try {
       const response = await axios.put(
         `${api.user}/${id}/password`,
@@ -41,7 +43,7 @@ const useChangePassword = () => {
 
   return {
     changePassword,
-    responseStatus,
+    isLoading,
   };
 };
 
