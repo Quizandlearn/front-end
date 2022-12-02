@@ -39,7 +39,11 @@ const MyProfilePersonalData = ({ data, refresh }) => {
           />
         )}
         {!isEditing && (
-          <ChangePassword setIsEditing={setIsEditing} data={data} />
+          <ChangePassword
+            setIsEditing={setIsEditing}
+            data={data}
+            refresh={refresh}
+          />
         )}
       </div>
     </div>

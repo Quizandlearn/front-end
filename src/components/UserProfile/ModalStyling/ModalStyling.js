@@ -13,7 +13,6 @@ const spin = keyframes({
 const Spinner = styled(FaSpinner)({
   animation: `${spin} 1s linear infinite`,
 });
-
 Spinner.defaultProps = {
   "aria-label": "loading",
 };
@@ -25,12 +24,10 @@ const buttonVariants = {
 
 const Button = styled.button(
   {
-    marginTop: "20px",
     padding: "10px",
     border: "0",
     lineHeight: "1",
     borderRadius: "3px",
-    width: "100%",
   },
   ({ variant = "primary" }) => buttonVariants[variant]
 );

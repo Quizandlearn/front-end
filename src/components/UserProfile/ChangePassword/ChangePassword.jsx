@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Modal, ModalContents, ModalOpenButton } from "../../Modal/modal";
-import { FormGroup, Input, Button } from "../ModalStyling/ModalStyling";
+import {
+  FormGroup,
+  Input,
+  Button,
+  Spinner,
+} from "../ModalStyling/ModalStyling";
 import useChangePassword from "../../../hooks/useChangePassword";
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-no-bind */
 
-const PasswordForm = ({ onSubmit, submitButton }) => {
+const PasswordForm = ({ isLoading, onSubmit, refresh, submitButton }) => {
   const currentPasswordRef = React.useRef();
   const newPasswordRef = React.useRef();
   const confirmedPasswordRef = React.useRef();
@@ -18,6 +23,7 @@ const PasswordForm = ({ onSubmit, submitButton }) => {
     const currentPassword = currentPasswordRef.current.value;
 
     onSubmit(currentPassword, updatedConfirmedPassword);
+    refresh();
   };
 
   const handleInputRegexValidation = () => {
@@ -50,8 +56,6 @@ const PasswordForm = ({ onSubmit, submitButton }) => {
   };
 
   const handleInputPasswordValidation = () => {};
-
-  const isButtonDisabled = error ? "secondary" : "primary";
 
   return (
     <form
@@ -112,22 +116,25 @@ const PasswordForm = ({ onSubmit, submitButton }) => {
         </div>
       </FormGroup>
       <div>
-        {React.cloneElement(submitButton, {
-          type: "submit",
-          disabled: error,
-          variant: isButtonDisabled,
-        })}
+        {React.cloneElement(
+          submitButton,
+          { type: "submit" },
+          ...(Array.isArray(submitButton.props.children)
+            ? submitButton.props.children
+            : [submitButton.props.children]),
+          isLoading ? <Spinner css={{ marginLeft: 5 }} /> : null
+        )}
       </div>
     </form>
   );
 };
 
-const ChangePassword = ({ setIsEditing, data }) => {
-  const { changePassword } = useChangePassword();
+const ChangePassword = ({ setIsEditing, data, refresh }) => {
+  const { changePassword, isLoading } = useChangePassword();
 
-  function handlePassword(currentPassword, updatedConfirmedPassword) {
-    changePassword(currentPassword, updatedConfirmedPassword);
-  }
+  // function handlePassword(currentPassword, updatedConfirmedPassword) {
+  //   changePassword(currentPassword, updatedConfirmedPassword);
+  // }
 
   const changePasswordButton = "Changer mot de passe";
   const profileName = "Nom";
@@ -175,8 +182,10 @@ const ChangePassword = ({ setIsEditing, data }) => {
             title={changePasswordButton}
           >
             <PasswordForm
-              onSubmit={handlePassword}
-              submitButton={<Button>{saveButton}</Button>}
+              isLoading={isLoading}
+              onSubmit={changePassword}
+              refresh={refresh}
+              submitButton={<Button variant="primary">{saveButton}</Button>}
             />
           </ModalContents>
         </Modal>
