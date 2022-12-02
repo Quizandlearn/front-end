@@ -11,18 +11,13 @@ const useChangePassword = () => {
   const { user } = useAuth();
   const id = user.userId;
 
-  const changePassword = async (
-    currentPassword,
-    updatedConfirmedPassword,
-    showServerError
-  ) => {
-    setIsLoading(true);
+  const changePassword = async (values, showServerError) => {
     try {
       const response = await axios.put(
         `${api.user}/${id}/password`,
         JSON.stringify({
-          password: currentPassword,
-          newPassword: updatedConfirmedPassword,
+          password: values.currentPassword,
+          newPassword: values.updatedConfirmedPassword,
         }),
         {
           headers: {
