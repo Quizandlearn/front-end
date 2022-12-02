@@ -43,10 +43,19 @@ const getUpdatedConfirmedPasswordError = (formik) => {
   return undefined;
 };
 
-const PasswordForm = ({ submitButton, deleteSubmitError }) => {
+const PasswordForm = ({ submitButton }) => {
+  const [submitError, setSubmitError] = useState("");
+
+  const deleteSubmitError = () => {
+    setSubmitError("");
+  };
   const { changePassword } = useChangePassword();
   const PASSWORD_REGEX =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
+
+  const showServerError = () => {
+    setSubmitError(errorDisplayed.server);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -65,28 +74,25 @@ const PasswordForm = ({ submitButton, deleteSubmitError }) => {
         .required("Champs obligatoire"),
       updatedConfirmedPassword: Yup.string()
         .oneOf(
-          [Yup.ref("password"), null],
+          [Yup.ref("newPassword"), null],
           "Les mots de passe saisis ne sont pas idéntiques"
         )
         .required("Champs obligatoire"),
     }),
 
     onSubmit: async (values) => {
-      console.log("values2", values);
       changePassword(values, showServerError, () => {});
     },
   });
 
-  const { handleChange, handleSubmit, handleBlur, values } = formik;
   const currentPasswordError = getCurrentPasswordError(formik);
   const newPasswordError = getNewPasswordError(formik);
   const updatedConfirmedPasswordError =
     getUpdatedConfirmedPasswordError(formik);
 
-  const { currentPassword, newPassword, updatedConfirmedPassword } = values;
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={formik.handleSubmit}
       method="post"
       css={{
         display: "flex",
@@ -114,10 +120,10 @@ const PasswordForm = ({ submitButton, deleteSubmitError }) => {
           }
           /* Formik */
           name="currentPassword"
-          value={currentPassword}
-          onChange={handleChange}
+          value={formik.currentPassword}
+          onChange={formik.handleChange}
           onBlur={(e) => {
-            handleBlur(e);
+            formik.handleBlur(e);
             deleteSubmitError();
           }}
         />
@@ -134,14 +140,14 @@ const PasswordForm = ({ submitButton, deleteSubmitError }) => {
           placeholder="Mot de passe"
           /* Accessibility */
           aria-required="true"
-          aria-invalid={newPasswordError}
+          aria-invalid={formik.newPasswordError}
           aria-describedby={newPasswordError && "error-content-accessibility"}
           /* Formik */
           name="newPassword"
-          value={newPassword}
-          onChange={handleChange}
+          value={formik.newPassword}
+          onChange={formik.handleChange}
           onBlur={(e) => {
-            handleBlur(e);
+            formik.handleBlur(e);
             deleteSubmitError();
           }}
         />
@@ -164,10 +170,10 @@ const PasswordForm = ({ submitButton, deleteSubmitError }) => {
           }
           /* Formik */
           name="updatedConfirmedPassword"
-          value={updatedConfirmedPassword}
-          onChange={handleChange}
+          value={formik.updatedConfirmedPassword}
+          onChange={formik.handleChange}
           onBlur={(e) => {
-            handleBlur(e);
+            formik.handleBlur(e);
             deleteSubmitError();
           }}
         />
@@ -185,20 +191,6 @@ const PasswordForm = ({ submitButton, deleteSubmitError }) => {
 };
 
 const ChangePasswordForm = ({ setIsEditing, data }) => {
-  const [submitError, setSubmitError] = useState("");
-
-  const deleteSubmitError = () => {
-    setSubmitError("");
-  };
-
-  const showServerError = () => {
-    setSubmitError(errorDisplayed.server);
-  };
-
-  // function handleSubmit(values, showServerError) {
-  //   changePassword(values, showServerError, () => {});
-  // }
-
   const changePasswordButton = "Changer mot de passe";
   const profileName = "Nom";
   const profileSurname = "Prénom";
@@ -244,10 +236,7 @@ const ChangePasswordForm = ({ setIsEditing, data }) => {
             aria-label="Password form"
             title={changePasswordButton}
           >
-            <PasswordForm
-              submitButton={<Button>{saveButton}</Button>}
-              deleteSubmitError={deleteSubmitError}
-            />
+            <PasswordForm submitButton={<Button>{saveButton}</Button>} />
           </ModalContents>
         </Modal>
       </div>
