@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Modal, ModalContents, ModalOpenButton } from "../../Modal/modal";
-import { Button, FormGroup, Input } from "../ModalStyling/ModalStyling";
+import {
+  Button,
+  FormGroup,
+  Input,
+  Spinner,
+} from "../ModalStyling/ModalStyling";
 import useChangePassword from "../../../hooks/useChangePassword";
 import FormError from "../../FormError/FormError";
 import errorDisplayed from "../../../config/error";
@@ -43,13 +48,14 @@ const getUpdatedConfirmedPasswordError = (formik) => {
   return undefined;
 };
 
-const PasswordForm = ({ submitButton }) => {
+const PasswordForm = ({ submitButton, refresh }) => {
   const [submitError, setSubmitError] = useState("");
 
   const deleteSubmitError = () => {
     setSubmitError("");
   };
-  const { changePassword } = useChangePassword();
+  const { changePassword, isLoading } = useChangePassword();
+
   const PASSWORD_REGEX =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
 
@@ -82,6 +88,7 @@ const PasswordForm = ({ submitButton }) => {
 
     onSubmit: async (values) => {
       changePassword(values, showServerError, () => {});
+      setTimeout(() => refresh(), "500");
     },
   });
 
@@ -182,15 +189,22 @@ const PasswordForm = ({ submitButton }) => {
         )}
       </FormGroup>
       <div>
-        {React.cloneElement(submitButton, {
-          type: "submit",
-        })}
+        {React.cloneElement(
+          submitButton,
+          {
+            type: "submit",
+          },
+          ...(Array.isArray(submitButton.props.children)
+            ? submitButton.props.children
+            : [submitButton.props.children]),
+          isLoading ? <Spinner css={{ marginLeft: 5 }} /> : null
+        )}
       </div>
     </form>
   );
 };
 
-const ChangePasswordForm = ({ setIsEditing, data }) => {
+const ChangePasswordForm = ({ setIsEditing, data, refresh }) => {
   const changePasswordButton = "Changer mot de passe";
   const profileName = "Nom";
   const profileSurname = "Prénom";
@@ -236,7 +250,10 @@ const ChangePasswordForm = ({ setIsEditing, data }) => {
             aria-label="Password form"
             title={changePasswordButton}
           >
-            <PasswordForm submitButton={<Button>{saveButton}</Button>} />
+            <PasswordForm
+              refresh={refresh}
+              submitButton={<Button>{saveButton}</Button>}
+            />
           </ModalContents>
         </Modal>
       </div>

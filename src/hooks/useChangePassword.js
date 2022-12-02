@@ -18,6 +18,7 @@ const useChangePassword = () => {
   ) => {
     setIsLoading(true);
     try {
+      setIsLoading(true);
       const response = await axios.put(
         `${api.user}/${id}/password`,
         JSON.stringify({
@@ -33,6 +34,7 @@ const useChangePassword = () => {
         }
       );
       setResponseStatus({ responseStatus: response.status });
+      setIsLoading(false);
       console.log("RESPONSE", response.status);
     } catch (error) {
       if (!error.response) {
