@@ -1,11 +1,9 @@
 import quiz from "../fixtures/create-quiz.json";
 
-const actionTimeout = 45000;
-
 describe("Create Quiz page", () => {
   it("Should create Quiz", () => {
     cy.login();
-    cy.get(".menu-link").contains("Créer un quiz", { timeout: actionTimeout }).click();
+    cy.get("[data-cy=create-quizz]").click();
     cy.get("[data-cy=title]").type(quiz.title);
     cy.get("[data-cy=description]").type(quiz.description);
     cy.get("[data-cy=categories]").select(quiz.category);
@@ -18,7 +16,7 @@ describe("Create Quiz page", () => {
     // Intercept the POST request BEFORE the request has been send
     cy.intercept({
       method: "POST",
-      url: "https://quiet-crag-11269.herokuapp.com/api/quizzes"
+      url: "http://localhost:4000/api/quizzes"
     }).as("quizzes");
 
     // Submit

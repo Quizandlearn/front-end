@@ -31,7 +31,7 @@ Cypress.Commands.add("logout", () => {
 });
 
 Cypress.Commands.add("login", () => {
-  cy.visit("https://quiz-and-learn-heroku-front.herokuapp.com/", { timeout: actionTimeout });
+  cy.visit("http://localhost:3000", { timeout: actionTimeout });
   cy.get("[data-cy=email]").type(Cypress.env("email"));
   cy.get("[data-cy=password]").type(Cypress.env("password"));
   cy.get("[data-cy=submit]").click();
