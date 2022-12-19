@@ -34,7 +34,7 @@ describe("Create Quiz page", () => {
     // Intercept the POST request BEFORE the request has been send
     cy.intercept({
       method: "POST",
-      url: "https://quiet-crag-11269.herokuapp.com/api/quizzes"
+      url: "http://localhost:4000/api/quizzes"
     }).as("quizzes");
 
     // Submit
