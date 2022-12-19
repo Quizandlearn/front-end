@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import profileQuiz from "../../assets/profileQuiz.png";
 import useGetQuizzes from "../../hooks/useGetQuizzes";
+import Loading from "../../assets/Loading";
 import "./Explore.css";
 
 const Explore = () => {
@@ -12,7 +13,7 @@ const Explore = () => {
 
   return (
     <>
-      {loading && <div>Loading</div>}
+      {loading && <Loading />}
       {(!loading && data) && (
         <main className="explore">
           <h2 className="explore__title">{exploreTitle}</h2>
