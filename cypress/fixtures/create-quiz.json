@@ -1,5 +1,7 @@
 {
   "title": "Quiz Test E2E",
+  "name_user_owner": "lili",
+  "surname_user_owner":"ada",
   "description": "A simple quiz to test the quiz creation!",
   "category": "Tech",
   "question-1": "What is  the Javascript language?",
