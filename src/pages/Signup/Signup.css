@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
 .signup{
-    width: 100%;
-    position: absolute;
     min-height: 1000px;
-    height: 100%;
     background-color: #FEC0C0;
     font-family: "Roboto", "sans-serif";
 }
@@ -35,8 +32,12 @@
     padding-top: 50px;
 }
 
-.signup__link__login{
+.signup__link__login,
+.signup__link__login:hover{
     color: #2B6FD2;
+}
+
+.signup__link__login {
     padding-top: 0.3em;
     font-size: 16px;
 }
