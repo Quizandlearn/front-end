@@ -23,7 +23,8 @@
     margin-bottom: 50px;
 }
 
-.login__link__signup {
+.login__link__signup,
+.login__link__signup:hover {
     color: #2B6FD2;
     padding-top: 0.3em;
     font-size: 16px;
