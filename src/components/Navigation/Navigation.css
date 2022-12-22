@@ -201,7 +201,7 @@
         padding-top: 100px;
         background: var(--color-white);
         height: 100vh;
-        transform: translate(100%);
+        transform: translate(1000%);
         display: flex;
         flex-direction: column;
         margin-left: -40px;
