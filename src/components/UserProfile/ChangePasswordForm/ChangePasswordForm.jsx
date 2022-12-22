@@ -2,18 +2,15 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Modal, ModalContents, ModalOpenButton } from "../../Modal/modal";
-import {
-  Button,
-  FormGroup,
-  Input,
-  Spinner,
-} from "../ModalStyling/ModalStyling";
+import { FormGroup, Input } from "../ModalStyling/ModalStyling";
 import useChangePassword from "../../../hooks/useChangePassword";
 import FormError from "../../FormError/FormError";
 import errorDisplayed from "../../../config/error";
+import ReusableSubmitButton from "../../SubmitButton/ReusableSubmitButton";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/jsx-wrap-multilines */
 
 const getCurrentPasswordError = (formik) => {
   let touched = false;
@@ -48,20 +45,23 @@ const getUpdatedConfirmedPasswordError = (formik) => {
   return undefined;
 };
 
-const PasswordForm = ({ submitButton, refresh }) => {
-  const [submitError, setSubmitError] = useState("");
-
+const PasswordForm = ({ setSubmitError, submitButton }) => {
   const deleteSubmitError = () => {
     setSubmitError("");
   };
-  const { changePassword, isLoading } = useChangePassword();
 
-  const PASSWORD_REGEX =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
+  const showInvalidCredentialsError = () => {
+    setSubmitError(errorDisplayed.invalidCredentials);
+  };
 
   const showServerError = () => {
     setSubmitError(errorDisplayed.server);
   };
+
+  const { changePassword } = useChangePassword();
+
+  const PASSWORD_REGEX =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
 
   const formik = useFormik({
     initialValues: {
@@ -87,8 +87,12 @@ const PasswordForm = ({ submitButton, refresh }) => {
     }),
 
     onSubmit: async (values) => {
-      changePassword(values, showServerError, () => {});
-      setTimeout(() => refresh(), "500");
+      changePassword(
+        values,
+        showInvalidCredentialsError,
+        showServerError,
+        () => {}
+      );
     },
   });
 
@@ -196,8 +200,7 @@ const PasswordForm = ({ submitButton, refresh }) => {
           },
           ...(Array.isArray(submitButton.props.children)
             ? submitButton.props.children
-            : [submitButton.props.children]),
-          isLoading ? <Spinner css={{ marginLeft: 5 }} /> : null
+            : [submitButton.props.children])
         )}
       </div>
     </form>
@@ -211,6 +214,8 @@ const ChangePasswordForm = ({ setIsEditing, data, refresh }) => {
   const profileEmail = "Email";
   const modifyButton = "Modifier";
   const saveButton = "Enregistrer";
+
+  const [submitError, setSubmitError] = useState("");
 
   return (
     <>
@@ -251,8 +256,16 @@ const ChangePasswordForm = ({ setIsEditing, data, refresh }) => {
             title={changePasswordButton}
           >
             <PasswordForm
+              setSubmitError={setSubmitError}
               refresh={refresh}
-              submitButton={<Button>{saveButton}</Button>}
+              submitButton={
+                <ReusableSubmitButton
+                  submitError={submitError}
+                  style={{ width: "100%", padding: "10px" }}
+                >
+                  {saveButton}
+                </ReusableSubmitButton>
+              }
             />
           </ModalContents>
         </Modal>

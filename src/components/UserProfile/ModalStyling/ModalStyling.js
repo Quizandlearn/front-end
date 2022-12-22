@@ -1,36 +1,7 @@
 import styled from "@emotion/styled/macro";
-import { keyframes } from "@emotion/react";
 import { Dialog as ReachDialog } from "@reach/dialog";
-import { FaSpinner } from "react-icons/fa";
 import * as colors from "../../Modal/colors";
 import * as mq from "../../Modal/media-queries";
-
-const spin = keyframes({
-  "0%": { transform: "rotate(0deg)" },
-  "100%": { transform: "rotate(360deg)" },
-});
-
-const Spinner = styled(FaSpinner)({
-  animation: `${spin} 1s linear infinite`,
-});
-Spinner.defaultProps = {
-  "aria-label": "loading",
-};
-
-const buttonVariants = {
-  primary: { background: colors.indigo, color: colors.base },
-  secondary: { background: colors.gray, color: colors.text },
-};
-
-const Button = styled.button(
-  {
-    padding: "10px",
-    border: "0",
-    lineHeight: "1",
-    borderRadius: "3px",
-  },
-  ({ variant = "primary" }) => buttonVariants[variant]
-);
 
 const Input = styled.input({
   border: `1px solid ${colors.gray20}`,
@@ -75,4 +46,4 @@ const Dialog = styled(ReachDialog)({
   },
 });
 
-export { Button, Input, FormGroup, CircleButton, Dialog, Spinner };
+export { Input, FormGroup, CircleButton, Dialog };
