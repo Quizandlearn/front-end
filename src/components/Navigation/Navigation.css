@@ -91,6 +91,7 @@
 .navigation__menu input[type="checkbox"],
 .navigation__menu .hamburger-lines {
     display: none;
+    cursor: pointer;
 }
 
 /* Menu */
@@ -102,7 +103,6 @@
     justify-content: center;
     width: 100%;
     background-color: var(--color-green);
-    opacity: 0.85;
     height: 60px;
     z-index: 12;
 }
@@ -201,7 +201,7 @@
         padding-top: 100px;
         background: var(--color-white);
         height: 100vh;
-        transform: translate(1000%);
+        transform: translate(100%);
         display: flex;
         flex-direction: column;
         margin-left: -40px;
