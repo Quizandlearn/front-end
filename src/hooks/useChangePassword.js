@@ -6,19 +6,16 @@ import useAuth from "./useAuth";
 /* eslint-disable no-unused-vars */
 
 const useChangePassword = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState("");
   const { user } = useAuth();
   const id = user.userId;
 
   const changePassword = async (
-    currentPassword,
-    updatedConfirmedPassword,
+    values,
+    showInvalidCredentialsError,
     showServerError
   ) => {
-    setIsLoading(true);
     try {
-      setIsLoading(true);
       const response = await axios.put(
         `${api.user}/${id}/password`,
         JSON.stringify({
@@ -34,18 +31,17 @@ const useChangePassword = () => {
         }
       );
       setResponseStatus({ responseStatus: response.status });
-      setIsLoading(false);
-      console.log("RESPONSE", response.status);
     } catch (error) {
       if (!error.response) {
         showServerError();
+      } else if (error.response.status === 401) {
+        showInvalidCredentialsError();
       }
     }
   };
 
   return {
     changePassword,
-    isLoading,
   };
 };
 
