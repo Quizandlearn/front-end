@@ -30,9 +30,7 @@ const EnterPassword = ({ formik, deleteSubmitError }) => {
   };
   return (
     <div className="field password">
-      <label htmlFor="password" className="sr-only">
-        Password
-      </label>
+      <label htmlFor="password" className="sr-only">Password</label>
       <input
         id="password"
         type={passwordShown ? "text" : "password"}
@@ -54,15 +52,8 @@ const EnterPassword = ({ formik, deleteSubmitError }) => {
         /* Test */
         data-cy="password"
       />
-      <button
-        type="button"
-        onClick={togglePasswordVisiblity}
-        className="enterPassword__toggle__visibility"
-      >
-        <FontAwesomeIcon
-          icon={faEye}
-          className="enterPassword__toggle__visibility__icon"
-        />
+      <button type="button" onClick={togglePasswordVisiblity} className="enterPassword__toggle__visibility">
+        <FontAwesomeIcon icon={faEye} className="enterPassword__toggle__visibility__icon" />
       </button>
       {passwordError && <FormError errorContent={passwordError} />}
     </div>
@@ -71,7 +62,7 @@ const EnterPassword = ({ formik, deleteSubmitError }) => {
 
 EnterPassword.propTypes = {
   formik: PropTypes.shape(authentificationPropTypes),
-  deleteSubmitError: PropTypes.func.isRequired,
+  deleteSubmitError: PropTypes.func.isRequired
 };
 
 export default EnterPassword;

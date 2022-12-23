@@ -22,7 +22,7 @@ const SubmitButton = ({ value, submitError }) => {
 
 SubmitButton.propTypes = {
   value: PropTypes.string.isRequired,
-  submitError: PropTypes.string,
+  submitError: PropTypes.string
 };
 
 export default SubmitButton;
