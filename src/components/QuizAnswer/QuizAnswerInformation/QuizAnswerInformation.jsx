@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./QuizAnswerInformation.css";
 import profileQuiz from "../../../assets/profileQuiz.png";
 import { answerPropTypes } from "../../../config/propTypes";

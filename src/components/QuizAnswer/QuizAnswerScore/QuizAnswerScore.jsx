@@ -18,10 +18,12 @@ const QuizAnswerScore = ({ result }) => {
     <>
       <h1 className="quizAnswerScore__quizTitle">
         Réponses au quiz:
+        {" "}
         {result.data.title}
       </h1>
       <p className="quizAnswerScore__quizScore">
         Score:
+        {" "}
         {result.data.score}
         %
       </p>

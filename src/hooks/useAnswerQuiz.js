@@ -53,7 +53,6 @@ export const useAnswerQuiz = () => {
           score: percentageRightAnswers
         },
       });
-      console.log(result.data);
     } catch (error) {
       if (!error.response) {
         setResult({
