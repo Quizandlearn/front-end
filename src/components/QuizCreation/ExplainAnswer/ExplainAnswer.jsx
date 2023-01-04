@@ -60,6 +60,7 @@ const ExplainAnswer = ({
         value={fieldValue}
         onChange={handleChange}
         onBlur={handleBlur}
+        data-cy="addExplanationTextArea"
       />
       {explanationError && <FormError errorContent={explanationError} />}
     </div>

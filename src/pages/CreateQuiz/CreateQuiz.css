@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
 .createQuiz__page{
-    width: 100%;
-    position: absolute;
     min-height: 1000px;
     background-color: #FEC0C0; 
     font-family: "Roboto", "sans-serif";

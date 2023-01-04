@@ -6,6 +6,7 @@ const api = {
   logout: "logout",
   categories: "categories",
   quizzes: "quizzes",
+  answers: "answers",
   user: "user",
 };
 

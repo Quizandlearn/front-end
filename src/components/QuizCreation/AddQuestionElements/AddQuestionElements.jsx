@@ -49,6 +49,7 @@ const AddQuestionElements = ({
             title="Ajouter une explication à la question"
             aria-label="Ajouter une explication à la question"
             onClick={() => setShowExplanation(true)}
+            data-cy="addExplanationButton"
           >
             + Explication
           </button>
@@ -61,6 +62,7 @@ const AddQuestionElements = ({
             title="Ajouter un lien d'approfondissement"
             aria-label="Ajouter un lien d'approfondissement"
             onClick={() => setShowLearnMore(true)}
+            data-cy="addLinkButton"
           >
             + Lien
           </button>

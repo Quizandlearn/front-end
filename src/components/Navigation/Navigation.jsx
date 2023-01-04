@@ -63,7 +63,7 @@ const Navigation = () => {
           <ul className="menu-items">
             <li><a href="/quizzes">Explorer</a></li>
             <li><a href="/quizzesByCategory">Catégories</a></li>
-            <li><a href="/createQuiz">Créer un quiz</a></li>
+            <li><a data-cy="create-quizz" href="/createQuiz">Créer un quiz</a></li>
             <li><a href="/myQuizzes">Mes quiz</a></li>
             <li><a href="/favoriteQuizzes">Quiz favoris</a></li>
             <li><a href="/completedQuizzes">Quiz répondus</a></li>

@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "bulma": "^0.9.3",
+    "eslint-plugin-cypress": "^2.12.1",
     "formik": "^2.2.9",
     "jwt-decode": "^3.1.2",
     "prop-types": "^15.8.1",
@@ -20,14 +21,16 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "cypress": "^10.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": [

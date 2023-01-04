@@ -1,54 +1,53 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./QuizAnswerQuestions.css";
-/* eslint-disable react/jsx-wrap-multilines */
+import FormError from "../../FormError/FormError";
+import { questionsPropTypes, resultPropTypes } from "../../../config/propTypes";
 
-const getInputValue = (formik, index, idx) => {
-  if (formik.values && formik.values.questions) {
-    const { questions } = formik.values;
-    if (questions[index] && questions[index].question) {
-      const { question } = questions[index];
-      if (question[idx] && question[idx].choice) {
-        const { choice } = question[idx];
-        const choiceValue = choice.isChecked;
-        return choiceValue;
-      }
-    }
-  }
-  return undefined;
-};
+const QuizAnswerQuestions = ({ formik, questions, questionErrors }) => {
+  const { handleChange } = formik;
 
-const QuizAnswerQuestions = ({ data, formik }) => {
-  const { questions } = data;
-  const { values, handleChange } = formik;
   return (
     <>
       {questions.map((question, index) => (
-        <section className="quizAnswerQuestion">
-          <div key={question._id}>
-            <p className="quizAnswerQuestion__questionNumber">{index + 1}</p>
-            {" "}
-            <div className="quizAnswerQuestion__questionSection">
-              <h2>{question.title}</h2>
-              {question.choices.map((choice, idx) => (
-                /* eslint-disable implicit-arrow-linebreak */
-                <div>
-                  <input
-                    type="checkbox"
-                    id={`questions.${index}.question.${idx}.choice.isChecked`}
-                    key={choice._id}
-                    value={getInputValue(formik, index, idx)}
-                    onChange={(e) => { console.log(values); handleChange(e); }}
-                  />
-                  <label key={choice._id + choice._id} htmlFor={`questions.${index}.question.${idx}.choice.isChecked`}>
-                    {choice.content}
-                  </label>
-                </div>))}
-            </div>
+        <section className="quizAnswerQuestion" key={question._id}>
+          <p className="quizAnswerQuestion__questionNumber">{index + 1}</p>
+          {" "}
+          <div className="quizAnswerQuestion__questionSection">
+            <h2 className="quizAnswerQuestion__questionSection__title">{question.title}</h2>
+            {question.choices.map((choice, idx) => (
+              /* eslint-disable implicit-arrow-linebreak */
+              <div key={choice._id} className="quizAnswerQuestion__questionSection__inputContainer">
+                <input
+                  type="checkbox"
+                  id={`questions.${index}.choices.${idx}.isChecked`}
+                  name={`questions.${index}.choices.${idx}.isChecked`}
+                  onChange={handleChange}
+                  className="checkbox"
+                />
+                <label htmlFor={`questions.${index}.choices.${idx}.isChecked`} className="quizAnswerQuestion__questionSection__label">
+                  {choice.content}
+                </label>
+              </div>
+            ))}
           </div>
-        </section>))}
+          {(questionErrors && questionErrors[`question-${index}`]) !== null &&
+            questionErrors[`question-${index}`] === 0 && (
+              <FormError errorContent="Veuillez rentrer au moins 1 réponse" />
+          )}
+        </section>
+      ))}
     </>
-
   );
+};
+
+QuizAnswerQuestions.propTypes = {
+  /* eslint-disable react/require-default-props */
+  formik: PropTypes.shape({
+    handleChange: PropTypes.func.isRequired
+  }),
+  questions: questionsPropTypes.questions,
+  questionErrors: PropTypes.shape({})
 };
 
 export default QuizAnswerQuestions;
