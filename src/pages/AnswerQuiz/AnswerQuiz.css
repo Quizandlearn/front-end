@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
 .answerQuiz{
-    width: 100%;
-    position: absolute;
-    min-height: 1000px;
     background-color: #FEC0C0; 
     font-family: "Roboto", "sans-serif";
-    margin: 0px;
-    padding: 0px;
     overflow-x: hidden;
+    color: #000000;
 }
 
 .answerQuiz__block{
@@ -27,15 +23,17 @@
     color: #3072CF;
 }
 
-@media(max-width:950px){
+.answerQuiz__block__form{
+    padding-bottom: 50px;
+}
 
+@media(max-width:950px){
     .answerQuiz__block__title{
         font-size: 20px;
     }
 }
 
 @media(max-width:720px) {
-
     .answerQuiz__block__title{
         margin-bottom: 30px;
     }

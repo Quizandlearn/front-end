@@ -1,6 +1,7 @@
 import React from "react";
 import "./QuizAnswerInformation.css";
 import profileQuiz from "../../../assets/profileQuiz.png";
+import { answerPropTypes } from "../../../config/propTypes";
 /* eslint-disable arrow-body-style */
 
 const convertFirstLetterToUpperCase = (word) => {
@@ -44,4 +45,5 @@ const AnswerQuizInformation = ({ data }) => {
   );
 };
 
+AnswerQuizInformation.propTypes = answerPropTypes;
 export default AnswerQuizInformation;
