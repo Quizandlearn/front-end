@@ -105,7 +105,8 @@
   height: 100px;
 }
 
-.explore__list__item__assets__button {
+.explore__list__item__assets__button,
+.explore__list__item__assets__button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
