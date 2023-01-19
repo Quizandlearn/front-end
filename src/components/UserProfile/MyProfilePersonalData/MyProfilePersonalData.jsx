@@ -2,7 +2,6 @@
 /** @jsx jsx */
 
 import { jsx } from "@emotion/react";
-import "bootstrap/dist/css/bootstrap-reboot.css";
 
 import { useState } from "react";
 import PropTypes from "prop-types";

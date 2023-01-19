@@ -117,7 +117,7 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
       }}
     >
       <FormGroup>
-        <label htmlFor="currentPassword">Le mot de passe actuel</label>
+        <label htmlFor="currentPassword" className="sr-only">Le mot de passe actuel</label>
         <Input
           id="currentPassword"
           type="password"
@@ -143,7 +143,7 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
         )}
       </FormGroup>
       <FormGroup>
-        <label htmlFor="newPassword">Nouveau mot de passe</label>
+        <label htmlFor="newPassword" className="sr-only">Nouveau mot de passe</label>
         <Input
           id="newPassword"
           type="password"
@@ -165,7 +165,7 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
         {newPasswordError && <FormError errorContent={newPasswordError} />}
       </FormGroup>
       <FormGroup>
-        <label htmlFor="updatedConfirmedPassword">
+        <label htmlFor="updatedConfirmedPassword" className="sr-only">
           Confirmation du mot de passe
         </label>
         <Input
