@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useFormik } from "formik";
 import "./AnswerQuiz.css";
@@ -18,9 +18,6 @@ const AnswerQuiz = () => {
   const { questions } = from;
   const { answerQuiz, result } = useAnswerQuiz();
   const [questionErrors, setQuestionErrors] = useState(null);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [result.data]);
 
   const formik = useFormik({
     initialValues: {},
