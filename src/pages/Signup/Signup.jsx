@@ -67,20 +67,18 @@ const Signup = () => {
 
   return (
     <main className="signup">
-      <section className="signup__section">
-        <img src={logoApp} className="signup__logo" alt="" />
-        <h1 className="signup__title">Création de compte</h1>
-        <form onSubmit={formik.handleSubmit} className="signup__form" method="post">
-          <EnterName formik={formik} deleteSubmitError={deleteSubmitError} />
-          <EnterSurname formik={formik} deleteSubmitError={deleteSubmitError} />
-          <EnterEmail formik={formik} deleteSubmitError={deleteSubmitError} />
-          <EnterPassword formik={formik} deleteSubmitError={deleteSubmitError} />
-          <EnterConfirmedPassword formik={formik} deleteSubmitError={deleteSubmitError} />
-          <SubmitButton value={Inscription} submitError={submitError} />
-        </form>
-        <p className="signup__question">Vous avez déjà un compte ?</p>
-        <Link to={LOGIN_URL_FRONTEND} className="signup__link__login"> Connectez-vous</Link>
-      </section>
+      <img src={logoApp} className="signup__logo" alt="" />
+      <h1 className="signup__title">Création de compte</h1>
+      <form onSubmit={formik.handleSubmit} className="signup__form" method="post">
+        <EnterName formik={formik} deleteSubmitError={deleteSubmitError} />
+        <EnterSurname formik={formik} deleteSubmitError={deleteSubmitError} />
+        <EnterEmail formik={formik} deleteSubmitError={deleteSubmitError} />
+        <EnterPassword formik={formik} deleteSubmitError={deleteSubmitError} />
+        <EnterConfirmedPassword formik={formik} deleteSubmitError={deleteSubmitError} />
+        <SubmitButton value={Inscription} submitError={submitError} />
+      </form>
+      <p className="signup__question">Vous avez déjà un compte ?</p>
+      <Link to={LOGIN_URL_FRONTEND} className="signup__link__login"> Connectez-vous</Link>
     </main>
   );
 };
