@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./QuizAnswerQuestions.css";
 import FormError from "../../FormError/FormError";
-import { questionsPropTypes, resultPropTypes } from "../../../config/propTypes";
+import { questionsPropTypes } from "../../../config/propTypes";
 
 const QuizAnswerQuestions = ({ formik, questions, questionErrors }) => {
   const { handleChange } = formik;
