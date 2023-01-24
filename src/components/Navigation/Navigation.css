@@ -209,6 +209,7 @@
       box-shadow: 5px 0px 10px 0px #aaa;
       position: fixed;
       width: 300px;
+      z-index: 1;
   }
 
   .navigation__menu .menu-items li {
