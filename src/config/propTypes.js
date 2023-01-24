@@ -9,7 +9,7 @@ export const authentificationPropTypes = {
       surname: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       password: PropTypes.string.isRequired,
-      confirmedPassword: PropTypes.string.isRequired
+      confirmedPassword: PropTypes.string.isRequired,
     }),
     handleBlur: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired,
@@ -20,9 +20,9 @@ export const authentificationPropTypes = {
       surname: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       password: PropTypes.string.isRequired,
-      confirmedPassword: PropTypes.string.isRequired
-    })
-  })
+      confirmedPassword: PropTypes.string.isRequired,
+    }),
+  }),
 };
 
 export const createQuizPropTypes = {
@@ -33,12 +33,14 @@ export const createQuizPropTypes = {
       category: PropTypes.string.isRequired,
       questions: PropTypes.arrayOf({
         question: PropTypes.string.isRequired,
-        answers: PropTypes.arrayOf(PropTypes.shape({
-          answerContent: PropTypes.string.isRequired,
-          answerContent: PropTypes.string.isRequired
-        })),
+        answers: PropTypes.arrayOf(
+          PropTypes.shape({
+            answerContent: PropTypes.string.isRequired,
+            answerContent: PropTypes.string.isRequired,
+          })
+        ),
         eplanation: PropTypes.string,
-        learnMore: PropTypes.string
+        learnMore: PropTypes.string,
       }),
     }),
     handleBlur: PropTypes.func.isRequired,
@@ -49,15 +51,65 @@ export const createQuizPropTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
-      questions: PropTypes.arrayOf(PropTypes.shape({
-        question: PropTypes.string.isRequired,
-        answers: PropTypes.arrayOf(PropTypes.shape({
-          answerContent: PropTypes.string.isRequired,
-          isCorrectAnswer: PropTypes.bool
-        })),
-        explanation: PropTypes.string,
-        learnMore: PropTypes.string
-      }))
+      questions: PropTypes.arrayOf(
+        PropTypes.shape({
+          question: PropTypes.string.isRequired,
+          answers: PropTypes.arrayOf(
+            PropTypes.shape({
+              answerContent: PropTypes.string.isRequired,
+              isCorrectAnswer: PropTypes.bool,
+            })
+          ),
+          explanation: PropTypes.string,
+          learnMore: PropTypes.string,
+        })
+      ),
+    }),
+  }),
+};
+
+// answerQuiz propTypes
+
+export const questionsPropTypes = {
+  questions: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      choices: PropTypes.arrayOf(
+        PropTypes.shape({
+          _id: PropTypes.string.isRequired,
+          content: PropTypes.string.isRequired,
+          isCorrect: PropTypes.bool.isRequired,
+          isChecked: PropTypes.bool,
+        })
+      ),
+      explanation: PropTypes.string,
+      link_to_learn_more: PropTypes.string,
     })
-  })
+  ),
+};
+
+export const answerPropTypes = {
+  data: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    id_user_owner: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    categories: PropTypes.arrayOf(PropTypes.string),
+    questions: questionsPropTypes.questions,
+    createdAt: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string.isRequired,
+  }),
+};
+
+export const resultPropTypes = {
+  result: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string,
+    data: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      questions: questionsPropTypes.questions,
+      score: PropTypes.number.isRequired,
+    }),
+  }),
 };

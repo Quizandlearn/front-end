@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 
 const RequireAuth = ({ onlyPublic }) => {
   const location = useLocation();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   const isValidToken = (token) => {
     // eslint-disable-next-line no-param-reassign
@@ -19,6 +19,7 @@ const RequireAuth = ({ onlyPublic }) => {
         return true;
       }
     }
+    logout();
 
     return false;
   };
