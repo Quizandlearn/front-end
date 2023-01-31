@@ -111,11 +111,27 @@
   padding-bottom: 30px;
 }
 
+.myProfile__form__label__password {
+  font-size: min(max(2vw, 11px), 16px);
+}
+
+.myProfile__form__label__success {
+  font-size: min(max(2vw, 11px), 16px);
+  color: var(--color-shade-of-blue);
+  text-align: center;
+  padding-top: 10px;
+}
+
+.myProfile__form__label__error {
+  font-size: min(max(2vw, 11px), 16px);
+}
+
 .myProfile__form__input {
   width: 70%;
   background-color: var(--color_shade-of-white);
   color: var(--color-shade-of-green);
   padding: 14px 20px;
+  font-size: min(max(2vw, 9px), 14px);
   margin: 5px 0;
   border: none;
   border-radius: 10px;
@@ -195,4 +211,12 @@
   .myProfile__title__container {
     padding-top: 20px;
   }
+
+  /* .myProfile__form__label__password {
+    font-size: 12px;
+  }
+
+  .myProfile__form__input {
+    font-size: 9px;
+  } */
 }

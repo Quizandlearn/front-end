@@ -9,6 +9,7 @@ import { VisuallyHidden } from "@reach/visually-hidden";
 import { Dialog, CircleButton } from "../UserProfile/ModalStyling/ModalStyling";
 import * as colors from "../Modal/colors";
 
+
 const ModalContext = React.createContext();
 
 function Modal(props) {
@@ -74,7 +75,7 @@ function ModalContents({ title, children, ...props }) {
       <h3
         css={{
           textAlign: "left",
-          fontSize: "1,5em",
+          fontSize: "min(max(3vw, 14px), 19px)",
           color: `${colors.blue}`,
           paddingBottom: "10px",
         }}

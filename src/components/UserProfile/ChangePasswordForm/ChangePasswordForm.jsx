@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Modal, ModalContents, ModalOpenButton } from "../../Modal/modal";
 import { FormGroup, Input } from "../ModalStyling/ModalStyling";
 import useChangePassword from "../../../hooks/useChangePassword";
-import FormError from "../../FormError/FormError";
+import PasswordFormikError from "../../PasswordFormikError/PasswordFormikError";
 import errorDisplayed from "../../../config/error";
 import ReusableSubmitButton from "../../SubmitButton/ReusableSubmitButton";
+import "../../../pages/MyProfile/MyProfile.css";
+import { Modal, ModalContents, ModalOpenButton } from "../../Modal/modal";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-no-bind */
@@ -46,6 +47,7 @@ const getUpdatedConfirmedPasswordError = (formik) => {
 };
 
 const PasswordForm = ({ setSubmitError, submitButton }) => {
+  const successMessage = "Le mot de passe a été mis à jour!";
   const deleteSubmitError = () => {
     setSubmitError("");
   };
@@ -58,7 +60,7 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
     setSubmitError(errorDisplayed.server);
   };
 
-  const { changePassword } = useChangePassword();
+  const { changePassword, responseStatus } = useChangePassword();
 
   const PASSWORD_REGEX =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,64}$/;
@@ -117,7 +119,7 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
       }}
     >
       <FormGroup>
-        <label htmlFor="currentPassword" className="sr-only">Le mot de passe actuel</label>
+        <label htmlFor="currentPassword" className="myProfile__form__label__password">Le mot de passe actuel</label>
         <Input
           id="currentPassword"
           type="password"
@@ -139,11 +141,11 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
           }}
         />
         {currentPasswordError && (
-          <FormError errorContent={currentPasswordError} />
+          <PasswordFormikError errorContent={currentPasswordError} />
         )}
       </FormGroup>
       <FormGroup>
-        <label htmlFor="newPassword" className="sr-only">Nouveau mot de passe</label>
+        <label htmlFor="newPassword" className="myProfile__form__label__password">Nouveau mot de passe</label>
         <Input
           id="newPassword"
           type="password"
@@ -162,10 +164,10 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
             deleteSubmitError();
           }}
         />
-        {newPasswordError && <FormError errorContent={newPasswordError} />}
+        {newPasswordError && <PasswordFormikError errorContent={newPasswordError} />}
       </FormGroup>
       <FormGroup>
-        <label htmlFor="updatedConfirmedPassword" className="sr-only">
+        <label htmlFor="updatedConfirmedPassword" className="myProfile__form__label__password">
           Confirmation du mot de passe
         </label>
         <Input
@@ -189,7 +191,7 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
           }}
         />
         {updatedConfirmedPasswordError && (
-          <FormError errorContent={updatedConfirmedPasswordError} />
+          <PasswordFormikError errorContent={updatedConfirmedPasswordError} />
         )}
       </FormGroup>
       <div>
@@ -203,12 +205,13 @@ const PasswordForm = ({ setSubmitError, submitButton }) => {
             : [submitButton.props.children])
         )}
       </div>
+      <div className="myProfile__form__label__success">{responseStatus.responseStatus === 200 ? successMessage : ""}</div>
     </form>
   );
 };
 
-const ChangePasswordForm = ({ setIsEditing, data, refresh }) => {
-  const changePasswordButton = "Changer mot de passe";
+const ChangePasswordForm = ({ setIsEditing, data }) => {
+  const changePasswordButton = "Changer le mot de passe";
   const profileName = "Nom";
   const profileSurname = "Prénom";
   const profileEmail = "Email";
@@ -257,7 +260,6 @@ const ChangePasswordForm = ({ setIsEditing, data, refresh }) => {
           >
             <PasswordForm
               setSubmitError={setSubmitError}
-              refresh={refresh}
               submitButton={
                 <ReusableSubmitButton
                   submitError={submitError}
