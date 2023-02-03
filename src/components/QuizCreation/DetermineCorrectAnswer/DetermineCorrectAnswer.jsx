@@ -29,8 +29,9 @@ const DetermineCorrectAnswer = ({
   const { handleChange } = formik;
   return (
     <div className="determineCorrectAnswer">
-      <label htmlFor={fieldName} className="determineCorrectAnswer__label" />
-      Bonne réponse
+      <label htmlFor={fieldName} className="determineCorrectAnswer__label">
+        Bonne réponse
+      </label>
       <input
         type="checkbox"
         id={fieldName}
