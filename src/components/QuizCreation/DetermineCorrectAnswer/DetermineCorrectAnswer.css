@@ -3,6 +3,17 @@
     display: flex;
 }
 
+.determineCorrectAnswer__label{
+    font-size: 16px;
+    color: #1E825D;
+}
+
 .determineCorrectAnswer__input{
     margin-left: 6px;
+}
+
+@media(max-width:700px) {
+    .determineCorrectAnswer__label {
+        font-size: 14px;
+    }
 }

@@ -27,6 +27,8 @@
         font-size: 14px;
     }
 
+    .explainAnswer__textarea,
+    .createDescription__textarea,
     .title__textarea {
         font-size: 13px;
     }
