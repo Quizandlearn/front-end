@@ -1,15 +1,17 @@
 import React from "react";
 import "./MyProfile.css";
 import MyProfileImage from "../../components/UserProfile/MyProfileImage/MyProfileImage";
-import MyProfilePersonalData from "../../components/UserProfile/MyProfilePersonalData/MyProfilePersonalData";
 import useGetConnectedUser from "../../hooks/useGetConnectedUser";
+import Loading from "../../assets/Loading";
+import MyProfilePersonalData from "../../components/UserProfile/MyProfilePersonalData/MyProfilePersonalData";
 /* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable react/jsx-tag-spacing */
 
 const MyProfile = () => {
   const [loading, data, refresh] = useGetConnectedUser();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   const myProfile = "Mon Compte";

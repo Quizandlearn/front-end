@@ -1,11 +1,20 @@
 :root {
-  --color-blue: #2B6FD2;
-  --color-pink: #FDC0C0;
-  --color-white: #FFFFFF;
-  --color-green: #15835C;
-  --color-shade-of-green: #96A493;
-  --color-shade-of-blue: #3072CF;
-  --color_shade-of-white: #D9D9D9;
+  --color-blue: #2b6fd2;
+  --color-pink: #fdc0c0;
+  --color-white: #ffffff;
+  --color-green: #15835c;
+  --color-shade-of-green: #96a493;
+  --color-shade-of-blue: #3072cf;
+  --color_shade-of-white: #d9d9d9;
+}
+
+.customOverlay {
+  background: rgba(36, 123, 160, 0.7);
+}
+.customModal {
+  background: #b2dbbf;
+  max-width: 500px;
+  width: 100%;
 }
 
 .myProfile {
@@ -53,7 +62,7 @@
   width: 60%;
   height: 70%;
   max-width: 445px;
-  max-height: 480px;
+  max-height: auto;
   min-width: 290px;
   border-radius: 20px;
   background-color: var(--color-shade-of-green);
@@ -91,10 +100,10 @@
   font-weight: bold;
   font-size: max(2vw, 25px);
   text-align: center;
-  color:var(--color-white);
+  color: var(--color-white);
 }
 
-.myProfile__form__fields__container{
+.myProfile__form__fields__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,11 +111,27 @@
   padding-bottom: 30px;
 }
 
-.myProfile__form__input{
+.myProfile__form__label__password {
+  font-size: min(max(2vw, 11px), 16px);
+}
+
+.myProfile__form__label__success {
+  font-size: min(max(2vw, 11px), 16px);
+  color: var(--color-shade-of-blue);
+  text-align: center;
+  padding-top: 10px;
+}
+
+.myProfile__form__label__error {
+  font-size: min(max(2vw, 11px), 16px);
+}
+
+.myProfile__form__input {
   width: 70%;
   background-color: var(--color_shade-of-white);
   color: var(--color-shade-of-green);
   padding: 14px 20px;
+  font-size: min(max(2vw, 9px), 14px);
   margin: 5px 0;
   border: none;
   border-radius: 10px;
@@ -148,9 +173,8 @@
     rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
-
 /* Responsive */
-@media screen and (max-width:900px) {
+@media screen and (max-width: 900px) {
   .myProfile__image {
     display: none;
   }
@@ -167,7 +191,7 @@
 }
 
 /* Responsive mobile*/
-@media screen and (max-width:700px) {
+@media screen and (max-width: 700px) {
   .myProfile__image {
     display: none;
   }
@@ -183,8 +207,16 @@
   }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width: 400px) {
   .myProfile__title__container {
-  padding-top: 20px;    
+    padding-top: 20px;
   }
+
+  /* .myProfile__form__label__password {
+    font-size: 12px;
+  }
+
+  .myProfile__form__input {
+    font-size: 9px;
+  } */
 }
