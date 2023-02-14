@@ -18,6 +18,12 @@
     margin-bottom: 30px;
 }
 
+.signup__form{
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
 .signup__logo{
     width: 130px;
     margin-bottom: 50px;
@@ -42,6 +48,10 @@
 
     .signup__title{
         font-size: 16px;
+    }
+
+    .signup__form{
+        max-width: 230px;
     }
 
     .signup__question,
