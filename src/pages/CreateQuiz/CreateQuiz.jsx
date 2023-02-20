@@ -130,7 +130,7 @@ const CreateQuiz = () => {
             {" "}
             et les questions doivent avoir
             {" "}
-            <span className="createQuiz__explanation__undelined">1 ou 2 réponses correctes</span>
+            <span className="createQuiz__explanation__undelined">1 ou plusieurs réponses correctes</span>
             . Pour une meilleure expérience utilisateur, vous pouvez également ajouter une explication ou un lien pour argumenter les réponses correctes.
           </p>
         </form>
