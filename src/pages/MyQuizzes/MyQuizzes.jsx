@@ -9,7 +9,7 @@ const MyQuizzes = () => {
   const exploreTitle = "Mes quiz";
   const descriptionQuiz = "En savoir plus";
   const ratingsQuiz = "★★★★☆";
-  const noCreatedQuizzes = "Vous n'avez pas encore créé de quiz";
+  const noQuizzes = "...";
 
   return (
     <>
@@ -48,7 +48,7 @@ const MyQuizzes = () => {
       )}
       {!loading && (
         <main className="explore">
-          <div className="myQuizzes__noQuizzes">{noCreatedQuizzes}</div>
+          <div className="myQuizzes__noQuizzes">{noQuizzes}</div>
         </main>
       )}
     </>
