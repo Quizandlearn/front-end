@@ -1,12 +1,15 @@
 import React from "react";
 import useGetMyQuizzes from "../../hooks/useGetMyQuizzes";
 import Loading from "../../assets/Loading";
+import "../Explore/Explore.css";
+import "./MyQuizzes.css";
 
-const Explore = () => {
+const MyQuizzes = () => {
   const { data, loading } = useGetMyQuizzes();
   const exploreTitle = "Mes quiz";
   const descriptionQuiz = "En savoir plus";
   const ratingsQuiz = "★★★★☆";
+  const noCreatedQuizzes = "Vous n'avez pas encore créé de quiz";
 
   return (
     <>
@@ -43,7 +46,12 @@ const Explore = () => {
             ))}
         </main>
       )}
+      {!loading && (
+        <main className="explore">
+          <div className="myQuizzes__noQuizzes">{noCreatedQuizzes}</div>
+        </main>
+      )}
     </>
   );
 };
-export default Explore;
+export default MyQuizzes;
