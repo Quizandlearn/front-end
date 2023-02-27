@@ -4,6 +4,8 @@ import Loading from "../../assets/Loading";
 import "../Explore/Explore.css";
 import "./MyQuizzes.css";
 
+// eslint-disable-next-line no-param-reassign
+
 const MyQuizzes = () => {
   const { data, loading } = useGetMyQuizzes();
   const exploreTitle = "Mes quiz";
