@@ -104,7 +104,7 @@ const QuizAnswerScore = ({ result }) => {
       <div className="quizAnswerScore__buttonContainer">
         <Link to={EXPLORE_URL_FRONTEND}>
           <button type="button" className="button quizAnswerScore__button">
-            Retour aux quizzes...
+            Retour aux quiz...
           </button>
         </Link>
       </div>
