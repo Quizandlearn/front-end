@@ -44,13 +44,10 @@ const MyQuizzes = () => {
                 </div>
               </div>
             ))}
+            {!loading && (<div className="myQuizzes__noQuizzes">{noQuizzes}</div>)}
         </main>
       )}
-      {!loading && (
-        <main className="explore">
-          <div className="myQuizzes__noQuizzes">{noQuizzes}</div>
-        </main>
-      )}
+
     </>
   );
 };
