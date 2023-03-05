@@ -35,7 +35,11 @@ $ npm start
 To run tests
 
 ```
-$ npm test
+Create cypress.env.json file with credentials
+Open Cypress interface with the following command
+
+```
+npx cypress open
 ```
 
 ### Linter
@@ -54,3 +58,12 @@ npm run lint -- --fix
 ## Deployment
 
 **Quizandlearn** is deployed automatically on pull request on a heroku server at https://quiz-and-learn-heroku-front.herokuapp.com/
+
+## Docker
+
+With Dockerfile written, build the image using the following command:
+```
+$ docker build
+```
+
+Otherwise the docker image is built on every push to the repository
