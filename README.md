@@ -32,11 +32,8 @@ $ npm start
 
 ### Testing
 
-To run tests
-
-```
-Create cypress.env.json file with credentials
-Open Cypress interface with the following command
+To run tests, create cypress.env.json file with credentials
+Open Cypress interface with the following command:
 
 ```
 npx cypress open
